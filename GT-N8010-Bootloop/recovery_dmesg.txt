@@ -1,0 +1,1700 @@
+<6>[    3.511295] c0 futex hash table entries: 1024 (order: 3, 32768 bytes)
+<6>[    3.511421] c0 audit: initializing netlink socket (disabled)
+<5>[    3.511484] c0 type=2000 audit(3.510:1): initialized
+<4>[    3.512661] c0 highmem bounce pool size: 64 pages
+<6>[    3.512917] c0 ashmem: initialized
+<6>[    3.524781] c0 exFAT: Core Version 1.2.19
+<6>[    3.524808] c0 exFAT: FS Version 1.2.19
+<6>[    3.526249] c0 fuse init (API version 7.16)
+<6>[    3.527247] c0 msgmni has been set to 1175
+<7>[    3.527359] c0 SELinux:  Registering netfilter hooks
+<6>[    3.527839] c0 notifier_call_chain : NOTIFY BAD cryptomgr_notify
+<6>[    3.527966] c0 notifier_call_chain : NOTIFY BAD cryptomgr_notify
+<6>[    3.528089] c0 notifier_call_chain : NOTIFY BAD cryptomgr_notify
+<6>[    3.528216] c0 notifier_call_chain : NOTIFY BAD cryptomgr_notify
+<6>[    3.528337] c0 notifier_call_chain : NOTIFY BAD cryptomgr_notify
+<6>[    3.528453] c0 notifier_call_chain : NOTIFY BAD cryptomgr_notify
+<6>[    3.528572] c0 notifier_call_chain : NOTIFY BAD cryptomgr_notify
+<6>[    3.528702] c0 notifier_call_chain : NOTIFY BAD cryptomgr_notify
+<6>[    3.528938] c0 notifier_call_chain : NOTIFY BAD cryptomgr_notify
+<6>[    3.529078] c0 notifier_call_chain : NOTIFY BAD cryptomgr_notify
+<6>[    3.529242] c0 notifier_call_chain : NOTIFY BAD cryptomgr_notify
+<6>[    3.529829] c0 notifier_call_chain : NOTIFY BAD cryptomgr_notify
+<6>[    3.529972] c0 notifier_call_chain : NOTIFY BAD cryptomgr_notify
+<6>[    3.530007] c1 FIPS: No test for stdrng (krng)
+<6>[    3.530090] c0 io scheduler noop registered
+<6>[    3.530117] c0 io scheduler deadline registered
+<6>[    3.530227] c0 io scheduler cfq registered (default)
+<6>[    3.530300] c0 io scheduler bfq registered
+<6>[    3.530323] c0 BFQ I/O-scheduler version: v7r5
+<6>[    3.530351] c0 io scheduler row registered
+<6>[    3.530376] c0 io scheduler sio registered
+<6>[    3.530401] c0 io scheduler zen registered
+<6>[    3.530618] c0 s3cfb s3cfb.0: vclk=66663000, div=12(11), rate=72727272
+<6>[    3.530744] c0 set mdnie_pwm sclk rate to 2181818
+<6>[    3.530773] c0 set mdnie_pwm sclk rate to 12000000
+<6>[    3.530807] c0 s3cfb s3cfb.0: fimd sclk rate 66666666, clkdiv 0xff1bbb
+<6>[    3.531220] c0 s3cfb s3cfb.0: [fb2] dma: 0x72700000, cpu: 0xf4099000, size: 0x007d0000
+<6>[    3.535161] c0 sec_getlog_supply_fbinfo: 0x72700000 1280 800 32 2
+<6>[    3.539661] c0 Bootloader sent 'bootloaderfb' : 5EC00000
+<6>[    3.540686] c0 s3cfb s3cfb.0: parent clock: 66666666, vclk: 66666000, vclk div: 1
+<6>[    3.540811] c0 s3cfb s3cfb.0: registered successfully
+<6>[    3.541227] c0 lcd panel: lcd panel driver has been probed.
+<6>[    3.541855] c0 mdnie mdnie: lcdtype = 1
+<6>[    3.541890] c0 mdnie mdnie: mode=1, scenario=0, outdoor=0, cabc=0, STANDARD_UI
+<6>[    3.541930] c0 mdnie mdnie: registered successfully
+<4>[    3.542280] c0 Kernel: mdnie control device started
+<6>[    3.542568] c0 Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+<6>[    3.543914] c0 s5pv210-uart.0: ttySAC0 at MMIO 0x13800000 (irq = 16) is a S3C6400/10
+<6>[    3.544218] c0 s5pv210-uart.1: ttySAC1 at MMIO 0x13810000 (irq = 20) is a S3C6400/10
+<6>[    3.544505] c0 s5pv210-uart.2: ttySAC2 at MMIO 0x13820000 (irq = 24) is a S3C6400/10
+<6>[    3.544790] c0 s5pv210-uart.3: ttySAC3 at MMIO 0x13830000 (irq = 28) is a S3C6400/10
+<4>[    3.545812] c0 Mali: ::Q::exynos_result_of_asv : 0
+<4>[    3.545843] c0 Mali: mali_dvfs[0].vol = 950000 
+<4>[    3.545872] c0 Mali: mali_dvfs[1].vol = 975000 
+<4>[    3.545900] c0 Mali: mali_runtime_resume.vol = 975000 
+<4>[    3.545930] c0 Mali: mali_dvfs[2].vol = 1050000 
+<4>[    3.545958] c0 Mali: mali_dvfs[3].vol = 1100000 
+<4>[    3.545987] c0 Mali: init_gpu_vol = 1100000 
+<4>[    3.546013] c0 Mali: mali_dvfs[4].vol = 1150000 
+<4>[    3.546411] c0 Mali: Mali frequency 440
+<4>[    3.546437] c0 Mali: init_mali_clock mali_clock c0ae73e8
+<4>[    3.546954] c0 Mali: Mali frequency 440
+<4>[    3.566122] c0 Initializing gpu clock control interface
+<4>[    3.566444] c0 Initializing gpu voltage control interface
+<4>[    3.567566] c0 Mali: Mali device driver loaded
+<4>[    3.567908] c0 UMP: UMP device driver 0000 loaded
+<6>[    3.575767] c0 brd: module loaded
+<6>[    3.579594] c0 loop: module loaded
+<6>[    3.581845] c0 zram: Created 4 device(s) ...
+<6>[    3.581889] c0 lkdtm: No crash points registered, enable through debugfs
+<6>[    3.581987] c0 stmpe811_adc_i2c_probe: stmpe811 adc driver loading
+<6>[    3.582817] c0 stmpe811_reg_init: ret: 0
+<6>[    3.582842] c0 stmpe811_reg_init: STMPE811_CHIP_ID(0x811)
+<6>[    3.583365] c0 stmpe811_reg_init: STMPE811_ID_VER(0x3)
+<6>[    3.584363] c0 stmpe811_reg_init: STMPE811_SYS_CTRL2(0x6)
+<6>[    3.585386] c0 stmpe811_reg_init: STMPE811_INT_EN(0x0)
+<6>[    3.586386] c0 stmpe811_reg_init: STMPE811_ADC_CTRL1(0x3c)
+<6>[    3.587385] c0 stmpe811_reg_init: STMPE811_ADC_CTRL2(0x3)
+<6>[    3.588384] c0 stmpe811_reg_init: STMPE811_GPIO_AF(0x0)
+<6>[    3.589381] c0 stmpe811_reg_init: STMPE811_TSC_CTRL(0x10)
+<6>[    3.590511] c0 stmpe811 adc(id 0x811) initialized
+<6>[    3.590810] c0 sec_jack_probe : Registering jack driver
+<6>[    3.591961] c0 wake enabled for irq 355
+<6>[    3.592577] c0 print_constraints: WM1811 LDO1: at 3000 mV 
+<6>[    3.593041] c0 print_constraints: WM1811 LDO2: at 1050 mV 
+<6>[    3.623622] c0 wm8994 4-001a: Succeeded to read ID register
+<6>[    3.625697] c0 wm8994 4-001a: WM1811 revision C CUST_ID 00
+<4>[    3.629422] c0 wm8994 4-001a: No interrupt specified, no interrupts
+<6>[    3.632139] c0 PPP generic driver version 2.4.2
+<6>[    3.632510] c0 PPP Deflate Compression module registered
+<6>[    3.632543] c0 PPP BSD Compression module registered
+<6>[    3.632981] c0 notifier_call_chain : NOTIFY BAD cryptomgr_notify
+<6>[    3.633072] c1 notifier_call_chain : NOTIFY BAD cryptomgr_notify
+<6>[    3.633326] c0 PPP MPPE Compression module registered
+<6>[    3.633359] c0 NET: Registered protocol family 24
+<6>[    3.633390] c0 tun: Universal TUN/TAP device driver, 1.6
+<6>[    3.633420] c0 tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+<6>[    3.633840] c0 host_notifier host_notifier.0: notifier_prove
+<6>[    3.634507] c0 ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+<7>[    3.634549] c0 ehci_hcd: block sizes: qh 64 qtd 96 itd 160 sitd 96
+<6>[    3.634742] c0 s5p-ehci s5p-ehci: usb phy usage(2)
+<7>[    3.634899] c0 usb: set_exynos_usb_phy_tune old phy1 tune=0x2819b3 t=1
+<7>[    3.634946] c0 usb: set_exynos_usb_phy_tune new phy1 tune=0x2831b3
+<7>[    3.634986] c0 s5p-ehci s5p-ehci: s5p_ehci_phy_init : 0x3c00000
+<7>[    3.635053] c0 s5p-ehci s5p-ehci: reset hcs_params 0x1313 dbg=0 cc=1 pcc=3 ordered ports=3
+<7>[    3.635108] c0 s5p-ehci s5p-ehci: reset hcc_params 2a016 thresh 1 uframes 256/512/1024 park LPM
+<6>[    3.635155] c0 s5p-ehci s5p-ehci: S5P EHCI Host Controller
+<7>[    3.635273] c0 ../../../../../../lineageos-cm-14.1/kernel/samsung/n80xx/drivers/usb/core/inode.c: creating file 'devices'
+<7>[    3.635339] c0 ../../../../../../lineageos-cm-14.1/kernel/samsung/n80xx/drivers/usb/core/inode.c: creating file '001'
+<6>[    3.635619] c0 s5p-ehci s5p-ehci: new USB bus registered, assigned bus number 1
+<7>[    3.635747] c0 s5p-ehci s5p-ehci: park 0
+<7>[    3.635773] c0 s5p-ehci s5p-ehci: support lpm
+<6>[    3.635818] c0 s5p-ehci s5p-ehci: irq 134, io mem 0x12580000
+<7>[    3.635860] c0 s5p-ehci s5p-ehci: reset command 0080b02  park=3 ithresh=8 period=1024 Reset HALT
+<7>[    3.635918] c0 s5p-ehci s5p-ehci: init command 0010005 (park)=0 ithresh=1 period=512 RUN
+<6>[    3.645056] c0 s5p-ehci s5p-ehci: USB 0.0 started, EHCI 1.00
+<7>[    3.645167] c0 usb usb1: default language 0x0409
+<7>[    3.645217] c0 usb usb1: udev 1, busnum 1, minor = 0
+<6>[    3.645248] c0 usb usb1: New USB device found, idVendor=1d6b, idProduct=0002
+<6>[    3.645288] c0 usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+<6>[    3.645329] c0 usb usb1: Product: S5P EHCI Host Controller
+<6>[    3.645361] c0 usb usb1: Manufacturer: Linux 3.0.101-TWRP-gcbcdf2dc554 ehci_hcd
+<6>[    3.645401] c0 usb usb1: SerialNumber: s5p-ehci
+<7>[    3.645753] c0 usb usb1: usb_probe_device
+<7>[    3.645782] c0 usb usb1: configuration #1 chosen from 1 choice
+<7>[    3.645836] c0 usb usb1: adding 1-0:1.0 (config #1, interface 0)
+<7>[    3.646050] c0 hub 1-0:1.0: usb_probe_interface
+<7>[    3.646079] c0 hub 1-0:1.0: usb_probe_interface - got id
+<6>[    3.646113] c0 hub 1-0:1.0: USB hub found
+<6>[    3.646147] c0 hub 1-0:1.0: 3 ports detected
+<7>[    3.646174] c0 hub 1-0:1.0: standalone hub
+<7>[    3.646199] c0 hub 1-0:1.0: individual port power switching
+<7>[    3.646233] c0 hub 1-0:1.0: individual port over-current protection
+<7>[    3.646269] c0 hub 1-0:1.0: power on to power good time: 20ms
+<7>[    3.646310] c0 hub 1-0:1.0: local power source is good
+<7>[    3.646341] c0 hub 1-0:1.0: enabling power on all ports
+<7>[    3.646616] c0 ../../../../../../lineageos-cm-14.1/kernel/samsung/n80xx/drivers/usb/core/inode.c: creating file '001'
+<6>[    3.646901] c0 ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+<7>[    3.646940] c0 ohci_hcd: block sizes: ed 64 td 64
+<6>[    3.647080] c0 s5p-ohci s5p-ohci: usb phy usage(6)
+<3>[    3.647110] c0 s5p-ohci s5p-ohci: Already power on PHY
+<7>[    3.647141] c0 usb: set_exynos_usb_phy_tune old phy1 tune=0x2831b3 t=1
+<7>[    3.647188] c0 usb: set_exynos_usb_phy_tune new phy1 tune=0x2831b3
+<6>[    3.647224] c0 s5p-ohci s5p-ohci: s5p OHCI
+<7>[    3.647263] c0 ../../../../../../lineageos-cm-14.1/kernel/samsung/n80xx/drivers/usb/core/inode.c: creating file '002'
+<6>[    3.647547] c0 s5p-ohci s5p-ohci: new USB bus registered, assigned bus number 2
+<7>[    3.647597] c0 s5p-ohci s5p-ohci: ohci_s5p_init, ohci:f17c1908
+<7>[    3.647683] c0 s5p-ohci s5p-ohci: created debug files
+<6>[    3.647727] c0 s5p-ohci s5p-ohci: irq 134, io mem 0x12590000
+<7>[    3.647760] c0 s5p-ohci s5p-ohci: ohci_s5p_start, ohci:f17c1908
+<7>[    3.704062] c0 s5p-ohci s5p-ohci: OHCI controller state
+<7>[    3.704101] c0 s5p-ohci s5p-ohci: OHCI 1.0, NO legacy support registers
+<7>[    3.704143] c0 s5p-ohci s5p-ohci: control 0x083 HCFS=operational CBSR=3
+<7>[    3.704182] c0 s5p-ohci s5p-ohci: cmdstatus 0x00000 SOC=0
+<7>[    3.704217] c0 s5p-ohci s5p-ohci: intrstatus 0x00000004 SF
+<7>[    3.704252] c0 s5p-ohci s5p-ohci: intrenable 0x8000005a MIE RHSC UE RD WDH
+<7>[    3.704293] c0 s5p-ohci s5p-ohci: hcca frame #0005
+<7>[    3.704326] c0 s5p-ohci s5p-ohci: roothub.a 02000203 POTPGT=2 NPS NDP=3(3)
+<7>[    3.704370] c0 s5p-ohci s5p-ohci: roothub.b 00000000 PPCM=0000 DR=0000
+<7>[    3.704408] c0 s5p-ohci s5p-ohci: roothub.status 00008000 DRWE
+<7>[    3.704445] c0 s5p-ohci s5p-ohci: roothub.portstatus [0] 0x00000100 PPS
+<7>[    3.704485] c0 s5p-ohci s5p-ohci: roothub.portstatus [1] 0x00000100 PPS
+<7>[    3.704525] c0 s5p-ohci s5p-ohci: roothub.portstatus [2] 0x00000100 PPS
+<7>[    3.704590] c0 usb usb2: default language 0x0409
+<7>[    3.704639] c0 usb usb2: udev 1, busnum 2, minor = 128
+<6>[    3.704671] c0 usb usb2: New USB device found, idVendor=1d6b, idProduct=0001
+<6>[    3.704711] c0 usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+<6>[    3.704751] c0 usb usb2: Product: s5p OHCI
+<6>[    3.704777] c0 usb usb2: Manufacturer: Linux 3.0.101-TWRP-gcbcdf2dc554 ohci_hcd
+<6>[    3.704817] c0 usb usb2: SerialNumber: s5p-ohci
+<7>[    3.705220] c0 usb usb2: usb_probe_device
+<7>[    3.705250] c0 usb usb2: configuration #1 chosen from 1 choice
+<7>[    3.705302] c0 usb usb2: adding 2-0:1.0 (config #1, interface 0)
+<7>[    3.705520] c0 hub 2-0:1.0: usb_probe_interface
+<7>[    3.705550] c0 hub 2-0:1.0: usb_probe_interface - got id
+<6>[    3.705583] c0 hub 2-0:1.0: USB hub found
+<6>[    3.705618] c0 hub 2-0:1.0: 3 ports detected
+<7>[    3.705648] c0 hub 2-0:1.0: standalone hub
+<7>[    3.705674] c0 hub 2-0:1.0: no power switching (usb 1.0)
+<7>[    3.705704] c0 hub 2-0:1.0: global over-current protection
+<7>[    3.705736] c0 hub 2-0:1.0: power on to power good time: 4ms
+<7>[    3.705777] c0 hub 2-0:1.0: local power source is good
+<7>[    3.705807] c0 hub 2-0:1.0: no over-current condition exists
+<7>[    3.705840] c0 hub 2-0:1.0: trying to enable port power on non-switchable hub
+<7>[    3.706108] c0 ../../../../../../lineageos-cm-14.1/kernel/samsung/n80xx/drivers/usb/core/inode.c: creating file '001'
+<6>[    3.706582] c0 usbcore: registered new interface driver usblp
+<6>[    3.706616] c0 Initializing USB Mass Storage driver...
+<6>[    3.706822] c0 usbcore: registered new interface driver usb-storage
+<6>[    3.706857] c0 USB Mass Storage support registered.
+<6>[    3.707182] c0 usbcore: registered new interface driver usbserial
+<6>[    3.707220] c0 usbserial: USB Serial Driver core
+<6>[    3.707376] c0 USB Serial support registered for pl2303
+<6>[    3.707555] c0 usbcore: registered new interface driver pl2303
+<6>[    3.707588] c0 pl2303: Prolific PL2303 USB to serial adaptor driver
+<6>[    3.707935] c0 s3c-udc : S3C HS USB OTG Device Driver,(c) 2008-2009 Samsung Electronics
+<6>[    3.707978] c0 s3c-udc : version 15 March 2009
+<7>[    3.708006] c0 init
+<7>[    3.708569] c0 usb: android_bind disconnect
+<7>[    3.708595] c0 usb: usb_gadget_disconnect
+<7>[    3.710699] c0 usb: usb_string_id cdev(0xf13e80c0)->next_string_id=1
+<6>[    3.710934] c0 android_usb gadget: Mass Storage Function, version: 2009/09/11
+<6>[    3.710975] c0 android_usb gadget: Number of LUNs=4
+<6>[    3.711006] c0  lun0: LUN: removable file: (no medium)
+<6>[    3.711038] c0  lun1: LUN: removable file: (no medium)
+<6>[    3.711068] c0  lun2: LUN: removable file: (no medium)
+<6>[    3.711102] c0  lun3: LUN: removable file: (no medium)
+<7>[    3.712259] c0 usb: usb_string_id cdev(0xf13e80c0)->next_string_id=2
+<7>[    3.712297] c0 usb: usb_string_id cdev(0xf13e80c0)->next_string_id=3
+<7>[    3.712339] c0 usb: usb_string_id cdev(0xf13e80c0)->next_string_id=4
+<7>[    3.712378] c0 usb: composite_bind idVendor=0x0, idProduct=0x0
+<7>[    3.712411] c0 usb: composite_bind bcdDevice=0x0
+<7>[    3.712438] c0 usb: composite_bind composite_manufacturer=
+<6>[    3.712476] c0 android_usb gadget: android_usb ready
+<6>[    3.712504] c0 usb: Skip udc_enable
+<6>[    3.712878] c0 mousedev: PS/2 mouse device common for all mice
+<6>[    3.713615] c0 input: gpio-keys as /devices/platform/gpio-keys.0/input/input0
+<7>[    3.713902] c0 [keys]PWR 0
+<6>[    3.714626] c0 input: sec_touchscreen as /devices/platform/s3c2440-i2c.3/i2c-3/3-004a/input/input1
+<7>[    3.745096] c1 hub 1-0:1.0: state 7 ports 3 chg 0000 evt 0000
+<3>[    3.760053] c0 mxt_power_on is finished
+<7>[    3.805082] c1 hub 2-0:1.0: state 7 ports 3 chg 0000 evt 0000
+<6>[    4.065434] c0 Atmel MXT1664S 3-004a: family: 0xa2 variant: 0x0 version: 0x10 build: 0xaa matrix X,Y size:  32,52 number of obect: 24
+<6>[    4.069937] c0 Atmel MXT1664S 3-004a: maXTouch: 24 Objects
+<6>[    4.069977] c0 Atmel MXT1664S 3-004a: maXTouch: 56 report ID
+<6>[    4.400293] c0 s5p_gpioint_set_type irq:387 is at GPM2(3)
+<6>[    4.400723] c0 Atmel MXT1664S 3-004a: Mxt touch success initialization
+<6>[    4.400819] c1 Atmel MXT1664S 3-004a: calibration is on going !!
+<6>[    4.401104] c1 Atmel MXT1664S 3-004a: reset is ongoing
+<6>[    4.402435] c1 Atmel MXT1664S 3-004a: normal mode
+<6>[    4.402693] c0 max77686_rtc_probe
+<6>[    4.425216] c0 max77686-rtc max77686-rtc: max77686_rtc_init_reg: bypass init
+<6>[    4.450393] c0 max77686_rtc_read_time: 126/9/18 16:39:28(0)
+<6>[    4.475390] c0 max77686_rtc_read_alarm: 126/9/15 17:7:54(4)
+<6>[    4.476096] c0 using rtc device, max77686-rtc, for alarms
+<6>[    4.476153] c0 max77686-rtc max77686-rtc: rtc core: registered max77686-rtc as rtc0
+<6>[    4.476201] c0 max77686_irq_unmask: group=2, cur=0xfd
+<4>[    4.476842] c0 S3C24XX RTC, (c) 2004,2006 Simtec Electronics
+<6>[    4.476985] c0 s3c-rtc exynos-rtc: rtc disabled, re-enabling
+<4>[    4.477068] c0 s3c-rtc exynos-rtc: warning: invalid RTC value so initializing it
+<6>[    4.477375] c0 s3c-rtc exynos-rtc: rtc core: registered s3c as rtc1
+<6>[    4.477608] c0 i2c /dev entries driver
+<6>[    4.481001] c0 Linux media interface: v0.10
+<6>[    4.481511] c0 lirc_dev: IR Remote Control driver registered, major 248 
+<6>[    4.481550] c0 IR NEC protocol handler initialized
+<6>[    4.481579] c0 IR RC5(x) protocol handler initialized
+<6>[    4.481611] c0 IR RC6 protocol handler initialized
+<6>[    4.481638] c0 IR JVC protocol handler initialized
+<6>[    4.481665] c0 IR Sony protocol handler initialized
+<6>[    4.481692] c0 IR RC5 (streamzap) protocol handler initialized
+<6>[    4.481725] c0 IR LIRC bridge handler initialized
+<6>[    4.481751] c0 Linux video capture interface: v2.00
+<6>[    4.481924] c0 v4l2_i2c_drv_init: ISX012 called
+<6>[    4.482606] c0 [INFO]flite_probe:2121: FIMC-LITE0 probe success
+<6>[    4.482669] c0 [INFO]flite_probe:2121: FIMC-LITE1 probe success
+<6>[    4.482980] c0 fimc_is_init_mem_mgr : [cma_info] start_addr : 0x70000000, end_addr : 0x70c00000, total_size : 0xc00000, free_size : 0xc00000
+<6>[    4.483108] c0 ctrl->mem.base = 0x70000000
+<6>[    4.483133] c0 ctrl->mem.size = 0xc00000
+<6>[    4.483156] c0 ctrl->mem.fw_ref_base = 0x70a01000
+<6>[    4.483183] c0 ctrl->mem.setfile_ref_base = 0x70b81000
+<6>[    4.483665] c0 FIMC-IS probe completed
+<6>[    4.483954] c0 s3c-csis: Samsung MIPI-CSIS0 driver probed successfully
+<6>[    4.484025] c0 s3c-csis: Samsung MIPI-CSIS1 driver probed successfully
+<2>[    4.484225] c0 Initialize JPEG driver
+<6>[    4.484589] c0 s5p-jpeg s5p-jpeg: JPEG driver is registered to /dev/video12
+<6>[    4.484831] c0 s5p-jpeg s5p-jpeg: JPEG driver is registered to /dev/video11
+<4>[    4.485119] c0 S5P HPD Driver, (c) 2009 Samsung Electronics
+<6>[    4.485404] c0 s5p_int_src_ext_hpd()
+<6>[    4.485431] c0 s5p_hpd_read_gpio(0)
+<6>[    4.485623] c0 s5p_hpd_read_gpio(0)
+<6>[    4.486228] c0 i2c i2c-5: attached s5p_ddc into i2c adapter successfully
+<4>[    4.486390] c0 i2c-core: driver [s5p_ddc] using legacy suspend method
+<4>[    4.486426] c0 i2c-core: driver [s5p_ddc] using legacy resume method
+<6>[    4.486671] c0 mfc_init_mem_mgr[581] cma 0x5c200000 0x5f000000 0x2e00000 0x2e00000 1
+<6>[    4.487032] c0 MFC(Multi Function Codec - FIMV v5.x) registered successfully
+<6>[    4.487620] c0 Samsung Graphics 2D driver, (c) 2011 Samsung Electronics
+<6>[    4.487990] c0 sii9234_cfg_gpio()
+<6>[    4.488033] c0 Registered interrupt support for gpio group 10.
+<6>[    4.488070] c0 s5p_gpioint_set_type irq:413 is at GPF3(5)
+<6>[    4.488107] c0 sii9234_mhl_tx_i2c_probe(): wake lock is initialized.
+<6>[    4.488277] c0 s5p_gpioint_set_type irq:413 is at GPF3(5)
+<6>[    4.488396] c0 sii9234 : create mhl sysfile
+<6>[    4.488965] c0 input: sii9234_rcp as /devices/virtual/input/input2
+<6>[    4.489878] c0 smb347_i2c_probe : smb347 Charger Driver Loading
+<6>[    4.489913] c0 register callback functions!
+<6>[    4.489938] c0 smb347 charger initialized.
+<6>[    4.490808] c0 device-mapper: uevent: version 1.0.3
+<6>[    4.491351] c0 device-mapper: ioctl: 4.20.0-ioctl (2011-02-02) initialised: dm-devel@redhat.com
+<6>[    4.491672] c0 Bluetooth: HCI UART driver ver 2.2
+<6>[    4.491703] c0 Bluetooth: HCI H4 protocol initialized
+<6>[    4.492514] c0 cpuidle: using governor ladder
+<6>[    4.493972] c0 cpuidle: using governor menu
+<6>[    4.494155] c0 mshci: Mobile Storage Host Controller Interface driver
+<6>[    4.494191] c0 mshci: Copyright (c) 2011 Samsung Electronics Co., Ltd
+<6>[    4.494378] c0 dw_mmc dw_mmc: clock source 0: sclk_dwmci (40000000 Hz)
+<3>[    4.494656] c0 mmc0: Version ID 0x5342240a.
+<6>[    4.494906] c0 mmc0: FIFO WMARK FOR RX 0x80 WX 0x40. ###########
+<6>[    4.495428] c0 mmc0: MSHCI controller on samsung-mshci [dw_mmc] using IDMA
+<6>[    4.495758] c0 sdhci: Secure Digital Host Controller Interface driver
+<6>[    4.495794] c0 sdhci: Copyright(c) Pierre Ossman
+<6>[    4.495934] c0 s3c-sdhci s3c-sdhci.2: clock source 2: sclk_mmc (88888888 Hz)
+<6>[    4.496234] c0 mmc1: vtf_2.8v regulator found
+<3>[    4.525854] c0 mmc0: cmd 52 response timeout error
+<3>[    4.526711] c0 mmc0: cmd 52 response timeout error
+<3>[    4.530756] c0 mmc0: cmd 8 response timeout error
+<3>[    4.531608] c0 mmc0: cmd 5 response timeout error
+<3>[    4.532433] c0 mmc0: cmd 5 response timeout error
+<3>[    4.533258] c0 mmc0: cmd 5 response timeout error
+<3>[    4.534081] c0 mmc0: cmd 5 response timeout error
+<3>[    4.534931] c0 mmc0: cmd 55 response timeout error
+<3>[    4.535778] c0 mmc0: cmd 55 response timeout error
+<3>[    4.536630] c0 mmc0: cmd 55 response timeout error
+<3>[    4.537468] c0 mmc0: cmd 55 response timeout error
+<6>[    4.556777] c1 mmc0: MAG2GA: 1501004d414732474107170c0475af5d
+<7>[    4.601123] c0 Registered led device: mmc1::
+<6>[    4.601603] c0 mmc1: SDHCI controller on samsung-hsmmc [s3c-sdhci.2] using ADMA
+<6>[    4.601875] c0 wake enabled for irq 380
+<6>[    4.601900] c0 mmc1: card inserted.
+<6>[    4.602050] c0 s3c-sdhci s3c-sdhci.3: clock source 2: sclk_mmc (8888888 Hz)
+<3>[    4.602176] c0 mmc2: no vmmc regulator found
+<7>[    4.602421] c0 Registered led device: mmc2::
+<6>[    4.602735] c0 mmc2: SDHCI controller on samsung-hsmmc [s3c-sdhci.3] using ADMA
+<6>[    4.612364] c0 usbcore: registered new interface driver usbhid
+<6>[    4.612423] c0 usbhid: USB HID core driver
+<4>[    4.637931] c0 i2c-core: driver [isa1200_vibrator] using legacy suspend method
+<4>[    4.637972] c0 i2c-core: driver [isa1200_vibrator] using legacy resume method
+<6>[    4.638059] c0 lsm330dlc_accel_probe: is started
+<6>[    4.639579] c0 Registered sensors device: accelerometer_sensor
+<6>[    4.639623] c0 lsm330dlc_accel_probe: successful, position = 4
+<6>[    4.639844] c0 lsm330dlc_gyro_probe, started
+<6>[    4.640310] c0 input: gyro_sensor as /devices/virtual/input/input3
+<6>[    4.640854] c0 Registered sensors device: gyro_sensor
+<6>[    4.640903] c0 lsm330dlc_gyro_probe, position = 4
+<6>[    4.640933] c0 lsm330dlc_gyro_probe, successful
+<6>[    4.641158] c0 akm8975_probe is called.
+<6>[    4.641387] c0 s5p_gpioint_set_type irq:407 is at GPM4(7)
+<6>[    4.642289] c0 akm8975_probe: asa_x = 171, asa_y = 169, asa_z = 181
+<6>[    4.642694] c0 Registered sensors device: magnetic_sensor
+<6>[    4.642734] c0 akm8975_probe is successful.
+<6>[    4.643002] c0 bh1721fvc_probe: is started!
+<3>[    4.646750] c2 bh1721fvc_probe: No search bh1721fvc lightsensor!
+<4>[    4.646795] c2 bh1721fvc: probe of 9-0023 failed with error -5
+<6>[    4.647050] c2 al3201_probe: start
+<6>[    4.649271] c2 input: light_sensor as /devices/virtual/input/input4
+<6>[    4.649698] c2 Registered sensors device: light_sensor
+<6>[    4.649737] c2 al3201_probe: success!
+<6>[    4.650319] c2 input: sec_keyboard as /devices/platform/sec_keyboard/input/input5
+<6>[    4.651106] c2 ir_remocon_probe start!
+<6>[    4.664167] c0 mmc0 : 10 : 1f : 20130129 : 20120109.
+<6>[    4.664202] c0 mmc0 : enable PON feature : 10 : 1f(1f) : 20130129
+<4>[    4.665549] c0 mmc0: Voltage range not supported for power class.
+<3>[    4.665585] c0 mmc0: power class selection to bus width 8 failed
+<4>[    4.665776] c0 mmc0: Voltage range not supported for power class.
+<3>[    4.665812] c0 mmc0: power class selection to bus width 8 ddr 2 failed
+<6>[    4.665970] c0 mmc0: new high speed DDR MMC card at address 0001
+<6>[    4.666480] c0 mmcblk0: mmc0:0001 MAG2GA 14.6 GiB 
+<6>[    4.666690] c0 mmcblk0boot0: mmc0:0001 MAG2GA partition 1 2.00 MiB
+<6>[    4.666914] c0 mmcblk0boot1: mmc0:0001 MAG2GA partition 2 2.00 MiB
+<6>[    4.671193] c0  mmcblk0: p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12
+<6>[    4.674892] c0  mmcblk0boot1: unknown partition table
+<6>[    4.675979] c0  mmcblk0boot0: unknown partition table
+<4>[    4.700209] c0 ------------[ cut here ]------------
+<4>[    4.700255] c0 WARNING: at ../../../../../../lineageos-cm-14.1/kernel/samsung/n80xx/drivers/gpio/gpiolib.c:101 gpio_ensure_requested+0x64/0x154()
+<4>[    4.700321] c0 autorequest GPIO-116
+<4>[    4.700342] c0 Modules linked in:
+<4>[    4.700389] c0 [<c0051120>] (unwind_backtrace+0x0/0x104) from [<c06ac78c>] (dump_stack+0x18/0x1c)
+<4>[    4.700453] c0 [<c06ac78c>] (dump_stack+0x18/0x1c) from [<c0093918>] (warn_slowpath_common+0x78/0x88)
+<4>[    4.700511] c0 [<c0093918>] (warn_slowpath_common+0x78/0x88) from [<c0093958>] (warn_slowpath_fmt+0x30/0x40)
+<4>[    4.700570] c0 [<c0093958>] (warn_slowpath_fmt+0x30/0x40) from [<c02c732c>] (gpio_ensure_requested+0x64/0x154)
+<4>[    4.700631] c0 [<c02c732c>] (gpio_ensure_requested+0x64/0x154) from [<c02c760c>] (gpio_direction_output+0xa4/0x154)
+<4>[    4.700699] c0 [<c02c760c>] (gpio_direction_output+0xa4/0x154) from [<c0064988>] (irda_wake_en+0x1c/0x40)
+<4>[    4.700757] c0 [<c0064988>] (irda_wake_en+0x1c/0x40) from [<c06a64c4>] (ir_remocon_probe+0x1b0/0x7b8)
+<4>[    4.700817] c0 [<c06a64c4>] (ir_remocon_probe+0x1b0/0x7b8) from [<c0447a40>] (i2c_device_probe+0xac/0x104)
+<4>[    4.700880] c0 [<c0447a40>] (i2c_device_probe+0xac/0x104) from [<c032b48c>] (driver_probe_device+0x98/0x1e4)
+<4>[    4.700944] c0 [<c032b48c>] (driver_probe_device+0x98/0x1e4) from [<c032b6bc>] (__driver_attach+0xa0/0xa4)
+<4>[    4.701001] c0 [<c032b6bc>] (__driver_attach+0xa0/0xa4) from [<c0329cd4>] (bus_for_each_dev+0x70/0xac)
+<4>[    4.701056] c0 [<c0329cd4>] (bus_for_each_dev+0x70/0xac) from [<c032b0dc>] (driver_attach+0x24/0x28)
+<4>[    4.701110] c0 [<c032b0dc>] (driver_attach+0x24/0x28) from [<c032ac04>] (bus_add_driver+0xe4/0x2f4)
+<4>[    4.701164] c0 [<c032ac04>] (bus_add_driver+0xe4/0x2f4) from [<c032be84>] (driver_register+0x98/0x1ac)
+<4>[    4.701223] c0 [<c032be84>] (driver_register+0x98/0x1ac) from [<c0449d1c>] (i2c_register_driver+0x38/0xd8)
+<4>[    4.701286] c0 [<c0449d1c>] (i2c_register_driver+0x38/0xd8) from [<c0030d30>] (ir_remocon_init+0x18/0x20)
+<4>[    4.701347] c0 [<c0030d30>] (ir_remocon_init+0x18/0x20) from [<c0044a48>] (do_one_initcall+0x140/0x1b0)
+<4>[    4.701404] c0 [<c0044a48>] (do_one_initcall+0x140/0x1b0) from [<c0008d68>] (kernel_init+0x124/0x1e4)
+<4>[    4.701465] c0 [<c0008d68>] (kernel_init+0x124/0x1e4) from [<c004b3fc>] (kernel_thread_exit+0x0/0x8)
+<4>[    4.701524] c0 ---[ end trace eaf221d0af18bbb1 ]---
+<3>[    4.701556] c0 irda_wake_en: irda_wake_en : 1
+<6>[    4.705349] c0 mmc1: cmd 52 command timeout error
+<6>[    4.705698] c0 mmc1: cmd 52 command timeout error
+<6>[    4.709535] c0 mmc1: cmd 5 command timeout error
+<6>[    4.709869] c0 mmc1: cmd 5 command timeout error
+<6>[    4.710204] c0 mmc1: cmd 5 command timeout error
+<6>[    4.710537] c0 mmc1: cmd 5 command timeout error
+<7>[    4.770035] c0 s5p-ohci s5p-ohci: auto-stop root hub
+<6>[    4.805667] c0 2. irda_fw_update: chip : 0202, bin : 0200, need update!
+<3>[    4.805970] c0 irda_wake_en: irda_wake_en : 0
+<6>[    4.928387] c0 mmc1: new high speed SDXC card at address aaaa
+<6>[    4.928868] c0 mmcblk1: mmc1:aaaa SC64G 59.4 GiB 
+<6>[    4.930852] c0  mmcblk1: p1
+<6>[    4.935660] c0 irda_fw_update: boot mode, FW download start! ret=01fe
+<7>[    5.745048] c1 hub 1-0:1.0: hub_suspend
+<7>[    5.745089] c1 usb usb1: bus auto-suspend
+<7>[    5.745117] c1 s5p-ehci s5p-ehci: suspend root hub
+<7>[    6.510061] c1 hub 2-0:1.0: hub_suspend
+<7>[    6.510094] c1 usb usb2: bus auto-suspend
+<7>[    6.510122] c1 s5p-ohci s5p-ohci: suspend root hub
+<6>[    6.510167] c1 s5p-ohci s5p-ohci: host_phy_susp
+<6>[    8.070660] c0 1. irda_fw_update: boot down complete
+<3>[    8.095510] c0 irda_wake_en: irda_wake_en : 1
+<6>[    8.160701] c0 7. irda_fw_update: user mode : Upgrade FW_version : 0200
+<3>[    8.160739] c0 irda_wake_en: irda_wake_en : 0
+<6>[    8.265955] c0 usbcore: registered new interface driver snd-usb-audio
+<6>[    8.267623] c0 Samsung Audio Subsystem Driver, (c) 2011 Samsung Electronics
+<6>[    8.267767] c0 audss_init: RCLK SRC[busclk]
+<6>[    8.267876] c0 audss_reg_save: SRC[0x1], DIV[0xf10], GATE[0x42]
+<6>[    8.268570] c0 audss_reg_restore: SRC[0x1], DIV[0xf10], GATE[0x42]
+<6>[    8.268619] c0 audss_clk_enable(1): SRC[0x1], DIV[0xf10], GATE[0x1c7]
+<7>[    8.268658] c0 i2s_txctrl: Turn Off - spr is no active
+<6>[    8.268706] c0 audss_reg_save: SRC[0x1], DIV[0xf10], GATE[0x42]
+<6>[    8.268748] c0 audss_clk_enable(0): SRC[0x1], DIV[0xf10], GATE[0x42]
+<6>[    8.319799] c0 wm8994-codec wm8994-codec: write 60 = 100
+<4>[    8.320029] c0 wm8994-codec wm8994-codec: Failed to request Mic detect IRQ: -22
+<4>[    8.320075] c0 wm8994-codec wm8994-codec: Failed to request Jack detect IRQ: -22
+<6>[    8.320619] c0 wm8994-codec wm8994-codec: write 15 = 40
+<6>[    8.320843] c0 wm8994-codec wm8994-codec: write 102 = 3
+<6>[    8.321067] c0 wm8994-codec wm8994-codec: write 56 = c07
+<6>[    8.321295] c0 wm8994-codec wm8994-codec: write 5d = 7e
+<6>[    8.321521] c0 wm8994-codec wm8994-codec: write 5e = 0
+<6>[    8.321744] c0 wm8994-codec wm8994-codec: write 102 = 0
+<6>[    8.321968] c0 wm8994-codec wm8994-codec: write 38 = 30
+<6>[    8.322197] c0 wm8994-codec wm8994-codec: write 402 = 1c0
+<6>[    8.322425] c0 wm8994-codec wm8994-codec: write 403 = 1c0
+<6>[    8.322649] c0 wm8994-codec wm8994-codec: write 406 = 1c0
+<6>[    8.322873] c0 wm8994-codec wm8994-codec: write 407 = 1c0
+<6>[    8.323101] c0 wm8994-codec wm8994-codec: write 502 = 1c0
+<6>[    8.323329] c0 wm8994-codec wm8994-codec: write 503 = 1c0
+<6>[    8.323556] c0 wm8994-codec wm8994-codec: write 400 = 1c0
+<6>[    8.323780] c0 wm8994-codec wm8994-codec: write 401 = 1c0
+<6>[    8.324008] c0 wm8994-codec wm8994-codec: write 404 = 1c0
+<6>[    8.324235] c0 wm8994-codec wm8994-codec: write 405 = 1c0
+<6>[    8.324459] c0 wm8994-codec wm8994-codec: write 500 = 1c0
+<6>[    8.324682] c0 wm8994-codec wm8994-codec: write 501 = 1c0
+<6>[    8.324910] c0 wm8994-codec wm8994-codec: write 610 = 3c0
+<6>[    8.325137] c0 wm8994-codec wm8994-codec: write 611 = 3c0
+<6>[    8.325364] c0 wm8994-codec wm8994-codec: write 612 = 3c0
+<6>[    8.325587] c0 wm8994-codec wm8994-codec: write 613 = 3c0
+<6>[    8.325816] c0 wm8994-codec wm8994-codec: write 421 = 210
+<6>[    8.326043] c0 wm8994-codec wm8994-codec: write 423 = 210
+<6>[    8.326266] c0 wm8994-codec wm8994-codec: write 521 = 210
+<6>[    8.326494] c0 wm8994-codec wm8994-codec: write 34 = 10
+<6>[    8.326724] c0 wm8994-codec wm8994-codec: write 35 = 10
+<6>[    8.326952] c0 wm8994-codec wm8994-codec: write 38 = b0
+<6>[    8.327177] c0 wm8994-codec wm8994-codec: write 37 = 80
+<6>[    8.327414] c0 wm8994-codec wm8994-codec: write 440 = 9b
+<6>[    8.327643] c0 wm8994-codec wm8994-codec: write 441 = 844
+<6>[    8.327872] c0 wm8994-codec wm8994-codec: write 442 = e8
+<6>[    8.328095] c0 wm8994-codec wm8994-codec: write 443 = 210
+<6>[    8.328320] c0 wm8994-codec wm8994-codec: write 440 = 98
+<6>[    8.328547] c0 wm8994-codec wm8994-codec: write 450 = 9b
+<6>[    8.328777] c0 wm8994-codec wm8994-codec: write 451 = 844
+<6>[    8.329004] c0 wm8994-codec wm8994-codec: write 452 = e8
+<6>[    8.329228] c0 wm8994-codec wm8994-codec: write 453 = 210
+<6>[    8.329457] c0 wm8994-codec wm8994-codec: write 450 = 98
+<6>[    8.329684] c0 wm8994-codec wm8994-codec: write 540 = 9b
+<6>[    8.329907] c0 wm8994-codec wm8994-codec: write 541 = 844
+<6>[    8.330132] c0 wm8994-codec wm8994-codec: write 542 = e8
+<6>[    8.330359] c0 wm8994-codec wm8994-codec: write 543 = 210
+<6>[    8.330589] c0 wm8994-codec wm8994-codec: write 540 = 98
+<6>[    8.330863] c0 wm8994-codec wm8994-codec: write 3d = 2f
+<6>[    8.331087] c0 wm8994-codec wm8994-codec: write 3e = 27
+<6>[    8.331314] c0 wm8994-codec wm8994-codec: write 18 = 18b
+<6>[    8.331542] c0 wm8994-codec wm8994-codec: write 1a = 18b
+<6>[    8.331766] c0 wm8994-codec wm8994-codec: write 19 = 18b
+<6>[    8.331988] c0 wm8994-codec wm8994-codec: write 1b = 18b
+<6>[    8.332215] c0 wm8994-codec wm8994-codec: write 26 = 179
+<6>[    8.332443] c0 wm8994-codec wm8994-codec: write 27 = 179
+<6>[    8.332667] c0 wm8994-codec wm8994-codec: write 1c = 1ed
+<6>[    8.332888] c0 wm8994-codec wm8994-codec: write 1d = 1ed
+<6>[    8.333115] c0 wm8994-codec wm8994-codec: write 20 = 1f9
+<6>[    8.333341] c0 wm8994-codec wm8994-codec: write 21 = 1f9
+<6>[    8.335623] c0 Sound: enabled mclk
+<7>[    8.335649] c0 pmu_debug: 0x00000900
+<6>[    8.345656] c0 Sound: state: 1, use_cnt: 1
+<6>[    8.345945] c0 wm8994-codec wm8994-codec: write 200 = 8
+<6>[    8.346183] c0 wm8994-codec wm8994-codec: write d0 = 1400
+<6>[    8.346411] c0 wm8994-codec wm8994-codec: write 210 = 81
+<6>[    8.346634] c0 wm8994-codec wm8994-codec: write 211 = 81
+<6>[    8.346877] c0 wm8994-codec wm8994-codec: write d0 = 0
+<6>[    8.350828] c0 wm8994-codec wm8994-codec: write 2 = 2000
+<6>[    8.351063] c0 wm8994-codec wm8994-codec: write 4 = 300
+<6>[    8.351287] c0 wm8994-codec wm8994-codec: write 5 = 300
+<6>[    8.351513] c0 wm8994-codec wm8994-codec: write 208 = a
+<6>[    8.351742] c0 wm8994-codec wm8994-codec: write 200 = 9
+<6>[    8.352079] c0 asoc: wm8994-aif1 <-> samsung-i2s.4 mapping ok
+<6>[    8.352369] c0 wm8994-codec wm8994-codec: write 702 = 8101
+<6>[    8.352841] c0 wm8994-codec wm8994-codec: write 703 = 8101
+<6>[    8.353316] c0 wm8994-codec wm8994-codec: write 704 = 8101
+<6>[    8.354751] c0 asoc: wm8994-aif2 <-> midas.cp mapping ok
+<6>[    8.356017] c0 asoc: wm8994-aif3 <-> midas.bt mapping ok
+<6>[    8.356116] c0 audss_reg_restore: SRC[0x1], DIV[0xf10], GATE[0x42]
+<6>[    8.356164] c0 audss_clk_enable(1): SRC[0x1], DIV[0xf10], GATE[0x1c7]
+<7>[    8.356204] c0 i2s_txctrl: Turn Off - spr is no active
+<6>[    8.356255] c0 audss_reg_save: SRC[0x1], DIV[0xf10], GATE[0x42]
+<6>[    8.356295] c0 audss_clk_enable(0): SRC[0x1], DIV[0xf10], GATE[0x42]
+<6>[    8.359312] c0 asoc: wm8994-aif1 <-> samsung-i2s.0 mapping ok
+<6>[    8.361472] c0 Samsung SRP driver, (c)2011 Samsung Electronics
+<6>[    8.362453] c0 ALSA device list:
+<6>[    8.362480] c0   #0: Midas_WM1811
+<6>[    8.363245] c0 TCP cubic registered
+<6>[    8.363271] c0 Initializing XFRM netlink socket
+<6>[    8.364269] c0 NET: Registered protocol family 10
+<6>[    8.366191] c0 Mobile IPv6
+<6>[    8.366214] c0 IPv6 over IPv4 tunneling driver
+<6>[    8.370032] c0 NET: Registered protocol family 17
+<6>[    8.370089] c0 NET: Registered protocol family 15
+<6>[    8.370241] c0 Bluetooth: RFCOMM TTY layer initialized
+<6>[    8.370285] c0 Bluetooth: RFCOMM socket layer initialized
+<6>[    8.370321] c0 Bluetooth: RFCOMM ver 1.11
+<6>[    8.370351] c0 Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+<6>[    8.370386] c0 Bluetooth: HIDP (Human Interface Emulation) ver 1.2
+<5>[    8.370629] c0 Registering the dns_resolver key type
+<6>[    8.370695] c0 EXYNOS4X12: Adaptive Support Voltage init
+<6>[    8.370733] c0 EXYNOS4X12(SG):  ORIG : 3 MOD : 0 RESULT : 3
+<4>[    8.370769] c0 Mali: ::Q::exynos_result_of_asv : 3
+<4>[    8.370799] c0 Mali: mali_dvfs[0].vol = 900000 
+<4>[    8.370830] c0 Mali: mali_dvfs[1].vol = 925000 
+<4>[    8.370862] c0 Mali: mali_runtime_resume.vol = 925000 
+<4>[    8.370896] c0 Mali: mali_dvfs[2].vol = 1000000 
+<4>[    8.370925] c0 Mali: mali_dvfs[3].vol = 1050000 
+<4>[    8.370953] c0 Mali: init_gpu_vol = 1050000 
+<4>[    8.370984] c0 Mali: mali_dvfs[4].vol = 1112500 
+<4>[    8.371017] c0 ABB-Control: abb_control_init
+<4>[    8.371200] c0 ABB-Control; int:	100100 KHz 1000 mV
+<4>[    8.371236] c0 ABB-Control; int:	267160 KHz 1000 mV
+<4>[    8.371272] c0 ABB-Control; int:	400266 KHz 1000 mV
+<4>[    8.371316] c0 ABB-Control; mif:	100100 KHz 1000 mV
+<4>[    8.371354] c0 ABB-Control; mif:	267160 KHz 1000 mV
+<4>[    8.371388] c0 ABB-Control; mif:	400266 KHz 1000 mV
+<4>[    8.371426] c0 ABB-Control; g3d:	54000 KHz 1300 mV
+<4>[    8.371462] c0 ABB-Control; g3d:	300000 KHz 1000 mV
+<4>[    8.371501] c0 ABB-Control; g3d:	533000 KHz 1300 mV
+<4>[    8.371539] c0 ABB-Control; g3d:	9999999 KHz 1300 mV
+<4>[    8.371577] c0 ABB-Control; arm:	100000 KHz 1000 mV
+<4>[    8.371613] c0 ABB-Control; arm:	800000 KHz 1000 mV
+<4>[    8.371651] c0 ABB-Control; arm:	1600000 KHz 1000 mV
+<4>[    8.371690] c0 ABB-Control; arm:	9999999 KHz 1000 mV
+<6>[    8.371726] c0 VFP support v0.3: implementor 41 architecture 3 part 30 variant 9 rev 4
+<5>[    8.371791] c0 Registering SWP/SWPB emulation handler
+<5>[    8.371826] c0 Registering SDIV/UDIV emulation handler
+<6>[    8.371937] c0 DVFS : VDD_ARM Voltage table set with 3 Group
+<6>[    8.372684] c0 DVFS : VDD_INT Voltage table set with 3 Group
+<6>[    8.373068] c0 @@@ s5p_tmu_probe: cpufreq_limit: 1st_throttle: 12, 2nd_throttle = 18
+<6>[    8.373119] c0 s5p_tmu_probe: cpufreq_level[16], busfreq_value[133133]
+<6>[    8.373155] c0 @@@ get_refresh_interval = 0x2e
+<6>[    8.373180] c0 @@@ get_refresh_interval = 0x5d
+<6>[    8.373211] c0 ** temperature set value **
+<6>[    8.373233] c0 1st throttling stop_temp  = 78, start_temp     = 80
+<6>[    8.373264] c0 2nd throttling stop_temp  = 87, start_tmep     = 103
+<6>[    8.373295] c0 tripping temp             = 110, s/w emergency temp = 120
+<6>[    8.373328] c0 mem throttling stop_temp  = 80, start_temp     = 85
+<6>[    8.373368] c0 tc_voltage stop_temp = 13, start_temp = 10
+<3>[    8.378269] c0 [E-PEN] wacom_i2c_init: Sleep type-PEN_LDO_EN pin
+<6>[    8.686985] c0 [E-PEN] wacom_i2c_query: 0th ret of wacom query=9
+<5>[    8.687020] c0 [E-PEN] x_max=0x556A
+<5>[    8.687042] c0 [E-PEN] y_max=0x35A2
+<5>[    8.687063] c0 [E-PEN] pressure_max=0x3FF
+<5>[    8.687089] c0 [E-PEN] fw_version=0x22F (d7:0x2,d8:0x2F)
+<5>[    8.687121] c0 [E-PEN] F, 55, 88, 35, C0, 3, FF, 2, 2F
+<7>[    8.891447] c0 [E-PEN] received checksum 1f, f1, 76, 81, 71
+<7>[    8.947423] c0 [E-PEN] epen_connection : Pass 0
+<6>[    8.950099] c0 input: sec_e-pen as /devices/platform/s3c2440-i2c.6/i2c-6/6-0056/input/input6
+<6>[    8.950363] c0 wake enabled for irq 365
+<5>[    8.951041] c0 [E-PEN] wacom fw ver : 0x22f, new fw ver : 0x22f
+<6>[    8.951137] c0 s5p_gpioint_set_type irq:394 is at GPC1(2)
+<6>[    8.951297] c0 s5p_gpioint_set_type irq:392 is at GPC1(0)
+<7>[    8.951356] c1 [E-PEN] pdct 1(0)
+<6>[    8.975411] c0 max77686_rtc_read_time: 126/9/18 16:39:33(0)
+<6>[    8.975471] c0 max77686-rtc max77686-rtc: setting system clock to 2026-10-18 16:39:33 UTC (1792341573)
+<7>[    8.975615] c0 ctrl->mem.size = 0xc00000
+<7>[    8.975640] c0 ctrl->mem.base = 0x71b00000
+<6>[    8.976130] c0 FIMC0 registered successfully
+<7>[    8.976261] c0 ctrl->mem.size = 0x1810000
+<7>[    8.976286] c0 ctrl->mem.base = 0x65c00000
+<6>[    8.976597] c0 FIMC1 registered successfully
+<7>[    8.976714] c0 ctrl->mem.size = 0x0
+<7>[    8.976737] c0 ctrl->mem.base = 0x0
+<6>[    8.977033] c0 FIMC2 registered successfully
+<7>[    8.977153] c0 ctrl->mem.size = 0x0
+<7>[    8.977176] c0 ctrl->mem.base = 0xffffffea
+<6>[    8.977479] c0 FIMC3 registered successfully
+<6>[    8.977729] c0 S5P TVOUT Driver v3.0 (c) 2010 Samsung Electronics
+<7>[    9.000047] c1 [E-PEN] pen_insert_work : 1
+<6>[    9.002101] c0 sec_bat_probe : SEC Battery Driver Loading
+<6>[    9.002159] c0 Registered interrupt support for gpio group 23.
+<6>[    9.002191] c0 BAT : Battery GPIO initialized.
+<6>[    9.002373] c0 level = 100
+<6>[    9.002574] c0 level = 100
+<6>[    9.003109] c0 usb_switch_clr_path: 0 current_path before changing
+<6>[    9.003166] c0 usb_apply_path: current gpio before changing : sel0:1 sel1:1 sel_cp:0
+<6>[    9.003208] c0 usb_apply_path: target path 0
+<6>[    9.003235] c0 usb_apply_path: 0 safeout2 off
+<6>[    9.003261] c0 pmic_safeout2: onoff:0 No change in safeout2
+<6>[    9.003295] c0 usb_apply_path: send "usb_sel" sysfs_notify
+<6>[    9.003333] c0 sec_charger_cb:cable_type=0,tsp(0),usb(0),attached(0),usblpm(1)
+<6>[    9.003378] c0 set_usb_connection_state: set False
+<7>[    9.003409] c0 usb: s3c_vbus_enable, not ready u_e: 0, is_active: 0
+<6>[    9.003442] c0 sec_charger_cb
+<6>[    9.003462] c0 sec_get_cable_status: current_status : 0
+<6>[    9.003492] c0 Charger Status : Battery
+<6>[    9.003520] c0 smb347_set_charging_state : enable(0), charging_mode(1)
+<6>[    9.003559] c0 smb347_disable_charging
+<6>[    9.003964] c0 smb347_test_read
+<6>[    9.004476] c0 smb347 addr : 0x00 data : 0x9d
+<6>[    9.004993] c0 smb347 addr : 0x01 data : 0x66
+<6>[    9.005533] c0 smb347 addr : 0x02 data : 0xa7
+<6>[    9.006050] c0 smb347 addr : 0x03 data : 0x63
+<6>[    9.006566] c0 smb347 addr : 0x04 data : 0x84
+<6>[    9.007082] c0 smb347 addr : 0x05 data : 0x1e
+<6>[    9.007597] c0 smb347 addr : 0x06 data : 0x00
+<6>[    9.008112] c0 smb347 addr : 0x07 data : 0xbf
+<6>[    9.008628] c0 smb347 addr : 0x08 data : 0x08
+<6>[    9.009143] c0 smb347 addr : 0x09 data : 0x0d
+<6>[    9.009658] c0 smb347 addr : 0x0a data : 0x3f
+<6>[    9.010191] c0 smb347 addr : 0x0b data : 0x01
+<6>[    9.010708] c0 smb347 addr : 0x0c data : 0x00
+<6>[    9.011224] c0 smb347 addr : 0x0d data : 0x00
+<6>[    9.011739] c0 smb347 addr : 0x0e data : 0x0d
+<6>[    9.012255] c0 smb347 addr : 0x30 data : 0x80
+<6>[    9.012770] c0 smb347 addr : 0x31 data : 0x00
+<6>[    9.013286] c0 smb347 addr : 0x32 data : 0x0d
+<6>[    9.013801] c0 smb347 addr : 0x33 data : 0x0d
+<6>[    9.014316] c0 smb347 addr : 0x34 data : 0x27
+<6>[    9.014831] c0 smb347 addr : 0x35 data : 0x00
+<6>[    9.015364] c0 smb347 addr : 0x36 data : 0x00
+<6>[    9.015881] c0 smb347 addr : 0x37 data : 0x00
+<6>[    9.016397] c0 smb347 addr : 0x38 data : 0x00
+<6>[    9.016912] c0 smb347 addr : 0x39 data : 0x11
+<6>[    9.017428] c0 smb347 addr : 0x3a data : 0x00
+<6>[    9.017942] c0 smb347 addr : 0x3b data : 0x23
+<6>[    9.018458] c0 smb347 addr : 0x3c data : 0x1c
+<6>[    9.018974] c0 smb347 addr : 0x3d data : 0x00
+<6>[    9.019489] c0 smb347 addr : 0x3e data : 0x00
+<6>[    9.020004] c0 smb347 addr : 0x3f data : 0x06
+<6>[    9.020535] c0 cable NOT PRESENT 
+<6>[    9.020556] c0 Charger Status : Battery
+<6>[    9.021809] c0 fg_read_temp: temper(29296, 0x1d4c)
+<6>[    9.023637] c0 fg_read_soc: soc(88), psoc(8748), vfsoc(65)
+<6>[    9.025116] c1 s5p_gpioint_set_type irq:419 is at GPM0(3)
+<6>[    9.025379] c1 wake enabled for irq 364
+<6>[    9.027367] c0 fg_check_vf_fullcap_range: prevVFFCap(0x3cdd), newVFFcap(0x3cdd)
+<6>[    9.027408] c0 fg_check_vf_fullcap_range: keep VFFCap: newVFFcap(0x3cdd)
+<6>[    9.029242] c0 fg_read_soc: soc(88), psoc(8748), vfsoc(65)
+<6>[    9.029877] c0 fg_read_vcell: vcell(3944, 0xc538)
+<6>[    9.031125] c0 fg_read_current: curr(-572), avg_curr(-475mA)
+<6>[    9.034150] c0 avg_v(4090), fullcap(6354), remcap(5559), mixcap(5589), avcap(5560)
+<7>[    9.050040] c1 [E-PEN] wacom_i2c_pendct_work , 1
+<6>[    9.055053] c0 [MAX17042] 18/10/2026 16:39,
+<6>[    9.064676] c0 0000h,ff00h,7f80h,ff01h,0000h,2b6eh,577ch,4362h,
+<6>[    9.064708] c0 1d4ch,c538h,f1afh,f41dh,003ah,4743h,57e7h,2baah,
+<6>[    9.094642] c0 31a4h,1d3bh,7d5ah,0000h,03ech,0148h,1d4fh,b72ah,
+<6>[    9.094673] c0 4996h,cc89h,2b13h,ed7ch,27bbh,2214h,0600h,2b70h,
+<6>[    9.124642] c0 4d78h,0092h,f72bh,3cddh,1400h,2305h,1d4fh,782eh,
+<6>[    9.124672] c0 0076h,87a4h,506bh,0010h,e3e1h,290eh,377eh,0000h,
+<6>[    9.154638] c0 4f9fh,511fh,0800h,0000h,0502h,3d44h,0100h,05e0h,
+<6>[    9.154668] c0 0076h,1a1ch,007dh,0502h,1680h,1008h,056ch,e000h,
+<6>[    9.184635] c0 3000h,d080h,f41dh,7500h,d1a6h,1479h,4347h,0563h,
+<6>[    9.184665] c0 3bdch,85bbh,285bh,6900h,d0f8h,d2aah,96bah,550bh,
+<6>[    9.200054] c0 Atmel MXT1664S 3-004a: battery mode
+<6>[    9.214635] c0 0c47h,0a4ah,0001h,167dh,0003h,0005h,0908h,ffffh,
+<6>[    9.214667] c0 4c10h,000ch,4c30h,0000h,4000h,0000h,cf70h,0420h,
+<6>[    9.244663] c0 0000h,0000h,0000h,0000h,0000h,0000h,4743h,0541h,
+<6>[    9.244693] c0 3c17h,52efh,f269h,cca0h,006eh,3910h,c538h,41e0h,
+<6>[    9.265045] c0 
+<6>[    9.267353] c0 smb347_get_charging_state : 0x3dh(0x00)
+<6>[    9.267390] c0 BAT : soc(88), vcell(3944mV), curr(-572mA), avg curr(-476mA), temp(29.2), chg(0)
+<6>[    9.267437] c0 , full(0), rechg(0), lowbat(0), cable(0)
+<6>[    9.267510] c0 level = 88
+<6>[    9.372410] c1 wake enabled for irq 371
+<6>[    9.372445] c1 lpm_mode_check : charging_mode_booting(0)
+<6>[    9.375524] c1 [ ACCESSORY (acc_con_init,884) ] 
+<6>[    9.375620] c1 [ ACCESSORY (acc_con_probe,666) ] 
+<4>[    9.376237] c1 dhd_module_init in
+<4>[    9.376269] c1 found wifi platform device bcmdhd_wlan
+<4>[    9.376382] c1 Power-up adapter 'DHD generic adapter'
+<4>[    9.376582] c1 wifi_platform_set_power = 1
+<4>[    9.376614] c1 ------------------------------------------------------------------------------------------------
+<4>[    9.376691] c1 brcm_wlan_power Enter: power on
+<6>[    9.376726] c1 111brcm_wlan_power Enter: power on
+<4>[    9.376761] c1 gpio_table = [2] 
+<7>[    9.376991] c1 WLAN: GPIO_WLAN_EN = 1 
+<6>[    9.470070] c0 notify_change_of_tmu_state: uevent: 0, name = TMUSTATE=0
+<6>[    9.470311] c0 exynos4_handler_tmu_state: inform to init state to platform.
+<4>[    9.580058] c1 wifi_platform_bus_enumerate device present 1
+<4>[    9.580099] c1 gpio_table = [6] 
+<6>[    9.580334] c1 mmc2: card inserted.
+<6>[    9.810369] c0 mmc2: cmd 52 command timeout error
+<6>[    9.810745] c0 mmc2: cmd 52 command timeout error
+<6>[    9.814319] c0 mmc2: cmd 8 command timeout error
+<4>[    9.829663] c0 mmc2: queuing unknown CIS tuple 0x80 (7 bytes)
+<4>[    9.832255] c0 mmc2: queuing unknown CIS tuple 0x80 (6 bytes)
+<4>[    9.835164] c0 mmc2: queuing unknown CIS tuple 0x80 (7 bytes)
+<4>[    9.841871] c0 mmc2: queuing unknown CIS tuple 0x80 (19 bytes)
+<6>[    9.903151] c0 mmc2: new high speed SDIO card at address 0001
+<4>[    9.920322] c0 bcmsdh_sdmmc: bcmsdh_sdmmc_probe Enter
+<4>[    9.920426] c0 bcmsdh_sdmmc: bcmsdh_sdmmc_probe Enter
+<4>[    9.920465] c0 bus num (host idx)=2, slot num (rca)=1
+<4>[    9.920502] c0 found adapter info 'DHD generic adapter'
+<4>[    9.920609] c0 alloc static buf at f1200000!
+<4>[    9.926186] c0 F1 signature OK, socitype:0x1 chip:0x4334 rev:0x3 pkg:0x0
+<4>[    9.927135] c0 DHD: dongle ram size is set to 524288(orig 524288) at 0x0
+<4>[    9.928106] c0 wifi_platform_prealloc: failed to alloc static mem section 7
+<4>[    9.928898] c0 wl_create_event_handler(): thread:wl_event_handler:4db started
+<6>[    9.928960] c1 CFG80211-INFO2) wl_event_handler : tsk Enter, tsk = 0xf14a1604
+<4>[    9.931572] c0 p2p0: P2P Interface Registered
+<4>[    9.931716] c0 dhd_attach(): thread:dhd_watchdog_thread:4e2 started
+<4>[    9.931863] c0 dhd_attach(): thread:dhd_dpc:4e3 started
+<4>[    9.931918] c0 dhd_deferred_work_init: work queue initialized 
+<4>[    9.932181] c0 Dongle Host Driver, version 1.141.44.4 (r)
+<4>[    9.932218] c0 Compiled in drivers/net/wireless/bcmdhd on Dec 13 2022 at 01:59:06
+<4>[    9.934551] c0 Register interface [wlan0]  MAC: 00:46:3d
+<4>[    9.934587] c0 
+<4>[    9.934608] c0 dhd_prot_ioctl : bus is down. we have nothing to do
+<4>[    9.934654] c0 dhd_wl_ioctl: WLC_IOCTL: cmd: 3, ret = -1
+<4>[    9.934793] c0 wifi_platform_set_power = 0
+<4>[    9.934825] c0 ------------------------------------------------------------------------------------------------
+<4>[    9.934895] c0 brcm_wlan_power Enter: power off
+<6>[    9.934929] c0 111brcm_wlan_power Enter: power off
+<4>[    9.934966] c0 gpio_table = [2] 
+<7>[    9.934999] c0 WLAN: GPIO_WLAN_EN = 0 
+<4>[   10.040555] c0 Warning: unable to open an initial console.
+<6>[   10.040668] c0 Freeing init memory: 240K
+<5>[   10.044135] c1 init: init first stage started!
+<7>[   10.049260] c1 SELinux: 2048 avtab hash slots, 7381 rules.
+<7>[   10.053286] c1 SELinux: 2048 avtab hash slots, 7381 rules.
+<7>[   10.053341] c1 SELinux:  1 users, 2 roles, 710 types, 0 bools, 1 sens, 1024 cats
+<7>[   10.053400] c1 SELinux:  63 classes, 7381 rules
+<7>[   10.055275] c1 SELinux:  Completing initialization.
+<7>[   10.055317] c1 SELinux:  Setting up existing superblocks.
+<7>[   10.055379] c1 SELinux: initialized (dev sysfs, type sysfs), uses genfs_contexts
+<7>[   10.055448] c1 SELinux: initialized (dev rootfs, type rootfs), uses genfs_contexts
+<7>[   10.059956] c1 SELinux: initialized (dev bdev, type bdev), not configured for labeling
+<7>[   10.060081] c1 SELinux: initialized (dev proc, type proc), uses genfs_contexts
+<7>[   10.060168] c1 SELinux: initialized (dev tmpfs, type tmpfs), uses transition SIDs
+<7>[   10.060254] c1 SELinux: initialized (dev debugfs, type debugfs), uses genfs_contexts
+<7>[   10.060949] c1 SELinux: initialized (dev sockfs, type sockfs), uses task SIDs
+<7>[   10.061015] c1 SELinux: initialized (dev pipefs, type pipefs), uses task SIDs
+<7>[   10.061074] c1 SELinux: initialized (dev anon_inodefs, type anon_inodefs), not configured for labeling
+<7>[   10.061147] c1 SELinux: initialized (dev devpts, type devpts), uses transition SIDs
+<7>[   10.061222] c1 SELinux: initialized (dev selinuxfs, type selinuxfs), uses genfs_contexts
+<7>[   10.061368] c1 SELinux: initialized (dev usbfs, type usbfs), uses genfs_contexts
+<7>[   10.061431] c1 SELinux: initialized (dev tmpfs, type tmpfs), uses transition SIDs
+<7>[   10.061509] c1 SELinux: initialized (dev sysfs, type sysfs), uses genfs_contexts
+<5>[   10.310788] c1 type=1403 audit(1792341574.830:2): policy loaded auid=4294967295 ses=4294967295
+<5>[   10.311894] c1 type=1404 audit(1792341574.830:3): enforcing=1 old_enforcing=0 auid=4294967295 ses=4294967295
+<5>[   10.445320] c1 init: (Initializing SELinux enforcing took 0.40s.)
+<5>[   10.451351] c2 init: init second stage started!
+<5>[   10.462393] c2 init: Running restorecon...
+<6>[   10.470093] c2 notify_change_of_tmu_state: uevent: 0, name = TMUSTATE=0
+<6>[   10.470660] c2 normal: free cpufreq_limit & interrupt enable.
+<3>[   10.644044] c2 init: waitpid failed: No child processes
+<5>[   10.648039] c2 init: (Loading properties from /default.prop took 0.00s.)
+<3>[   10.649316] c2 init: /init.rc: 16: invalid keyword 'setcon'
+<3>[   10.649666] c2 init: /init.rc: 66: invalid keyword 'load_all_props'
+<3>[   10.650081] c2 init: could not import file '/init.recovery.logd.rc' from '/init.rc': No such file or directory
+<3>[   10.650185] c2 init: could not import file '/init.recovery.ldconfig.rc' from '/init.rc': No such file or directory
+<3>[   10.650287] c2 init: could not import file '/init.recovery.mksh.rc' from '/init.rc': No such file or directory
+<5>[   10.650474] c2 init: (Parsing /init.recovery.nano.rc took 0.00s.)
+<5>[   10.650859] c2 init: (Parsing /init.recovery.usb.rc took 0.00s.)
+<5>[   10.651012] c2 init: (Parsing /init.recovery.service.rc took 0.00s.)
+<3>[   10.651101] c2 init: could not import file '/init.recovery.vold_decrypt.rc' from '/init.rc': No such file or directory
+<3>[   10.651209] c2 init: could not import file '/init.recovery.smdk4x12.rc' from '/init.rc': No such file or directory
+<5>[   10.651301] c2 init: (Parsing /init.rc took 0.00s.)
+<5>[   10.651714] c2 type=1400 audit(1792341575.170:4): avc:  denied  { setcheckreqprot } for  pid=1 comm="init" scontext=u:r:init:s0 tcontext=u:object_r:kernel:s0 tclass=security permissive=0
+<5>[   10.651841] c2 init: write_file: Unable to write to '/sys/fs/selinux/checkreqprot': Permission denied
+<7>[   10.730190] c2 SELinux: initialized (dev cgroup, type cgroup), uses genfs_contexts
+<5>[   10.730771] c2 init: Starting service 'ueventd'...
+<5>[   10.731818] c2 init: Waiting for /dev/.coldboot_done...
+<5>[   10.734864] c0 ueventd: ueventd started!
+<3>[   10.737823] c0 ueventd: invalid gid 'm2m'
+<3>[   10.737930] c0 ueventd: invalid gid 'm2m'
+<3>[   10.738025] c0 ueventd: invalid gid 'm2m'
+<6>[   10.827726] c0 level = 88
+<5>[   11.088774] c0 ueventd: Coldboot took 0.34s.
+<5>[   11.095876] c2 init: Waiting for /dev/.coldboot_done took 0.36s.
+<3>[   11.095995] c2 init: /dev/hw_random not found
+<3>[   11.096114] c2 init: console init failed. Open on Console device  failed(No such device)
+<7>[   11.097026] c2 SELinux: initialized (dev tmpfs, type tmpfs), uses transition SIDs
+<3>[   11.097316] c2 init: /dev/hw_random not found
+<7>[   11.098062] c2 usb: enable_store enabled=0, !dev->enabled=1
+<7>[   11.098100] c2 usb: usb_gadget_disconnect
+<5>[   11.098259] c2 init: write_file: Unable to open '/sys/class/android_usb/android0/f_ffs/aliases': No such file or directory
+<7>[   11.098365] c2 usb: functions_store buff=adb
+<7>[   11.098397] c2 usb: android_enable_function name=adb
+<7>[   11.098434] c2 usb: android_enable_function name=hid
+<5>[   11.098655] c2 init: (Loading properties from /system/build.prop took 0.00s.)
+<5>[   11.098725] c2 init: (Loading properties from /vendor/build.prop took 0.00s.)
+<5>[   11.098789] c2 init: (Loading properties from /factory/factory.prop took 0.00s.)
+<3>[   11.099119] c2 fs_mgr: Warning: unknown flag noemulatesd
+<5>[   11.100730] c2 init: (Loading properties from /data/local.prop took 0.00s.)
+<3>[   11.100797] c2 init: Unable to open persistent property directory "/data/property": No such file or directory
+<5>[   11.101723] c2 init: Starting service 'set_permissive'...
+<5>[   11.102622] c2 init: Starting service 'recovery'...
+<7>[   11.103719] c2 usb: enable_store enabled=0, !dev->enabled=1
+<7>[   11.103761] c2 usb: usb_gadget_disconnect
+<5>[   11.103879] c2 init: Starting service 'adbd'...
+<5>[   11.104552] c1 random: recovery urandom read with 9 bits of entropy available
+<5>[   11.104613] c0 random: permissive.sh urandom read with 9 bits of entropy available
+<7>[   11.104754] c2 usb: enable_store enabled=1, !dev->enabled=1
+<7>[   11.104811] c2 usb: enable_store vendor=18d1,product=d001,bcdDevice=226
+<7>[   11.104867] c2 ,Class=0,SubClass=0,Protocol=0
+<7>[   11.104906] c2 usb: enable_store next cmd : usb_add_config
+<6>[   11.110913] c3 adb_open
+<7>[   11.110962] c3 usb: android_bind_enabled_functions f:adb
+<6>[   11.111016] c3 adb_bind_config
+<7>[   11.111066] c3 usb: android_bind_enabled_functions f:hid
+<6>[   11.111113] c3 hid keyboard
+<7>[   11.111142] c3 usb: usb_string_id cdev(0xf13e80c0)->next_string_id=1
+<6>[   11.111192] c3 hidg_bind: creating device f1726400
+<6>[   11.112726] c3 hid mouse
+<6>[   11.112756] c3 hidg_bind: creating device f1726500
+<7>[   11.113828] c3 usb: usb_gadget_connect
+<5>[   11.132075] c3 type=1400 audit(1792341575.650:5): avc:  denied  { write } for  pid=1857 comm="setenforce" name="enforce" dev=selinuxfs ino=4 scontext=u:r:recovery:s0 tcontext=u:object_r:selinuxfs:s0 tclass=file permissive=1
+<5>[   11.132253] c3 type=1400 audit(1792341575.650:6): avc:  denied  { setenforce } for  pid=1857 comm="setenforce" scontext=u:r:recovery:s0 tcontext=u:object_r:kernel:s0 tclass=security permissive=1
+<5>[   11.132360] c3 type=1404 audit(1792341575.650:7): enforcing=0 old_enforcing=1 auid=4294967295 ses=4294967295
+<5>[   11.133622] c2 init: Service 'set_permissive' (pid 1845) exited with status 0
+<6>[   11.178374] c1 failed to copy MFC F/W during init
+<5>[   11.200848] c2 type=1400 audit(1792341575.720:8): avc:  denied  { search } for  pid=1846 comm="recovery" name="mdnie" dev=sysfs ino=6527 scontext=u:r:recovery:s0 tcontext=u:object_r:sysfs_display:s0 tclass=dir permissive=1
+<5>[   11.200979] c2 type=1400 audit(1792341575.720:9): avc:  denied  { getattr } for  pid=1846 comm="recovery" path="/sys/devices/platform/samsung-pd.2/mdnie/mdnie/mdnie/panel/brightness" dev=sysfs ino=6553 scontext=u:r:recovery:s0 tcontext=u:object_r:sysfs_display:s0 tclass=file permissive=1
+<5>[   11.201414] c2 type=1400 audit(1792341575.720:10): avc:  denied  { write } for  pid=1846 comm="recovery" name="brightness" dev=sysfs ino=6553 scontext=u:r:recovery:s0 tcontext=u:object_r:sysfs_display:s0 tclass=file permissive=1
+<5>[   11.201516] c2 type=1400 audit(1792341575.720:11): avc:  denied  { open } for  pid=1846 comm="recovery" name="brightness" dev=sysfs ino=6553 scontext=u:r:recovery:s0 tcontext=u:object_r:sysfs_display:s0 tclass=file permissive=1
+<6>[   11.201635] c2 backlight panel: brightness=255
+<3>[   11.203058] c2 init: avc:  denied  { set } for property=twrp.crash_counter pid=1846 uid=0 gid=0 scontext=u:r:recovery:s0 tcontext=u:object_r:default_prop:s0 tclass=property_service permissive=1
+<6>[   11.204520] c2 backlight panel: brightness=255
+<6>[   11.213080] c2 s3cfb s3cfb.0: change blank mode=4, fb2
+<6>[   11.460124] c2 backlight panel: brightness=255
+<6>[   11.460214] c2 s3cfb s3cfb.0: change blank mode=0, fb2
+<6>[   11.460303] c2 s3cfb s3cfb.0: parent clock: 66666666, vclk: 66666000, vclk div: 1
+<6>[   11.767168] c2 backlight panel: brightness=255
+<6>[   11.781762] c2 backlight panel: brightness=255
+<6>[   11.909008] c1 Atmel MXT1664S 3-004a: calibration is on going !!
+<6>[   11.926791] c0 EXT4-fs (mmcblk0p9): mounted filesystem with ordered data mode. Opts: 
+<7>[   11.926871] c0 SELinux: initialized (dev mmcblk0p9, type ext4), uses xattr
+<6>[   11.949620] c1 Atmel MXT1664S 3-004a: normal mode
+<6>[   12.313799] c0 EXT4-fs (mmcblk0p8): mounted filesystem with ordered data mode. Opts: 
+<7>[   12.313867] c0 SELinux: initialized (dev mmcblk0p8, type ext4), uses xattr
+<6>[   12.349866] c0 EXT4-fs (mmcblk0p12): mounted filesystem with ordered data mode. Opts: 
+<7>[   12.349932] c0 SELinux: initialized (dev mmcblk0p12, type ext4), uses xattr
+<6>[   12.441840] c2 EXT4-fs (mmcblk0p12): mounted filesystem with ordered data mode. Opts: 
+<7>[   12.441917] c2 SELinux: initialized (dev mmcblk0p12, type ext4), uses xattr
+<6>[   12.536301] c3 EXT4-fs (mmcblk0p12): mounted filesystem with ordered data mode. Opts: 
+<7>[   12.536398] c3 SELinux: initialized (dev mmcblk0p12, type ext4), uses xattr
+<6>[   12.691613] c3 EXT4-fs (mmcblk0p9): mounted filesystem with ordered data mode. Opts: 
+<7>[   12.691685] c3 SELinux: initialized (dev mmcblk0p9, type ext4), uses xattr
+<6>[   12.802953] c0 EXT4-fs (mmcblk0p3): mounted filesystem with ordered data mode. Opts: 
+<7>[   12.803049] c0 SELinux: initialized (dev mmcblk0p3, type ext4), uses xattr
+<6>[   12.890099] c3 EXT4-fs (mmcblk0p9): mounted filesystem with ordered data mode. Opts: 
+<7>[   12.890236] c3 SELinux: initialized (dev mmcblk0p9, type ext4), uses xattr
+<6>[   12.981542] c0 EXT4-fs (mmcblk0p9): mounted filesystem with ordered data mode. Opts: 
+<7>[   12.981637] c0 SELinux: initialized (dev mmcblk0p9, type ext4), uses xattr
+<6>[   13.073029] c0 EXT4-fs (mmcblk0p10): mounted filesystem with ordered data mode. Opts: 
+<7>[   13.073123] c0 SELinux: initialized (dev mmcblk0p10, type ext4), uses xattr
+<6>[   13.640351] c0 currentlimit_irq_thread gpio : 222, value : 0
+<4>[   17.063455] c0 audit_printk_skb: 108 callbacks suppressed
+<5>[   17.063494] c0 type=1400 audit(1792341581.580:48): avc:  denied  { getattr } for  pid=1846 comm="recovery" path="/data/misc/bluedroid/bt_config.bak" dev=mmcblk0p12 ino=702106 scontext=u:r:recovery:s0 tcontext=u:object_r:bluetooth_data_file:s0 tclass=file permissive=1
+<5>[   17.064149] c0 type=1400 audit(1792341581.580:49): avc:  denied  { getattr } for  pid=1846 comm="recovery" path="/data/misc/bluetooth/logs" dev=mmcblk0p12 ino=701763 scontext=u:r:recovery:s0 tcontext=u:object_r:bluetooth_logs_data_file:s0 tclass=dir permissive=1
+<5>[   17.064317] c0 type=1400 audit(1792341581.580:50): avc:  denied  { read } for  pid=1846 comm="recovery" name="logs" dev=mmcblk0p12 ino=701763 scontext=u:r:recovery:s0 tcontext=u:object_r:bluetooth_logs_data_file:s0 tclass=dir permissive=1
+<5>[   17.064457] c0 type=1400 audit(1792341581.580:51): avc:  denied  { open } for  pid=1846 comm="recovery" name="logs" dev=mmcblk0p12 ino=701763 scontext=u:r:recovery:s0 tcontext=u:object_r:bluetooth_logs_data_file:s0 tclass=dir permissive=1
+<5>[   17.065001] c0 type=1400 audit(1792341581.580:52): avc:  denied  { getattr } for  pid=1846 comm="recovery" path="/data/misc/keystore" dev=mmcblk0p12 ino=701764 scontext=u:r:recovery:s0 tcontext=u:object_r:keystore_data_file:s0 tclass=dir permissive=1
+<5>[   17.065183] c0 type=1400 audit(1792341581.585:53): avc:  denied  { read } for  pid=1846 comm="recovery" name="keystore" dev=mmcblk0p12 ino=701764 scontext=u:r:recovery:s0 tcontext=u:object_r:keystore_data_file:s0 tclass=dir permissive=1
+<5>[   17.065313] c0 type=1400 audit(1792341581.585:54): avc:  denied  { open } for  pid=1846 comm="recovery" name="keystore" dev=mmcblk0p12 ino=701764 scontext=u:r:recovery:s0 tcontext=u:object_r:keystore_data_file:s0 tclass=dir permissive=1
+<5>[   17.066260] c0 type=1400 audit(1792341581.585:55): avc:  denied  { getattr } for  pid=1846 comm="recovery" path="/data/misc/keystore/user_0/10031_USRPKEY_c5635988b7157a3a" dev=mmcblk0p12 ino=702105 scontext=u:r:recovery:s0 tcontext=u:object_r:keystore_data_file:s0 tclass=file permissive=1
+<5>[   17.068804] c0 type=1400 audit(1792341581.585:56): avc:  denied  { getattr } for  pid=1846 comm="recovery" path="/data/misc/gatekeeper" dev=mmcblk0p12 ino=701765 scontext=u:r:recovery:s0 tcontext=u:object_r:gatekeeper_data_file:s0 tclass=dir permissive=1
+<5>[   17.068969] c0 type=1400 audit(1792341581.585:57): avc:  denied  { read } for  pid=1846 comm="recovery" name="gatekeeper" dev=mmcblk0p12 ino=701765 scontext=u:r:recovery:s0 tcontext=u:object_r:gatekeeper_data_file:s0 tclass=dir permissive=1
+<7>[   18.004771] c0 SELinux: initialized (dev mmcblk1p1, type vfat), uses genfs_contexts
+<7>[   18.720059] c0 usb: usb_ready udc_enable=0
+<6>[   19.400048] c1 [ ACCESSORY (acc_dwork_int_init,552) ] 
+<6>[   19.400403] c1 wake enabled for irq 363
+<6>[   19.400537] c1 wake enabled for irq 356
+<6>[   19.590878] c0 level = 88
+<7>[   20.549279] c3 SELinux: initialized (dev mmcblk1p1, type vfat), uses genfs_contexts
+<6>[   21.900098] c3 backlight panel: brightness=112
+<3>[   22.195212] c2 init: avc:  denied  { set } for property=sys.usb.config pid=1846 uid=0 gid=0 scontext=u:r:recovery:s0 tcontext=u:object_r:system_radio_prop:s0 tclass=property_service permissive=1
+<7>[   22.195535] c2 usb: enable_store enabled=0, !dev->enabled=0
+<7>[   22.195579] c2 usb: usb_gadget_disconnect
+<7>[   22.195615] c2 usb: usb_remove_config cdev->config=  (null), config=c0b24650
+<6>[   22.195691] c2 hidg_unbind: destroying device f1726400
+<6>[   22.195920] c1 adb_release
+<6>[   22.196221] c2 hidg_unbind: destroying device f1726500
+<6>[   22.201566] c3 adb_open
+<7>[   22.201846] c2 usb: enable_store enabled=0, !dev->enabled=1
+<7>[   22.201903] c2 usb: usb_gadget_disconnect
+<7>[   22.202039] c2 usb: functions_store buff=mtp,adb
+<7>[   22.202082] c2 usb: android_enable_function name=mtp
+<7>[   22.202126] c2 usb: android_enable_function name=adb
+<7>[   22.202174] c2 usb: android_enable_function name=hid
+<7>[   22.202294] c2 usb: enable_store enabled=1, !dev->enabled=1
+<7>[   22.202334] c2 usb: enable_store vendor=18d1,product=4ee2,bcdDevice=226
+<7>[   22.202380] c2 ,Class=0,SubClass=0,Protocol=0
+<7>[   22.202410] c2 usb: enable_store next cmd : usb_add_config
+<7>[   22.202451] c2 usb: android_bind_enabled_functions f:mtp
+<6>[   22.202486] c2 mtp_bind_config
+<7>[   22.202511] c2 usb: usb_string_id cdev(0xf13e80c0)->next_string_id=1
+<7>[   22.202574] c2 usb: android_bind_enabled_functions f:adb
+<6>[   22.202609] c2 adb_bind_config
+<7>[   22.202641] c2 usb: android_bind_enabled_functions f:hid
+<6>[   22.202679] c2 hid keyboard
+<6>[   22.202703] c2 hidg_bind: creating device f1378300
+<6>[   22.204094] c2 hid mouse
+<6>[   22.204122] c2 hidg_bind: creating device f1378400
+<7>[   22.204419] c1 usb: usb_gadget_connect
+<6>[   22.228323] c3 EXT4-fs (mmcblk0p9): mounted filesystem with ordered data mode. Opts: 
+<7>[   22.228390] c3 SELinux: initialized (dev mmcblk0p9, type ext4), uses xattr
+<4>[   22.280941] c3 audit_printk_skb: 474 callbacks suppressed
+<5>[   22.280978] c3 type=1400 audit(1792341586.800:216): avc:  denied  { create } for  pid=1846 comm="recovery" name="orsin" scontext=u:r:recovery:s0 tcontext=u:object_r:rootfs:s0 tclass=fifo_file permissive=1
+<5>[   22.281139] c3 type=1400 audit(1792341586.800:217): avc:  denied  { read } for  pid=1846 comm="recovery" name="orsin" dev=rootfs ino=6206 scontext=u:r:recovery:s0 tcontext=u:object_r:rootfs:s0 tclass=fifo_file permissive=1
+<5>[   22.281273] c3 type=1400 audit(1792341586.800:218): avc:  denied  { open } for  pid=1846 comm="recovery" name="orsin" dev=rootfs ino=6206 scontext=u:r:recovery:s0 tcontext=u:object_r:rootfs:s0 tclass=fifo_file permissive=1
+<5>[   22.282451] c3 type=1400 audit(1792341586.800:219): avc:  denied  { read } for  pid=1846 comm="recovery" scontext=u:r:recovery:s0 tcontext=u:r:recovery:s0 tclass=netlink_kobject_uevent_socket permissive=1
+<5>[   23.006674] c0 type=1400 audit(1792341587.530:220): avc:  denied  { read write } for  pid=1926 comm="recovery" name="mtp_usb" dev=tmpfs ino=3879 scontext=u:r:recovery:s0 tcontext=u:object_r:mtp_device:s0 tclass=chr_file permissive=1
+<5>[   23.006970] c0 type=1400 audit(1792341587.530:221): avc:  denied  { open } for  pid=1926 comm="recovery" name="mtp_usb" dev=tmpfs ino=3879 scontext=u:r:recovery:s0 tcontext=u:object_r:mtp_device:s0 tclass=chr_file permissive=1
+<6>[   23.007196] c0 mtp_open
+<6>[   23.965238] c1 sec_TA_nCon_interrupt_handler(1)
+<6>[   24.015206] c1 sec_TA_work_handler: ta_state(1)
+<6>[   24.320149] c1 usb_switch_set_path: 0 current_path before changing
+<6>[   24.320237] c1 usb_apply_path: current gpio before changing : sel0:1 sel1:1 sel_cp:0
+<6>[   24.320327] c1 usb_apply_path: target path 10000000
+<6>[   24.320392] c1 usb_apply_path: 10000000 safeout2 no change
+<6>[   24.324386] c1 usb_switch_clr_path: 10000000 current_path before changing
+<6>[   24.324471] c1 usb_apply_path: current gpio before changing : sel0:1 sel1:0 sel_cp:0
+<6>[   24.324561] c1 usb_apply_path: target path 0
+<6>[   24.324617] c1 usb_apply_path: 0 safeout2 off
+<6>[   24.324674] c1 pmic_safeout2: onoff:0 No change in safeout2
+<6>[   24.324739] c1 usb_apply_path: send "usb_sel" sysfs_notify
+<6>[   24.324820] c1 sec_get_dedicted_charger_type : result(1), avg_vol(0)
+<6>[   24.324904] c1 sec_charger_cb:cable_type=1,tsp(1),usb(1),attached(1),usblpm(0)
+<6>[   24.325001] c1 set_usb_connection_state: set True
+<6>[   24.325106] c1 set_usb_connection_state: send "usb_state" sysfs_notify
+<7>[   24.325193] c1 usb: s3c_vbus_enable, ready u_e: 0, is_active: 1
+<7>[   24.325267] c1 usb: s3c_vbus_enable is_active=1(udc_enable),softconnect=1
+<6>[   24.325381] c1 s3c-usbgadget s3c-usbgadget: usb phy usage(22)
+<3>[   24.325455] c1 s3c-usbgadget s3c-usbgadget: Already power on PHY
+<7>[   24.325536] c1 usb: set_exynos_usb_phy_tune old phy0 tune=0x2819b3 t=0
+<7>[   24.325630] c1 usb: set_exynos_usb_phy_tune new phy0 tune=0x2831b3
+<7>[   24.325703] c1 usb: s5p_usb_phy0_tune read original tune
+<7>[   24.325768] c1 usb: s5p_usb_phy0_tune save default phytune (0x2831b3)
+<7>[   24.325844] c1 usb: s5p_usb_phy0_tune original tune=0x2831b3
+<7>[   24.325913] c1 usb: s5p_usb_phy0_tune tune_mask=0x0, tune=0x0
+<7>[   24.325980] c1 usb: s5p_usb_phy0_tune default tune
+<6>[   24.327074] c1 sec_charger_cb
+<6>[   24.327117] c1 sec_get_cable_status: current_status : 1
+<6>[   24.327214] c1 Charger Status : USB
+<6>[   24.327265] c1 sec_cable_check_status: Returning to Normal discharge path.
+<6>[   24.327364] c1 smb347_set_charging_state : enable(1), charging_mode(1)
+<6>[   24.327442] c1 smb347_charger_init
+<6>[   24.327487] c1 smb347_disable_charging
+<6>[   24.434454] c1 smb347_set_charging_state : LOW(USB5) charging enabled 1.8A by html6405
+<6>[   24.434510] c1 smb347_enable_charging
+<6>[   24.434906] c1 smb347_test_read
+<6>[   24.435444] c1 smb347 addr : 0x00 data : 0xdd
+<6>[   24.435659] c1 sec_TA_nCHG_interrupt_handler(0)
+<6>[   24.436017] c1 smb347 addr : 0x01 data : 0x66
+<6>[   24.436536] c1 smb347 addr : 0x02 data : 0xa7
+<6>[   24.437053] c1 smb347 addr : 0x03 data : 0x63
+<6>[   24.437569] c1 smb347 addr : 0x04 data : 0x80
+<6>[   24.438086] c1 smb347 addr : 0x05 data : 0x1a
+<6>[   24.438604] c1 smb347 addr : 0x06 data : 0x00
+<6>[   24.439121] c1 smb347 addr : 0x07 data : 0xbf
+<6>[   24.439639] c1 smb347 addr : 0x08 data : 0x08
+<6>[   24.440173] c1 smb347 addr : 0x09 data : 0x0d
+<6>[   24.440691] c1 smb347 addr : 0x0a data : 0x3f
+<6>[   24.441207] c1 smb347 addr : 0x0b data : 0x01
+<6>[   24.441723] c1 smb347 addr : 0x0c data : 0x00
+<6>[   24.442238] c1 smb347 addr : 0x0d data : 0x00
+<6>[   24.442754] c1 smb347 addr : 0x0e data : 0x0d
+<6>[   24.443271] c1 smb347 addr : 0x30 data : 0x82
+<6>[   24.443788] c1 smb347 addr : 0x31 data : 0x03
+<6>[   24.444305] c1 smb347 addr : 0x32 data : 0x0d
+<6>[   24.444822] c1 smb347 addr : 0x33 data : 0x0d
+<6>[   24.445488] c1 smb347 addr : 0x34 data : 0x27
+<6>[   24.446004] c1 smb347 addr : 0x35 data : 0x00
+<6>[   24.446501] c1 smb347 addr : 0x36 data : 0x00
+<6>[   24.446999] c1 smb347 addr : 0x37 data : 0x00
+<6>[   24.447496] c1 smb347 addr : 0x38 data : 0x40
+<6>[   24.447993] c1 smb347 addr : 0x39 data : 0x10
+<6>[   24.448490] c1 smb347 addr : 0x3a data : 0x01
+<6>[   24.448985] c1 smb347 addr : 0x3b data : 0x23
+<6>[   24.449482] c1 smb347 addr : 0x3c data : 0x1e
+<6>[   24.449979] c1 smb347 addr : 0x3d data : 0x03
+<6>[   24.450490] c1 smb347 addr : 0x3e data : 0x00
+<6>[   24.450988] c1 smb347 addr : 0x3f data : 0x86
+<6>[   24.451488] c1 cable USB
+<6>[   24.452665] c1 fg_read_temp: temper(29900, 0x1de7)
+<6>[   24.454423] c1 fg_read_soc: soc(88), psoc(8741), vfsoc(65)
+<6>[   24.458500] c1 fg_read_soc: soc(88), psoc(8741), vfsoc(65)
+<6>[   24.459112] c1 fg_read_vcell: vcell(3903, 0xc332)
+<6>[   24.460307] c1 fg_read_current: curr(-589), avg_curr(-939mA)
+<6>[   24.463213] c1 avg_v(4011), fullcap(6354), remcap(5554), mixcap(5584), avcap(5526)
+<6>[   24.485046] c1 [MAX17042] 18/10/2026 16:39,
+<6>[   24.494280] c1 0000h,ff00h,7f80h,ff01h,0000h,2b65h,576ah,4362h,
+<6>[   24.494320] c1 1de7h,c332h,f143h,e8a7h,0074h,4734h,57c4h,2ba1h,
+<7>[   24.515188] c0 usb: GET_DES
+<7>[   24.515239] c0 usb: android_work config=  (null),connected=1,sw_connected=0
+<7>[   24.515929] c0 usb: android_work sent uevent USB_STATE=CONNECTED
+<6>[   24.524583] c1 31a4h,0ecbh,7d5ah,0000h,03fdh,0148h,1d55h,b72ah,
+<6>[   24.524623] c1 4996h,c895h,2b13h,ed7ch,27bbh,2214h,0600h,2b2dh,
+<6>[   24.524791] c1 Atmel MXT1664S 3-004a: charging mode
+<7>[   24.525850] c0 usb: GET_DES
+<6>[   24.528273] c1 Atmel MXT1664S 3-004a: calibration is on going !!
+<6>[   24.550339] c1 Atmel MXT1664S 3-004a: normal mode
+<6>[   24.554940] c1 4d78h,0092h,f72bh,3cddh,1400h,2305h,1d55h,76d0h,
+<6>[   24.554980] c1 0076h,87a4h,506bh,0010h,e3e1h,290eh,377eh,0000h,
+<6>[   24.590607] c1 5ae0h,5b1dh,0800h,0000h,0502h,3d44h,0100h,05e0h,
+<6>[   24.590655] c1 0076h,1a1ch,007dh,0502h,1680h,1008h,05c4h,e000h,
+<6>[   24.625606] c1 1800h,7200h,e8a7h,1d80h,d1a6h,1479h,4347h,057bh,
+<6>[   24.625654] c1 3bdch,2cfeh,2843h,2700h,d0f8h,d2a1h,5052h,4259h,
+<6>[   24.641064] c1 Atmel MXT1664S 3-004a: calibration is on going !!
+<6>[   24.660616] c1 0596h,fc14h,f7f6h,0009h,41b9h,fc14h,0008h,0000h,
+<6>[   24.660664] c1 4c10h,000ch,4c30h,0000h,4000h,0000h,cf60h,0420h,
+<6>[   24.680881] c1 Atmel MXT1664S 3-004a: normal mode
+<6>[   24.695596] c1 0000h,0000h,0000h,0000h,0000h,0000h,4734h,099fh,
+<6>[   24.695644] c1 3b69h,52f8h,fc35h,cc88h,006eh,3910h,c54eh,41b9h,
+<6>[   24.720063] c1 
+<6>[   24.721950] c1 smb347_get_charging_state : 0x3dh(0x05)
+<6>[   24.722011] c1 BAT : soc(88), vcell(3903mV), curr(-589mA), avg curr(-921mA), temp(29.9), chg(1)
+<6>[   24.722085] c1 , full(0), rechg(0), lowbat(0), cable(1)
+<6>[   24.722205] c1 level = 88
+<7>[   24.725216] c0 usb: GET_DES
+<6>[   24.726062] c0 android_usb gadget: high speed config #1: android
+<7>[   24.726150] c0 usb: SET_CON
+<7>[   24.726251] c0 usb: android_work config=c0b24650,connected=1,sw_connected=1
+<7>[   24.727098] c0 usb: android_work sent uevent USB_STATE=CONFIGURED
+<6>[   24.735054] c1 fullcharging_work_handler : nCHG intr!!, fullcharge_line=0
+<6>[   24.735113] c1 Charger is working. Cable state will be updated.
+<7>[   24.786446] c0 usb: android_work config=c0b24650,connected=1,sw_connected=1
+<7>[   24.787666] c0 usb: android_work sent uevent USB_STATE=CONFIGURED
+<6>[   33.645549] c0 sec-thermistor sec-thermistor: notify_change_of_temperature: uevent: TEMPERATURE=310
+<6>[   56.041661] c1 fg_read_temp: temper(29109, 0x1d1c)
+<6>[   56.043976] c1 fg_read_soc: soc(88), psoc(8737), vfsoc(65)
+<6>[   56.049932] c1 fg_read_soc: soc(88), psoc(8737), vfsoc(65)
+<6>[   56.050798] c1 fg_read_vcell: vcell(4015, 0xc8c2)
+<6>[   56.052360] c1 fg_read_current: curr(-210), avg_curr(-254mA)
+<6>[   56.056202] c1 avg_v(4009), fullcap(6354), remcap(5552), mixcap(5582), avcap(5567)
+<6>[   56.080115] c1 [MAX17042] 18/10/2026 16:40,
+<6>[   56.092224] c1 0000h,ff00h,7f80h,ff01h,0000h,2b61h,5760h,4362h,
+<6>[   56.092290] c1 1d1ch,c8c2h,fac0h,f9a4h,001eh,472dh,57d1h,2b9dh,
+<6>[   56.127147] c1 31a4h,36b7h,7d5ah,0000h,046bh,0148h,1d55h,b72ah,
+<6>[   56.127211] c1 4996h,c87ch,2b13h,ed7ch,27bbh,2214h,0600h,2b7fh,
+<6>[   56.162142] c1 4d78h,0092h,f72bh,3cddh,1400h,2305h,1d55h,789eh,
+<6>[   56.162208] c1 0076h,87a4h,506bh,0010h,e3e1h,290eh,377eh,0000h,
+<6>[   56.195623] c1 4015h,39f9h,0800h,0000h,0502h,3d44h,0100h,05e0h,
+<6>[   56.195672] c1 0076h,1a1ch,007dh,0502h,1680h,1008h,0678h,e000h,
+<6>[   56.230623] c1 3800h,53c0h,f9a9h,7880h,d1a6h,1479h,4347h,0588h,
+<6>[   56.230673] c1 3bdch,4d77h,2837h,d300h,d0f8h,d29dh,9717h,3a9ah,
+<6>[   56.265666] c1 0c47h,0a3bh,0001h,167dh,0007h,0000h,002dh,ffffh,
+<6>[   56.265713] c1 4c10h,000ch,4c30h,0000h,4000h,0000h,cf60h,0420h,
+<6>[   56.300629] c1 0000h,0000h,0000h,0000h,0000h,0000h,472dh,fb85h,
+<6>[   56.300679] c1 3c57h,543dh,fab0h,cc79h,006eh,3910h,c852h,41a5h,
+<6>[   56.325069] c1 
+<6>[   56.326959] c1 smb347_get_charging_state : 0x3dh(0x05)
+<6>[   56.327017] c1 BAT : soc(88), vcell(4015mV), curr(-210mA), avg curr(-253mA), temp(29.1), chg(1)
+<6>[   56.327095] c1 , full(0), rechg(0), lowbat(0), cable(1)
+<6>[   56.327219] c1 level = 88
+<6>[   63.925620] c1 Atmel MXT1664S 3-004a: T61 Timer Enabled 3000
+<6>[   63.925815] c1 Atmel MXT1664S 3-004a: P: id[0]
+<3>[   63.942010] c1 Atmel MXT1664S 3-004a: Unknown state 0x2 0x88
+<6>[   64.299415] c1 Atmel MXT1664S 3-004a: R: id[0] M[49]
+<5>[   64.355191] c2 type=1400 audit(1792341628.875:222): avc:  denied  { create } for  pid=1939 comm="recovery" name="twadbfifo" scontext=u:r:recovery:s0 tcontext=u:object_r:tmpfs:s0 tclass=fifo_file permissive=1
+<5>[   64.355322] c2 type=1400 audit(1792341628.875:223): avc:  denied  { read } for  pid=1939 comm="recovery" name="twadbfifo" dev=tmpfs ino=5300 scontext=u:r:recovery:s0 tcontext=u:object_r:tmpfs:s0 tclass=fifo_file permissive=1
+<5>[   64.355427] c2 type=1400 audit(1792341628.875:224): avc:  denied  { open } for  pid=1939 comm="recovery" name="twadbfifo" dev=tmpfs ino=5300 scontext=u:r:recovery:s0 tcontext=u:object_r:tmpfs:s0 tclass=fifo_file permissive=1
+<4>[   64.373742] c1 EXT4-fs (mmcblk0p9): warning: maximal mount count reached, running e2fsck is recommended
+<6>[   64.375350] c1 EXT4-fs (mmcblk0p9): mounted filesystem with ordered data mode. Opts: 
+<7>[   64.375399] c1 SELinux: initialized (dev mmcblk0p9, type ext4), uses xattr
+<4>[   64.457375] c1 EXT4-fs (mmcblk0p9): warning: maximal mount count reached, running e2fsck is recommended
+<6>[   64.458308] c1 EXT4-fs (mmcblk0p9): mounted filesystem with ordered data mode. Opts: 
+<7>[   64.458368] c1 SELinux: initialized (dev mmcblk0p9, type ext4), uses xattr
+<5>[   64.500287] c1 type=1400 audit(1792341629.020:225): avc:  denied  { read } for  pid=1846 comm="recovery" name="app" dev=mmcblk0p12 ino=424321 scontext=u:r:recovery:s0 tcontext=u:object_r:apk_data_file:s0 tclass=dir permissive=1
+<5>[   64.500422] c1 type=1400 audit(1792341629.020:226): avc:  denied  { open } for  pid=1846 comm="recovery" name="app" dev=mmcblk0p12 ino=424321 scontext=u:r:recovery:s0 tcontext=u:object_r:apk_data_file:s0 tclass=dir permissive=1
+<5>[   64.501398] c1 type=1400 audit(1792341629.020:227): avc:  denied  { unlink } for  pid=1846 comm="recovery" name="orsin" dev=rootfs ino=6206 scontext=u:r:recovery:s0 tcontext=u:object_r:rootfs:s0 tclass=fifo_file permissive=1
+<6>[   66.884153] c1 Atmel MXT1664S 3-004a: T61 Timer Enabled 10000
+<6>[   87.096218] c1 Atmel MXT1664S 3-004a: P: id[0]
+<6>[   87.097645] c1 fg_read_temp: temper(29093, 0x1d18)
+<6>[   87.099476] c1 fg_read_soc: soc(88), psoc(8735), vfsoc(65)
+<6>[   87.103773] c1 fg_read_soc: soc(88), psoc(8735), vfsoc(65)
+<6>[   87.104411] c1 fg_read_vcell: vcell(4009, 0xc87c)
+<6>[   87.105674] c1 fg_read_current: curr(-213), avg_curr(-224mA)
+<6>[   87.108721] c1 avg_v(4008), fullcap(6354), remcap(5550), mixcap(5580), avcap(5566)
+<6>[   87.130062] c1 [MAX17042] 18/10/2026 16:40,
+<6>[   87.135668] c2 level = 88
+<6>[   87.139765] c1 0000h,ff00h,7f80h,ff01h,0000h,2b5dh,575ah,4362h,
+<6>[   87.139796] c1 1d18h,c87ch,faabh,fa63h,001ch,4727h,57cbh,2b99h,
+<6>[   87.169965] c1 31a4h,3dfah,7d5ah,0000h,04d7h,0148h,1d50h,b72ah,
+<6>[   87.169996] c1 4996h,c86ah,2b13h,ed7ch,27bbh,2214h,0600h,2b7dh,
+<6>[   87.204670] c1 4d78h,0092h,f72bh,3cddh,1400h,2305h,1d50h,78a8h,
+<6>[   87.204702] c1 0076h,87a4h,506bh,0010h,e3e1h,290eh,377eh,0000h,
+<6>[   87.234997] c1 68f4h,56b2h,0800h,0000h,0502h,3d44h,0100h,05e0h,
+<6>[   87.235034] c1 0076h,1a1ch,007dh,0502h,1680h,1008h,0728h,e000h,
+<6>[   87.269764] c1 c800h,8a40h,fa63h,cb80h,d1a6h,1479h,4347h,0596h,
+<6>[   87.269799] c1 3bdch,484ah,282ah,c000h,d0f8h,d299h,b7bah,3290h,
+<6>[   87.299282] c1 058dh,0000h,f7f6h,0009h,000ah,0040h,0008h,0003h,
+<6>[   87.299308] c1 4c10h,000ch,4c30h,0000h,4000h,0000h,cf60h,0420h,
+<6>[   87.329387] c1 0000h,0000h,0000h,0000h,0000h,0000h,4727h,f3deh,
+<6>[   87.329413] c1 3c60h,5401h,f8b2h,cc6ah,006eh,3910h,c7c4h,4191h,
+<6>[   87.350040] c1 
+<6>[   87.351690] c1 smb347_get_charging_state : 0x3dh(0x05)
+<6>[   87.351721] c1 BAT : soc(88), vcell(4009mV), curr(-213mA), avg curr(-225mA), temp(29.0), chg(1)
+<6>[   87.351763] c1 , full(0), rechg(0), lowbat(0), cable(1)
+<6>[   87.351822] c1 level = 88
+<6>[   87.714706] c1 Atmel MXT1664S 3-004a: R: id[0] M[86]
+<6>[  120.041658] c1 fg_read_temp: temper(29046, 0x1d0c)
+<6>[  120.043966] c1 fg_read_soc: soc(88), psoc(8732), vfsoc(65)
+<6>[  120.049851] c1 fg_read_soc: soc(88), psoc(8732), vfsoc(65)
+<6>[  120.050718] c1 fg_read_vcell: vcell(4006, 0xc84e)
+<6>[  120.052277] c1 fg_read_current: curr(-218), avg_curr(-219mA)
+<6>[  120.056162] c1 avg_v(4006), fullcap(6354), remcap(5548), mixcap(5578), avcap(5565)
+<6>[  120.080144] c1 [MAX17042] 18/10/2026 16:41,
+<6>[  120.092277] c1 0000h,ff00h,7f80h,ff01h,0000h,2b59h,5754h,4362h,
+<6>[  120.092340] c1 1d0ch,c84eh,fa87h,fa83h,001ah,4721h,57c4h,2b95h,
+<6>[  120.127203] c1 31a4h,3f61h,7d5ah,0000h,0535h,0148h,1d4bh,b72ah,
+<6>[  120.127267] c1 4996h,c851h,2b13h,ed7ch,27bbh,2214h,0600h,2b7bh,
+<6>[  120.162154] c1 4d78h,0092h,f72bh,3cddh,1400h,2305h,1d4bh,78c0h,
+<6>[  120.162216] c1 0076h,87a4h,506bh,0010h,e3e1h,290eh,377eh,0000h,
+<6>[  120.195663] c1 5739h,42f5h,0800h,0000h,0502h,3d44h,0100h,05e0h,
+<6>[  120.195710] c1 0076h,1a1ch,007dh,0502h,1680h,1008h,07e3h,e000h,
+<6>[  120.230694] c1 5800h,4880h,fa83h,ea80h,d1a6h,1479h,4347h,05a3h,
+<6>[  120.230744] c1 3bdch,091dh,281fh,1700h,d0f8h,d295h,a130h,2a12h,
+<6>[  120.265675] c1 0c47h,0a4ah,0001h,167dh,0003h,0004h,0054h,ffffh,
+<6>[  120.265723] c1 4c10h,000ch,4c30h,0000h,4000h,0000h,cf60h,0420h,
+<6>[  120.300656] c1 0000h,0000h,0000h,0000h,0000h,0000h,4721h,01cdh,
+<6>[  120.300703] c1 3c60h,5437h,fad9h,cc5ah,006eh,3910h,c844h,417eh,
+<6>[  120.325077] c1 
+<6>[  120.326971] c1 smb347_get_charging_state : 0x3dh(0x05)
+<6>[  120.327031] c1 BAT : soc(88), vcell(4006mV), curr(-218mA), avg curr(-219mA), temp(29.0), chg(1)
+<6>[  120.327106] c1 , full(0), rechg(0), lowbat(0), cable(1)
+<6>[  120.327223] c1 level = 88
+<6>[  150.341660] c1 fg_read_temp: temper(29109, 0x1d1c)
+<6>[  150.343963] c1 fg_read_soc: soc(88), psoc(8728), vfsoc(65)
+<6>[  150.349286] c1 fg_read_soc: soc(88), psoc(8728), vfsoc(65)
+<6>[  150.350145] c1 fg_read_vcell: vcell(4002, 0xc820)
+<6>[  150.351706] c1 fg_read_current: curr(-222), avg_curr(-211mA)
+<6>[  150.355535] c1 avg_v(4005), fullcap(6354), remcap(5547), mixcap(5576), avcap(5563)
+<6>[  150.380105] c1 [MAX17042] 18/10/2026 16:41,
+<6>[  150.392222] c1 0000h,ff00h,7f80h,ff01h,0000h,2b56h,574ah,4362h,
+<6>[  150.392287] c1 1d1ch,c820h,fa70h,fab7h,001ah,471bh,57bbh,2b91h,
+<6>[  150.427111] c1 31a4h,41cah,7d5ah,0000h,0567h,0148h,1d47h,b72ah,
+<6>[  150.427174] c1 4996h,c842h,2b13h,ed7ch,27bbh,2214h,0600h,2b77h,
+<6>[  150.462090] c1 4d78h,0092h,f72bh,3cddh,1400h,2305h,1d47h,789eh,
+<6>[  150.462156] c1 0076h,87a4h,506bh,0010h,e3e1h,290eh,377eh,0000h,
+<6>[  150.495645] c1 789ah,5942h,0800h,0000h,0502h,3d44h,0100h,05e0h,
+<6>[  150.495693] c1 0076h,1a1ch,007dh,0502h,1680h,1008h,088fh,e000h,
+<6>[  150.530665] c1 1800h,42c0h,fab6h,9180h,c84fh,1479h,4347h,05b1h,
+<6>[  150.530713] c1 3bdch,5a24h,2813h,7800h,d0f8h,d292h,17d7h,22b4h,
+<6>[  150.565636] c1 0c47h,0a48h,0001h,167dh,0007h,0000h,0085h,ffffh,
+<6>[  150.565683] c1 4c10h,000ch,4c30h,0000h,4000h,0000h,cf50h,0420h,
+<6>[  150.600667] c1 0000h,0000h,0000h,0000h,0000h,0000h,471bh,fe24h,
+<6>[  150.600716] c1 3c58h,542ah,fac7h,cc4bh,006eh,3910h,c83eh,416ah,
+<6>[  150.625066] c1 
+<6>[  150.626957] c1 smb347_get_charging_state : 0x3dh(0x05)
+<6>[  150.627017] c1 BAT : soc(88), vcell(4002mV), curr(-222mA), avg curr(-211mA), temp(29.1), chg(1)
+<6>[  150.627092] c1 , full(0), rechg(0), lowbat(0), cable(1)
+<6>[  150.627202] c1 level = 88
+<6>[  166.840873] c2 backlight panel: brightness=5
+<6>[  168.135196] c1 Atmel MXT1664S 3-004a: P: id[0]
+<6>[  168.135858] c1 backlight panel: brightness=112
+<6>[  168.141979] c1 level = 88
+<6>[  168.686106] c1 Atmel MXT1664S 3-004a: R: id[0] M[69]
+<5>[  168.686172] c1 random: nonblocking pool is initialized
+<6>[  180.641662] c1 fg_read_temp: temper(29167, 0x1d2b)
+<6>[  180.643970] c1 fg_read_soc: soc(88), psoc(8726), vfsoc(65)
+<6>[  180.649307] c1 fg_read_soc: soc(88), psoc(8726), vfsoc(65)
+<6>[  180.650170] c1 fg_read_vcell: vcell(4001, 0xc818)
+<6>[  180.651730] c1 fg_read_current: curr(-197), avg_curr(-208mA)
+<6>[  180.655561] c1 avg_v(4004), fullcap(6354), remcap(5545), mixcap(5574), avcap(5561)
+<6>[  180.680106] c1 [MAX17042] 18/10/2026 16:42,
+<6>[  180.692170] c1 0000h,ff00h,7f80h,ff01h,0000h,2b53h,5744h,4362h,
+<6>[  180.692235] c1 1d2bh,c818h,fb10h,fac9h,001ah,4718h,57b2h,2b8dh,
+<6>[  180.727091] c1 31a4h,42a7h,7d5ah,0000h,0598h,0148h,1d44h,b72ah,
+<6>[  180.727158] c1 4996h,c834h,2b13h,ed7ch,27bbh,2214h,0600h,2b73h,
+<6>[  180.762094] c1 4d78h,0092h,f72bh,3cddh,1400h,2305h,1d44h,787eh,
+<6>[  180.762158] c1 0076h,87a4h,506bh,0010h,e3e1h,290eh,377eh,0000h,
+<6>[  180.795903] c1 5799h,3ea0h,0800h,0000h,0502h,3d43h,0100h,05e0h,
+<6>[  180.795951] c1 0076h,1a1ch,007dh,0502h,1680h,1008h,093ch,e000h,
+<6>[  180.830608] c1 b000h,1e00h,fac7h,4880h,c84fh,1479h,4347h,05c2h,
+<6>[  180.830655] c1 3bdch,be21h,2806h,8600h,d0f8h,d28eh,a190h,1b7ch,
+<6>[  180.865604] c1 0c90h,3eceh,ff1fh,3eceh,0598h,fff7h,ff87h,0001h,
+<6>[  180.865652] c1 4c10h,000ch,4c30h,0000h,4000h,0000h,cf50h,0420h,
+<6>[  180.900608] c1 0000h,0000h,0000h,0000h,0000h,0000h,4718h,fa79h,
+<6>[  180.900656] c1 3c3fh,5415h,fa39h,cc3dh,006eh,3910h,c7f2h,4156h,
+<6>[  180.925063] c1 
+<6>[  180.926955] c1 smb347_get_charging_state : 0x3dh(0x05)
+<6>[  180.927015] c1 BAT : soc(88), vcell(4001mV), curr(-197mA), avg curr(-209mA), temp(29.1), chg(1)
+<6>[  180.927090] c1 , full(0), rechg(0), lowbat(0), cable(1)
+<6>[  180.927215] c1 level = 88
+<6>[  184.080500] c0 sec-thermistor sec-thermistor: notify_change_of_temperature: uevent: TEMPERATURE=330
+<6>[  211.837597] c1 fg_read_temp: temper(29202, 0x1d34)
+<6>[  211.839905] c1 fg_read_soc: soc(88), psoc(8724), vfsoc(65)
+<6>[  211.845408] c1 fg_read_soc: soc(88), psoc(8724), vfsoc(65)
+<6>[  211.846229] c1 fg_read_vcell: vcell(3995, 0xc7c8)
+<6>[  211.847786] c1 fg_read_current: curr(-221), avg_curr(-211mA)
+<6>[  211.851616] c1 avg_v(4001), fullcap(6354), remcap(5543), mixcap(5572), avcap(5559)
+<6>[  211.875107] c1 [MAX17042] 18/10/2026 16:42,
+<6>[  211.887140] c1 0000h,ff00h,7f80h,ff01h,0000h,2b4fh,573eh,4362h,
+<6>[  211.887204] c1 1d34h,c7feh,fab0h,fab6h,001ah,4711h,57abh,2b89h,
+<6>[  211.922068] c1 31a4h,41a5h,7d5ah,0000h,05c3h,0148h,1d41h,b72ah,
+<6>[  211.922133] c1 4996h,c815h,2b13h,ed7ch,27bbh,2214h,0600h,2b6fh,
+<6>[  211.957070] c1 4d78h,0092h,f72bh,3cddh,1400h,2305h,1d41h,7866h,
+<6>[  211.957134] c1 0076h,87a4h,506bh,0010h,e3e1h,290eh,377eh,0000h,
+<6>[  211.990888] c1 7dceh,5753h,0800h,0000h,0502h,3d43h,0100h,05e0h,
+<6>[  211.990935] c1 0076h,1a1ch,007dh,0502h,1680h,1008h,09edh,e000h,
+<6>[  212.025604] c1 f800h,ed80h,fab5h,ce80h,c84fh,1479h,4347h,05cfh,
+<6>[  212.025653] c1 3bdch,ebe9h,27fah,f500h,d0f8h,d28ah,f6c1h,13d7h,
+<6>[  212.060631] c1 04ceh,07ceh,f77eh,3200h,000fh,0000h,ff8fh,0000h,
+<6>[  212.060680] c1 4c10h,000ch,4c30h,0000h,4000h,0000h,cf50h,0420h,
+<6>[  212.095619] c1 0000h,0000h,0000h,0000h,0000h,0000h,4711h,f440h,
+<6>[  212.095667] c1 3c33h,53feh,fb6dh,cc2eh,006eh,3910h,c7bch,4142h,
+<6>[  212.120071] c1 
+<6>[  212.121962] c1 smb347_get_charging_state : 0x3dh(0x05)
+<6>[  212.122022] c1 BAT : soc(88), vcell(3995mV), curr(-221mA), avg curr(-211mA), temp(29.2), chg(1)
+<6>[  212.122102] c1 , full(0), rechg(0), lowbat(0), cable(1)
+<6>[  212.122224] c1 level = 88
+<6>[  243.512363] c1 fg_read_temp: temper(29218, 0x1d38)
+<6>[  243.514676] c1 fg_read_soc: soc(88), psoc(8721), vfsoc(65)
+<6>[  243.520052] c1 fg_read_soc: soc(88), psoc(8721), vfsoc(65)
+<6>[  243.520879] c1 fg_read_vcell: vcell(3997, 0xc7dc)
+<6>[  243.522432] c1 fg_read_current: curr(-216), avg_curr(-206mA)
+<6>[  243.526261] c1 avg_v(3999), fullcap(6354), remcap(5542), mixcap(5571), avcap(5559)
+<6>[  243.550105] c1 [MAX17042] 18/10/2026 16:43,
+<6>[  243.562162] c1 0000h,ff00h,7f80h,ff01h,0000h,2b4ch,5738h,4362h,
+<6>[  243.562227] c1 1d3fh,c7d8h,fab4h,fad4h,0018h,470bh,57a5h,2b86h,
+<6>[  243.595906] c1 31a4h,432dh,7d5ah,0000h,05ebh,0148h,1d40h,b72ah,
+<6>[  243.595956] c1 4996h,c7fbh,2b13h,ed7ch,27bbh,2214h,0600h,2b6eh,
+<6>[  243.630637] c1 4d78h,0092h,f72bh,3cddh,1400h,2305h,1d40h,784eh,
+<6>[  243.630686] c1 0076h,87a4h,506bh,0010h,e3e1h,290eh,377eh,0000h,
+<6>[  243.665640] c1 60a5h,414eh,0800h,0000h,0502h,3d43h,0100h,05e0h,
+<6>[  243.665688] c1 0076h,1a1ch,007dh,0502h,1680h,1008h,0aa1h,e000h,
+<6>[  243.700630] c1 6000h,7ee0h,fad4h,5380h,c84fh,1479h,4347h,05dch,
+<6>[  243.700677] c1 3bdch,16cfh,27eeh,2100h,d0f8h,d287h,49ceh,0c2dh,
+<6>[  243.735626] c1 04aeh,03fch,f7a8h,7f81h,ff00h,ffffh,bbffh,ffffh,
+<6>[  243.735673] c1 4c10h,000ch,4c30h,0000h,4000h,0000h,cf50h,0420h,
+<6>[  243.770620] c1 0000h,0000h,0000h,0000h,0000h,0000h,470bh,f4b6h,
+<6>[  243.770670] c1 3c26h,540dh,fad5h,cc1eh,006eh,3910h,c7e0h,412fh,
+<6>[  243.795059] c1 
+<6>[  243.796944] c1 smb347_get_charging_state : 0x3dh(0x05)
+<6>[  243.797005] c1 BAT : soc(88), vcell(3997mV), curr(-216mA), avg curr(-207mA), temp(29.2), chg(1)
+<6>[  243.797081] c1 , full(0), rechg(0), lowbat(0), cable(1)
+<6>[  243.797208] c1 level = 88
+<6>[  248.458953] c2 backlight panel: brightness=5
+<6>[  250.462455] c2 backlight panel: brightness=0
+<6>[  250.463134] c2 s3cfb s3cfb.0: change blank mode=4, fb2
+<6>[  250.710151] c2 backlight panel: brightness=0
+<6>[  274.430567] c0 sec-thermistor sec-thermistor: notify_change_of_temperature: uevent: TEMPERATURE=310
+<6>[  274.437372] c1 fg_read_temp: temper(29187, 0x1d30)
+<6>[  274.439858] c1 fg_read_soc: soc(88), psoc(8721), vfsoc(65)
+<6>[  274.445589] c1 fg_read_soc: soc(88), psoc(8721), vfsoc(65)
+<6>[  274.446510] c1 fg_read_vcell: vcell(4085, 0xcc4c)
+<6>[  274.448193] c1 fg_read_current: curr(114), avg_curr(84mA)
+<6>[  274.452293] c1 avg_v(4033), fullcap(6354), remcap(5542), mixcap(5571), avcap(5571)
+<6>[  274.475051] c1 [MAX17042] 18/10/2026 16:43,
+<6>[  274.485635] c1 0000h,ff00h,7f80h,ff01h,0000h,2b4dh,5738h,4362h,
+<6>[  274.485726] c1 1d30h,cc4ch,02dbh,021eh,0000h,470bh,57abh,2b86h,
+<6>[  274.520579] c1 31a4h,ffffh,7d5ah,0000h,05efh,0148h,1d3eh,b72ah,
+<6>[  274.520673] c1 4996h,c9b6h,2b13h,ed7ch,27bbh,2214h,0600h,2b86h,
+<6>[  274.556423] c1 4d78h,0092h,f72bh,3cddh,1400h,2305h,1d40h,7896h,
+<6>[  274.556520] c1 0076h,87a4h,506bh,0010h,e3e1h,290eh,377eh,0000h,
+<6>[  274.591474] c1 64deh,43fch,0800h,0000h,0502h,3d43h,0100h,05e0h,
+<6>[  274.591582] c1 0076h,1a1ch,007dh,0502h,1680h,1408h,0b51h,e000h,
+<6>[  274.626443] c1 b000h,ee60h,fae1h,4d00h,c84fh,1479h,4347h,05d9h,
+<6>[  274.626542] c1 3bdch,01a3h,27eeh,7b00h,d0f8h,d288h,5c82h,0e03h,
+<6>[  274.661509] c1 0043h,4362h,0001h,406ch,2b4dh,04d1h,fea0h,0002h,
+<6>[  274.661616] c1 4c10h,000ch,4c30h,0000h,4000h,0000h,cf50h,0420h,
+<6>[  274.696465] c1 0000h,0000h,0000h,0000h,0000h,0000h,470bh,fa5ch,
+<6>[  274.696566] c1 3c4bh,55e3h,02b4h,cc1bh,006eh,3910h,cc3eh,412fh,
+<6>[  274.720077] c1 
+<6>[  274.722129] c1 smb347_get_charging_state : 0x3dh(0x05)
+<6>[  274.722235] c1 BAT : soc(88), vcell(4085mV), curr(114mA), avg curr(85mA), temp(29.1), chg(1)
+<6>[  274.722393] c1 , full(0), rechg(0), lowbat(0), cable(1)
+<6>[  274.722579] c1 level = 88
+<6>[  300.000177] c0 [MSC] sii9234_enqueue_msc_work() add item, addr = 0xee94e360, cnt=1
+<6>[  300.000351] c0 [MSC] sii9234_enqueue_msc_work() command(0xe0), offset(0x31), data_1(0x0), data_2(0x0)
+<6>[  300.000541] c0 [MSC] sii9234_enqueue_msc_work() msc work schedule
+<6>[  300.000740] c1 sii9234_process_msc_work() - start
+<6>[  300.000863] c1 [MSC] sii9234_process_msc_work() command(0xe0), offset(0x31), data_1(0x0), data_2(0x0)
+<6>[  300.001055] c1 sii9234_process_msc_work(): msc_req_locked error -2
+<6>[  304.495583] c0 sec-thermistor sec-thermistor: notify_change_of_temperature: uevent: TEMPERATURE=300
+<6>[  307.544339] c1 fg_read_temp: temper(29167, 0x1d2b)
+<6>[  307.547073] c1 fg_read_soc: soc(88), psoc(8724), vfsoc(65)
+<6>[  307.551968] c1 fg_check_vf_fullcap_range: prevVFFCap(0x3cdd), newVFFcap(0x3cdd)
+<6>[  307.552123] c1 fg_check_vf_fullcap_range: keep VFFCap: newVFFcap(0x3cdd)
+<6>[  307.554628] c1 fg_read_soc: soc(88), psoc(8724), vfsoc(65)
+<6>[  307.555585] c1 fg_read_vcell: vcell(4087, 0xcc66)
+<6>[  307.557272] c1 fg_read_current: curr(114), avg_curr(114mA)
+<6>[  307.561365] c1 avg_v(4062), fullcap(6354), remcap(5543), mixcap(5572), avcap(5572)
+<6>[  307.585119] c1 [MAX17042] 18/10/2026 16:44,
+<6>[  307.597839] c1 0000h,ff00h,7f80h,ff01h,0000h,2b4fh,573eh,4362h,
+<6>[  307.597937] c1 1d2bh,cc6ah,02b4h,02deh,0000h,470eh,57aeh,2b88h,
+<6>[  307.631454] c1 31a4h,ffffh,7d5ah,0000h,05efh,0148h,1d3dh,b72ah,
+<6>[  307.631556] c1 4996h,cb1bh,2b13h,ed7ch,27bbh,2214h,0600h,2b88h,
+<6>[  307.666416] c1 4d78h,0092h,f72bh,3cddh,1400h,2305h,1d40h,787eh,
+<6>[  307.666515] c1 0076h,87a4h,506bh,0010h,e3e1h,290eh,377eh,0000h,
+<6>[  307.701626] c1 64deh,43fch,0800h,0000h,0502h,3d43h,0100h,05e0h,
+<6>[  307.701682] c1 0076h,1a1ch,007dh,0502h,1680h,1408h,0c0dh,e000h,
+<6>[  307.734769] c1 a800h,7700h,fae1h,4500h,c84fh,1479h,4347h,05d9h,
+<6>[  307.734825] c1 3bdch,f9b3h,27eeh,7600h,d0f8h,d28ah,7f2ah,11f3h,
+<6>[  307.765305] c1 0275h,0000h,8500h,0800h,0007h,0000h,cc4eh,ffffh,
+<6>[  307.765371] c1 4c10h,000ch,4c30h,0000h,4000h,0000h,cf50h,0420h,
+<6>[  307.800905] c1 0000h,0000h,0000h,0000h,0000h,0000h,470eh,f817h,
+<6>[  307.801009] c1 3c3fh,55eah,0237h,cc1ch,006eh,3910h,cc4eh,412fh,
+<6>[  307.825082] c1 
+<6>[  307.827132] c1 smb347_get_charging_state : 0x3dh(0x05)
+<6>[  307.827245] c1 BAT : soc(88), vcell(4087mV), curr(114mA), avg curr(114mA), temp(29.1), chg(1)
+<6>[  307.827394] c1 , full(0), rechg(0), lowbat(0), cable(1)
+<6>[  307.827581] c1 level = 88
+<6>[  340.041752] c1 fg_read_temp: temper(29202, 0x1d34)
+<6>[  340.044242] c1 fg_read_soc: soc(88), psoc(8725), vfsoc(65)
+<6>[  340.050595] c1 fg_read_soc: soc(88), psoc(8725), vfsoc(65)
+<6>[  340.051512] c1 fg_read_vcell: vcell(4092, 0xcca4)
+<6>[  340.053195] c1 fg_read_current: curr(112), avg_curr(114mA)
+<6>[  340.057359] c1 avg_v(4076), fullcap(6354), remcap(5544), mixcap(5573), avcap(5573)
+<6>[  340.080157] c1 [MAX17042] 18/10/2026 16:45,
+<6>[  340.093113] c1 0000h,ff00h,7f80h,ff01h,0000h,2b51h,5741h,4362h,
+<6>[  340.093230] c1 1d34h,cca4h,02d0h,02ddh,0000h,4711h,57b5h,2b8ah,
+<6>[  340.126543] c1 31a4h,ffffh,7d5ah,0000h,05efh,0148h,1d3ch,b72ah,
+<6>[  340.126640] c1 4996h,cbd7h,2b13h,ed7ch,27bbh,2214h,0600h,2b8ah,
+<6>[  340.161537] c1 4d78h,0092h,f72bh,3cddh,1400h,2305h,1d40h,7866h,
+<6>[  340.161646] c1 0076h,87a4h,506bh,0010h,e3e1h,290eh,377eh,0000h,
+<6>[  340.196540] c1 64deh,43fch,0800h,0000h,0502h,3d43h,0100h,05e0h,
+<6>[  340.196637] c1 0076h,1a1ch,007dh,0502h,1680h,1408h,0cc5h,e000h,
+<6>[  340.231593] c1 f800h,8320h,fae1h,3180h,c84fh,1479h,4347h,05d9h,
+<6>[  340.231704] c1 3bdch,e623h,27eeh,f000h,d0f8h,d28ch,9584h,15cch,
+<6>[  340.266444] c1 0c47h,0b02h,0001h,167dh,0003h,0006h,fe28h,ffffh,
+<6>[  340.266546] c1 4c10h,000ch,4c30h,0000h,4000h,0000h,cf50h,0420h,
+<6>[  340.301450] c1 0000h,0000h,0000h,0000h,0000h,0000h,4711h,0000h,
+<6>[  340.301553] c1 3c32h,5606h,0310h,cc1dh,006eh,3913h,cc90h,412fh,
+<6>[  340.325083] c1 
+<6>[  340.327151] c1 smb347_get_charging_state : 0x3dh(0x05)
+<6>[  340.327263] c1 BAT : soc(88), vcell(4092mV), curr(112mA), avg curr(114mA), temp(29.2), chg(1)
+<6>[  340.327408] c1 , full(0), rechg(0), lowbat(0), cable(1)
+<6>[  340.327594] c1 level = 88
+<6>[  372.041766] c1 fg_read_temp: temper(29202, 0x1d34)
+<6>[  372.044276] c1 fg_read_soc: soc(88), psoc(8726), vfsoc(65)
+<6>[  372.050238] c1 fg_read_soc: soc(88), psoc(8726), vfsoc(65)
+<6>[  372.051161] c1 fg_read_vcell: vcell(4087, 0xcc60)
+<6>[  372.052866] c1 fg_read_current: curr(99), avg_curr(91mA)
+<6>[  372.056984] c1 avg_v(4081), fullcap(6354), remcap(5545), mixcap(5574), avcap(5574)
+<6>[  372.080122] c1 [MAX17042] 18/10/2026 16:45,
+<6>[  372.092956] c1 0000h,ff00h,7f80h,ff01h,0000h,2b52h,5744h,4362h,
+<6>[  372.093071] c1 1d34h,cc60h,027ch,0249h,0000h,4714h,57b8h,2b8ch,
+<6>[  372.126432] c1 31a4h,ffffh,7d5ah,0000h,05efh,0148h,1d3bh,b72ah,
+<6>[  372.126540] c1 4996h,cc18h,2b13h,ed7ch,27bbh,2214h,0600h,2b8ch,
+<6>[  372.161440] c1 4d78h,0092h,f72bh,3cddh,1400h,2305h,1d40h,7866h,
+<6>[  372.161545] c1 0076h,87a4h,506bh,0010h,e3e1h,290eh,377eh,0000h,
+<6>[  372.196430] c1 64deh,43fch,0800h,0000h,0502h,3d43h,0100h,05e0h,
+<6>[  372.196543] c1 0076h,1a1ch,007dh,0502h,1680h,1408h,0d7bh,e000h,
+<6>[  372.231437] c1 9000h,c8e0h,fae1h,a700h,c84fh,1479h,4347h,05d9h,
+<6>[  372.231560] c1 3bdch,5b86h,27eeh,3a00h,d0f8h,d28eh,3423h,18b7h,
+<6>[  372.266463] c1 0c47h,0b02h,0001h,167dh,0003h,0004h,fc7fh,ffffh,
+<6>[  372.266570] c1 4c10h,000ch,4c30h,0000h,4000h,0000h,cf50h,0420h,
+<6>[  372.301460] c1 0000h,0000h,0000h,0000h,0000h,0000h,4714h,03a9h,
+<6>[  372.301591] c1 3c33h,55f8h,0174h,cc1eh,006eh,3910h,cc6eh,412fh,
+<6>[  372.325088] c1 
+<6>[  372.327136] c1 smb347_get_charging_state : 0x3dh(0x05)
+<6>[  372.327243] c1 BAT : soc(88), vcell(4087mV), curr(99mA), avg curr(90mA), temp(29.2), chg(1)
+<6>[  372.327419] c1 , full(0), rechg(0), lowbat(0), cable(1)
+<6>[  372.327623] c1 level = 88
+<6>[  404.041745] c1 fg_read_temp: temper(29187, 0x1d30)
+<6>[  404.044219] c1 fg_read_soc: soc(88), psoc(8727), vfsoc(65)
+<6>[  404.050138] c1 fg_read_soc: soc(88), psoc(8727), vfsoc(65)
+<6>[  404.051077] c1 fg_read_vcell: vcell(4087, 0xcc60)
+<6>[  404.052771] c1 fg_read_current: curr(83), avg_curr(90mA)
+<6>[  404.056866] c1 avg_v(4084), fullcap(6354), remcap(5546), mixcap(5574), avcap(5574)
+<6>[  404.080122] c1 [MAX17042] 18/10/2026 16:46,
+<6>[  404.092896] c1 0000h,ff00h,7f80h,ff01h,0000h,2b54h,5747h,4362h,
+<6>[  404.093029] c1 1d30h,cc60h,0214h,023fh,0000h,4718h,57bbh,2b8dh,
+<6>[  404.126421] c1 31a4h,ffffh,7d5ah,0000h,05efh,0148h,1d3bh,b72ah,
+<6>[  404.126539] c1 4996h,cc3bh,2b13h,ed7ch,27bbh,2214h,0600h,2b8dh,
+<6>[  404.161425] c1 4d78h,0092h,f72bh,3cddh,1400h,2305h,1d40h,786eh,
+<6>[  404.161538] c1 0076h,87a4h,506bh,0010h,e3e1h,290eh,377eh,0000h,
+<6>[  404.196422] c1 64deh,43fch,0800h,0000h,0502h,3d43h,0100h,05e0h,
+<6>[  404.196548] c1 0076h,1a1ch,007dh,0502h,1680h,1408h,0e31h,e000h,
+<6>[  404.231420] c1 d800h,1f20h,fae1h,1700h,c84fh,1479h,4347h,05d9h,
+<6>[  404.231520] c1 3bdch,cb87h,27eeh,a400h,d0f8h,d28fh,cd26h,1b97h,
+<6>[  404.266426] c1 0d76h,0002h,fbc7h,0000h,ffffh,0000h,0003h,0002h,
+<6>[  404.266553] c1 4c10h,000ch,4c30h,0000h,4000h,0000h,cf50h,0420h,
+<6>[  404.301445] c1 0000h,0000h,0000h,0000h,0000h,0000h,4718h,06f0h,
+<6>[  404.301541] c1 3c36h,55f1h,0201h,cc1fh,006eh,3910h,cc5eh,412fh,
+<6>[  404.325086] c1 
+<6>[  404.327134] c1 smb347_get_charging_state : 0x3dh(0x05)
+<6>[  404.327256] c1 BAT : soc(88), vcell(4087mV), curr(83mA), avg curr(89mA), temp(29.1), chg(1)
+<6>[  404.327398] c1 , full(0), rechg(0), lowbat(0), cable(1)
+<6>[  404.327568] c1 level = 88
+<6>[  436.041751] c1 fg_read_temp: temper(29171, 0x1d2c)
+<6>[  436.044253] c1 fg_read_soc: soc(88), psoc(8728), vfsoc(65)
+<6>[  436.050628] c1 fg_read_soc: soc(88), psoc(8728), vfsoc(65)
+<6>[  436.051546] c1 fg_read_vcell: vcell(4087, 0xcc64)
+<6>[  436.053255] c1 fg_read_current: curr(106), avg_curr(91mA)
+<6>[  436.057387] c1 avg_v(4086), fullcap(6354), remcap(5546), mixcap(5575), avcap(5575)
+<6>[  436.080091] c1 [MAX17042] 18/10/2026 16:46,
+<6>[  436.091519] c1 0000h,ff00h,7f80h,ff01h,0000h,2b55h,574ah,4362h,
+<6>[  436.091645] c1 1d2ch,cc52h,0288h,0249h,0000h,4718h,57beh,2b8fh,
+<6>[  436.126426] c1 31a4h,ffffh,7d5ah,0000h,05efh,0148h,1d3ah,b72ah,
+<6>[  436.126524] c1 4996h,cc50h,2b13h,ed7ch,27bbh,2214h,0600h,2b8fh,
+<6>[  436.161429] c1 4d78h,0092h,f72bh,3cddh,1400h,2305h,1d40h,7878h,
+<6>[  436.161556] c1 0076h,87a4h,506bh,0010h,e3e1h,290eh,377eh,0000h,
+<6>[  436.196421] c1 64deh,43fch,0800h,0000h,0502h,3d43h,0100h,05e0h,
+<6>[  436.196526] c1 0076h,1a1ch,007dh,0502h,1680h,1408h,0ee7h,e000h,
+<6>[  436.231419] c1 6800h,5e40h,fae1h,8b00h,c84fh,1479h,4347h,05d9h,
+<6>[  436.231554] c1 3bdch,3fc1h,27fah,f500h,d0f8h,d291h,6a9ch,1e7fh,
+<6>[  436.266438] c1 057ah,0000h,f7f6h,0003h,0000h,020fh,4718h,0003h,
+<6>[  436.266544] c1 4c10h,000ch,4c30h,0000h,4000h,0000h,cf50h,0420h,
+<6>[  436.301442] c1 0000h,0000h,0000h,0000h,0000h,0000h,4718h,0a6eh,
+<6>[  436.301566] c1 3c3ch,55f8h,01ffh,cc20h,006eh,3910h,cc6eh,4142h,
+<6>[  436.325085] c1 
+<6>[  436.327125] c1 smb347_get_charging_state : 0x3dh(0x05)
+<6>[  436.327251] c1 BAT : soc(88), vcell(4087mV), curr(106mA), avg curr(91mA), temp(29.1), chg(1)
+<6>[  436.327441] c1 , full(0), rechg(0), lowbat(0), cable(1)
+<6>[  436.327616] c1 level = 88
+<6>[  468.041744] c1 fg_read_temp: temper(29183, 0x1d2f)
+<6>[  468.044236] c1 fg_read_soc: soc(88), psoc(8730), vfsoc(65)
+<6>[  468.050623] c1 fg_read_soc: soc(88), psoc(8730), vfsoc(65)
+<6>[  468.051554] c1 fg_read_vcell: vcell(4087, 0xcc66)
+<6>[  468.053243] c1 fg_read_current: curr(93), avg_curr(90mA)
+<6>[  468.057365] c1 avg_v(4087), fullcap(6354), remcap(5547), mixcap(5576), avcap(5576)
+<6>[  468.080090] c1 [MAX17042] 18/10/2026 16:47,
+<6>[  468.091542] c1 0000h,ff00h,7f80h,ff01h,0000h,2b56h,574eh,4362h,
+<6>[  468.091646] c1 1d2fh,cc74h,01e0h,0243h,0000h,471bh,57beh,2b90h,
+<6>[  468.126522] c1 31a4h,ffffh,7d5ah,0000h,05efh,0148h,1d39h,b72ah,
+<6>[  468.126655] c1 4996h,cc5fh,2b13h,ed7ch,27bbh,2214h,0600h,2b90h,
+<6>[  468.161479] c1 4d78h,0092h,f72bh,3cddh,1400h,2305h,1d40h,7876h,
+<6>[  468.161577] c1 0076h,87a4h,506bh,0010h,e3e1h,290eh,377eh,0000h,
+<6>[  468.196479] c1 64deh,43fch,0800h,0000h,0502h,3d43h,0100h,05e0h,
+<6>[  468.196606] c1 0076h,1a1ch,007dh,0502h,1680h,1408h,0f9dh,e000h,
+<6>[  468.231432] c1 d800h,b2c0h,fae1h,fd00h,c84fh,1479h,4347h,05d9h,
+<6>[  468.231539] c1 3bdch,b1f3h,27fah,2b00h,d0f8h,d293h,060ah,2163h,
+<6>[  468.266492] c1 02ffh,01f4h,f562h,3c3bh,c000h,0000h,3c3bh,0002h,
+<6>[  468.266609] c1 4c10h,000ch,4c30h,0000h,4000h,0000h,cf50h,0420h,
+<6>[  468.301486] c1 0000h,0000h,0000h,0000h,0000h,0000h,471bh,f757h,
+<6>[  468.301608] c1 3c3bh,55fdh,01e6h,cc21h,006eh,3910h,cc7ah,4142h,
+<6>[  468.325086] c1 
+<6>[  468.327134] c1 smb347_get_charging_state : 0x3dh(0x05)
+<6>[  468.327238] c1 BAT : soc(88), vcell(4087mV), curr(93mA), avg curr(90mA), temp(29.1), chg(1)
+<6>[  468.327401] c1 , full(0), rechg(0), lowbat(0), cable(1)
+<6>[  468.327601] c1 level = 88
+<6>[  500.041751] c1 fg_read_temp: temper(29218, 0x1d38)
+<6>[  500.044239] c1 fg_read_soc: soc(88), psoc(8731), vfsoc(65)
+<6>[  500.050307] c1 fg_read_soc: soc(88), psoc(8731), vfsoc(65)
+<6>[  500.051249] c1 fg_read_vcell: vcell(4089, 0xcc7e)
+<6>[  500.052954] c1 fg_read_current: curr(85), avg_curr(91mA)
+<6>[  500.057065] c1 avg_v(4088), fullcap(6354), remcap(5548), mixcap(5577), avcap(5577)
+<6>[  500.080126] c1 [MAX17042] 18/10/2026 16:47,
+<6>[  500.092958] c1 0000h,ff00h,7f80h,ff01h,0000h,2b58h,5751h,4362h,
+<6>[  500.093098] c1 1d38h,cc7eh,0220h,0249h,0000h,471eh,57c4h,2b92h,
+<6>[  500.126497] c1 31a4h,ffffh,7d5ah,0000h,05efh,0148h,1d39h,b72ah,
+<6>[  500.126613] c1 4996h,cc69h,2b13h,ed7ch,27bbh,2214h,0600h,2b92h,
+<6>[  500.161474] c1 4d78h,0092h,f72bh,3cddh,1400h,2305h,1d40h,785eh,
+<6>[  500.161591] c1 0076h,87a4h,506bh,0010h,e3e1h,290eh,377eh,0000h,
+<6>[  500.196460] c1 64deh,43fch,0800h,0000h,0502h,3d43h,0100h,05e0h,
+<6>[  500.196585] c1 0076h,1a1ch,007dh,0502h,1680h,1408h,1053h,e000h,
+<6>[  500.231461] c1 2800h,2e80h,fae1h,7500h,cc65h,1479h,4347h,05d9h,
+<6>[  500.231560] c1 3bdch,298dh,27fah,5500h,d0f8h,d294h,a6e0h,2453h,
+<6>[  500.266459] c1 0015h,fffeh,0001h,4996h,02b2h,fff7h,006ch,0002h,
+<6>[  500.266589] c1 4c10h,000ch,4c30h,0000h,4000h,0000h,cf50h,0420h,
+<6>[  500.301460] c1 0000h,0000h,0000h,0000h,0000h,0000h,471eh,faabh,
+<6>[  500.301561] c1 3c2fh,55ech,01b8h,cc22h,006eh,3910h,cc52h,4142h,
+<6>[  500.325090] c1 
+<6>[  500.327143] c1 smb347_get_charging_state : 0x3dh(0x05)
+<6>[  500.327274] c1 BAT : soc(88), vcell(4089mV), curr(85mA), avg curr(91mA), temp(29.2), chg(1)
+<6>[  500.327425] c1 , full(0), rechg(0), lowbat(0), cable(1)
+<6>[  500.327601] c1 level = 88
+<6>[  532.041752] c1 fg_read_temp: temper(29187, 0x1d30)
+<6>[  532.044263] c1 fg_read_soc: soc(88), psoc(8732), vfsoc(65)
+<6>[  532.050652] c1 fg_read_soc: soc(88), psoc(8732), vfsoc(65)
+<6>[  532.051573] c1 fg_read_vcell: vcell(4088, 0xcc6a)
+<6>[  532.053276] c1 fg_read_current: curr(80), avg_curr(91mA)
+<6>[  532.057420] c1 avg_v(4088), fullcap(6354), remcap(5548), mixcap(5577), avcap(5577)
+<6>[  532.080123] c1 [MAX17042] 18/10/2026 16:48,
+<6>[  532.092986] c1 0000h,ff00h,7f80h,ff01h,0000h,2b59h,5754h,4362h,
+<6>[  532.093106] c1 1d30h,cc6ah,0203h,024ah,0000h,4721h,57c4h,2b93h,
+<6>[  532.126429] c1 31a4h,ffffh,7d5ah,0000h,05efh,0148h,1d38h,b72ah,
+<6>[  532.126527] c1 4996h,cc71h,2b13h,ed7ch,27bbh,2214h,0600h,2b93h,
+<6>[  532.161471] c1 4d78h,0092h,f72bh,3cddh,1400h,2305h,1d40h,7868h,
+<6>[  532.161573] c1 0076h,87a4h,506bh,0010h,e3e1h,290eh,377eh,0000h,
+<6>[  532.196444] c1 64deh,43fch,0800h,0000h,0502h,3d43h,0100h,05e0h,
+<6>[  532.196541] c1 0076h,1a1ch,007dh,0502h,1680h,1408h,1108h,e000h,
+<6>[  532.231446] c1 7000h,b3c0h,fae1h,e900h,cc65h,1479h,4347h,05d9h,
+<6>[  532.231555] c1 3bdch,9df1h,27fah,1300h,d0f8h,d296h,4480h,273bh,
+<6>[  532.266473] c1 0c47h,0b02h,0001h,167dh,0003h,0001h,fce4h,ffffh,
+<6>[  532.266570] c1 4c10h,000ch,4c30h,0000h,4000h,0000h,cf60h,0420h,
+<6>[  532.301485] c1 0000h,0000h,0000h,0000h,0000h,0000h,4721h,fef2h,
+<6>[  532.301598] c1 3c34h,55edh,020ah,cc24h,006eh,3910h,cc4ch,4142h,
+<6>[  532.325087] c1 
+<6>[  532.327133] c1 smb347_get_charging_state : 0x3dh(0x05)
+<6>[  532.327234] c1 BAT : soc(88), vcell(4088mV), curr(80mA), avg curr(91mA), temp(29.1), chg(1)
+<6>[  532.327389] c1 , full(0), rechg(0), lowbat(0), cable(1)
+<6>[  532.327564] c1 level = 88
+<6>[  562.340542] c1 fg_read_temp: temper(29202, 0x1d34)
+<6>[  562.343020] c1 fg_read_soc: soc(88), psoc(8732), vfsoc(65)
+<6>[  562.348689] c1 fg_read_soc: soc(88), psoc(8732), vfsoc(65)
+<6>[  562.349603] c1 fg_read_vcell: vcell(4090, 0xcc82)
+<6>[  562.351337] c1 fg_read_current: curr(82), avg_curr(90mA)
+<6>[  562.355426] c1 avg_v(4089), fullcap(6354), remcap(5549), mixcap(5578), avcap(5578)
+<6>[  562.380123] c1 [MAX17042] 18/10/2026 16:48,
+<6>[  562.392980] c1 0000h,ff00h,7f80h,ff01h,0000h,2b5bh,5754h,4362h,
+<6>[  562.393095] c1 1d34h,cc82h,0210h,0243h,0000h,4721h,57c7h,2b94h,
+<6>[  562.426421] c1 31a4h,ffffh,7d5ah,0000h,05efh,0148h,1d38h,b72ah,
+<6>[  562.426529] c1 4996h,cc75h,2b13h,ed7ch,27bbh,2214h,0600h,2b94h,
+<6>[  562.461437] c1 4d78h,0092h,f72bh,3cddh,1400h,2305h,1d40h,7866h,
+<6>[  562.461534] c1 0076h,87a4h,506bh,0010h,e3e1h,290eh,377eh,0000h,
+<6>[  562.496479] c1 64deh,43fch,0800h,0000h,0502h,3d43h,0100h,05e0h,
+<6>[  562.496593] c1 0076h,1a1ch,007dh,0502h,1680h,1408h,11b5h,e000h,
+<6>[  562.531442] c1 6800h,45c0h,fae1h,4880h,cc65h,1479h,4347h,05d9h,
+<6>[  562.531539] c1 3bdch,fd07h,27fah,8e00h,d0f8h,d297h,ca8eh,29fah,
+<6>[  562.566509] c1 0c47h,0400h,0001h,167dh,fdffh,fff7h,ff87h,0000h,
+<6>[  562.566617] c1 4c10h,000ch,4c30h,0000h,4000h,0000h,cf60h,0420h,
+<6>[  562.601438] c1 0000h,0000h,0000h,0000h,0000h,0000h,4721h,fae8h,
+<6>[  562.601535] c1 3c32h,5608h,01fch,cc25h,006eh,3910h,cc96h,4142h,
+<6>[  562.625081] c1 
+<6>[  562.627125] c1 smb347_get_charging_state : 0x3dh(0x05)
+<6>[  562.627228] c1 BAT : soc(88), vcell(4090mV), curr(82mA), avg curr(90mA), temp(29.2), chg(1)
+<6>[  562.627374] c1 , full(0), rechg(0), lowbat(0), cable(1)
+<6>[  562.627541] c1 level = 88
+<6>[  592.632463] c1 fg_read_temp: temper(29202, 0x1d34)
+<6>[  592.634947] c1 fg_read_soc: soc(88), psoc(8733), vfsoc(65)
+<6>[  592.640791] c1 fg_read_soc: soc(88), psoc(8733), vfsoc(65)
+<6>[  592.641712] c1 fg_read_vcell: vcell(4090, 0xcc8a)
+<6>[  592.643408] c1 fg_read_current: curr(99), avg_curr(90mA)
+<6>[  592.647563] c1 avg_v(4089), fullcap(6354), remcap(5550), mixcap(5579), avcap(5579)
+<6>[  592.670152] c1 [MAX17042] 18/10/2026 16:49,
+<6>[  592.683015] c1 0000h,ff00h,7f80h,ff01h,0000h,2b5ch,5757h,4362h,
+<6>[  592.683136] c1 1d34h,cc66h,027bh,0243h,0000h,4724h,57cbh,2b96h,
+<6>[  592.716480] c1 31a4h,ffffh,7d5ah,0000h,05efh,0148h,1d37h,b72ah,
+<6>[  592.716578] c1 4996h,cc79h,2b13h,ed7ch,27bbh,2214h,0600h,2b96h,
+<6>[  592.751544] c1 4d78h,0092h,f72bh,3cddh,1400h,2305h,1d40h,7860h,
+<6>[  592.751649] c1 0076h,87a4h,506bh,0010h,e3e1h,290eh,377eh,0000h,
+<6>[  592.786482] c1 64deh,43fch,0800h,0000h,0502h,3d43h,0100h,05e0h,
+<6>[  592.786589] c1 0076h,1a1ch,007dh,0502h,1680h,1408h,1261h,e000h,
+<6>[  592.821524] c1 a800h,a860h,fae1h,a500h,cc65h,1479h,4347h,05d9h,
+<6>[  592.821621] c1 3bdch,59a7h,27fah,dd00h,d0f8h,d299h,4e26h,2cb3h,
+<6>[  592.856455] c1 01ffh,0000h,8500h,0001h,0000h,7700h,0800h,fffeh,
+<6>[  592.856554] c1 4c10h,000ch,4c30h,0000h,4000h,0000h,cf60h,0420h,
+<6>[  592.891536] c1 0000h,0000h,0000h,0000h,0000h,0000h,4724h,f85eh,
+<6>[  592.891633] c1 3c30h,5603h,023eh,cc26h,006eh,3910h,cc8ah,4142h,
+<6>[  592.915099] c1 
+<6>[  592.917147] c1 smb347_get_charging_state : 0x3dh(0x05)
+<6>[  592.917249] c1 BAT : soc(88), vcell(4090mV), curr(99mA), avg curr(90mA), temp(29.2), chg(1)
+<6>[  592.917392] c1 , full(0), rechg(0), lowbat(0), cable(1)
+<6>[  592.917557] c1 level = 88
+<6>[  624.041757] c1 fg_read_temp: temper(29187, 0x1d30)
+<6>[  624.044269] c1 fg_read_soc: soc(88), psoc(8735), vfsoc(65)
+<6>[  624.049676] c1 fg_check_vf_fullcap_range: prevVFFCap(0x3cdd), newVFFcap(0x3cdd)
+<6>[  624.049830] c1 fg_check_vf_fullcap_range: keep VFFCap: newVFFcap(0x3cdd)
+<6>[  624.052423] c1 fg_read_soc: soc(88), psoc(8735), vfsoc(65)
+<6>[  624.053356] c1 fg_read_vcell: vcell(4088, 0xcc6e)
+<6>[  624.055142] c1 fg_read_current: curr(95), avg_curr(90mA)
+<6>[  624.059228] c1 avg_v(4089), fullcap(6354), remcap(5551), mixcap(5579), avcap(5579)
+<6>[  624.080153] c1 [MAX17042] 18/10/2026 16:49,
+<6>[  624.093095] c1 0000h,ff00h,7f80h,ff01h,0000h,2b5eh,575ah,4362h,
+<6>[  624.093215] c1 1d30h,cc6eh,0264h,0243h,0000h,4727h,57ceh,2b97h,
+<6>[  624.126508] c1 31a4h,ffffh,7d5ah,0000h,05efh,0148h,1d37h,b72ah,
+<6>[  624.126610] c1 4996h,cc7dh,2b13h,ed7ch,27bbh,2214h,0600h,2b97h,
+<6>[  624.161539] c1 4d78h,0092h,f72bh,3cddh,1400h,2305h,1d40h,786eh,
+<6>[  624.161643] c1 0076h,87a4h,506bh,0010h,e3e1h,290eh,377eh,0000h,
+<6>[  624.196544] c1 64deh,43fch,0800h,0000h,0502h,3d43h,0100h,05e0h,
+<6>[  624.196645] c1 0076h,1a1ch,007dh,0502h,1680h,1408h,1313h,e000h,
+<6>[  624.231559] c1 9000h,2dc0h,fae1h,0e80h,cc65h,1479h,4347h,05d9h,
+<6>[  624.231664] c1 3bdch,c309h,27fah,ce00h,d0f8h,d29ah,e016h,2f86h,
+<6>[  624.266544] c1 0c47h,0b02h,0001h,167dh,0003h,0004h,fcc0h,ffffh,
+<6>[  624.266652] c1 4c10h,000ch,4c30h,0000h,4000h,0000h,cf60h,0420h,
+<6>[  624.301490] c1 0000h,0000h,0000h,0000h,0000h,0000h,4727h,0462h,
+<6>[  624.301589] c1 3c37h,55f6h,01b4h,cc27h,006eh,3910h,cc6ah,4142h,
+<6>[  624.325087] c1 
+<6>[  624.327151] c1 smb347_get_charging_state : 0x3dh(0x05)
+<6>[  624.327268] c1 BAT : soc(88), vcell(4088mV), curr(95mA), avg curr(90mA), temp(29.1), chg(1)
+<6>[  624.327413] c1 , full(0), rechg(0), lowbat(0), cable(1)
+<6>[  624.327594] c1 level = 88
+<6>[  654.341756] c1 fg_read_temp: temper(29187, 0x1d30)
+<6>[  654.344242] c1 fg_read_soc: soc(88), psoc(8736), vfsoc(65)
+<6>[  654.349937] c1 fg_read_soc: soc(88), psoc(8736), vfsoc(65)
+<6>[  654.350899] c1 fg_read_vcell: vcell(4090, 0xcc8c)
+<6>[  654.352588] c1 fg_read_current: curr(82), avg_curr(90mA)
+<6>[  654.356703] c1 avg_v(4090), fullcap(6354), remcap(5551), mixcap(5580), avcap(5580)
+<6>[  654.380117] c1 [MAX17042] 18/10/2026 16:50,
+<6>[  654.392907] c1 0000h,ff00h,7f80h,ff01h,0000h,2b5fh,575dh,4362h,
+<6>[  654.393029] c1 1d30h,cc8ch,0210h,0245h,0000h,472ah,57d1h,2b99h,
+<6>[  654.426429] c1 31a4h,ffffh,7d5ah,0000h,05efh,0148h,1d36h,b72ah,
+<6>[  654.426528] c1 4996h,cc81h,2b13h,ed7ch,27bbh,2214h,0600h,2b99h,
+<6>[  654.461428] c1 4d78h,0092h,f72bh,3cddh,1400h,2305h,1d40h,786eh,
+<6>[  654.461541] c1 0076h,87a4h,506bh,0010h,e3e1h,290eh,377eh,0000h,
+<6>[  654.496422] c1 64deh,43fch,0800h,0000h,0502h,3d43h,0100h,05e0h,
+<6>[  654.496520] c1 0076h,1a1ch,007dh,0502h,1680h,1408h,13bfh,e000h,
+<6>[  654.531425] c1 8800h,d2e0h,fae1h,6e80h,cc65h,1479h,4347h,05d9h,
+<6>[  654.531522] c1 3bdch,2310h,27fah,b900h,d0f8h,d29ch,6715h,3246h,
+<6>[  654.566428] c1 0c47h,0b00h,0001h,167dh,0007h,0000h,fcc8h,ffffh,
+<6>[  654.566534] c1 4c10h,000ch,4c30h,0000h,4000h,0000h,cf60h,0420h,
+<6>[  654.601432] c1 0000h,0000h,0000h,0000h,0000h,0000h,472ah,0096h,
+<6>[  654.601529] c1 3c37h,5601h,01bch,cc29h,006eh,3910h,cc84h,4142h,
+<6>[  654.625079] c1 
+<6>[  654.627130] c1 smb347_get_charging_state : 0x3dh(0x05)
+<6>[  654.627234] c1 BAT : soc(88), vcell(4090mV), curr(82mA), avg curr(90mA), temp(29.1), chg(1)
+<6>[  654.627382] c1 , full(0), rechg(0), lowbat(0), cable(1)
+<6>[  654.627553] c1 level = 88
+<6>[  684.641759] c1 fg_read_temp: temper(29183, 0x1d2f)
+<6>[  684.644251] c1 fg_read_soc: soc(88), psoc(8737), vfsoc(65)
+<6>[  684.649944] c1 fg_read_soc: soc(88), psoc(8737), vfsoc(65)
+<6>[  684.650910] c1 fg_read_vcell: vcell(4090, 0xcc8c)
+<6>[  684.652597] c1 fg_read_current: curr(92), avg_curr(90mA)
+<6>[  684.656702] c1 avg_v(4090), fullcap(6354), remcap(5552), mixcap(5581), avcap(5581)
+<6>[  684.680119] c1 [MAX17042] 18/10/2026 16:50,
+<6>[  684.692906] c1 0000h,ff00h,7f80h,ff01h,0000h,2b60h,5760h,4362h,
+<6>[  684.693023] c1 1d2fh,cc8ch,0250h,0246h,0000h,472ah,57d4h,2b9ah,
+<6>[  684.726426] c1 31a4h,ffffh,7d5ah,0000h,05efh,0148h,1d36h,b72ah,
+<6>[  684.726531] c1 4996h,cc85h,2b13h,ed7ch,27bbh,2214h,0600h,2b9ah,
+<6>[  684.761455] c1 4d78h,0092h,f72bh,3cddh,1400h,2305h,1d40h,7876h,
+<6>[  684.761556] c1 0076h,87a4h,506bh,0010h,e3e1h,290eh,377eh,0000h,
+<6>[  684.796496] c1 64deh,43fch,0800h,0000h,0502h,3d43h,0100h,05e0h,
+<6>[  684.796600] c1 0076h,1a1ch,007dh,0502h,1680h,1408h,146ch,e000h,
+<6>[  684.831434] c1 2800h,5180h,fae1h,cd80h,cc65h,1479h,4347h,05d9h,
+<6>[  684.831538] c1 3bdch,8261h,27fah,a800h,d0f8h,d29dh,ed5eh,3504h,
+<6>[  684.866492] c1 0c47h,0b02h,0001h,167dh,0003h,0004h,fcfch,ffffh,
+<6>[  684.866591] c1 4c10h,000ch,4c30h,0000h,4000h,0000h,cf60h,0420h,
+<6>[  684.901458] c1 0000h,0000h,0000h,0000h,0000h,0000h,472ah,fd1eh,
+<6>[  684.901570] c1 3c3bh,55f5h,0299h,cc2ah,006eh,3910h,cc68h,4142h,
+<6>[  684.925079] c1 
+<6>[  684.927121] c1 smb347_get_charging_state : 0x3dh(0x05)
+<6>[  684.927226] c1 BAT : soc(88), vcell(4090mV), curr(92mA), avg curr(90mA), temp(29.1), chg(1)
+<6>[  684.927380] c1 , full(0), rechg(0), lowbat(0), cable(1)
+<6>[  684.927546] c1 level = 88
+<6>[  716.041735] c1 fg_read_temp: temper(29187, 0x1d30)
+<6>[  716.044220] c1 fg_read_soc: soc(88), psoc(8738), vfsoc(65)
+<6>[  716.050396] c1 fg_read_soc: soc(88), psoc(8738), vfsoc(65)
+<6>[  716.051318] c1 fg_read_vcell: vcell(4090, 0xcc8c)
+<6>[  716.053008] c1 fg_read_current: curr(89), avg_curr(91mA)
+<6>[  716.057118] c1 avg_v(4090), fullcap(6354), remcap(5553), mixcap(5581), avcap(5581)
+<6>[  716.080121] c1 [MAX17042] 18/10/2026 16:51,
+<6>[  716.092923] c1 0000h,ff00h,7f80h,ff01h,0000h,2b62h,5763h,4362h,
+<6>[  716.093047] c1 1d30h,cc86h,0243h,0249h,0000h,472dh,57d7h,2b9bh,
+<6>[  716.126429] c1 31a4h,ffffh,7d5ah,0000h,05efh,0148h,1d35h,b72ah,
+<6>[  716.126526] c1 4996h,cc89h,2b13h,ed7ch,27bbh,2214h,0600h,2b9bh,
+<6>[  716.161429] c1 4d78h,0092h,f72bh,3cddh,1400h,2305h,1d40h,7870h,
+<6>[  716.161533] c1 0076h,87a4h,506bh,0010h,e3e1h,290eh,377eh,0000h,
+<6>[  716.196479] c1 64deh,43fch,0800h,0000h,0502h,3d43h,0100h,05e0h,
+<6>[  716.196580] c1 0076h,1a1ch,007dh,0502h,1680h,1408h,151eh,e000h,
+<6>[  716.231423] c1 1800h,d280h,fae1h,3c80h,cc65h,1479h,4347h,05d9h,
+<6>[  716.231520] c1 3bdch,f112h,27fah,ad00h,d0f8h,d29fh,84d8h,37e2h,
+<6>[  716.266438] c1 0561h,2b9bh,f7f6h,0019h,472dh,0000h,472dh,0000h,
+<6>[  716.266541] c1 4c10h,000ch,4c30h,0000h,4000h,0000h,cf60h,0420h,
+<6>[  716.301455] c1 0000h,0000h,0000h,0000h,0000h,0000h,472dh,0a90h,
+<6>[  716.301556] c1 3c38h,560bh,0212h,cc2bh,006eh,3910h,cc9ch,4142h,
+<6>[  716.325085] c1 
+<6>[  716.327128] c1 smb347_get_charging_state : 0x3dh(0x05)
+<6>[  716.327230] c1 BAT : soc(88), vcell(4090mV), curr(89mA), avg curr(91mA), temp(29.1), chg(1)
+<6>[  716.327375] c1 , full(0), rechg(0), lowbat(0), cable(1)
+<6>[  716.327551] c1 level = 88
+<6>[  748.041734] c1 fg_read_temp: temper(29183, 0x1d2f)
+<6>[  748.044205] c1 fg_read_soc: soc(88), psoc(8740), vfsoc(65)
+<6>[  748.050403] c1 fg_read_soc: soc(88), psoc(8740), vfsoc(65)
+<6>[  748.051316] c1 fg_read_vcell: vcell(4089, 0xcc7a)
+<6>[  748.052999] c1 fg_read_current: curr(84), avg_curr(91mA)
+<6>[  748.057093] c1 avg_v(4090), fullcap(6354), remcap(5553), mixcap(5582), avcap(5582)
+<6>[  748.080119] c1 [MAX17042] 18/10/2026 16:51,
+<6>[  748.092906] c1 0000h,ff00h,7f80h,ff01h,0000h,2b63h,5767h,4362h,
+<6>[  748.093021] c1 1d2fh,cc8ch,01f4h,024bh,0000h,4731h,57dah,2b9dh,
+<6>[  748.126431] c1 31a4h,ffffh,7d5ah,0000h,05efh,0148h,1d35h,b72ah,
+<6>[  748.126535] c1 4996h,cc8ch,2b13h,ed7ch,27bbh,2214h,0600h,2b9dh,
+<6>[  748.161428] c1 4d78h,0092h,f72bh,3cddh,1400h,2305h,1d40h,7876h,
+<6>[  748.161528] c1 0076h,87a4h,506bh,0010h,e3e1h,290eh,377eh,0000h,
+<6>[  748.196427] c1 64deh,43fch,0800h,0000h,0502h,3d43h,0100h,05e0h,
+<6>[  748.196536] c1 0076h,1a1ch,007dh,0502h,1680h,1408h,15d4h,e000h,
+<6>[  748.231430] c1 7000h,3e00h,fae1h,b300h,cc65h,1479h,4347h,05d9h,
+<6>[  748.231533] c1 3bdch,67e4h,27fah,eb00h,d0f8h,d2a1h,259ch,3acfh,
+<6>[  748.266429] c1 02beh,1990h,8500h,01efh,0126h,0000h,01fch,fffeh,
+<6>[  748.266535] c1 4c10h,000ch,4c30h,0000h,4000h,0000h,cf60h,0420h,
+<6>[  748.301443] c1 0000h,0000h,0000h,0000h,0000h,0000h,4731h,f7c3h,
+<6>[  748.301547] c1 3c3bh,560bh,01efh,cc2dh,006eh,3910h,cc9ch,4142h,
+<6>[  748.325090] c1 
+<6>[  748.327132] c1 smb347_get_charging_state : 0x3dh(0x05)
+<6>[  748.327242] c1 BAT : soc(88), vcell(4089mV), curr(84mA), avg curr(91mA), temp(29.1), chg(1)
+<6>[  748.327390] c1 , full(0), rechg(0), lowbat(0), cable(1)
+<6>[  748.327567] c1 level = 88
+<6>[  780.041797] c1 fg_read_temp: temper(29187, 0x1d30)
+<6>[  780.044294] c1 fg_read_soc: soc(88), psoc(8741), vfsoc(65)
+<6>[  780.050426] c1 fg_read_soc: soc(88), psoc(8741), vfsoc(65)
+<6>[  780.051345] c1 fg_read_vcell: vcell(4091, 0xcc90)
+<6>[  780.053027] c1 fg_read_current: curr(72), avg_curr(91mA)
+<6>[  780.057125] c1 avg_v(4091), fullcap(6354), remcap(5554), mixcap(5583), avcap(5583)
+<6>[  780.080124] c1 [MAX17042] 18/10/2026 16:52,
+<6>[  780.092988] c1 0000h,ff00h,7f80h,ff01h,0000h,2b65h,576ah,4362h,
+<6>[  780.093104] c1 1d30h,cc90h,01cfh,024bh,0000h,4731h,57dah,2b9eh,
+<6>[  780.126472] c1 31a4h,ffffh,7d5ah,0000h,05efh,0148h,1d34h,b72ah,
+<6>[  780.126585] c1 4996h,cc8fh,2b13h,ed7ch,27bbh,2214h,0600h,2b9eh,
+<6>[  780.161491] c1 4d78h,0092h,f72bh,3cddh,1400h,2305h,1d40h,786eh,
+<6>[  780.161594] c1 0076h,87a4h,506bh,0010h,e3e1h,290eh,377eh,0000h,
+<6>[  780.196485] c1 64deh,43fch,0800h,0000h,0502h,3d43h,0100h,05e0h,
+<6>[  780.196591] c1 0076h,1a1ch,007dh,0502h,1680h,1408h,168ah,e000h,
+<6>[  780.231489] c1 e000h,8be0h,fae1h,2a80h,cc65h,1479h,4347h,05d9h,
+<6>[  780.231588] c1 3bdch,df5bh,27fah,dd00h,d0f8h,d2a2h,c705h,3dbeh,
+<6>[  780.266523] c1 0c47h,0b02h,0001h,167dh,0003h,0002h,fd40h,0003h,
+<6>[  780.266634] c1 4c10h,000ch,4c30h,0000h,4000h,0000h,cf60h,0420h,
+<6>[  780.301479] c1 0000h,0000h,0000h,0000h,0000h,0000h,4734h,fb60h,
+<6>[  780.301579] c1 3c37h,55fah,01adh,cc2eh,006eh,3910h,cc74h,4142h,
+<6>[  780.325085] c1 
+<6>[  780.327139] c1 smb347_get_charging_state : 0x3dh(0x05)
+<6>[  780.327244] c1 BAT : soc(88), vcell(4091mV), curr(72mA), avg curr(91mA), temp(29.1), chg(1)
+<6>[  780.327395] c1 , full(0), rechg(0), lowbat(0), cable(1)
+<6>[  780.327608] c1 level = 88
