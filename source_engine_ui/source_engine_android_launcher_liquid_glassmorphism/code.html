@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&amp;family=Sora:wght@300;400;600&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-tertiary-fixed": "#30004b", "on-surface-variant": "#b9cacb", "surface": "#1a0b2e", "on-tertiary": "#4e0078", "on-primary-fixed-variant": "#004f54", "error": "#ffb4ab", "surface-container-high": "#322346", "on-error": "#690005", "on-tertiary-fixed-variant": "#7000a8", "tertiary": "#fff2ff", "surface-container-lowest": "#150629", "surface-bright": "#413257", "secondary-fixed": "#ffdbcb", "on-surface": "#eddcff", "surface-container": "#27183b", "on-background": "#eddcff", "tertiary-fixed-dim": "#e5b5ff", "surface-variant": "#3d2e52", "secondary-fixed-dim": "#ffb692", "secondary-container": "#ff7009", "tertiary-fixed": "#f4d9ff", "surface-tint": "#00dbe9", "tertiary-container": "#efceff", "inverse-on-surface": "#38294d", "surface-container-low": "#231437", "primary": "#dbfcff", "on-tertiary-container": "#9300dc", "on-secondary-fixed": "#341100", "on-primary-fixed": "#002022", "inverse-primary": "#006970", "error-container": "#93000a", "surface-container-highest": "#3d2e52", "on-primary-container": "#006970", "surface-dim": "#1a0b2e", "on-error-container": "#ffdad6", "on-secondary-container": "#5a2200", "primary-container": "#00f0ff", "primary-fixed": "#7df4ff", "on-secondary-fixed-variant": "#793100", "secondary": "#ffb692", "on-primary": "#00363a", "background": "#1a0b2e", "primary-fixed-dim": "#00dbe9", "on-secondary": "#552000", "inverse-surface": "#eddcff", "outline": "#849495", "outline-variant": "#3b494b" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xs": "0.25rem", "space-sm": "0.5rem", "space-md": "0.75rem", "margin": "1rem", "space-xl": "2rem", "gutter": "1rem", "space-lg": "1.25rem" }, "fontFamily": { "body-lg": ["Sora"], "headline-lg": ["Space Grotesk"], "body-sm": ["Sora"], "headline-lg-mobile": ["Space Grotesk"], "body-md": ["Sora"], "headline-md": ["Space Grotesk"], "label-md": ["JetBrains Mono"], "label-lg": ["JetBrains Mono"], "headline-sm": ["Space Grotesk"], "label-sm": ["JetBrains Mono"] }, "fontSize": { "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "headline-lg": ["34px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "300" }], "headline-lg-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" }], "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-md": ["11px", { "lineHeight": "14px", "letterSpacing": "0.08em", "fontWeight": "500" }], "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.06em", "fontWeight": "600" }], "headline-sm": ["18px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600" }], "label-sm": ["9px", { "lineHeight": "12px", "letterSpacing": "0.12em", "fontWeight": "500" }] } } } }</script><style>@layer base{html,body{width:100%;min-height:100%;margin:0;padding:0;}body{overscroll-behavior-y:none;background-color:#1a0b2e;color:#eddcff;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}}::-webkit-scrollbar{display:none;}</style></head><body class="bg-background font-body-md text-on-surface flex flex-col min-h-screen relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container"><div class="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_20%_15%,rgba(0,240,255,0.08),transparent_40%),radial-gradient(circle_at_80%_85%,rgba(255,112,9,0.06),transparent_45%)]"></div><header class="fixed top-0 w-full z-50 pt-safe bg-surface/45 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.15)]"><div class="flex flex-col"><div class="h-6 px-margin flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm tracking-wider select-none"><div class="flex items-center gap-space-xs"><span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span><span>SRC2_V84</span></div><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[13px] text-primary-fixed">wifi_tethering</span><span class="material-symbols-outlined text-[13px] text-secondary-fixed">bolt</span><span class="text-primary font-label-sm">60FPS</span></div></div><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-md"><div class="w-11 h-11 rounded-lg bg-surface-container/60 backdrop-blur-md flex items-center justify-center p-space-xs text-primary-container shadow-[0_0_12px_rgba(0,240,255,0.25)]"><span class="material-symbols-outlined text-[26px]">memory</span></div><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-label-sm text-label-sm uppercase tracking-widest text-primary-fixed-dim">SOURCE LCHR</span><span class="w-1 h-1 rounded-full bg-secondary-container"></span><span class="font-label-sm text-label-sm text-secondary-fixed">CORE_OK</span></div><h1 class="font-headline-sm text-headline-sm tracking-tight text-on-surface uppercase truncate max-w-[160px]">Game Library</h1></div></div><div class="flex items-center gap-space-sm"><div class="flex flex-col items-end mr-1"><span class="font-label-sm text-label-sm text-primary">CYBER_HOST</span><span class="font-label-sm text-label-sm text-on-surface-variant">ONLINE</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-22 pb-28 bg-surface px-margin min-h-screen z-10"><!-- STITCH_SHADER_START:ANIMATION_2 class="fixed inset-0 w-full h-full pointer-events-none z-0" -->
+<div class="fixed inset-0 w-full h-full pointer-events-none z-0" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_2" style="display:block;width:100%;height:100%"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_2');
+
+  // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+  // This fires on initial layout and whenever the element is resized.
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+uniform float u_time;
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+varying vec2 v_texCoord;
+
+// Simplex-style noise helper
+vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+vec2 mod289(vec2 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
+vec3 permute(vec3 x) { return mod289(((x*34.0)+1.0)*x); }
+
+float snoise(vec2 v) {
+    const vec4 C = vec4(0.211324865405187, 0.366025403784439,
+                        -0.577350269189626, 0.024390243902439);
+    vec2 i  = floor(v + dot(v, C.yy) );
+    vec2 x0 = v -   i + dot(i, C.xx);
+    vec2 i1;
+    i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+    vec4 x12 = x0.xyxy + C.xxzz;
+    x12.xy -= i1;
+    i = mod289(i);
+    vec3 p = permute( permute( i.y + vec3(0.0, i1.y, 1.0 ))
+        + i.x + vec3(0.0, i1.x, 1.0 ));
+    vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);
+    m = m*m ;
+    m = m*m ;
+    vec3 x = 2.0 * fract(p * C.www) - 1.0;
+    vec3 h = abs(x) - 0.5;
+    vec3 ox = floor(x + 0.5);
+    vec3 a0 = x - ox;
+    m *= 1.79284291400159 - 0.85373472095314 * ( a0*a0 + h*h );
+    vec3 g;
+    g.x  = a0.x  * x0.x  + h.x  * x0.y;
+    g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+    return 130.0 * dot(m, g);
+}
+
+void main() {
+    vec2 uv = gl_FragCoord.xy / u_resolution.xy;
+    float aspect = u_resolution.x / u_resolution.y;
+    vec2 p = uv;
+    p.x *= aspect;
+
+    float t = u_time * 0.35;
+
+    // Fluid distortion waves
+    float n1 = snoise(p * 1.8 + vec2(t * 0.4, -t * 0.3));
+    float n2 = snoise(p * 3.2 - vec2(t * 0.5, t * 0.2) + vec2(n1 * 0.5));
+    float n3 = snoise(p * 2.5 + vec2(-t * 0.2, t * 0.6) + vec2(n2 * 0.4));
+
+    // Color definitions
+    // Deep purple #1a0b2e
+    vec3 colDeepPurple = vec3(0.102, 0.043, 0.180);
+    // Darker abyss
+    vec3 colDarkAbyss  = vec3(0.04, 0.015, 0.09);
+    // Valve Orange / Amber glow #ff6a00
+    vec3 colValveAmber = vec3(1.0, 0.42, 0.04);
+    // Cyan electric energy #00d2ff
+    vec3 colCyanGlow   = vec3(0.0, 0.824, 1.0);
+    // Royal Indigo
+    vec3 colIndigo     = vec3(0.24, 0.12, 0.55);
+    // Violet neon #9d4edd
+    vec3 colNeonViolet = vec3(0.616, 0.306, 0.867);
+
+    // Floating dynamic liquid blobs
+    vec2 blob1 = vec2(0.5 * aspect + sin(t * 0.8) * 0.3, 0.75 + cos(t * 0.7) * 0.2);
+    vec2 blob2 = vec2(0.3 * aspect + cos(t * 0.6) * 0.35, 0.3 + sin(t * 0.9) * 0.25);
+    vec2 blob3 = vec2(0.8 * aspect + sin(t * 0.5) * 0.3, 0.2 + cos(t * 0.8) * 0.15);
+
+    float d1 = length(p - blob1);
+    float d2 = length(p - blob2);
+    float d3 = length(p - blob3);
+
+    float blobEnergy1 = smoothstep(0.7, 0.0, d1 + n1 * 0.15);
+    float blobEnergy2 = smoothstep(0.8, 0.0, d2 + n2 * 0.2);
+    float blobEnergy3 = smoothstep(0.65, 0.0, d3 + n3 * 0.15);
+
+    // Dynamic morphing mesh blend
+    vec3 color = mix(colDarkAbyss, colDeepPurple, uv.y + n1 * 0.2);
+    color = mix(color, colIndigo, smoothstep(-0.2, 0.9, n1) * 0.7);
+    color += colNeonViolet * blobEnergy1 * 0.85;
+    color += colCyanGlow * blobEnergy2 * 0.75;
+    color += colValveAmber * blobEnergy3 * 0.65;
+
+    // Subtle caustics / refractive shimmer
+    float shimmer = pow(max(0.0, snoise(p * 5.0 + vec2(t, -t))), 3.5) * 0.25;
+    color += vec3(shimmer * 0.9, shimmer * 0.95, shimmer * 1.2);
+
+    // Vignette
+    vec2 vigUV = uv * (1.0 - uv.yx);
+    float vig = vigUV.x * vigUV.y * 15.0;
+    vig = clamp(pow(vig, 0.25), 0.0, 1.0);
+    color *= vig;
+
+    gl_FragColor = vec4(color, 1.0);
+}`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+  // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+  // Shaders that need normalized coords should use: u_mouse / u_resolution.
+  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  window.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width && rect.height) {
+      const nx = (event.clientX - rect.left) / rect.width;
+      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+      mouse.x = nx * canvas.width;
+      mouse.y = ny * canvas.height;
+    }
+  });
+
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_2 -->
+<div class="flex flex-col w-full relative z-10 gap-space-lg select-none pb-12">
+<!-- TOP ENGINE HUD CAPSULE -->
+<div class="w-full rounded-xl bg-surface-container-high/40 backdrop-blur-2xl p-space-sm shadow-[inset_0_1px_2px_rgba(255,255,255,0.35),0_12px_32px_rgba(10,5,25,0.7)]">
+<div class="flex items-center justify-between gap-space-sm px-space-xs">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="relative w-8 h-8 rounded-lg bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-center text-secondary shadow-[0_0_12px_rgba(255,110,0,0.5)]">
+<span class="font-headline-sm text-headline-sm font-bold text-secondary">λ</span>
+<span class="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-primary-container shadow-[0_0_8px_#00f0ff] animate-ping"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm tracking-widest text-primary font-semibold">SRC_ENG 2004–2013</span>
+<span class="px-1.5 py-0.2 rounded-full bg-primary-container/20 text-primary-fixed font-label-sm text-[8px] uppercase tracking-wider">v1.0.18</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">Vulkan/GLES3 Backend: <span class="text-primary-fixed-dim font-bold">READY</span></p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs text-right">
+<div class="flex flex-col items-end">
+<span class="font-label-sm text-label-sm text-secondary-fixed font-mono">1080P // 120Hz</span>
+<span class="font-label-sm text-[9px] text-on-surface-variant">DXVK-NATIVE 2.3</span>
+</div>
+<div class="w-7 h-7 rounded-lg bg-surface-container/60 flex items-center justify-center text-primary-fixed-dim">
+<span class="material-symbols-outlined text-[18px]">videogame_asset</span>
+</div>
+</div>
+</div>
+</div>
+<!-- GAME SELECTION GLASS TRAY -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between px-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Profiles</span>
+<span class="w-1 h-1 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">الملفات المثبتة</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-mono">5 TITLES</span>
+</div>
+<!-- HORIZONTAL CAROUSEL -->
+<div class="flex gap-space-sm overflow-x-auto pb-space-xs no-scrollbar pt-1">
+<!-- Item HL2: Ep2 (Active) -->
+<button class="game-card active-game shrink-0 w-44 rounded-xl p-space-sm bg-surface-container-high/60 backdrop-blur-2xl flex flex-col gap-space-xs text-left shadow-[inset_0_1px_3px_rgba(255,255,255,0.4),0_10px_25px_rgba(0,240,255,0.2)] transition-all" onclick="switchGame(this, 'Half-Life 2: Episode Two', 'hl2_ep2', '1080p @ 120 FPS', '-game ep2 -novid -console +sv_lan 1 -fullscreen -default_fov 90')">
+<div class="relative w-full h-24 rounded-lg overflow-hidden bg-surface-container-lowest">
+<img class="w-full h-full object-cover" data-alt="Half-Life 2 Episode Two dystopian sci-fi Citadel in the background surrounded by dense pine forest, Gordon Freeman HEV suit arm glowing with amber gravity gun, cinematic volumetric fog and cyan neon sparks, AAA gaming artwork." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATrd6BCvO9fKngSXcbfbau7PsLStCsGhflPsHc0arvn0ggeyJ42kDNYdwp1F6iv4vlD9EsOXjWRx5qq_vN5MbHpIGMcyYe4mjIxN7jyZ4qGcAYQ4r0R7xA1aZT2iAQ9mSKWoiSTOIas8JXNt4P6bOfo_q6r-C4oIAT5okuMBauRyAlw7C_x86DHfgrH01Ew5v_Rm-H30onX2oOWopHjHRNlWauwGDyMuWbZVRuZAVejn2sQnBnyffcxA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+<span class="absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded-full bg-secondary-container/90 text-on-secondary font-label-sm text-[8px] font-bold">RUNNING</span>
+<span class="absolute bottom-1 right-1.5 font-label-sm text-label-sm text-primary-fixed font-bold">EPISODE 2</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h2 class="font-headline-sm text-[15px] font-semibold text-primary truncate">HL2: Episode Two</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Folder: /srceng/ep2</span>
+</div>
+</button>
+<!-- Item HL2 Base -->
+<button class="game-card shrink-0 w-40 rounded-xl p-space-sm bg-surface-container/30 backdrop-blur-xl flex flex-col gap-space-xs text-left shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_8px_20px_rgba(0,0,0,0.4)] opacity-75 hover:opacity-100 transition-all" onclick="switchGame(this, 'Half-Life 2', 'hl2', '1080p @ 120 FPS', '-game hl2 -novid -console +sv_lan 1 -fullscreen -default_fov 90')">
+<div class="relative w-full h-24 rounded-lg overflow-hidden bg-surface-container-lowest">
+<img class="w-full h-full object-cover" data-alt="Half-Life 2 City 17 train station square with huge Combine Citadel looming, Gordon Freeman iconic crowbar silhouette, intense cinematic sci-fi atmosphere in rich purples and electric cyan accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIa_y_cHQJffEgPXZuMPL62tHmZ7bGe7_BRV49G6lH1Mjv9VGTinfv9U8kj4ygsjQOv4MG1DCfCmnIv5Ea7OVKJuv8PpLXNwCc2qeeXG6hl1jg5mqs_IfpoW9EgTxXsoYHzJDmtBUJjeP2kG0ZO5XfqJhuOjUf2a1A0gVqGWHozBkNEnf-pzDyjxcdfD9gZRU8mZJzVpwqNz0xYiUp36V4WMZ9n9EuTrzgPetCIFmMYumRjL1r4U4qaQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+<span class="absolute bottom-1 right-1.5 font-label-sm text-label-sm text-on-surface font-medium">BASE HL2</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h2 class="font-headline-sm text-[15px] font-semibold text-on-surface truncate">Half-Life 2</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Folder: /srceng/hl2</span>
+</div>
+</button>
+<!-- Item Portal -->
+<button class="game-card shrink-0 w-40 rounded-xl p-space-sm bg-surface-container/30 backdrop-blur-xl flex flex-col gap-space-xs text-left shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_8px_20px_rgba(0,0,0,0.4)] opacity-75 hover:opacity-100 transition-all" onclick="switchGame(this, 'Portal', 'portal', '1080p @ 120 FPS', '-game portal -novid -console +sv_lan 1 -fullscreen -default_fov 95')">
+<div class="relative w-full h-24 rounded-lg overflow-hidden bg-surface-container-lowest">
+<img class="w-full h-full object-cover" data-alt="Aperture Science clean sterile testing chamber with glowing cyan portal on the wall and an orange portal opposite, aperture weighted companion cube resting on an illuminated platform, cinematic game key art." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj7DUNecOk9JBY7MDuw4YYYX8OVI41StxSWo0Sl98JNfmmw683m0Rsk3PvXkuCh3XlI3ShH3A_34YDpg4eQY9in3av2IICEyh2KtYw1ltUUsxO54V0E9P-2vbHfq7aF6Z2QdS-weQlSBjX8RgAaslztFwmpehCZrFdSXTYB-pbimjfZax0qBNaEKvLTLzefDw7ozkuS-jNiAFJCTRrN3Hqq1YnTLfc9FAr15SrNipAQ90yfo0ByHIwdA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+<span class="absolute bottom-1 right-1.5 font-label-sm text-label-sm text-primary-container font-medium">APERTURE</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h2 class="font-headline-sm text-[15px] font-semibold text-on-surface truncate">Portal</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Folder: /srceng/portal</span>
+</div>
+</button>
+<!-- Item CS:Source -->
+<button class="game-card shrink-0 w-40 rounded-xl p-space-sm bg-surface-container/30 backdrop-blur-xl flex flex-col gap-space-xs text-left shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_8px_20px_rgba(0,0,0,0.4)] opacity-75 hover:opacity-100 transition-all" onclick="switchGame(this, 'Counter-Strike: Source', 'cstrike', '1080p @ 144 FPS', '-game cstrike -novid -console +sv_lan 1 -tickrate 128')">
+<div class="relative w-full h-24 rounded-lg overflow-hidden bg-surface-container-lowest">
+<img class="w-full h-full object-cover" data-alt="Counter Strike Source tactical operative holding rifle in dust courtyard, dynamic lens flare, intense tactical tactical shooter key visual, saturated high detail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7SXcmnjq6E58SS62U2fOsgNn14FmYMMvSLaqNpTSPHSkwR2WUa_VzAZ4lwDDtwygGJU6sRAtDW3DgaNTPcGEJAP-73DQDPHdW38wkNLsyYEzxS1_C8oHjJytCOcUCRBYIedIcb2bmYeIMNPvcO3DCR87rVP-H9H-1aHvgobPyBk8RxEkeQNaWDJ-qyjo8HN4vPcj56NPdqDMrnxciTkowWiVI8UQl5q4oev3ZxDsgi6kEdxR6mYBGOQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+<span class="absolute bottom-1 right-1.5 font-label-sm text-label-sm text-secondary-fixed font-medium">CSS 2004</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h2 class="font-headline-sm text-[15px] font-semibold text-on-surface truncate">CS: Source</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Folder: /srceng/cstrike</span>
+</div>
+</button>
+<!-- Item Day of Defeat: Source -->
+<button class="game-card shrink-0 w-40 rounded-xl p-space-sm bg-surface-container/30 backdrop-blur-xl flex flex-col gap-space-xs text-left shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_8px_20px_rgba(0,0,0,0.4)] opacity-75 hover:opacity-100 transition-all" onclick="switchGame(this, 'Day of Defeat: Source', 'dod', '1080p @ 90 FPS', '-game dod -novid -console +sv_lan 1')">
+<div class="relative w-full h-24 rounded-lg overflow-hidden bg-surface-container-lowest">
+<img class="w-full h-full object-cover" data-alt="Day of Defeat Source WWII soldier aiming garand rifle in ruins of European town, dramatic rain and muzzle flash, rich cinematic game cover art." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHHDDrW07tLnJBYfeqmV6rbIoHeHvw4sel5N3H0C8RJGxRI1B7lREyq-xJvigz-Ft33aLcatRC_CnZJ4TCOr-eB6INDsORplV45k_T9ewhtCQ00DhOkRFzgP39qoHrsQ-FonfjopEe3VyUAX5NxJF_HM09miDxjzSq8w_3q8ezL7cjta0E_yfXw01JMc2zM8Ceg-jlGnzNFFjkpPVtqE2za1TJnSR5STUut5M7J5xcqnDz9OVa-ovBnA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+<span class="absolute bottom-1 right-1.5 font-label-sm text-label-sm text-tertiary-fixed font-medium">DOD:S</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h2 class="font-headline-sm text-[15px] font-semibold text-on-surface truncate">Day of Defeat</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Folder: /srceng/dod</span>
+</div>
+</button>
+</div>
+</div>
+<!-- ACTIVE PROFILE SPOTLIGHT & HERO LAUNCH CONTROL -->
+<div class="relative rounded-2xl p-space-lg bg-surface-container-high/45 backdrop-blur-3xl shadow-[inset_0_1px_2px_rgba(255,255,255,0.45),inset_0_-2px_12px_rgba(0,240,255,0.18),0_24px_48px_rgba(10,5,25,0.85)] flex flex-col gap-space-md">
+<!-- Active Game Header Info -->
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-secondary-container shadow-[0_0_8px_#ff7009]"></span>
+<span class="font-label-sm text-label-sm text-secondary-fixed uppercase tracking-wider font-semibold" id="active-game-preset">PRESET: HIGH PERFORMANCE</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile font-bold tracking-tight text-primary drop-shadow-[0_2px_10px_rgba(0,240,255,0.3)]" id="active-game-title">Half-Life 2: Episode Two</h2>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-light">بنية المحرك المعدلة لأجهزة أندرويد (Source Native v1.0.18)</span>
+</div>
+<div class="p-space-xs rounded-xl bg-surface-container/70 backdrop-blur-md flex flex-col items-center justify-center text-center px-2.5">
+<span class="material-symbols-outlined text-primary-container text-[20px]">speed</span>
+<span class="font-label-sm text-[10px] text-primary font-bold" id="active-game-fps">120 FPS</span>
+</div>
+</div>
+<!-- Telemetry Badges Strip -->
+<div class="grid grid-cols-3 gap-space-xs">
+<div class="rounded-lg bg-surface-container-low/60 backdrop-blur-md p-space-xs flex flex-col items-center justify-center shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]">
+<span class="font-label-sm text-[9px] text-on-surface-variant">RESOL</span>
+<span class="font-label-md text-label-md text-primary font-bold">1080p Vulkan</span>
+</div>
+<div class="rounded-lg bg-surface-container-low/60 backdrop-blur-md p-space-xs flex flex-col items-center justify-center shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]">
+<span class="font-label-sm text-[9px] text-on-surface-variant">HEAP RAM</span>
+<span class="font-label-md text-label-md text-secondary-fixed font-bold">1.8 / 12 GB</span>
+</div>
+<div class="rounded-lg bg-surface-container-low/60 backdrop-blur-md p-space-xs flex flex-col items-center justify-center shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]">
+<span class="font-label-sm text-[9px] text-on-surface-variant">CORE THREADS</span>
+<span class="font-label-md text-label-md text-tertiary-fixed font-bold">8 Cores OK</span>
+</div>
+</div>
+<!-- GIANT REFRACTIVE LIQUID LAUNCH BUTTON (تشغيل اللعبة) -->
+<div class="relative w-full pt-space-xs">
+<button class="group relative w-full h-16 rounded-xl overflow-hidden bg-gradient-to-r from-secondary-container via-[#ff8800] to-secondary-container text-on-secondary-container shadow-[0_0_24px_rgba(255,110,0,0.55),inset_0_1px_3px_rgba(255,255,255,0.8),inset_0_-2px_10px_rgba(0,0,0,0.4)] active:scale-[0.98] transition-all flex items-center justify-center gap-space-md" id="launch-btn" onclick="triggerLaunchSequence()">
+<!-- Liquid Reflection Sweep Layer -->
+<div class="absolute inset-0 bg-[linear-gradient(105deg,transparent_20%,rgba(255,255,255,0.45)_35%,transparent_50%)] pointer-events-none group-hover:translate-x-full transition-transform duration-1000 -translate-x-full"></div>
+<div class="w-10 h-10 rounded-lg bg-black/25 backdrop-blur-md flex items-center justify-center text-white shadow-[0_0_10px_rgba(0,0,0,0.3)]">
+<span class="material-symbols-outlined text-[24px] text-white">play_arrow</span>
+</div>
+<div class="flex flex-col items-start leading-none">
+<span class="font-headline-sm text-headline-sm font-bold text-white tracking-wide uppercase">LAUNCH ENGINE</span>
+<span class="font-body-sm text-[11px] text-white/90">تشغيل اللعبة • Start Source Client</span>
+</div>
+<span class="material-symbols-outlined text-white/80 ml-auto mr-3 text-[22px] group-hover:translate-x-1 transition-transform">bolt</span>
+</button>
+<!-- Launch Alert Overlay Modal (Toggled via JS) -->
+<div class="hidden absolute inset-0 z-20 rounded-xl bg-surface-container-lowest/90 backdrop-blur-xl p-space-md flex flex-col items-center justify-center text-center gap-space-xs shadow-[0_0_30px_#00f0ff]" id="launch-modal">
+<div class="w-8 h-8 rounded-full bg-primary-container/20 flex items-center justify-center text-primary animate-spin">
+<span class="material-symbols-outlined text-[20px]">sync</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-primary">INITIALIZING VULKAN RENDERER...</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">Loading /srceng/ep2/hl2.exe [60 FPS Cap]</span>
+</div>
+</div>
+</div>
+<!-- CONFIGURATION & TACTICAL PARAMETERS PANEL -->
+<div class="rounded-2xl p-space-lg bg-surface-container/40 backdrop-blur-3xl shadow-[inset_0_1px_2px_rgba(255,255,255,0.35),inset_0_-2px_10px_rgba(0,240,255,0.1),0_20px_40px_rgba(10,5,25,0.7)] flex flex-col gap-space-lg">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-[20px]">terminal</span>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-primary">إعدادات المحرك وتوجيه المسار</h3>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest/80 font-label-sm text-label-sm text-primary">SYS_OK</span>
+</div>
+<!-- Game Data Path (مسار بيانات اللعبة) -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary">folder_open</span>
+<span>مسار بيانات اللعبة (Game Data Path)</span>
+</label>
+<span class="font-label-sm text-label-sm text-on-surface-variant">EXT_SDCARD / INTERNAL</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<div class="flex-1 rounded-xl bg-surface-container-lowest/80 backdrop-blur-lg px-space-md py-space-sm shadow-[inset_0_1px_2px_rgba(0,0,0,0.7),0_0_8px_rgba(0,240,255,0.08)]">
+<input class="w-full bg-transparent font-label-md text-label-md text-primary font-mono outline-none tracking-tight" id="data-path-input" readonly="" type="text" value="/storage/emulated/0/srceng/ep2/"/>
+</div>
+<button class="h-11 px-space-md rounded-xl bg-surface-container-high/70 backdrop-blur-lg text-primary font-headline-sm text-body-sm font-semibold hover:bg-surface-container-highest transition-all shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),0_4px_12px_rgba(0,240,255,0.2)] flex items-center gap-1 active:scale-95" onclick="browseDirectory()">
+<span class="material-symbols-outlined text-[18px]">drive_file_move</span>
+<span>تصفح</span>
+</button>
+</div>
+</div>
+<!-- Command Line Arguments (معاملات سطر الأوامر) -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-secondary">tune</span>
+<span>معاملات سطر الأوامر (Command Line Arguments)</span>
+</label>
+<button class="font-label-sm text-label-sm text-secondary hover:underline" onclick="resetCommandArgs()">إعادة ضبط</button>
+</div>
+<div class="relative rounded-xl bg-surface-container-lowest/80 backdrop-blur-lg p-space-sm shadow-[inset_0_1px_2px_rgba(0,0,0,0.8),0_0_10px_rgba(0,240,255,0.1)] focus-within:shadow-[inset_0_1px_2px_rgba(0,0,0,0.8),0_0_16px_rgba(0,240,255,0.4)] transition-all">
+<textarea class="w-full bg-transparent font-label-md text-label-md text-primary-fixed-dim font-mono outline-none resize-none tracking-wider leading-relaxed" id="command-args" rows="2">-game ep2 -novid -console +sv_lan 1 -fullscreen -default_fov 90</textarea>
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-sm text-[9px] text-on-surface-variant font-mono">GLES3 / VK VALIDATED</span>
+<div class="flex gap-1">
+<span class="px-1.5 py-0.5 rounded bg-surface-container/80 text-primary font-label-sm text-[9px] font-mono">+r_lod 0</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container/80 text-primary font-label-sm text-[9px] font-mono">+fps_max 120</span>
+</div>
+</div>
+</div>
+</div>
+<!-- QUICK HARDWARE & EMULATION TUNING TOGGLES -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[18px]">memory</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold uppercase tracking-wider">مسرعات العتاد ووحدات التحكم</span>
+</div>
+<div class="grid grid-cols-1 gap-space-xs">
+<!-- Toggle 1: DXVK Native -->
+<div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-low/50 backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[18px]">layers</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-[13px] font-medium text-on-surface">DirectX 9 / Vulkan (DXVK-Native)</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant">مترجم فلكان الأصلي لتحسين الإطارات</span>
+</div>
+</div>
+<button class="switch-toggle w-12 h-6 rounded-full bg-primary-container p-0.5 flex items-center justify-end transition-all shadow-[0_0_12px_rgba(0,240,255,0.6)]" onclick="toggleSwitch(this)">
+<span class="w-5 h-5 rounded-full bg-surface-container-lowest shadow-[0_0_4px_#000] transition-all"></span>
+</button>
+</div>
+<!-- Toggle 2: Multi-core Rendering -->
+<div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-low/50 backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">device_hub</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-[13px] font-medium text-on-surface">Multi-core (r_threaded_particles 1)</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant">معالجة متزامنة متعددة الأنوية للجسيمات</span>
+</div>
+</div>
+<button class="switch-toggle w-12 h-6 rounded-full bg-secondary-container p-0.5 flex items-center justify-end transition-all shadow-[0_0_12px_rgba(255,110,0,0.6)]" onclick="toggleSwitch(this)">
+<span class="w-5 h-5 rounded-full bg-surface-container-lowest shadow-[0_0_4px_#000] transition-all"></span>
+</button>
+</div>
+<!-- Toggle 3: Touch HUD Virtual Gamepad -->
+<div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-low/50 backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">touch_app</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-[13px] font-medium text-on-surface">Android Virtual Touch HUD</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant">أزرار تحكم لمسية شفافة مع تخصيص الموضع</span>
+</div>
+</div>
+<button class="switch-toggle w-12 h-6 rounded-full bg-primary-container p-0.5 flex items-center justify-end transition-all shadow-[0_0_12px_rgba(0,240,255,0.6)]" onclick="toggleSwitch(this)">
+<span class="w-5 h-5 rounded-full bg-surface-container-lowest shadow-[0_0_4px_#000] transition-all"></span>
+</button>
+</div>
+<!-- Toggle 4: Gyroscope & Precision Aiming -->
+<div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-low/50 backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-tertiary-fixed">
+<span class="material-symbols-outlined text-[18px]">screen_rotation</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-[13px] font-medium text-on-surface">Precise Gyroscope Aiming</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant">التصويب التفاعلي بحساسات الجيروسكوب 1000Hz</span>
+</div>
+</div>
+<button class="switch-toggle w-12 h-6 rounded-full bg-surface-container-highest p-0.5 flex items-center justify-start transition-all" onclick="toggleSwitch(this)">
+<span class="w-5 h-5 rounded-full bg-on-surface-variant shadow-[0_0_4px_#000] transition-all"></span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- DIAGNOSTIC CONSOLE & MODS STRIP -->
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="rounded-xl p-space-sm bg-surface-container-high/40 backdrop-blur-2xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.3)] flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary-fixed shadow-[0_0_10px_rgba(0,240,255,0.3)]">
+<span class="material-symbols-outlined text-[20px]">extension</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-[13px] font-semibold text-primary truncate">Custom Mods (VVis)</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant truncate">4 Custom Addons Ready</span>
+</div>
+</div>
+<div class="rounded-xl p-space-sm bg-surface-container-high/40 backdrop-blur-2xl shadow-[inset_0_1px_1px_rgba(255,255,255,0.3)] flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-secondary-fixed shadow-[0_0_10px_rgba(255,110,0,0.3)]">
+<span class="material-symbols-outlined text-[20px]">security</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-[13px] font-semibold text-secondary truncate">VAC Emulation</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant truncate">Bypass Active (LAN Only)</span>
+</div>
+</div>
+</div>
+<!-- FLOATING STATUS TOAST / DYNAMIC INFO -->
+<div class="w-full rounded-xl bg-surface-container-lowest/60 backdrop-blur-xl p-space-sm shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span>
+<span class="text-primary font-mono">GL_EXT_buffer_storage: SUPPORTED</span>
+</div>
+<span class="font-mono text-secondary">ADRENO / MALI HYBRID DETECTED</span>
+</div>
+</div>
+<script>
+  function switchGame(element, title, folder, fps, defaultArgs) {
+    // Update active visual border/shadow on cards
+    document.querySelectorAll('.game-card').forEach(card => {
+      card.classList.remove('active-game', 'bg-surface-container-high/60', 'opacity-100');
+      card.classList.add('bg-surface-container/30', 'opacity-75');
+    });
+    element.classList.remove('bg-surface-container/30', 'opacity-75');
+    element.classList.add('active-game', 'bg-surface-container-high/60', 'opacity-100');
+
+    // Update active game titles and telemetry
+    document.getElementById('active-game-title').innerText = title;
+    document.getElementById('active-game-fps').innerText = fps;
+    document.getElementById('data-path-input').value = '/storage/emulated/0/srceng/' + folder + '/';
+    document.getElementById('command-args').value = defaultArgs;
+
+    // Pulse feedback on title
+    const titleEl = document.getElementById('active-game-title');
+    titleEl.classList.add('scale-105');
+    setTimeout(() => titleEl.classList.remove('scale-105'), 200);
+  }
+
+  function toggleSwitch(btn) {
+    const isOff = btn.classList.contains('justify-start');
+    const circle = btn.querySelector('span');
+
+    if (isOff) {
+      btn.classList.remove('justify-start', 'bg-surface-container-highest');
+      btn.classList.add('justify-end', 'bg-primary-container', 'shadow-[0_0_12px_rgba(0,240,255,0.6)]');
+      circle.classList.remove('bg-on-surface-variant');
+      circle.classList.add('bg-surface-container-lowest');
+    } else {
+      btn.classList.remove('justify-end', 'bg-primary-container', 'bg-secondary-container', 'shadow-[0_0_12px_rgba(0,240,255,0.6)]', 'shadow-[0_0_12px_rgba(255,110,0,0.6)]');
+      btn.classList.add('justify-start', 'bg-surface-container-highest');
+      circle.classList.remove('bg-surface-container-lowest');
+      circle.classList.add('bg-on-surface-variant');
+    }
+  }
+
+  function triggerLaunchSequence() {
+    const modal = document.getElementById('launch-modal');
+    modal.classList.remove('hidden');
+    setTimeout(() => {
+      modal.classList.add('hidden');
+    }, 2800);
+  }
+
+  function browseDirectory() {
+    const input = document.getElementById('data-path-input');
+    const current = input.value;
+    input.value = "Scanning /storage/emulated/0/...";
+    setTimeout(() => {
+      input.value = current;
+    }, 600);
+  }
+
+  function resetCommandArgs() {
+    document.getElementById('command-args').value = "-game hl2 -novid -console +sv_lan 1 -fullscreen -default_fov 90";
+  }
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe pointer-events-none px-margin mb-space-sm" data-active-classes="text-primary-container bg-surface-container-high/80 shadow-[0_0_16px_rgba(0,240,255,0.35)]"><div class="pointer-events-auto mx-auto max-w-md h-16 rounded-xl bg-surface-container-low/70 backdrop-blur-2xl p-space-xs flex items-center justify-between shadow-[0_8px_32px_rgba(10,4,20,0.6)]"><a class="flex-1 flex flex-col items-center justify-center h-full rounded-lg transition-all text-on-surface-variant hover:text-on-surface" data-path="library" href="#"><span class="material-symbols-outlined text-[20px]">sports_esports</span><span class="font-label-sm text-label-sm mt-0.5 tracking-wider uppercase">Library</span></a><a class="flex-1 flex flex-col items-center justify-center h-full rounded-lg transition-all text-on-surface-variant hover:text-on-surface" data-path="engine-tuning" href="#"><span class="material-symbols-outlined text-[20px]">tune</span><span class="font-label-sm text-label-sm mt-0.5 tracking-wider uppercase">Tuning</span></a><a class="flex-1 flex flex-col items-center justify-center h-full rounded-lg transition-all text-on-surface-variant hover:text-on-surface" data-path="mods-hub" href="#"><span class="material-symbols-outlined text-[20px]">extension</span><span class="font-label-sm text-label-sm mt-0.5 tracking-wider uppercase">Mods</span></a><a class="flex-1 flex flex-col items-center justify-center h-full rounded-lg transition-all text-on-surface-variant hover:text-on-surface" data-path="telemetry-status" href="#"><span class="material-symbols-outlined text-[20px]">analytics</span><span class="font-label-sm text-label-sm mt-0.5 tracking-wider uppercase">Telemetry</span></a><a class="flex-1 flex flex-col items-center justify-center h-full rounded-lg transition-all text-on-surface-variant hover:text-on-surface" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span class="font-label-sm text-label-sm mt-0.5 tracking-wider uppercase">Config</span></a></div></nav></body></html>
