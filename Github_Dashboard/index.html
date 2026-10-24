@@ -119,7 +119,7 @@
 'use strict';
 const USER_DEFAULT='majd7772233-a11y',APP_VERSION='2.0.0',KEY='magdHub:v2:';
 const $=function(id){return document.getElementById(id)};
-const safeRead=function(key,fallback){try{const v=JSON.parse(localStorage.getItem(KEY+key));return v===null?fallback:v}catch(e){return fallback}};
+const safeRead=function(key,fallback){try{let raw=localStorage.getItem(KEY+key);if(raw===null){const legacy={pinned:'magdgh:pinned',metadata:'magdgh:metadata'}[key];if(legacy){raw=localStorage.getItem(legacy);if(raw!==null){try{localStorage.setItem(KEY+key,raw)}catch(ignore){}}}}if(raw===null)return fallback;const v=JSON.parse(raw);return v===null?fallback:v}catch(e){return fallback}};
 let username=USER_DEFAULT,token='',repos=[],filter='all',activeRepo='',loading=false,view='home',layout='cards',includeForks=true,includeArchived=true,lastRefresh=null;
 let pinned=new Set(safeRead('pinned',[])),metadata=safeRead('metadata',{}),recent=safeRead('recent',[]),theme=safeRead('theme','dark');
 const filters=['all','pinned','active','urgent','needsnext','recent','stale','private','public','archived','fork'];
