@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b1020">
+<title>مركز مشاريع مجد | Magd GitHub Hub</title>
+<style>
+:root{color-scheme:dark;--bg:#080d19;--bgGlow:#17284a;--panel:#10192a;--panel2:#152238;--panel3:#0b1424;--line:#263650;--text:#edf3ff;--muted:#9eacc5;--soft:#c8d4e9;--blue:#8da8ff;--cyan:#60e4d0;--gold:#f4c76b;--red:#ff899b;--green:#7ce0b0;--purple:#c4a1ff;--shadow:0 20px 60px #0004;--radius:19px}
+:root[data-theme="light"]{color-scheme:light;--bg:#eef3fb;--bgGlow:#dce8ff;--panel:#fff;--panel2:#f4f7fc;--panel3:#edf2fa;--line:#d8e1ef;--text:#15213a;--muted:#62718b;--soft:#33425d;--blue:#4269db;--cyan:#087f78;--gold:#9a6500;--red:#c23550;--green:#14774e;--purple:#7444bf;--shadow:0 15px 45px #27436b12}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 8% -8%,var(--bgGlow),transparent 36%),var(--bg);color:var(--text);font:15px/1.65 system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;min-height:100vh}a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}button{color:inherit}.wrap{max-width:1600px;margin:auto;padding:24px 24px 54px}.top{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:20px}.brand{display:flex;align-items:center;gap:13px;min-width:0}.mark{width:52px;height:52px;border-radius:17px;display:grid;place-items:center;background:linear-gradient(135deg,#8da8ff,#60e4d0);color:#081020;font-weight:950;font-size:25px;box-shadow:var(--shadow);flex-shrink:0}.brand h1{font-size:clamp(22px,3vw,34px);margin:0;letter-spacing:-.7px}.sub{color:var(--muted);font-size:13px}.topactions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.btn,button{border:1px solid var(--line);background:var(--panel2);padding:9px 13px;border-radius:12px;cursor:pointer;transition:transform .15s,border-color .15s,background .15s}.btn:hover,button:hover{border-color:var(--blue);transform:translateY(-1px)}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid color-mix(in srgb,var(--blue) 65%,transparent);outline-offset:2px}.primary{background:linear-gradient(135deg,#8da8ff,#60e4d0);border-color:transparent;color:#071021;font-weight:850}.quiet{background:transparent}.danger{color:var(--red)}.tiny{font-size:12px;padding:6px 9px;border-radius:9px}.iconbtn{width:40px;height:40px;padding:0;display:grid;place-items:center}.panel{background:linear-gradient(145deg,color-mix(in srgb,var(--panel) 96%,var(--blue) 4%),var(--panel));border:1px solid var(--line);border-radius:var(--radius);padding:19px;box-shadow:var(--shadow);min-width:0}.hero{display:grid;grid-template-columns:1.25fr 1fr;gap:14px;margin-bottom:14px}.heroMain{position:relative;overflow:hidden}.heroMain:after{content:"";position:absolute;left:-65px;bottom:-95px;width:220px;height:220px;border-radius:50%;border:1px solid #8da8ff30;box-shadow:0 0 0 25px #8da8ff0b,0 0 0 55px #8da8ff08;pointer-events:none}.hero h2{margin:0 0 5px;font-size:20px}.hero p{margin:0;color:var(--muted);max-width:680px}.profileline{display:flex;align-items:center;gap:12px;margin-top:17px}.avatar{width:54px;height:54px;border-radius:17px;background:var(--panel3);object-fit:cover;border:1px solid var(--line)}.profilemeta{min-width:0}.profilemeta strong{display:block;font-size:16px;overflow-wrap:anywhere}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}.stat{padding:13px;border:1px solid var(--line);border-radius:15px;background:var(--panel3);min-width:0}.stat b{font-size:clamp(20px,2.3vw,29px);display:block;line-height:1.25;font-variant-numeric:tabular-nums}.stat span{font-size:11px;color:var(--muted)}.stat small{display:block;font-size:10px;color:var(--muted);margin-top:4px}.mainnav{display:flex;gap:7px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding:0 2px 12px;margin:18px 0}.navbtn{border-color:transparent;background:transparent;color:var(--muted);font-weight:750}.navbtn.active{color:var(--text);background:var(--panel2);border-color:var(--line)}.navbtn .count{font-size:11px;background:var(--panel3);padding:1px 6px;border-radius:7px;margin-right:4px}.view[hidden]{display:none!important}.sectionhead{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:18px 0 12px}.sectionhead h2{font-size:19px;margin:0}.muted{color:var(--muted)}.soft{color:var(--soft)}.overviewGrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.repoGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.repo{background:linear-gradient(145deg,var(--panel),color-mix(in srgb,var(--panel) 88%,var(--blue) 12%));border:1px solid var(--line);border-radius:17px;padding:15px;min-width:0;display:flex;flex-direction:column;gap:10px;transition:transform .15s,border-color .15s}.repo:hover{transform:translateY(-2px);border-color:color-mix(in srgb,var(--blue) 55%,var(--line))}.repohead{display:flex;align-items:flex-start;gap:10px}.repoicon{width:39px;height:39px;border-radius:12px;display:grid;place-items:center;flex-shrink:0;color:var(--blue);background:color-mix(in srgb,var(--panel2) 70%,var(--blue) 30%);font-size:18px}.repoTitleWrap{min-width:0;flex:1}.reponame{font-size:15px;font-weight:850;overflow-wrap:anywhere;display:inline}.owner{font-size:11px;color:var(--muted);direction:ltr;text-align:right;overflow-wrap:anywhere}.desc{color:var(--soft);font-size:12px;overflow-wrap:anywhere;min-height:36px}.badges{display:flex;flex-wrap:wrap;gap:5px}.badge{font-size:10px;border:1px solid var(--line);border-radius:8px;padding:3px 7px;color:var(--muted);white-space:normal}.badge.status{font-weight:750}.badge.priority{font-weight:750}.badge.status-active{color:var(--green);border-color:color-mix(in srgb,var(--green) 40%,var(--line))}.badge.status-done{color:var(--cyan)}.badge.status-paused{color:var(--gold)}.badge.status-review{color:var(--purple)}.badge.priority-high{color:var(--red);border-color:color-mix(in srgb,var(--red) 40%,var(--line))}.badge.priority-urgent{background:color-mix(in srgb,var(--red) 15%,transparent);color:var(--red)}.badge.lang:before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--cyan);margin-left:5px}.repoProgress{height:4px;background:var(--panel3);border-radius:99px;overflow:hidden}.repoProgress span{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--blue),var(--cyan));opacity:.5}.repoDetails{display:grid;gap:5px;font-size:11px;color:var(--muted)}.repoDetails b{color:var(--soft);font-weight:700}.repoFoot{display:flex;justify-content:space-between;gap:8px;align-items:center;border-top:1px solid var(--line);padding-top:9px;margin-top:auto;font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}.repoActions{display:flex;gap:5px;flex-wrap:wrap}.repoActions .btn{font-size:11px;padding:6px 8px}.star.on{color:var(--gold);border-color:var(--gold)}.empty{padding:36px 18px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:17px;grid-column:1/-1}.empty strong{display:block;color:var(--text);font-size:16px;margin-bottom:4px}.toolbar{display:grid;grid-template-columns:minmax(200px,1.6fr) repeat(3,minmax(130px,.7fr)) auto;gap:8px;margin:14px 0}.field{width:100%;min-width:0;background:var(--panel3);color:var(--text);border:1px solid var(--line);border-radius:11px;padding:10px 12px;outline:none}.field::placeholder{color:var(--muted)}.field:focus{border-color:var(--blue);box-shadow:0 0 0 3px color-mix(in srgb,var(--blue) 15%,transparent)}textarea.field{resize:vertical;min-height:88px}.filters{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 14px}.chip{font-size:12px;border-radius:999px;padding:6px 11px;color:var(--muted)}.chip.active{background:color-mix(in srgb,var(--blue) 22%,var(--panel2));border-color:var(--blue);color:var(--text)}.viewtools{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.tableWrap{overflow:auto;border:1px solid var(--line);border-radius:15px}.repoTable{width:100%;border-collapse:collapse;min-width:850px;background:var(--panel)}.repoTable th,.repoTable td{text-align:right;padding:10px 12px;border-bottom:1px solid var(--line);font-size:12px;vertical-align:middle}.repoTable th{background:var(--panel2);color:var(--muted);font-weight:750;position:sticky;top:0}.repoTable tr:last-child td{border-bottom:0}.repoTable tr:hover td{background:color-mix(in srgb,var(--panel2) 75%,transparent)}.tableName{font-weight:800;color:var(--text)}.notice{border-radius:13px;padding:11px 13px;margin:10px 0;display:none;font-size:13px}.notice.show{display:block}.notice.info{background:#173054;border:1px solid #315887;color:#edf4ff}.notice.error{background:#3a1c2b;border:1px solid #8d3d56;color:#ffe7ec}.notice.ok{background:#15352f;border:1px solid #267465;color:#e2fff4}.notice.warn{background:#3a2e17;border:1px solid #886b2e;color:#fff3d1}.quickList{display:grid;gap:7px}.quickItem{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:12px;padding:9px 10px;background:var(--panel3);min-width:0}.quickItem:hover{border-color:var(--blue)}.quickIcon{width:32px;height:32px;border-radius:10px;background:var(--panel2);display:grid;place-items:center;flex-shrink:0;color:var(--blue)}.quickText{min-width:0;flex:1}.quickText strong{display:block;font-size:12px;overflow-wrap:anywhere}.quickText small{display:block;color:var(--muted);font-size:10px}.quickArrow{color:var(--muted)}.deadlineItem{border-right:3px solid var(--gold)}.deadlineItem.overdue{border-right-color:var(--red)}.deadlineItem .quickText small{direction:rtl}.kv{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--line);font-size:12px}.kv:last-child{border-bottom:0}.shortcut{font:11px ui-monospace,Consolas,monospace;border:1px solid var(--line);border-radius:6px;background:var(--panel3);padding:2px 5px;color:var(--muted)}.modalback{position:fixed;inset:0;background:#030713cc;backdrop-filter:blur(8px);display:none;place-items:center;padding:16px;z-index:20}.modalback.show{display:grid}.modal{width:min(680px,100%);max-height:92vh;overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:21px;padding:21px;box-shadow:0 30px 100px #0006}.modal h2{margin:0 0 5px;font-size:21px}.modal p{margin:0 0 12px}.modal label{display:block;font-size:13px;font-weight:750;margin:12px 0 6px}.modal small,.help{color:var(--muted);font-size:11px;line-height:1.6}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}.modalfoot{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.checkrow{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:12px;margin-top:12px}.checkrow input{width:17px;height:17px;accent-color:var(--blue)}.footer{text-align:center;color:var(--muted);font-size:11px;margin-top:28px}.loading{display:flex;align-items:center;justify-content:center;gap:10px;padding:35px;color:var(--muted);grid-column:1/-1}.spinner{width:17px;height:17px;border:2px solid var(--line);border-top-color:var(--cyan);border-radius:50%;animation:spin .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}.palette{width:min(650px,100%)}.palette .field{font-size:16px;padding:14px}.paletteResults{display:grid;gap:6px;margin-top:12px;max-height:58vh;overflow:auto}.palrow{display:flex;gap:10px;align-items:center;padding:10px;border:1px solid var(--line);border-radius:11px;background:var(--panel3);cursor:pointer}.palrow:hover,.palrow:focus{border-color:var(--blue);outline:none}.palrow .quickText{min-width:0}.palrow .quickText small{overflow-wrap:anywhere}.historyGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.historyCard{border:1px solid var(--line);border-radius:14px;padding:13px;background:var(--panel3)}.historyCard strong{display:block}.historyCard small{color:var(--muted)}.callout{border:1px solid color-mix(in srgb,var(--cyan) 30%,var(--line));border-radius:14px;padding:13px;background:color-mix(in srgb,var(--cyan) 6%,var(--panel));font-size:12px;color:var(--soft)}.progressLine{height:6px;background:var(--panel3);border-radius:99px;margin-top:7px;overflow:hidden}.progressLine span{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--cyan));border-radius:99px}.visuallyHidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:1100px){.repoGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.toolbar{grid-template-columns:repeat(3,minmax(0,1fr))}.toolbar #search{grid-column:span 2}.toolbar #clearBtn{grid-column:span 1}.hero{grid-template-columns:1fr}.stats{grid-template-columns:repeat(4,minmax(0,1fr))}}@media(max-width:700px){.wrap{padding:14px 10px 34px}.top{align-items:flex-start;flex-direction:column}.topactions{width:100%}.topactions>*{flex:1}.brand h1{font-size:23px}.repoGrid,.overviewGrid,.historyGrid{grid-template-columns:1fr}.toolbar{grid-template-columns:1fr 1fr}.toolbar #search{grid-column:span 2}.toolbar #clearBtn{grid-column:span 2}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.panel{padding:14px}.mainnav{gap:3px}.navbtn{padding:8px}.formgrid{grid-template-columns:1fr}.modal{padding:16px}.sectionhead{align-items:flex-start;flex-direction:column}.profileline{align-items:flex-start}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="top">
+  <div class="brand"><div class="mark" aria-hidden="true">M</div><div><h1>مركز مشاريع مجد</h1><div class="sub">Magd GitHub Hub · كل مستودعاتك، ومراحل عملك، في مكان واحد</div></div></div>
+  <div class="topactions">
+    <a class="btn" href="https://github.com/majd7772233-a11y" target="_blank" rel="noopener noreferrer">↗ ملف GitHub</a>
+    <button class="iconbtn" id="themeBtn" title="تبديل المظهر" aria-label="تبديل المظهر">☼</button>
+    <button id="paletteBtn" title="الوصول السريع (Ctrl+K)">⌕ وصول سريع</button>
+    <button id="settingsBtn">⚙ الاتصال</button>
+    <button class="primary" id="refreshBtn">⟳ تحديث المستودعات</button>
+  </div>
+</header>
+<div id="notice" class="notice" role="status" aria-live="polite"></div>
+<section class="hero">
+  <div class="panel heroMain">
+    <h2>مركز القيادة</h2>
+    <p>لا تكتفِ بالعثور على المستودع؛ سجّل أين توقفت وما الخطوة التالية، حتى تعود لأي مشروع دون أن تعيد اكتشاف سياقه من الصفر.</p>
+    <div class="profileline"><img class="avatar" id="avatar" alt="صورة حساب GitHub" src="https://github.com/majd7772233-a11y.png"><div class="profilemeta"><strong id="profileName">majd7772233-a11y</strong><div class="sub" id="profileHint">تحميل بيانات الحساب…</div><a class="sub" id="profileReposLink" href="https://github.com/majd7772233-a11y?tab=repositories" target="_blank" rel="noopener noreferrer">فتح قائمة المستودعات على GitHub ↗</a></div></div>
+  </div>
+  <div class="panel">
+    <div class="stats">
+      <div class="stat"><b id="totalStat">—</b><span>المستودعات المحمّلة</span></div>
+      <div class="stat"><b id="pinnedStat">—</b><span>المثبتة في اللوحة</span></div>
+      <div class="stat"><b id="activeStat">—</b><span>مشاريع قيد العمل</span></div>
+      <div class="stat"><b id="privateStat">—</b><span>مستودعات خاصة</span></div>
+    </div>
+    <div class="sub" style="margin-top:13px">تفضيلاتك وملاحظاتك محفوظة على هذا المتصفح. رمز GitHub لا يُحفظ في التخزين المحلي ولا يدخل في النسخة الاحتياطية.</div>
+  </div>
+</section>
+<nav class="mainnav" aria-label="أقسام اللوحة">
+  <button class="navbtn active" data-view="home">⌂ نظرة عامة</button>
+  <button class="navbtn" data-view="repos">▦ المستودعات <span class="count" id="navRepoCount">—</span></button>
+  <button class="navbtn" data-view="activity">◷ سجل الوصول</button>
+  <button class="navbtn" data-view="data">⇅ النسخ الاحتياطي</button>
+</nav>
+<section class="view" id="view-home">
+  <div class="overviewGrid">
+    <div class="panel"><div class="sectionhead"><h2>★ محطاتك المثبّتة</h2><button class="tiny" data-go="repos" data-filter="pinned">عرض الكل ↗</button></div><div class="quickList" id="homePinned"><div class="loading"><span class="spinner"></span> تحميل المستودعات…</div></div></div>
+    <div class="panel"><div class="sectionhead"><h2>↻ آخر ما فتحته</h2><button class="tiny" data-go="activity">السجل الكامل ↗</button></div><div class="quickList" id="homeRecent"><div class="muted">سيظهر هنا سجل الوصول المحلي.</div></div></div>
+    <div class="panel"><div class="sectionhead"><h2>⏳ مواعيد المشاريع</h2><span class="sub">تُحسب من المواعيد التي تسجلها</span></div><div class="quickList" id="homeDeadlines"><div class="muted">لا توجد مواعيد مسجلة بعد.</div></div></div>
+    <div class="panel"><div class="sectionhead"><h2>🧭 عودة ذكية للمشاريع</h2></div>
+      <div class="kv"><span>تحتاج خطوة تالية</span><b id="needsNextCount">—</b></div>
+      <div class="kv"><span>لم تُحدّث منذ 90 يومًا</span><b id="staleCount">—</b></div>
+      <div class="kv"><span>ملاحظاتك المحلية</span><b id="notesCount">—</b></div>
+      <div class="kv"><span>آخر جلب ناجح</span><b id="lastRefresh">لم يتم بعد</b></div>
+      <div class="callout" style="margin-top:12px">نصيحة: عند إنهاء جلسة التطوير، حدّث حقول «أين توقفت» و«الخطوة التالية». عند عودتك، ستجد سياق العمل على بطاقة المستودع مباشرة.</div>
+    </div>
+  </div>
+  <div class="sectionhead"><h2>🕒 أحدث المستودعات تحديثًا على GitHub</h2><button class="tiny" data-go="repos">استكشاف كل المستودعات ↗</button></div>
+  <div id="homeUpdated" class="repoGrid"><div class="loading"><span class="spinner"></span> تحميل…</div></div>
+</section>
+<section class="view" id="view-repos" hidden>
+  <div class="sectionhead"><div><h2>كل المستودعات</h2><div class="sub">بحث متقدم، تصنيفات شخصية، حالة المشروع، والأولويات</div></div><div class="viewtools"><button class="tiny" id="cardsBtn" aria-pressed="true">▦ بطاقات</button><button class="tiny" id="tableBtn" aria-pressed="false">☷ جدول</button><button class="tiny" id="exportCsvBtn">⇩ تصدير CSV</button></div></div>
+  <div class="toolbar">
+    <input id="search" class="field" type="search" placeholder="ابحث بالاسم، الوصف، اللغة، الفرع، الخطوة التالية…  ( / )" aria-label="البحث في المستودعات">
+    <select id="sort" class="field" aria-label="ترتيب"><option value="updated">الأحدث تحديثًا</option><option value="priority">الأولوية أولًا</option><option value="name">الاسم أ–ي</option><option value="stars">الأكثر نجومًا</option><option value="created">الأحدث إنشاءً</option><option value="size">الأكبر حجمًا</option><option value="deadline">أقرب موعد</option><option value="status">حالة المشروع</option></select>
+    <select id="categoryFilter" class="field" aria-label="التصنيف"><option value="all">كل التصنيفات</option></select>
+    <select id="statusFilter" class="field" aria-label="حالة المشروع"><option value="all">كل الحالات</option><option value="active">قيد العمل</option><option value="paused">متوقف مؤقتًا</option><option value="review">يحتاج مراجعة</option><option value="planned">مخطط له</option><option value="done">مكتمل</option><option value="someday">لاحقًا</option></select>
+    <button id="clearBtn">إعادة ضبط</button>
+  </div>
+  <nav class="filters" aria-label="فلاتر سريعة">
+    <button class="chip active" data-filter="all">الكل</button><button class="chip" data-filter="pinned">★ المثبتة</button><button class="chip" data-filter="active">قيد العمل</button><button class="chip" data-filter="urgent">أولوية عاجلة / مرتفعة</button><button class="chip" data-filter="needsnext">تحتاج خطوة تالية</button><button class="chip" data-filter="recent">محدّثة خلال 30 يومًا</button><button class="chip" data-filter="stale">قديمة +90 يومًا</button><button class="chip" data-filter="private">الخاصة</button><button class="chip" data-filter="public">العامة</button><button class="chip" data-filter="archived">المؤرشفة</button><button class="chip" data-filter="fork">Forks</button></nav>
+  <div class="sectionhead"><span class="muted" id="resultCount">—</span><span class="muted">اختصارات: <span class="shortcut">Ctrl K</span> وصول سريع · <span class="shortcut">/</span> بحث · <span class="shortcut">Esc</span> إغلاق</span></div>
+  <div id="repoResults" class="repoGrid"><div class="loading"><span class="spinner"></span> جارٍ جلب المستودعات…</div></div>
+</section>
+<section class="view" id="view-activity" hidden>
+  <div class="sectionhead"><div><h2>سجل الوصول</h2><div class="sub">يسجل البرنامج المستودعات التي تفتحها من داخله على هذا الجهاز فقط.</div></div><button class="tiny danger" id="clearHistoryBtn">مسح السجل</button></div>
+  <div id="activityList" class="quickList"><div class="muted">لا توجد زيارات مسجلة بعد.</div></div>
+</section>
+<section class="view" id="view-data" hidden>
+  <div class="overviewGrid">
+    <div class="panel"><h2 style="margin-top:0">⇩ نسخة احتياطية من إعداداتك</h2><p class="sub">يحفظ التثبيتات، التصنيفات، حالات المشاريع، الفروع والملاحظات، سجل الوصول، والمظهر. لا يتضمن رمز الوصول أو بيانات المستودعات التي يمكن جلبها مجددًا من GitHub.</p><div class="modalfoot"><button class="primary" id="backupBtn">تنزيل نسخة JSON</button><button id="restoreBtn">استعادة / دمج نسخة</button><input class="visuallyHidden" type="file" id="backupInput" accept=".json,application/json"></div><p class="help">التصدير مفيد قبل تغيير المتصفح أو حذف بياناته. احفظ الملف في مكان خاص لأن ملاحظات المشاريع قد تحتوي معلومات شخصية.</p></div>
+    <div class="panel"><h2 style="margin-top:0">⇧ تصدير قائمة المستودعات</h2><p class="sub">صدّر بيانات المستودعات الحالية إلى CSV وافتحها في Excel أو LibreOffice. يمكنك اختيار النتائج بعد الفلترة من صفحة المستودعات.</p><div class="modalfoot"><button id="allCsvBtn">تصدير كل المستودعات إلى CSV</button><button data-go="repos">اختيار نتائج ثم تصدير ↗</button></div></div>
+    <div class="panel"><h2 style="margin-top:0">الخصوصية والتخزين</h2><div class="kv"><span>مكان الحفظ</span><b>متصفح هذا الجهاز</b></div><div class="kv"><span>هل يتزامن عبر الأجهزة؟</span><b>لا، استخدم النسخة الاحتياطية</b></div><div class="kv"><span>حفظ رمز الوصول</span><b>في الذاكرة المؤقتة فقط</b></div><div class="kv"><span>صلاحيات GitHub المطلوبة</span><b>قراءة فقط</b></div></div>
+    <div class="panel"><h2 style="margin-top:0">ملاحظات الإصدار</h2><div class="kv"><span>الإصدار</span><b>2.0.0</b></div><div class="kv"><span>العمل دون إطار عمل</span><b>نعم · ملف HTML واحد</b></div><div class="kv"><span>إعدادات المشروع</span><b>محلية وقابلة للنقل</b></div><div class="kv"><span>اتصال الإنترنت</span><b>مطلوب لجلب GitHub</b></div></div>
+  </div>
+</section>
+<div class="footer">Magd GitHub Hub · نسخة شخصية محلية · GitHub API · صُممت لتقليل الوقت الضائع في البحث عن المشاريع</div>
+</main>
+
+<div class="modalback" id="settingsBack"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle"><h2 id="settingsTitle">الاتصال وإعدادات الجلب</h2><p class="sub">بدون رمز وصول تظهر المستودعات العامة للمستخدم فقط. للوصول إلى الخاصة، استخدم رمزًا محدود الصلاحيات للقراءة. الرمز لا يُحفظ محليًا ولا يدخل النسخ الاحتياطية.</p>
+<label for="username">اسم مستخدم GitHub</label><input id="username" class="field" value="majd7772233-a11y" autocomplete="off">
+<label for="token">Fine-grained Personal Access Token (اختياري)</label><input id="token" class="field" type="password" autocomplete="new-password" placeholder="يُحتفظ به في الذاكرة لهذه الجلسة فقط"><small>استخدم صلاحيات قراءة فقط (Metadata: Read). لا تمنح Write أو Administration. عند استخدام رمز قديم أو محدود بنطاقات معيّنة، لا تمنح اللوحة سوى ما يسمح به GitHub.</small>
+<div class="checkrow"><input type="checkbox" id="includeForks" checked><label for="includeForks" style="margin:0">إظهار المستودعات المتفرعة (Forks)</label></div>
+<div class="checkrow"><input type="checkbox" id="includeArchived" checked><label for="includeArchived" style="margin:0">إظهار المستودعات المؤرشفة</label></div>
+<div class="modalfoot"><button class="primary" id="saveSettings">حفظ وجلب المستودعات</button><button id="cancelSettings">إغلاق</button><button id="forgetToken" class="danger">مسح رمز الوصول</button></div>
+</section></div>
+
+<div class="modalback" id="editBack"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="editTitle"><h2 id="editTitle">بطاقة المشروع</h2><p class="sub" id="editRepoName"></p><div class="formgrid">
+<div><label for="metaCategory">التصنيف الشخصي</label><input id="metaCategory" class="field" list="categoryOptions" placeholder="مثل: Android أو Cloudflare"><datalist id="categoryOptions"><option value="Android"><option value="Game Engines"><option value="Cloudflare"><option value="Tools"><option value="Experiments"><option value="Completed"><option value="Research"><option value="Education"><option value="Archived"></datalist></div>
+<div><label for="metaStatus">حالة المشروع</label><select id="metaStatus" class="field"><option value="active">قيد العمل</option><option value="paused">متوقف مؤقتًا</option><option value="review">يحتاج مراجعة</option><option value="planned">مخطط له</option><option value="done">مكتمل</option><option value="someday">لاحقًا</option></select></div>
+<div><label for="metaPriority">الأولوية</label><select id="metaPriority" class="field"><option value="urgent">عاجلة</option><option value="high">مرتفعة</option><option value="normal">عادية</option><option value="low">منخفضة</option></select></div>
+<div><label for="metaBranch">الفرع الذي تعمل عليه</label><input id="metaBranch" class="field" placeholder="مثال: feature/offline-storage"></div>
+<div><label for="metaStage">أين توقفت؟ / المرحلة الحالية</label><input id="metaStage" class="field" placeholder="مثال: المرحلة الخامسة — العناصر والتأثيرات"></div>
+<div><label for="metaDeadline">الموعد المستهدف (اختياري)</label><input id="metaDeadline" class="field" type="date"></div>
+<div style="grid-column:1/-1"><label for="metaNext">الخطوة التالية (الأهم)</label><input id="metaNext" class="field" placeholder="ماذا يجب أن أفعل عندما أعود إلى هذا المشروع؟"></div>
+<div style="grid-column:1/-1"><label for="metaNote">ملاحظات وسياق إضافي</label><textarea id="metaNote" class="field" rows="4" placeholder="المتطلبات، القرارات، المشاكل المعروفة، روابط مهمة…"></textarea></div>
+</div><div class="checkrow"><input type="checkbox" id="metaPinned"><label for="metaPinned" style="margin:0">تثبيت هذا المشروع في لوحة القيادة</label></div>
+<div class="modalfoot"><button class="primary" id="saveMeta">حفظ بطاقة المشروع</button><button id="cancelEdit">إلغاء</button><button class="danger" id="clearMeta">مسح بيانات البطاقة المحلية</button></div><p class="help">هذه المعلومات لا تُرفع إلى GitHub؛ تخزّن محليًا في المتصفح وتنتقل مع النسخة الاحتياطية JSON.</p></section></div>
+
+<div class="modalback" id="paletteBack"><section class="modal palette" role="dialog" aria-modal="true" aria-labelledby="paletteTitle"><h2 id="paletteTitle">الوصول السريع</h2><p class="sub">ابحث عن مشروع وافتحه فورًا. <span class="shortcut">Esc</span> للإغلاق</p><label for="paletteSearch" class="visuallyHidden">بحث سريع</label><input id="paletteSearch" class="field" type="search" placeholder="اسم المستودع أو وصفه…" autocomplete="off"><div id="paletteResults" class="paletteResults"></div></section></div>
+
+<script>
+(function(){
+'use strict';
+const USER_DEFAULT='majd7772233-a11y',APP_VERSION='2.0.0',KEY='magdHub:v2:';
+const $=function(id){return document.getElementById(id)};
+const safeRead=function(key,fallback){try{const v=JSON.parse(localStorage.getItem(KEY+key));return v===null?fallback:v}catch(e){return fallback}};
+let username=USER_DEFAULT,token='',repos=[],filter='all',activeRepo='',loading=false,view='home',layout='cards',includeForks=true,includeArchived=true,lastRefresh=null;
+let pinned=new Set(safeRead('pinned',[])),metadata=safeRead('metadata',{}),recent=safeRead('recent',[]),theme=safeRead('theme','dark');
+const filters=['all','pinned','active','urgent','needsnext','recent','stale','private','public','archived','fork'];
+const statuses={active:'قيد العمل',paused:'متوقف مؤقتًا',review:'يحتاج مراجعة',planned:'مخطط له',done:'مكتمل',someday:'لاحقًا'};
+const priorities={urgent:'عاجلة',high:'مرتفعة',normal:'عادية',low:'منخفضة'};
+const statusOrder={active:0,review:1,planned:2,paused:3,someday:4,done:5};
+const priorityOrder={urgent:0,high:1,normal:2,low:3};
+function esc(value){return String(value===null||value===undefined?'':value).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function cleanUrl(value){try{const u=new URL(value);return u.protocol==='https:'&&u.hostname==='github.com'?u.href:'#'}catch(e){return '#'}}
+function persist(){try{localStorage.setItem(KEY+'pinned',JSON.stringify(Array.from(pinned)));localStorage.setItem(KEY+'metadata',JSON.stringify(metadata));localStorage.setItem(KEY+'recent',JSON.stringify(recent.slice(0,80)));localStorage.setItem(KEY+'theme',JSON.stringify(theme));return true}catch(e){notice('تعذر حفظ بعض التفضيلات في المتصفح. صدّر نسخة احتياطية، وقد تكون مساحة التخزين ممتلئة.','warn');return false}}
+function notice(message,type){const n=$('notice');n.className='notice show '+(type||'info');n.textContent=message}
+function hideNotice(){$('notice').className='notice'}
+function getMeta(name){return metadata[name]||{}}
+function statusOf(name){return getMeta(name).status||'planned'}
+function priorityOf(name){return getMeta(name).priority||'normal'}
+function fmtDate(value){if(!value)return 'غير محدد';const d=new Date(value);if(Number.isNaN(d.getTime()))return 'غير محدد';return new Intl.DateTimeFormat('ar',{year:'numeric',month:'short',day:'numeric'}).format(d)}
+function fmtTime(value){if(!value)return '—';const d=new Date(value);if(Number.isNaN(d.getTime()))return '—';return new Intl.DateTimeFormat('ar',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}).format(d)}
+function dayGap(value){if(!value)return null;const d=new Date(value);if(Number.isNaN(d.getTime()))return null;return Math.floor((Date.now()-d.getTime())/86400000)}
+function fmtSize(kb){if(!kb)return '0 KB';if(kb<1024)return kb+' KB';if(kb<1048576)return (kb/1024).toFixed(1)+' MB';return (kb/1048576).toFixed(2)+' GB'}
+function headers(){const h={'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'};if(token)h.Authorization='Bearer '+token;return h}
+function githubUrl(name,suffix){const r=repoByName(name);return cleanUrl((r?r.html_url:'https://github.com/'+name)+(suffix||''))}
+function repoByName(name){return repos.find(function(r){return r.full_name===name})}
+function loadError(status){if(status===401)return 'رمز الوصول غير صالح أو منتهي الصلاحية. امسحه أو أدخل رمزًا صالحًا.';if(status===403)return 'رفض GitHub الطلب. قد يكون حدّ الطلبات قد انتهى أو أن الرمز لا يملك صلاحية القراءة المطلوبة.';if(status===404)return 'لم يُعثر على المستخدم أو أن موردًا مطلوبًا غير متاح.';if(status===429)return 'وصلت إلى حد الطلبات المؤقت لدى GitHub؛ انتظر قليلًا ثم حدّث.';return 'تعذّر جلب البيانات من GitHub (HTTP '+status+').'}
+async function loadRepos(){
+ if(loading)return;loading=true;$('refreshBtn').disabled=true;$('refreshBtn').textContent='⟳ جارٍ التحديث…';$('repoResults').innerHTML='<div class="loading"><span class="spinner"></span> جارٍ جلب جميع الصفحات المتاحة من GitHub…</div>';hideNotice();
+ try{
+  const all=[];let page=1,profile=null;
+  while(true){
+   let url;
+   if(token)url='https://api.github.com/user/repos?per_page=100&page='+page+'&sort=updated&direction=desc&visibility=all&affiliation=owner,organization_member,collaborator';
+   else url='https://api.github.com/users/'+encodeURIComponent(username)+'/repos?per_page=100&page='+page+'&sort=updated&direction=desc&type=owner';
+   const response=await fetch(url,{headers:headers()});if(!response.ok)throw new Error(loadError(response.status));
+   const batch=await response.json();if(!Array.isArray(batch))throw new Error('استجابة GitHub ليست قائمة مستودعات صالحة.');
+   all.push.apply(all,batch);if(batch.length<100)break;page++;if(page>100){notice('توقف الجلب عند 10,000 مستودع لحماية المتصفح من تحميل غير محدود.','warn');break}
+  }
+  const purl=token?'https://api.github.com/user':'https://api.github.com/users/'+encodeURIComponent(username);
+  const pr=await fetch(purl,{headers:headers()});if(pr.ok)profile=await pr.json();
+  if(profile){username=profile.login||username;$('profileName').textContent=profile.name?profile.name+' · @'+profile.login:'@'+profile.login;$('avatar').src=profile.avatar_url||('https://github.com/'+encodeURIComponent(username)+'.png');$('profileHint').textContent=(token?'اتصال موثّق · ':'عرض عام · ')+(profile.public_repos===undefined?all.length:profile.public_repos)+' مستودعًا عامًا';$('profileReposLink').href='https://github.com/'+encodeURIComponent(username)+'?tab=repositories'}
+  repos=all.filter(function(r){return (includeForks||!r.fork)&&(includeArchived||!r.archived)});
+  repos.sort(function(a,b){return new Date(b.updated_at)-new Date(a.updated_at)});lastRefresh=new Date().toISOString();
+  $('lastRefresh').textContent=fmtTime(lastRefresh);notice('تم جلب '+all.length+' مستودعًا. اللوحة تعرض '+repos.length+' بعد تطبيق خيارات إظهار Forks والمستودعات المؤرشفة. '+(token?'تتضمن النتيجة كل المستودعات التي يسمح بها الرمز.':'هذه النتائج عامة فقط؛ للخاص أضف رمزًا محدود الصلاحيات للقراءة.'),'ok');
+  renderAll();
+ }catch(e){notice((e&&e.message?e.message:'خطأ غير معروف')+' تحقق من الإنترنت واسم المستخدم وصلاحيات الرمز.','error');renderAll()}
+ finally{loading=false;$('refreshBtn').disabled=false;$('refreshBtn').textContent='⟳ تحديث المستودعات'}
+}
+function repoSearchText(r){const m=getMeta(r.full_name);return [r.name,r.full_name,r.description,r.language,m.note,m.branch,m.stage,m.next].join(' ').toLocaleLowerCase()}
+function passFilter(r){
+ const name=r.full_name,m=getMeta(name),age=dayGap(r.pushed_at||r.updated_at),status=m.status||'planned',priority=m.priority||'normal';
+ if(filter==='pinned'&&!pinned.has(name))return false;
+ if(filter==='active'&&status!=='active')return false;
+ if(filter==='urgent'&&priority!=='urgent'&&priority!=='high')return false;
+ if(filter==='needsnext'&&String(m.next||'').trim())return false;
+ if(filter==='recent'&&(age===null||age>30))return false;
+ if(filter==='stale'&&(age===null||age<90))return false;
+ if(filter==='private'&&!r.private)return false;
+ if(filter==='public'&&r.private)return false;
+ if(filter==='archived'&&!r.archived)return false;
+ if(filter==='fork'&&!r.fork)return false;
+ return true;
+}
+function visibleRepos(){
+ const q=$('search').value.trim().toLocaleLowerCase(),cat=$('categoryFilter').value,status=$('statusFilter').value,sort=$('sort').value;
+ const list=repos.filter(function(r){const m=getMeta(r.full_name);if(q&&!repoSearchText(r).includes(q))return false;if(cat!=='all'&&(m.category||'غير مصنّف')!==cat)return false;if(status!=='all'&&(m.status||'planned')!==status)return false;return passFilter(r)});
+ list.sort(function(a,b){const am=getMeta(a.full_name),bm=getMeta(b.full_name);if(sort==='name')return a.name.localeCompare(b.name,'ar');if(sort==='stars')return (b.stargazers_count||0)-(a.stargazers_count||0);if(sort==='created')return new Date(b.created_at)-new Date(a.created_at);if(sort==='size')return (b.size||0)-(a.size||0);if(sort==='priority')return (priorityOrder[am.priority||'normal']-priorityOrder[bm.priority||'normal'])||(new Date(b.updated_at)-new Date(a.updated_at));if(sort==='status')return (statusOrder[am.status||'planned']-statusOrder[bm.status||'planned'])||(a.name.localeCompare(b.name));if(sort==='deadline'){const ad=am.deadline?new Date(am.deadline).getTime():Infinity,bd=bm.deadline?new Date(bm.deadline).getTime():Infinity;return ad-bd}return new Date(b.updated_at)-new Date(a.updated_at)});
+ return list
+}
+function statusBadge(status){const s=statuses[status]?status:'planned';return '<span class="badge status status-'+s+'">'+esc(statuses[s])+'</span>'}
+function priorityBadge(priority){const p=priorities[priority]?priority:'normal';return '<span class="badge priority priority-'+p+'">أولوية '+esc(priorities[p])+'</span>'}
+function quickItem(name,sub,kind,extraClass){const r=repoByName(name);if(!r)return '';return '<a class="quickItem '+(extraClass||'')+'" href="'+esc(cleanUrl(r.html_url))+'" target="_blank" rel="noopener noreferrer" data-open="'+esc(r.full_name)+'"><span class="quickIcon">'+esc(kind||'⌘')+'</span><span class="quickText"><strong>'+esc(r.name)+'</strong><small>'+esc(sub||r.full_name)+'</small></span><span class="quickArrow">↗</span></a>'}
+function repoCard(r){
+ const n=r.full_name,m=getMeta(n),s=m.status||'planned',p=m.priority||'normal',age=dayGap(r.pushed_at||r.updated_at),pin=pinned.has(n);
+ const icon=r.archived?'▣':r.fork?'⑂':'⌘';
+ let details='';
+ if(m.branch)details+='<div><b>الفرع:</b> '+esc(m.branch)+'</div>';
+ if(m.stage)details+='<div><b>أين توقفت:</b> '+esc(m.stage)+'</div>';
+ if(m.next)details+='<div><b>التالي:</b> '+esc(m.next)+'</div>';
+ if(m.deadline){const diff=Math.ceil((new Date(m.deadline+'T23:59:59').getTime()-Date.now())/86400000);details+='<div><b>الموعد:</b> '+esc(fmtDate(m.deadline))+(diff<0?' · متأخر':diff<=3?' · قريب':'')+'</div>'}
+ if(m.note)details+='<div><b>ملاحظة:</b> '+esc(m.note.length>150?m.note.slice(0,147)+'…':m.note)+'</div>';
+ return '<article class="repo"><div class="repohead"><div class="repoicon">'+icon+'</div><div class="repoTitleWrap"><a class="reponame" href="'+esc(cleanUrl(r.html_url))+'" target="_blank" rel="noopener noreferrer" data-open="'+esc(n)+'">'+esc(r.name)+' ↗</a><div class="owner">'+esc(n)+'</div></div><button class="tiny star '+(pin?'on':'')+'" data-pin="'+esc(n)+'" aria-label="'+(pin?'إزالة التثبيت':'تثبيت')+'" title="'+(pin?'إزالة التثبيت':'تثبيت في لوحة القيادة')+'">'+(pin?'★':'☆')+'</button></div>'+
+ '<div class="desc">'+esc(r.description||'لا يوجد وصف في GitHub.')+'</div><div class="badges">'+(r.private?'<span class="badge">🔒 خاص</span>':'<span class="badge">عام</span>')+(r.archived?'<span class="badge">مؤرشف</span>':'')+(r.fork?'<span class="badge">Fork</span>':'')+(r.language?'<span class="badge lang">'+esc(r.language)+'</span>':'')+(m.category?'<span class="badge">'+esc(m.category)+'</span>':'')+statusBadge(s)+priorityBadge(p)+'</div>'+
+ (details?'<div class="repoDetails">'+details+'</div>':'<div class="repoDetails"><span>أضف الفرع والخطوة القادمة من زر «بطاقة المشروع» لتعود بسرعة إلى سياق عملك.</span></div>')+
+ '<div class="repoFoot"><span>★ '+(r.stargazers_count||0)+'　⑂ '+(r.forks_count||0)+'　'+esc(fmtSize(r.size||0))+'</span><span>'+(age===null?'':age===0?'اليوم':age+' يومًا')+'</span></div><div class="repoActions">'+
+ '<a class="btn" href="'+esc(cleanUrl(r.html_url))+'" target="_blank" rel="noopener noreferrer" data-open="'+esc(n)+'">فتح ↗</a>'+
+ '<a class="btn" href="'+esc(cleanUrl(r.html_url+'/branches'))+'" target="_blank" rel="noopener noreferrer" data-open="'+esc(n)+'">الفروع</a>'+
+ '<a class="btn" href="'+esc(cleanUrl(r.html_url+'/actions'))+'" target="_blank" rel="noopener noreferrer" data-open="'+esc(n)+'">Actions</a>'+
+ '<a class="btn" href="'+esc(cleanUrl(r.html_url+'/issues'))+'" target="_blank" rel="noopener noreferrer" data-open="'+esc(n)+'">Issues</a>'+
+ '<button class="btn" data-edit="'+esc(n)+'">بطاقة المشروع</button></div></article>'
+}
+function repoRow(r){const n=r.full_name,m=getMeta(n),s=m.status||'planned';return '<tr><td><button class="tiny star '+(pinned.has(n)?'on':'')+'" data-pin="'+esc(n)+'">'+(pinned.has(n)?'★':'☆')+'</button></td><td><a class="tableName" href="'+esc(cleanUrl(r.html_url))+'" target="_blank" rel="noopener noreferrer" data-open="'+esc(n)+'">'+esc(r.name)+' ↗</a><div class="owner">'+esc(n)+'</div></td><td>'+esc(m.category||'—')+'</td><td>'+statusBadge(s)+'</td><td>'+priorityBadge(m.priority||'normal')+'</td><td>'+esc(m.branch||'—')+'</td><td>'+esc(m.next||'—')+'</td><td>'+esc(fmtDate(r.updated_at))+'</td><td><button class="tiny" data-edit="'+esc(n)+'">تعديل</button></td></tr>'}
+function renderRepos(){
+ const list=visibleRepos();$('resultCount').textContent='عرض '+list.length+' من '+repos.length+' مستودعًا';$('navRepoCount').textContent=String(repos.length);
+ if(!list.length){$('repoResults').className=layout==='cards'?'repoGrid':'tableWrap';$('repoResults').innerHTML='<div class="empty"><strong>لا توجد نتائج مطابقة</strong><span>غيّر نص البحث أو الفلاتر، أو اعرض جميع المستودعات.</span></div>';return}
+ if(layout==='cards'){$('repoResults').className='repoGrid';$('repoResults').innerHTML=list.map(repoCard).join('')}
+ else{$('repoResults').className='tableWrap';$('repoResults').innerHTML='<table class="repoTable"><thead><tr><th>★</th><th>المستودع</th><th>التصنيف</th><th>الحالة</th><th>الأولوية</th><th>الفرع</th><th>الخطوة التالية</th><th>آخر تحديث GitHub</th><th>إجراء</th></tr></thead><tbody>'+list.map(repoRow).join('')+'</tbody></table>'}
+}
+function renderHome(){
+ const pins=Array.from(pinned).map(repoByName).filter(Boolean).sort(function(a,b){return new Date(b.updated_at)-new Date(a.updated_at)}).slice(0,6);
+ $('homePinned').innerHTML=pins.length?pins.map(function(r){const m=getMeta(r.full_name);return quickItem(r.full_name,(m.next?'التالي: '+m.next:(m.category||r.language||'مثبّت')),'★')}).join(''):'<div class="empty"><strong>لم تثبّت أي مشروع بعد</strong>اضغط ☆ على بطاقة مستودع لإضافته إلى هنا.</div>';
+ const hist=recent.slice().sort(function(a,b){return new Date(b.at)-new Date(a.at)}).slice(0,6);
+ $('homeRecent').innerHTML=hist.length?hist.map(function(h){const m=getMeta(h.name);return quickItem(h.name,(m.next?'التالي: '+m.next:'آخر فتح: '+fmtTime(h.at)),'↗')}).join(''):'<div class="empty"><strong>لا يوجد سجل بعد</strong>افتح مستودعًا عبر اللوحة وسيظهر هنا.</div>';
+ const due=Object.keys(metadata).filter(function(n){return metadata[n]&&metadata[n].deadline&&statuses[metadata[n].status||'planned']&&metadata[n].status!=='done'}).map(function(n){return {name:n,deadline:metadata[n].deadline}}).filter(function(x){return repoByName(x.name)}).sort(function(a,b){return a.deadline.localeCompare(b.deadline)}).slice(0,5);
+ $('homeDeadlines').innerHTML=due.length?due.map(function(x){const d=Math.ceil((new Date(x.deadline+'T23:59:59').getTime()-Date.now())/86400000);return quickItem(x.name,(d<0?'متأخر '+Math.abs(d)+' يوم':d===0?'موعده اليوم':d+' يوم متبقٍ')+' · '+fmtDate(x.deadline),'⏳',d<0?'deadlineItem overdue':'deadlineItem')}).join(''):'<div class="empty"><strong>لا توجد مواعيد قريبة</strong>أضف موعدًا في بطاقة أي مشروع لتظهر التنبيهات هنا.</div>';
+ const needs=repos.filter(function(r){const m=getMeta(r.full_name);return (m.status||'planned')==='active'&&!String(m.next||'').trim()}).length;
+ const stale=repos.filter(function(r){const d=dayGap(r.pushed_at||r.updated_at);return d!==null&&d>=90}).length;
+ const notes=Object.values(metadata).filter(function(m){return m&&(m.note||m.stage||m.next||m.branch)}).length;
+ $('needsNextCount').textContent=needs;$('staleCount').textContent=stale;$('notesCount').textContent=notes;
+ const updated=repos.slice().sort(function(a,b){return new Date(b.updated_at)-new Date(a.updated_at)}).slice(0,6);
+ $('homeUpdated').innerHTML=updated.length?updated.map(repoCard).join(''):'<div class="empty"><strong>لا توجد مستودعات معروضة</strong>تحقق من الاتصال ثم حدّث القائمة.</div>';
+ $('totalStat').textContent=repos.length;$('pinnedStat').textContent=Array.from(pinned).filter(function(n){return repoByName(n)}).length;$('activeStat').textContent=repos.filter(function(r){return (getMeta(r.full_name).status||'planned')==='active'}).length;$('privateStat').textContent=repos.filter(function(r){return r.private}).length;
+ $('lastRefresh').textContent=fmtTime(lastRefresh);$('navRepoCount').textContent=String(repos.length)
+}
+function renderActivity(){
+ const known=recent.filter(function(h){return !!repoByName(h.name)}).slice().sort(function(a,b){return new Date(b.at)-new Date(a.at)});
+ $('activityList').innerHTML=known.length?known.map(function(h){const m=getMeta(h.name);return '<div class="quickItem"><span class="quickIcon">◷</span><span class="quickText"><strong>'+esc(h.name)+'</strong><small>آخر وصول: '+esc(fmtTime(h.at))+(m.next?' · التالي: '+esc(m.next):'')+'</small></span><button class="tiny" data-reopen="'+esc(h.name)+'">فتح ↗</button><button class="tiny" data-edit="'+esc(h.name)+'">بطاقة</button></div>'}).join(''):'<div class="empty"><strong>سجل الوصول فارغ</strong>اضغط على رابط مستودع داخل اللوحة لتسجيله هنا.</div>'
+}
+function renderCategoryOptions(){
+ const current=$('categoryFilter').value||'all',cats=new Set();
+ Object.keys(metadata).forEach(function(n){const c=metadata[n]&&metadata[n].category;if(c&&String(c).trim())cats.add(String(c).trim())});
+ const sorted=Array.from(cats).sort(function(a,b){return a.localeCompare(b,'ar')});
+ $('categoryFilter').innerHTML='<option value="all">كل التصنيفات</option><option value="غير مصنّف">غير مصنّف</option>'+sorted.map(function(c){return '<option value="'+esc(c)+'">'+esc(c)+'</option>'}).join('');
+ $('categoryFilter').value=Array.from($('categoryFilter').options).some(function(o){return o.value===current})?current:'all'
+}
+function renderAll(){renderCategoryOptions();renderHome();renderRepos();renderActivity()}
+function openView(next){view=next;document.querySelectorAll('.view').forEach(function(el){el.hidden=el.id!=='view-'+next});document.querySelectorAll('[data-view]').forEach(function(el){el.classList.toggle('active',el.dataset.view===next)});if(next==='repos')$('search').focus({preventScroll:true});window.scrollTo({top:0,behavior:'smooth'})}
+function recordOpen(name){recent=recent.filter(function(h){return h.name!==name});recent.unshift({name:name,at:new Date().toISOString()});recent=recent.slice(0,80);persist();renderHome();renderActivity()}
+function togglePin(name){if(pinned.has(name))pinned.delete(name);else pinned.add(name);persist();renderAll()}
+function openEdit(name){const r=repoByName(name);if(!r)return;activeRepo=name;const m=getMeta(name);$('editRepoName').textContent=name;$('metaCategory').value=m.category||'';$('metaStatus').value=m.status||'planned';$('metaPriority').value=m.priority||'normal';$('metaBranch').value=m.branch||'';$('metaStage').value=m.stage||'';$('metaNext').value=m.next||'';$('metaDeadline').value=m.deadline||'';$('metaNote').value=m.note||'';$('metaPinned').checked=pinned.has(name);$('editBack').classList.add('show');$('metaCategory').focus({preventScroll:true})}
+function closeModal(id){$(id).classList.remove('show')}
+function saveEdit(){if(!activeRepo)return;const cat=$('metaCategory').value.trim();const m={category:cat,status:$('metaStatus').value,priority:$('metaPriority').value,branch:$('metaBranch').value.trim(),stage:$('metaStage').value.trim(),next:$('metaNext').value.trim(),deadline:$('metaDeadline').value,note:$('metaNote').value.trim(),updatedLocally:new Date().toISOString()};if(!cat)delete m.category;if(!m.branch&&!m.stage&&!m.next&&!m.deadline&&!m.note&&!cat&&m.status==='planned'&&m.priority==='normal'){delete metadata[activeRepo]}else metadata[activeRepo]=m;if($('metaPinned').checked)pinned.add(activeRepo);else pinned.delete(activeRepo);persist();closeModal('editBack');renderAll();notice('تم حفظ بطاقة '+activeRepo+' محليًا.','ok')}
+function safeCsvCell(value){return '"'+String(value===null||value===undefined?'':value).replace(/"/g,'""')+'"'}
+function exportCsv(list){const rows=[['المستودع','الاسم الكامل','الوصف','اللغة','الخصوصية','مؤرشف','Fork','نجوم','Forks','الحجم KB','آخر تحديث GitHub','التصنيف الشخصي','الحالة','الأولوية','الفرع الحالي','المرحلة الحالية','الخطوة التالية','الموعد','الملاحظات','الرابط']];list.forEach(function(r){const m=getMeta(r.full_name);rows.push([r.name,r.full_name,r.description||'',r.language||'',r.private?'خاص':'عام',r.archived?'نعم':'لا',r.fork?'نعم':'لا',r.stargazers_count||0,r.forks_count||0,r.size||0,r.updated_at||'',m.category||'',statuses[m.status||'planned'],priorities[m.priority||'normal'],m.branch||'',m.stage||'',m.next||'',m.deadline||'',m.note||'',r.html_url])});const csv='\ufeff'+rows.map(function(row){return row.map(safeCsvCell).join(',')}).join('\r\n');download('magd-github-repositories-'+new Date().toISOString().slice(0,10)+'.csv',csv,'text/csv;charset=utf-8');notice('تم تجهيز ملف CSV لعدد '+list.length+' مستودعًا.','ok')}
+function download(filename,content,mime){const blob=new Blob([content],{type:mime});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(url)},1000)}
+function exportBackup(){const payload={app:'Magd GitHub Hub',version:APP_VERSION,exportedAt:new Date().toISOString(),username:username,theme:theme,pinned:Array.from(pinned),metadata:metadata,recent:recent};download('magd-github-hub-backup-'+new Date().toISOString().slice(0,10)+'.json',JSON.stringify(payload,null,2),'application/json;charset=utf-8');notice('تم تنزيل النسخة الاحتياطية. احتفظ بها في مكان آمن.','ok')}
+function importBackup(file){const reader=new FileReader();reader.onload=function(){try{const data=JSON.parse(String(reader.result||''));if(!data||typeof data!=='object'||!Array.isArray(data.pinned)||!data.metadata||typeof data.metadata!=='object')throw new Error('صيغة النسخة غير معروفة أو ناقصة.');if(!confirm('هل تريد دمج التفضيلات المستوردة مع البيانات الحالية؟ البيانات المستوردة ستأخذ الأولوية عند تعارض المستودع نفسه.'))return;pinned=new Set(Array.from(pinned).concat(data.pinned.filter(function(x){return typeof x==='string'})));metadata=Object.assign({},metadata,data.metadata);if(Array.isArray(data.recent)){const combined=data.recent.filter(function(h){return h&&typeof h.name==='string'}).concat(recent);const seen=new Set();recent=combined.filter(function(h){if(seen.has(h.name))return false;seen.add(h.name);return true}).slice(0,80)}if(data.theme==='dark'||data.theme==='light')theme=data.theme;applyTheme();persist();renderAll();notice('تم استيراد النسخة ودمج التفضيلات. لم يتم استيراد أي رمز وصول.','ok')}catch(e){notice('لم نستطع استيراد النسخة: '+e.message,'error')}finally{$('backupInput').value=''}};reader.readAsText(file)}
+function paletteRender(){const q=$('paletteSearch').value.trim().toLocaleLowerCase();const list=repos.filter(function(r){return !q||repoSearchText(r).includes(q)}).sort(function(a,b){const ap=pinned.has(a.full_name)?1:0,bp=pinned.has(b.full_name)?1:0;return bp-ap||new Date(b.updated_at)-new Date(a.updated_at)}).slice(0,30);$('paletteResults').innerHTML=list.length?list.map(function(r){const m=getMeta(r.full_name);return '<a class="palrow" href="'+esc(cleanUrl(r.html_url))+'" target="_blank" rel="noopener noreferrer" data-open="'+esc(r.full_name)+'"><span class="quickIcon">'+(pinned.has(r.full_name)?'★':'⌘')+'</span><span class="quickText"><strong>'+esc(r.name)+'</strong><small>'+esc(r.full_name)+(m.next?' · التالي: '+esc(m.next):'')+'</small></span><span class="quickArrow">↗</span></a>'}).join(''):'<div class="empty"><strong>لا توجد نتائج</strong>جرّب اسمًا آخر.</div>'}
+function openPalette(){ $('paletteBack').classList.add('show');$('paletteSearch').value='';paletteRender();$('paletteSearch').focus()}
+function applyTheme(){document.documentElement.dataset.theme=theme;$('themeBtn').textContent=theme==='dark'?'☼':'☾';$('themeBtn').title=theme==='dark'?'التبديل إلى المظهر الفاتح':'التبديل إلى المظهر الداكن'}
+$('repoResults').addEventListener('click',function(e){const pin=e.target.closest('[data-pin]');if(pin){togglePin(pin.dataset.pin);return}const edit=e.target.closest('[data-edit]');if(edit){openEdit(edit.dataset.edit);return}const open=e.target.closest('[data-open]');if(open)recordOpen(open.dataset.open)});
+$('homePinned').addEventListener('click',function(e){const a=e.target.closest('[data-open]');if(a)recordOpen(a.dataset.open)});
+$('homeRecent').addEventListener('click',function(e){const a=e.target.closest('[data-open]');if(a)recordOpen(a.dataset.open)});
+$('homeDeadlines').addEventListener('click',function(e){const a=e.target.closest('[data-open]');if(a)recordOpen(a.dataset.open)});
+$('homeUpdated').addEventListener('click',function(e){const pin=e.target.closest('[data-pin]');if(pin){togglePin(pin.dataset.pin);return}const edit=e.target.closest('[data-edit]');if(edit){openEdit(edit.dataset.edit);return}const a=e.target.closest('[data-open]');if(a)recordOpen(a.dataset.open)});
+$('activityList').addEventListener('click',function(e){const edit=e.target.closest('[data-edit]');if(edit){openEdit(edit.dataset.edit);return}const a=e.target.closest('[data-reopen]');if(a){window.open(cleanUrl((repoByName(a.dataset.reopen)||{}).html_url||'https://github.com/'+a.dataset.reopen),'_blank','noopener');recordOpen(a.dataset.reopen);return}const link=e.target.closest('[data-open]');if(link)recordOpen(link.dataset.open)});
+document.querySelectorAll('[data-view]').forEach(function(b){b.addEventListener('click',function(){openView(b.dataset.view)})});
+document.querySelectorAll('[data-go]').forEach(function(b){b.addEventListener('click',function(){openView(b.dataset.go);if(b.dataset.filter){filter=b.dataset.filter;document.querySelectorAll('[data-filter]').forEach(function(x){x.classList.toggle('active',x.dataset.filter===filter)});renderRepos()}})});
+document.querySelectorAll('[data-filter]').forEach(function(b){b.addEventListener('click',function(){filter=b.dataset.filter;document.querySelectorAll('[data-filter]').forEach(function(x){x.classList.toggle('active',x===b)});renderRepos()})});
+['search','sort','categoryFilter','statusFilter'].forEach(function(id){$(id).addEventListener(id==='search'?'input':'change',renderRepos)});
+$('clearBtn').onclick=function(){$('search').value='';$('sort').value='updated';$('categoryFilter').value='all';$('statusFilter').value='all';filter='all';document.querySelectorAll('[data-filter]').forEach(function(b){b.classList.toggle('active',b.dataset.filter==='all')});renderRepos()};
+$('refreshBtn').onclick=loadRepos;
+$('settingsBtn').onclick=function(){$('username').value=username;$('token').value=token;$('includeForks').checked=includeForks;$('includeArchived').checked=includeArchived;$('settingsBack').classList.add('show')};
+$('cancelSettings').onclick=function(){closeModal('settingsBack')};
+$('saveSettings').onclick=function(){const name=$('username').value.trim();if(!/^[a-zA-Z0-9-]{1,39}$/.test(name)){notice('اكتب اسم مستخدم GitHub صالحًا.','error');return}username=name;token=$('token').value.trim();includeForks=$('includeForks').checked;includeArchived=$('includeArchived').checked;closeModal('settingsBack');loadRepos()};
+$('forgetToken').onclick=function(){token='';$('token').value='';notice('تم مسح رمز الوصول من ذاكرة الصفحة. حدّث القائمة لاستخدام الوصول العام.','info')};
+$('saveMeta').onclick=saveEdit;$('cancelEdit').onclick=function(){closeModal('editBack')};
+$('clearMeta').onclick=function(){if(!activeRepo)return;if(!confirm('هل تريد مسح بطاقة المشروع المحلية وإزالة تثبيته؟'))return;delete metadata[activeRepo];pinned.delete(activeRepo);persist();closeModal('editBack');renderAll();notice('تم مسح البطاقة المحلية. لم يتغير أي شيء داخل GitHub.','ok')};
+$('themeBtn').onclick=function(){theme=theme==='dark'?'light':'dark';applyTheme();persist()};
+$('cardsBtn').onclick=function(){layout='cards';$('cardsBtn').setAttribute('aria-pressed','true');$('tableBtn').setAttribute('aria-pressed','false');renderRepos()};
+$('tableBtn').onclick=function(){layout='table';$('tableBtn').setAttribute('aria-pressed','true');$('cardsBtn').setAttribute('aria-pressed','false');renderRepos()};
+$('exportCsvBtn').onclick=function(){exportCsv(visibleRepos())};$('allCsvBtn').onclick=function(){exportCsv(repos)};
+$('backupBtn').onclick=exportBackup;$('restoreBtn').onclick=function(){$('backupInput').click()};
+$('backupInput').addEventListener('change',function(){const file=this.files&&this.files[0];if(file)importBackup(file)});
+$('clearHistoryBtn').onclick=function(){if(confirm('مسح سجل الوصول المحلي؟ لن تُحذف أي بيانات من GitHub.')){recent=[];persist();renderActivity();renderHome();notice('تم مسح سجل الوصول.','ok')}};
+$('paletteBtn').onclick=openPalette;$('paletteSearch').addEventListener('input',paletteRender);
+$('paletteResults').addEventListener('click',function(e){const a=e.target.closest('[data-open]');if(a){recordOpen(a.dataset.open);closeModal('paletteBack')}});
+['settingsBack','editBack','paletteBack'].forEach(function(id){$(id).addEventListener('click',function(e){if(e.target.id===id)closeModal(id)})});
+document.addEventListener('keydown',function(e){const key=e.key.toLowerCase();if((e.ctrlKey||e.metaKey)&&key==='k'){e.preventDefault();openPalette();return}if(key==='escape'){['settingsBack','editBack','paletteBack'].forEach(closeModal);return}const tag=(document.activeElement&&document.activeElement.tagName||'').toLowerCase();const editing=['input','textarea','select'].includes(tag)||document.activeElement&&document.activeElement.isContentEditable;if(!editing&&key==='/'){e.preventDefault();openView('repos');$('search').focus()}});
+applyTheme();renderAll();loadRepos();
+})();
+</script>
+</body>
+</html>
