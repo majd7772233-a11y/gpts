@@ -152,7 +152,7 @@ function fmtBytes(n){const b=Math.max(0,Number(n)||0);if(b<1024)return fmtCount(
 function externalUrl(value){try{const u=new URL(value);return (u.protocol==='https:'||u.protocol==='http:')?u.href:'#'}catch(e){return '#'}}
 function repoApiPath(name,suffix){return '/repos/'+String(name).split('/').map(encodeURIComponent).join('/')+(suffix||'')}
 function repoTreeUrl(r,path){return cleanUrl(r.html_url+'/'+path.split('/').map(encodeURIComponent).join('/'))}
-function headers(){const h={'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'};if(token)h.Authorization='Bearer '+token;return h}
+function headers(){const h={'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2026-03-10'};if(token)h.Authorization='Bearer '+token;return h}
 function githubUrl(name,suffix){const r=repoByName(name);return cleanUrl((r?r.html_url:'https://github.com/'+name)+(suffix||''))}
 function repoByName(name){return repos.find(function(r){return r.full_name===name})}
 async function detailApi(path){const response=await fetch('https://api.github.com'+path,{headers:headers()});if(!response.ok){if(response.status===404)throw new Error('هذا القسم غير متاح أو لا توجد بيانات له في هذا المستودع (404).');if(response.status===403)throw new Error('لم يسمح GitHub بالطلب. قد تكون صلاحية الرمز غير كافية أو حد الطلبات قد انتهى.');throw new Error(loadError(response.status))}return response.json()}
