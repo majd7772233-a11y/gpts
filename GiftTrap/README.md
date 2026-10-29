@@ -1,24 +1,19 @@
 # GiftTrap — animated gift prank
 
-A self-contained, full-screen Arabic prank page. The visitor sees a clearly angled, dimensional gift box; clicking it opens the lid on a hinge, releases a controlled two-beat burst of light and confetti, then reveals **«خرا عليك»** above the box.
+A self-contained Arabic prank page with a dimensional gift box, a hinged lid, restrained particles, and the reveal **«خرا عليك»**.
 
 ## Run it
 
-Open `index.html` in any modern browser. No build step, Node.js, package installation, server, or backend is required.
+Open `index.html` in a modern browser. No build step, Node.js, packages, server, or backend is required.
 
-## Visual systems
+## Design and implementation
 
-- **WebGL 1 fragment shader:** animated deep-space light fields, procedural noise, caustic-like highlights, pointer glow, and a reveal glow.
-- **Canvas 2D:** star shimmer, restrained expanding energy rings, glowing flecks, shards, and ribbon confetti.
-- **CSS 3D:** faces positioned around a shared center, with distinct front, side and top materials; a separate lid and bow; and a deliberate isometric viewing angle.
-- **Choreographed interaction:** one main burst, a smaller follow-up burst, a hinged lid motion and a text reveal staged to keep the message legible rather than crowding the box.
-- **Liquid Glass styling:** translucent surfaces, directional highlights, soft neon edges, deep shadows, and pointer-responsive reflections.
-- Responsive sizing, keyboard activation, an accessible live announcement, and `prefers-reduced-motion` support.
-- WebGL has a CSS-gradient fallback. The page does not require a backend.
+- **Stable CSS 3D geometry:** the front, side, top, lid and bow use a consistent centered coordinate system instead of a stack of conflicting transform overrides.
+- **Deliberate composition:** the intro, gift, reveal text and replay control occupy separate visual zones; the gift shifts down and scales after opening so the message stays readable.
+- **Controlled motion:** a restrained lid-hinge animation, a subtle box settle, and a two-beat particle burst replace competing large movements.
+- **WebGL 1:** procedural dark liquid-light atmosphere, with a CSS-gradient fallback.
+- **Canvas 2D:** stars, rings, small glowing particles, shards and ribbon confetti.
+- **Accessibility:** semantic button, keyboard activation, live announcement, and reduced-motion support.
+- **Responsive layout:** dedicated rules for narrow screens and short viewports.
 
-## Files
-
-- `index.html` — complete standalone site, including the shaders and animation logic.
-- `README.md` — this document.
-
-The optional Tajawal font is requested from Google Fonts in CSS; system fonts are used if it is unavailable.
+The optional Tajawal font is loaded from Google Fonts; system fonts remain the fallback. The site requires no backend.
