@@ -7,6 +7,7 @@
   <meta name="description" content="A tiny, ridiculously dramatic gift. Open at your own risk.">
   <title>هدية غير متوقعة ✦</title>
   <style>
+    @import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap");
     :root {
       color-scheme: dark;
       --void: #05050b;
@@ -26,7 +27,6 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
-    @import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap");
     * { box-sizing: border-box; }
     html, body { width: 100%; min-width: 320px; min-height: 100%; margin: 0; }
     body { min-height: 100svh; overflow: hidden; background: #05050b; }
@@ -271,7 +271,7 @@
     @keyframes messageAscend { 0%{opacity:0;transform:translate(-50%,65%) scale(.3) rotateX(-25deg);filter:blur(14px) drop-shadow(0 0 0 transparent)} 40%{opacity:1;filter:blur(0) drop-shadow(0 8px 0 rgba(36,8,67,.8)) drop-shadow(0 0 30px rgba(255,57,199,.8))} 65%{transform:translate(-50%,-122%) scale(1.07) rotateX(0)} 80%{transform:translate(-50%,-105%) scale(.97) rotateX(0)} 100%{opacity:1;transform:translate(-50%,-108%) scale(1) rotateX(0);filter:drop-shadow(0 8px 0 rgba(36,8,67,.8)) drop-shadow(0 0 26px rgba(255,57,199,.62))} }
     @keyframes textShine { 0%,24%{background-position:160% 0} 65%,100%{background-position:-80% 0} }
     @keyframes ambientFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
-    .gift:not(.opened) .gift-geometry { animation: ambientFloat 5.2s ease-in-out infinite; }
+    .stage:not(.opened) .gift-geometry { animation: ambientFloat 5.2s ease-in-out infinite; }
     @media (max-height: 700px) {
       .stage { min-height: 520px; }
       .intro { top: 72px; }
@@ -447,7 +447,7 @@
       float caustic = pow(max(0.0, sin((p.x + q.x * 0.7 + t * 0.3) * 9.0) *
                                         cos((p.y + q.y * 0.7 - t * 0.24) * 8.0)), 7.0);
       color += vec3(0.14, 0.33, 0.42) * caustic * 0.045;
-      float vignette = smoothstep(1.22, 0.17, length(p * vec2(0.84, 1.0)));
+      float vignette = (1.0 - smoothstep(0.17, 1.22, length(p * vec2(0.84, 1.0))));
       color *= 0.47 + 0.53 * vignette;
       float grain = (hash21(gl_FragCoord.xy + uTime) - 0.5) * 0.012;
       color += grain;
