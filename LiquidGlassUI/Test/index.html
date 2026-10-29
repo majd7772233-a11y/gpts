@@ -132,7 +132,7 @@
       background:
         radial-gradient(ellipse at var(--light-x, 52%) var(--light-y, 0%), rgba(255,255,255,.18), transparent 42%),
         linear-gradient(180deg, rgba(255,255,255,.08), transparent 18%, transparent 78%, rgba(255,255,255,.025));
-      opacity: calc(.45 + var(--intensity) * .55);
+      opacity: calc((.45 + var(--intensity) * .55) * var(--light-opacity, 1));
     }
     .glass > * { position: relative; z-index: 1; }
     .glass-soft {
