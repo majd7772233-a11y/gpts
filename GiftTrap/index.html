@@ -370,6 +370,170 @@
     @media(max-height:700px) and (min-width:561px){.intro{top:70px}.gift-zone{top:56%;height:360px;transform:translate(-50%,-50%) scale(.75)}.opened .gift-zone{top:66%;transform:translate(-50%,-50%) scale(.62)}.message{top:39%;font-size:clamp(46px,8vw,82px)}.footnote{display:none}}
     @media(prefers-reduced-motion:reduce){.stage:not(.opened) .gift-geometry{animation:none}.opened .message{opacity:1;visibility:visible;transform:translate(-50%,0) scale(1);filter:none}.opened .gift-lid{transform:translate3d(0,-2px,0) rotateX(-112deg)}}
 
+
+    /* Gift finish: aligned ribbon, tidy bow, and a complete lid flight/fall. */
+    .message {
+      appearance:none;
+      -webkit-appearance:none;
+      border:0;
+      padding:0;
+      margin:0;
+      background:transparent;
+      font-family:inherit;
+      cursor:pointer;
+      pointer-events:none;
+      transform-origin:50% 50%;
+      -webkit-tap-highlight-color:transparent;
+    }
+    .opened .message {
+      pointer-events:auto;
+      cursor:pointer;
+      animation:messageReveal .82s .12s cubic-bezier(.2,.8,.2,1) forwards;
+    }
+    .message:focus-visible {
+      outline:2px solid rgba(167,248,255,.9);
+      outline-offset:12px;
+      border-radius:10px;
+    }
+    .body-top .ribbon-v {
+      left:calc(50% - 19px);
+      top:0;
+      width:38px;
+      height:100%;
+      border-radius:2px;
+      background:linear-gradient(90deg,#a92fd1 0%,#ffb4e9 27%,#fff3fc 49%,#f365cf 70%,#982bc9 100%);
+      box-shadow:inset 1px 0 rgba(255,255,255,.75),inset -1px 0 rgba(48,9,65,.28),0 0 8px rgba(255,85,216,.12);
+    }
+    /* The crosswise band wraps around the vertical sides; it should not form a stray strip on the top. */
+    .lid-top .ribbon-h { display:none; }
+    .lid-top .ribbon-v {
+      left:calc(50% - 18px);
+      top:0;
+      width:36px;
+      height:100%;
+      border-radius:2px;
+      background:linear-gradient(90deg,#a92fd1 0%,#ffb4e9 27%,#fff3fc 49%,#f365cf 70%,#982bc9 100%);
+      box-shadow:inset 1px 0 rgba(255,255,255,.75),inset -1px 0 rgba(48,9,65,.28),0 0 9px rgba(255,85,216,.13);
+    }
+    .lid-side { backface-visibility:hidden; }
+    .gift-lid { will-change:transform; }
+    .bow { transform-style:preserve-3d; }
+    .bow-tail {
+      position:absolute;
+      top:35px;
+      width:31px;
+      height:51px;
+      border:1px solid rgba(255,240,252,.58);
+      border-radius:5px 5px 9px 9px;
+      clip-path:polygon(12% 0,100% 0,82% 100%,49% 78%,0 100%);
+      background:linear-gradient(90deg,#9428cb 0%,#f75bce 32%,#fff0fb 51%,#f08bdc 68%,#962fc6 100%);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 5px 10px rgba(38,4,55,.2);
+    }
+    .bow-tail.tail-left { left:47px; transform:rotate(17deg) translateZ(3px); }
+    .bow-tail.tail-right { right:47px; transform:rotate(-17deg) scaleX(-1) translateZ(2px); }
+    .bow-loop { z-index:1; }
+    .bow-knot { z-index:2; }
+
+    .opened .gift-zone {
+      top:64%;
+      transform:translate(-50%,-50%) scale(.72);
+    }
+    .opened .gift-geometry {
+      animation:giftLift .72s .02s cubic-bezier(.2,.8,.2,1) both;
+    }
+    .opened .gift {
+      animation:giftRecoil .78s .02s cubic-bezier(.2,.8,.2,1) both;
+    }
+    .opened .gift-body {
+      animation:boxRattle .86s .02s cubic-bezier(.18,.85,.24,1) both;
+      transform-origin:50% 90%;
+    }
+    .opened .gift-lid {
+      animation:giftLidFlight 1.68s .02s cubic-bezier(.2,.65,.3,1) both;
+      filter:drop-shadow(0 10px 16px rgba(0,0,0,.26)) drop-shadow(0 0 18px rgba(75,232,255,.23));
+    }
+    /* Bow remains attached to the lid instead of getting a second, conflicting trajectory. */
+    .opened .bow {
+      transform:translateX(-50%) translateZ(110px);
+      opacity:1;
+    }
+    .opened .message { z-index:12; }
+    .stage.retracting .message {
+      pointer-events:none;
+      animation:messageReturn .72s cubic-bezier(.55,0,.85,.35) forwards;
+    }
+    .stage.retracting .gift-lid {
+      animation:none !important;
+      transform:translate3d(0,0,0) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+      transition:transform .78s cubic-bezier(.2,.8,.2,1),filter .4s ease;
+      filter:drop-shadow(0 0 12px rgba(39,222,255,.12));
+    }
+
+    @keyframes giftLift {
+      0%,100% { translate:0 0; }
+      24% { translate:0 -9px; }
+      48% { translate:0 3px; }
+      68% { translate:0 -2px; }
+    }
+    @keyframes giftRecoil {
+      0%,100% { transform:rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,-12deg)) translateY(0) scale(1); }
+      14% { transform:rotateX(-5deg) rotateY(-12deg) translateY(7px) scale(.99); }
+      29% { transform:rotateX(2deg) rotateY(-10deg) translateY(-5px) scale(1.006); }
+      43% { transform:rotateX(-1deg) rotateY(-13deg) translateY(3px) scale(.997); }
+      60% { transform:rotateX(0deg) rotateY(-12deg) translateY(-1px) scale(1); }
+    }
+    @keyframes boxRattle {
+      0%,100% { transform:translate3d(0,0,0) rotateZ(0deg); }
+      12% { transform:translate3d(0,7px,0) rotateZ(-1.4deg); }
+      23% { transform:translate3d(0,-4px,0) rotateZ(1.3deg); }
+      34% { transform:translate3d(0,3px,0) rotateZ(-.9deg); }
+      46% { transform:translate3d(0,-2px,0) rotateZ(.55deg); }
+      60% { transform:translate3d(0,1px,0) rotateZ(-.2deg); }
+    }
+    @keyframes giftLidFlight {
+      0%   { transform:translate3d(0,0,0) rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+      13%  { transform:translate3d(9px,-75px,30px) rotateX(-32deg) rotateY(8deg) rotateZ(10deg); }
+      34%  { transform:translate3d(27px,-226px,60px) rotateX(-108deg) rotateY(18deg) rotateZ(49deg); }
+      54%  { transform:translate3d(42px,-197px,-24px) rotateX(-145deg) rotateY(24deg) rotateZ(100deg); }
+      72%  { transform:translate3d(-28px,-59px,-148px) rotateX(-72deg) rotateY(-7deg) rotateZ(151deg); }
+      84%  { transform:translate3d(-24px,174px,-158px) rotateX(-9deg) rotateY(-8deg) rotateZ(18deg); }
+      92%  { transform:translate3d(-24px,158px,-158px) rotateX(2deg) rotateY(-4deg) rotateZ(-5deg); }
+      100% { transform:translate3d(-24px,174px,-158px) rotateX(0deg) rotateY(-3deg) rotateZ(-2deg); }
+    }
+    @keyframes messageReturn {
+      0% { opacity:1; visibility:visible; transform:translate(-50%,0) scale(1) rotateX(0deg); filter:drop-shadow(0 8px 0 rgba(36,8,67,.8)) drop-shadow(0 0 24px rgba(255,57,199,.58)); }
+      42% { opacity:.9; transform:translate(-50%,clamp(48px,8vh,88px)) scale(.42) rotateX(18deg); filter:blur(1px) drop-shadow(0 0 16px rgba(255,57,199,.5)); }
+      100% { opacity:0; visibility:hidden; transform:translate(-50%,clamp(110px,16vh,175px)) scale(.035) rotateX(55deg); filter:blur(12px); }
+    }
+
+    @media (max-width:560px) {
+      .opened .gift-zone { top:66%; transform:translate(-50%,-50%) scale(.62); }
+      .message { top:42%; font-size:clamp(40px,12.5vw,68px); }
+      .bow-tail { top:34px; width:27px; height:45px; }
+      .bow-tail.tail-left { left:50px; }
+      .bow-tail.tail-right { right:50px; }
+      .opened .gift-lid { animation-duration:1.55s; }
+    }
+    @media (max-height:700px) and (min-width:561px) {
+      .opened .gift-zone { top:66%; transform:translate(-50%,-50%) scale(.62); }
+      .message { top:39%; font-size:clamp(42px,8vw,82px); }
+      .opened .gift-lid { animation-duration:1.5s; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      .opened .gift { animation:none; }
+      .opened .gift-geometry { animation:none; }
+      .opened .gift-body { animation:none; }
+      .opened .gift-lid {
+        animation:none;
+        transform:translate3d(-18px,174px,-140px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+      }
+      .stage.retracting .gift-lid {
+        animation:none !important;
+        transform:translate3d(0,0,0);
+        transition:none;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -403,7 +567,7 @@
               <div class="face back"><i class="ribbon-v"></i><i class="ribbon-h"></i></div>
               <div class="face side right"><i class="ribbon-v"></i><i class="ribbon-h"></i></div>
               <div class="face side left"><i class="ribbon-v"></i><i class="ribbon-h"></i></div>
-              <div class="body-top"></div>
+              <div class="body-top"><i class="ribbon-v"></i></div>
               <div class="side-ribbon"></div>
               <div class="gift-lid">
                 <div class="lid-front"><i class="ribbon-v"></i><i class="ribbon-h"></i><i class="glint"></i></div>
@@ -412,6 +576,8 @@
                 <div class="lid-side lid-left"></div>
                 <div class="lid-top"><i class="ribbon-v"></i><i class="ribbon-h"></i><i class="glint"></i></div>
                 <div class="bow">
+                  <span class="bow-tail tail-left"></span>
+                  <span class="bow-tail tail-right"></span>
                   <span class="bow-loop left-loop"></span>
                   <span class="bow-loop right-loop"></span>
                   <span class="bow-knot"></span>
@@ -423,7 +589,7 @@
         <div class="spark-label" id="sparkLabel">اضغط على الصندوق لفتح المفاجأة <span>✦</span></div>
       </div>
 
-      <div class="message" id="prankMessage" aria-hidden="true">خرا عليك<span class="letter-glint">خرا عليك</span></div>
+      <button class="message" id="prankMessage" type="button" aria-label="أعد الكلمة إلى داخل الهدية" aria-hidden="true">خرا عليك<span class="letter-glint" aria-hidden="true">خرا عليك</span></button>
     </section>
   </main>
 
@@ -527,6 +693,7 @@
       var gift = document.getElementById("gift");
       var replay = document.getElementById("replay");
       var message = document.getElementById("prankMessage");
+      var giftLid = gift.querySelector(".gift-lid");
       var liveRegion = document.getElementById("liveRegion");
       var universe = document.getElementById("universe");
       var sparkCanvas = document.getElementById("sparkCanvas");
@@ -542,6 +709,8 @@
       var stars = [];
       var lastFrame = 0;
       var hasOpened = false;
+      var openingToken = 0;
+      var returnTimer = 0;
 
       function compileShader(context, type, source) {
         var shader = context.createShader(type);
@@ -755,26 +924,100 @@
       }
 
       function openGift() {
-        if (hasOpened) return;
+        if (hasOpened || stage.classList.contains("retracting")) return;
         hasOpened = true;
+        var sequence = ++openingToken;
+        stage.classList.remove("retracting");
         stage.classList.add("opened");
-        gift.setAttribute("aria-label", "تم فتح الهدية");
+        gift.setAttribute("aria-label", "الهدية مفتوحة؛ اضغط على العبارة لإعادتها");
         message.setAttribute("aria-hidden", "false");
         liveRegion.textContent = "خرا عليك";
         state.targetReveal = 1;
-        var bounds = gift.getBoundingClientRect();
-        var x = bounds.left + bounds.width * .5;
-        var y = bounds.top + bounds.height * .47;
+
+        function scheduleFirework(delay, offsetX, offsetY, intensity) {
+          window.setTimeout(function () {
+            if (sequence !== openingToken || !hasOpened || stage.classList.contains("retracting")) return;
+            var bounds = gift.getBoundingClientRect();
+            var centerX = bounds.left + bounds.width * 0.5;
+            var centerY = bounds.top + bounds.height * 0.47;
+            burst(centerX + state.width * offsetX, centerY + state.height * offsetY, intensity);
+          }, delay);
+        }
+
         if (!reducedMotion) {
-          window.setTimeout(function () { burst(x, y, .82); }, 180);
-          window.setTimeout(function () { burst(x, y, .3); }, 480);
+          // One main blast, two staggered side fireworks, then a small confetti finish.
+          scheduleFirework(145, 0, -0.035, 1.0);
+          scheduleFirework(405, -0.13, -0.105, 0.63);
+          scheduleFirework(610, 0.13, -0.12, 0.58);
+          scheduleFirework(825, 0.015, 0.005, 0.34);
           startAnimation();
-        } else drawFrame(0, true);
+        } else {
+          drawFrame(0, true);
+        }
+      }
+
+      function finishReturn() {
+        if (!stage.classList.contains("retracting")) return;
+        if (returnTimer) {
+          window.clearTimeout(returnTimer);
+          returnTimer = 0;
+        }
+        openingToken++;
+        // Clear the captured in-flight transform only after it has eased back to the box.
+        giftLid.style.removeProperty("animation");
+        giftLid.style.removeProperty("transform");
+        giftLid.style.removeProperty("transition");
+        giftLid.style.removeProperty("filter");
+        stage.classList.remove("opened", "retracting");
+        hasOpened = false;
+        gift.setAttribute("aria-label", "افتح صندوق الهدية");
+        message.setAttribute("aria-hidden", "true");
+        liveRegion.textContent = "عادت الهدية إلى وضعها الأصلي";
+        startAnimation();
+        gift.focus({ preventScroll: true });
+      }
+
+      function returnMessageToGift() {
+        if (!hasOpened || stage.classList.contains("retracting")) return;
+
+        // Freeze the lid wherever it is in its flight, then smoothly return it to its hinge.
+        var currentTransform = window.getComputedStyle(giftLid).transform;
+        giftLid.style.animation = "none";
+        giftLid.style.transition = "none";
+        giftLid.style.transform = currentTransform && currentTransform !== "none"
+          ? currentTransform
+          : "translate3d(0,0,0)";
+        void giftLid.offsetWidth;
+
+        stage.classList.add("retracting");
+        giftLid.style.removeProperty("transform");
+        giftLid.style.removeProperty("transition");
+
+        message.setAttribute("aria-label", "العبارة تعود إلى داخل الهدية");
+        gift.setAttribute("aria-label", "جارٍ إغلاق الهدية");
+        state.targetReveal = 0;
+        liveRegion.textContent = "تعود العبارة إلى داخل الهدية";
+
+        if (reducedMotion) {
+          finishReturn();
+          return;
+        }
+        if (returnTimer) window.clearTimeout(returnTimer);
+        returnTimer = window.setTimeout(finishReturn, 940);
       }
 
       function resetGift() {
+        openingToken++;
+        if (returnTimer) {
+          window.clearTimeout(returnTimer);
+          returnTimer = 0;
+        }
+        giftLid.style.removeProperty("animation");
+        giftLid.style.removeProperty("transform");
+        giftLid.style.removeProperty("transition");
+        giftLid.style.removeProperty("filter");
         hasOpened = false;
-        stage.classList.remove("opened");
+        stage.classList.remove("opened", "retracting");
         gift.setAttribute("aria-label", "افتح صندوق الهدية");
         message.setAttribute("aria-hidden", "true");
         liveRegion.textContent = "";
@@ -791,6 +1034,10 @@
       }
 
       gift.addEventListener("click", openGift);
+      message.addEventListener("click", returnMessageToGift);
+      giftLid.addEventListener("transitionend", function (event) {
+        if (event.propertyName === "transform" && stage.classList.contains("retracting")) finishReturn();
+      });
       replay.addEventListener("click", resetGift);
 
       gift.addEventListener("pointermove", function (event) {
