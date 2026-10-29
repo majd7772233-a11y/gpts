@@ -459,6 +459,19 @@
       opacity:1;
     }
     .opened .message { z-index:12; }
+    .opened .message::after {
+      content:"اضغط هنا لتعود إلى الهدية";
+      display:block;
+      margin-top:12px;
+      color:rgba(209,242,255,.78);
+      font-size:clamp(10px,1.4vw,13px);
+      font-weight:600;
+      line-height:1.5;
+      letter-spacing:.08em;
+      white-space:nowrap;
+      text-shadow:0 1px 8px rgba(0,0,0,.55);
+    }
+    .opened .gift-lid { z-index:auto; }
     .stage.retracting .message {
       pointer-events:none;
       animation:messageReturn .72s cubic-bezier(.55,0,.85,.35) forwards;
