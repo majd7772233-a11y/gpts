@@ -521,6 +521,7 @@
     .toast-icon svg { width: 16px; height: 16px; stroke: currentColor; }
     .toast strong { display: block; font-size: 12px; }
     .toast span { display: block; color: var(--ink-secondary); font-size: 11px; margin-top: 3px; }
+    [hidden] { display: none !important; }
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
     @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
@@ -719,7 +720,7 @@
               <div class="preview-content">
                 <div class="welcome-row">
                   <div class="welcome-copy">
-                    <small>الأربعاء، ٢٩ أكتوبر</small>
+                    <small>الخميس، ٢٩ أكتوبر</small>
                     <h3>مساءٌ من الضوء ✦</h3>
                   </div>
                   <div class="glass-avatar" aria-hidden="true">
@@ -741,7 +742,7 @@
                 <div class="activity-card glass-soft">
                   <div class="activity-head"><strong>مسار الانعكاس</strong><span>آخر ٢٤ إطارًا</span></div>
                   <svg class="sparkline" viewBox="0 0 360 88" preserveAspectRatio="none" aria-label="رسم توضيحي لمسار الإضاءة">
-                    <defs><linearGradient id="areaFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="rgb(0,242,254)" stop-opacity=".26"/><stop offset="100%" stop-color="rgb(0,242,254)" stop-opacity="0"/></linearGradient></defs>
+                    <defs><linearGradient id="areaFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" style="stop-color:rgb(var(--accent-a))" stop-opacity=".26"/><stop offset="100%" style="stop-color:rgb(var(--accent-a))" stop-opacity="0"/></linearGradient></defs>
                     <path class="grid-line" d="M0 18H360M0 44H360M0 70H360"/>
                     <path class="area" d="M0 66 C20 67 24 47 42 52 S70 67 90 44 S122 38 138 49 S164 63 180 35 S210 20 226 38 S248 53 269 25 S301 40 318 22 S344 28 360 8 V88H0Z"/>
                     <path class="line" d="M0 66 C20 67 24 47 42 52 S70 67 90 44 S122 38 138 49 S164 63 180 35 S210 20 226 38 S248 53 269 25 S301 40 318 22 S344 28 360 8"/>
@@ -1111,6 +1112,11 @@
       }
 
       function startMotion() {
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          stopMotion();
+          showToast("تقليل الحركة مفعّل", "احترمنا إعداد الحركة المخفّضة في جهازك.");
+          return;
+        }
         state.motion = true;
         body.classList.remove("motion-paused");
         if (state.frame) window.cancelAnimationFrame(state.frame);
@@ -1258,6 +1264,7 @@
         if (event.pointerType === "touch") return;
         state.targetX = event.clientX;
         state.targetY = event.clientY;
+        if (!state.motion) drawFrame(state.phase);
         const rect = document.getElementById("studioStage").getBoundingClientRect();
         const dx = (event.clientX - (rect.left + rect.width / 2)) / Math.max(rect.width / 2, 1);
         const dy = (event.clientY - (rect.top + rect.height / 2)) / Math.max(rect.height / 2, 1);
