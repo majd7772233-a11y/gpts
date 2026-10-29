@@ -307,136 +307,68 @@
       .opened .gift-lid { transform: translate3d(27px,-210px,25px) rotateX(-22deg) rotateZ(17deg) rotateY(10deg); }
     }
   
-    /* --- Scene cleanup: readable isometric box and one clear animation beat --- */
-    .stage { perspective: 1500px; perspective-origin: 50% 43%; }
-    .gift-zone { top: 52%; }
-    .gift-geometry {
-      transform: translate(-50%,-50%) scale(var(--gift-scale,1)) rotateX(-17deg) rotateY(-27deg);
-      transform-style: preserve-3d;
-    }
-    .gift-body { transform-origin: 50% 50%; }
-    .front, .back {
-      width: 280px; height: 190px;
-      left: 50%; top: 50%;
-    }
-    .front { transform: translate(-50%,-50%) translateZ(90px); }
-    .back { transform: translate(-50%,-50%) rotateY(180deg) translateZ(90px); filter: brightness(.35) saturate(.75); }
-    .side {
-      width: 180px; height: 190px;
-      left: 50%; top: 50%;
-    }
-    .right { transform: translate(-50%,-50%) rotateY(90deg) translateZ(140px); filter: brightness(.56) saturate(.85); }
-    .left { transform: translate(-50%,-50%) rotateY(-90deg) translateZ(140px); filter: brightness(.35) saturate(.72); }
-    .front {
-      background:
-        linear-gradient(112deg, rgba(255,255,255,.42), transparent 23%),
-        linear-gradient(180deg, rgba(40,226,255,.10), transparent 43%),
-        linear-gradient(145deg,#58dff7 0%,#3472ed 35%,#4a43b8 73%,#211b51 100%);
-      box-shadow: inset 0 2px 0 rgba(255,255,255,.75), inset 0 -24px 36px rgba(8,4,30,.32), 0 0 32px rgba(35,160,255,.18);
-    }
-    .right {
-      background:
-        linear-gradient(180deg,rgba(255,255,255,.12),transparent 24%),
-        linear-gradient(145deg,#4d55bd,#29235e 56%,#15112e);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.28), inset -18px 0 34px rgba(0,0,0,.24);
-    }
-    .left { background: linear-gradient(145deg,#35407d,#1b183b 70%,#100e22); }
-    .body-top {
-      width: 280px; height: 180px;
-      left: 50%; top: 50%;
-      transform: translate(-50%,-50%) rotateX(90deg) translateZ(95px);
-      background:
-        radial-gradient(ellipse at 50% 40%,rgba(0,229,255,.21),transparent 58%),
-        linear-gradient(145deg,#091b32 0%,#10133c 48%,#1c174d 100%);
-      border: 1px solid rgba(156,247,255,.76);
-      box-shadow:
-        inset 0 0 0 2px rgba(255,255,255,.10),
-        inset 0 0 0 10px rgba(82,225,255,.085),
-        inset 0 0 34px rgba(0,219,255,.22),
-        0 0 18px rgba(0,204,255,.12);
-    }
-    .body-top::before {
-      content: ""; position: absolute; inset: 0; pointer-events: none;
-      background: linear-gradient(135deg,rgba(255,255,255,.22),transparent 26% 65%,rgba(70,91,255,.13));
-    }
-    .body-top::after { inset: 15px; border: 1px solid rgba(184,251,255,.38); box-shadow: inset 0 0 22px rgba(47,215,255,.14); }
-    .gift-lid {
-      left: -15px; top: -57px;
-      transform-origin: 50% 100% -105px;
-      filter: drop-shadow(0 10px 12px rgba(0,0,0,.28)) drop-shadow(0 0 14px rgba(39,222,255,.14));
-    }
-    .lid-front, .lid-back {
-      width: 310px; height: 57px;
-      left: 50%; top: 50%;
-    }
-    .lid-front { transform: translate(-50%,-50%) translateZ(105px); }
-    .lid-back { transform: translate(-50%,-50%) rotateY(180deg) translateZ(105px); filter: brightness(.4); }
-    .lid-side { width: 210px; height: 57px; left: 50%; top: 50%; }
-    .lid-right { transform: translate(-50%,-50%) rotateY(90deg) translateZ(155px); filter: brightness(.56); }
-    .lid-left { transform: translate(-50%,-50%) rotateY(-90deg) translateZ(155px); filter: brightness(.37); }
-    .lid-top {
-      width: 310px; height: 210px; left: 50%; top: 50%;
-      transform: translate(-50%,-50%) rotateX(90deg) translateZ(28.5px);
-      background:
-        radial-gradient(ellipse at 48% 42%,rgba(20,221,255,.21),transparent 55%),
-        linear-gradient(135deg,#122849 0%,#201a58 58%,#0a1128 100%);
-      border: 1px solid rgba(178,249,255,.83);
-      box-shadow: inset 0 0 0 2px rgba(255,255,255,.10), inset 0 0 0 9px rgba(77,229,255,.12), inset 0 0 36px rgba(0,218,255,.22);
-    }
-    .lid-top::after {
-      content: ""; position: absolute; inset: 12px; border: 1px solid rgba(205,252,255,.28);
-      box-shadow: inset 0 0 20px rgba(0,224,255,.12); pointer-events:none;
-    }
-    .lid-top .ribbon-v { left: calc(50% - 18px); }
-    .lid-top .ribbon-h { top: calc(50% - 11px); }
-    .side-ribbon { display: none; }
-    .spark-label {
-      top: 91%; padding: 9px 15px; border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.09);
-      background: rgba(8,14,29,.38); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
-      letter-spacing: .025em;
-    }
-    .opened .gift-zone { transform: translate(-50%,-24%) scale(.80); }
-    .opened .gift-geometry { transform: translate(-50%,-50%) scale(var(--gift-scale,1)) rotateX(-17deg) rotateY(-27deg); }
-    .opened .gift-body { animation: boxKick .58s .02s both; }
-    .opened .gift-lid {
-      transform: translate3d(20px,-12px,0) rotateX(-102deg) rotateZ(8deg);
-      filter: drop-shadow(0 25px 23px rgba(0,0,0,.34)) drop-shadow(0 0 23px rgba(75,232,255,.32));
-    }
-    .opened .bow { transform: translateX(-50%) translate3d(18px,-42px,24px) rotateZ(8deg) scale(1.02); }
-    .opened .message { animation: messageAscend 1.08s .12s cubic-bezier(.16,1,.3,1) forwards; }
-    .message { top: 43%; font-size: clamp(52px,9.2vw,108px); }
-    @keyframes boxKick {
-      0% { transform: translateY(0) rotateZ(0); }
-      24% { transform: translateY(7px) rotateZ(-1.5deg); }
-      55% { transform: translateY(-7px) rotateZ(1deg); }
-      100% { transform: translateY(0) rotateZ(0); }
-    }
-    @keyframes messageAscend {
-      0% { opacity:0; transform:translate(-50%,52%) scale(.36) rotateX(-32deg); filter:blur(12px); }
-      48% { opacity:1; transform:translate(-50%,-126%) scale(1.08) rotateX(3deg); filter:blur(0) drop-shadow(0 0 32px rgba(255,57,199,.8)); }
-      72% { opacity:1; transform:translate(-50%,-105%) scale(.98) rotateX(0); }
-      100% { opacity:1; visibility:visible; transform:translate(-50%,-112%) scale(1) rotateX(0); filter:drop-shadow(0 8px 0 rgba(36,8,67,.8)) drop-shadow(0 0 26px rgba(255,57,199,.62)); }
-    }
-    @media (max-width: 560px) {
-      .gift-zone { top: 51%; height: 390px; transform: translate(-50%,-43%) scale(.80); }
-      .gift-geometry { --gift-scale: .91; }
-      .opened .gift-zone { transform: translate(-50%,-22%) scale(.68); }
-      .message { top: 42%; font-size: clamp(43px,13vw,72px); }
-      .opened .gift-lid { transform: translate3d(16px,-8px,0) rotateX(-102deg) rotateZ(8deg); }
-      .opened .bow { transform: translateX(-50%) translate3d(14px,-38px,20px) rotateZ(8deg) scale(.9); }
-      .spark-label { top: 90%; font-size: 9px; }
-    }
-    @media (max-height: 700px) and (min-width: 561px) {
-      .gift-zone { top: 53%; height: 390px; transform: translate(-50%,-40%) scale(.76); }
-      .opened .gift-zone { transform: translate(-50%,-20%) scale(.66); }
-      .message { top: 40%; font-size: clamp(48px,8.4vw,86px); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .stage:not(.opened) .gift-geometry { animation: none; }
-      .opened .message { opacity: 1; visibility: visible; transform: translate(-50%,-112%) scale(1); filter: none; }
-      .opened .gift-lid { transform: translate3d(20px,-12px,0) rotateX(-102deg) rotateZ(8deg); }
-    }
+    /* Stable scene layout: one coordinate system, one composed gift. */
+    html,body{width:100%;min-width:320px;min-height:100%;margin:0}
+    body{min-height:100svh;overflow:hidden;background:#05050b}
+    .app{position:relative;z-index:4;min-height:100svh;isolation:isolate}
+    .stage{position:relative;width:100%;height:100svh;min-height:0;overflow:hidden;perspective:1200px;perspective-origin:50% 45%}
+    .intro{top:clamp(84px,13vh,132px)}
+    .gift-zone{left:50%;top:55%;width:min(100vw,560px);height:min(58vh,450px);min-height:0;transform:translate(-50%,-50%);transition:top .75s cubic-bezier(.2,.8,.2,1),transform .75s cubic-bezier(.2,.8,.2,1)}
+    .gift-shadow{top:76%;width:min(64vw,340px);height:55px}
+    .gift{transform:rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,-12deg));transition:transform .25s ease,filter .4s ease}
+    .gift:active{transform:rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,-12deg)) translateY(4px) scale(.99)}
+    .gift-geometry{left:50%;top:52%;width:300px;height:300px;transform:translate(-50%,-50%) scale(var(--gift-scale,1)) rotateX(-14deg) rotateY(-25deg);transition:transform .75s cubic-bezier(.2,.8,.2,1)}
+    .gift-body{left:10px;top:62px;width:280px;height:190px;transform-style:preserve-3d}
+    .front,.back{width:280px;height:190px;left:50%;top:50%}
+    .front{transform:translate(-50%,-50%) translateZ(90px);background:linear-gradient(110deg,rgba(255,255,255,.36),transparent 24%),linear-gradient(145deg,#63e4f4 0%,#3472ed 36%,#4142ac 75%,#211b51 100%);box-shadow:inset 0 2px 0 rgba(255,255,255,.68),inset 0 -24px 36px rgba(8,4,30,.3),0 0 22px rgba(35,160,255,.12)}
+    .back{transform:translate(-50%,-50%) rotateY(180deg) translateZ(90px);filter:brightness(.34)}
+    .side{width:180px;height:190px;left:50%;top:50%}
+    .right{transform:translate(-50%,-50%) rotateY(90deg) translateZ(140px);filter:brightness(.62);background:linear-gradient(180deg,rgba(255,255,255,.13),transparent 25%),linear-gradient(145deg,#4653b9,#29235e 56%,#15112e)}
+    .left{transform:translate(-50%,-50%) rotateY(-90deg) translateZ(140px);filter:brightness(.34);background:linear-gradient(145deg,#35407d,#1b183b 70%,#100e22)}
+    .body-top{width:280px;height:180px;left:50%;top:50%;transform:translate(-50%,-50%) rotateX(90deg) translateZ(95px);border:1px solid rgba(151,250,255,.55);background:radial-gradient(ellipse at 50% 40%,rgba(0,229,255,.2),transparent 58%),linear-gradient(145deg,#091b32,#10133c 48%,#1c174d);box-shadow:inset 0 0 0 2px rgba(255,255,255,.08),inset 0 0 0 10px rgba(82,225,255,.08),inset 0 0 34px rgba(0,219,255,.18)}
+    .body-top::after{inset:14px;border:1px solid rgba(184,251,255,.28)}
+    .front .ribbon-v,.back .ribbon-v{left:calc(50% - 19px);width:38px}
+    .front .ribbon-h,.back .ribbon-h{top:57%;height:22px}
+    .side .ribbon-v{left:calc(50% - 15px);width:30px}
+    .side .ribbon-h{top:57%;height:22px}
+    .gift-lid{left:-15px;top:-57px;transform-origin:50% 100% -105px;transition:transform .85s cubic-bezier(.2,.8,.2,1),filter .6s ease}
+    .lid-front,.lid-back{width:310px;height:57px;left:50%;top:50%}
+    .lid-front{transform:translate(-50%,-50%) translateZ(105px)}
+    .lid-back{transform:translate(-50%,-50%) rotateY(180deg) translateZ(105px);filter:brightness(.35)}
+    .lid-side{width:210px;height:57px;left:50%;top:50%}
+    .lid-right{transform:translate(-50%,-50%) rotateY(90deg) translateZ(155px);filter:brightness(.58)}
+    .lid-left{transform:translate(-50%,-50%) rotateY(-90deg) translateZ(155px);filter:brightness(.34)}
+    .lid-top{width:310px;height:210px;left:50%;top:50%;transform:translate(-50%,-50%) rotateX(90deg) translateZ(28.5px);background:radial-gradient(ellipse at 48% 42%,rgba(20,221,255,.18),transparent 55%),linear-gradient(135deg,#122849,#201a58 58%,#0a1128);border:1px solid rgba(178,249,255,.68)}
+    .lid-top::after{content:"";position:absolute;inset:12px;border:1px solid rgba(205,252,255,.23);pointer-events:none}
+    .lid-top .ribbon-v{left:calc(50% - 18px);top:0;width:36px;height:100%}
+    .lid-top .ribbon-h{top:calc(50% - 11px);left:0;width:100%;height:22px}
+    .side-ribbon{display:none}
+    .bow{top:-50px;transition:transform .85s cubic-bezier(.2,.8,.2,1),opacity .35s ease}
+    .spark-label{top:91%;padding:9px 15px;border-radius:999px;border:1px solid rgba(255,255,255,.1);background:rgba(8,14,29,.38);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);letter-spacing:.025em}
+    .message{top:40%;width:max-content;max-width:92vw;transform:translate(-50%,24px) scale(.82);font-size:clamp(42px,9.2vw,104px);letter-spacing:-.04em;transform-origin:50% 50%}
+    .message .letter-glint{animation:textShine 3s ease-in-out infinite}
+    .opened .intro{opacity:0;transform:translate(-50%,-12px)}
+    .opened .gift-zone{top:64%;transform:translate(-50%,-50%) scale(.72)}
+    .opened .gift-geometry{transform:translate(-50%,-50%) scale(var(--gift-scale,1)) rotateX(-14deg) rotateY(-25deg)}
+    .opened .gift-body{animation:boxSettle .48s .02s ease-out both}
+    .opened .gift-lid{transform:translate3d(0,-2px,0) rotateX(-112deg);filter:drop-shadow(0 20px 20px rgba(0,0,0,.32)) drop-shadow(0 0 16px rgba(75,232,255,.2))}
+    .opened .bow{transform:translateX(-50%) translate3d(0,-12px,8px) rotateZ(3deg) scale(.96);opacity:.96}
+    .opened .spark-label{opacity:0;transform:translate(-50%,8px)}
+    .opened .message{animation:messageReveal .8s .12s cubic-bezier(.2,.8,.2,1) forwards}
+    .opened .halo{opacity:1}
+    .opened .orbit{border-color:rgba(92,236,255,.14)}
+    .controls{bottom:max(22px,env(safe-area-inset-bottom));transform:translate(-50%,12px);transition:opacity .4s ease,transform .4s ease,visibility .4s}
+    .opened .controls{transform:translate(-50%,0);transition-delay:.45s}
+    .replay{transition:transform .2s ease,border-color .2s ease}
+    .replay:hover{transform:translateY(-2px)}
+    @keyframes ambientFloat{0%,100%{transform:translate(-50%,-50%) scale(var(--gift-scale,1)) rotateX(-14deg) rotateY(-25deg)}50%{transform:translate(-50%,calc(-50% - 7px)) scale(var(--gift-scale,1)) rotateX(-14deg) rotateY(-25deg)}}
+    @keyframes boxSettle{0%{transform:translateY(0)}30%{transform:translateY(5px)}70%{transform:translateY(-3px)}100%{transform:translateY(0)}}
+    @keyframes messageReveal{0%{opacity:0;transform:translate(-50%,24px) scale(.82);filter:blur(10px)}65%{opacity:1;transform:translate(-50%,-5px) scale(1.04);filter:blur(0)}100%{opacity:1;visibility:visible;transform:translate(-50%,0) scale(1);filter:drop-shadow(0 8px 0 rgba(36,8,67,.8)) drop-shadow(0 0 24px rgba(255,57,199,.58))}}
+    @keyframes textShine{0%,25%{background-position:160% 0}65%,100%{background-position:-80% 0}}
+    .stage:not(.opened) .gift-geometry{animation:ambientFloat 5.2s ease-in-out infinite}
+    @media(max-width:560px){.top-mark{top:max(14px,env(safe-area-inset-top));font-size:8px;padding:9px 12px;letter-spacing:.15em}.intro{top:clamp(80px,13vh,110px)}.eyebrow{font-size:8px;letter-spacing:.16em}.eyebrow::before,.eyebrow::after{width:14px}.intro h1{font-size:15px}.gift-zone{top:54%;height:390px;transform:translate(-50%,-50%) scale(.78)}.gift-geometry{--gift-scale:.87}.opened .gift-zone{top:66%;transform:translate(-50%,-50%) scale(.62)}.message{top:42%;font-size:clamp(40px,12.5vw,68px)}.spark-label{top:91%;font-size:9px}.opened .gift-lid{transform:translate3d(0,-2px,0) rotateX(-112deg)}.opened .bow{transform:translateX(-50%) translate3d(0,-10px,6px) rotateZ(3deg) scale(.86)}.controls{bottom:max(18px,env(safe-area-inset-bottom))}.replay{min-height:46px}.footnote{display:none}.orbit{width:100vw}.orbit.orbit-two{width:78vw}}
+    @media(max-height:700px) and (min-width:561px){.intro{top:70px}.gift-zone{top:56%;height:360px;transform:translate(-50%,-50%) scale(.75)}.opened .gift-zone{top:66%;transform:translate(-50%,-50%) scale(.62)}.message{top:39%;font-size:clamp(46px,8vw,82px)}.footnote{display:none}}
+    @media(prefers-reduced-motion:reduce){.stage:not(.opened) .gift-geometry{animation:none}.opened .message{opacity:1;visibility:visible;transform:translate(-50%,0) scale(1);filter:none}.opened .gift-lid{transform:translate3d(0,-2px,0) rotateX(-112deg)}}
 
   </style>
 </head>
@@ -832,15 +764,12 @@
         state.targetReveal = 1;
         var bounds = gift.getBoundingClientRect();
         var x = bounds.left + bounds.width * .5;
-        var y = bounds.top + bounds.height * .48;
+        var y = bounds.top + bounds.height * .47;
         if (!reducedMotion) {
-          window.setTimeout(function () { burst(x, y, 1); }, 140);
-          window.setTimeout(function () { burst(x, y - 20, .42); }, 430);
-          window.setTimeout(function () { rings.push({ x: x, y: y - 50, age: 0, life: .72, max: Math.min(state.width, state.height) * .25, color: "rgba(255,226,255,.72)", angle: 0 }); }, 620);
+          window.setTimeout(function () { burst(x, y, .82); }, 180);
+          window.setTimeout(function () { burst(x, y, .3); }, 480);
           startAnimation();
-        } else {
-          drawFrame(0, true);
-        }
+        } else drawFrame(0, true);
       }
 
       function resetGift() {
