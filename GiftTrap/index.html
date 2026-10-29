@@ -493,8 +493,8 @@
 
       function initWebGL() {
         try {
-          gl = universe.getContext("webgl", { alpha: false, antialias: false, powerPreference: "low-power" }) ||
-               universe.getContext("experimental-webgl", { alpha: false, antialias: false });
+          gl = universe.getContext("webgl", { alpha: true, antialias: false, powerPreference: "low-power" }) ||
+               universe.getContext("experimental-webgl", { alpha: true, antialias: false });
           if (!gl) return false;
           var vertex = compileShader(gl, gl.VERTEX_SHADER, document.getElementById("vertexShader").textContent);
           var fragment = compileShader(gl, gl.FRAGMENT_SHADER, document.getElementById("fragmentShader").textContent);
@@ -783,9 +783,10 @@
         else if (motionQuery.addListener) motionQuery.addListener(onMotionChange);
       }
 
-      initWebGL();
+      var webglReady = initWebGL();
+      if (!webglReady) { gl = null; glProgram = null; glLocations = null; }
       resize();
-      if (!gl) {
+      if (!webglReady) {
         universe.style.background =
           "radial-gradient(ellipse at 24% 24%,rgba(0,225,255,.19),transparent 35%)," +
           "radial-gradient(ellipse at 76% 68%,rgba(118,42,255,.22),transparent 40%)," +
