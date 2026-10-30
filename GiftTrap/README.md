@@ -1,6 +1,6 @@
 # GiftTrap — animated gift prank
 
-A self-contained Arabic prank page built around a more carefully constructed 3D gift box, satin ribbon and bow, and the reveal **«خرا عليك»**.
+A self-contained Arabic prank page built around a dimensionally consistent 3D gift box, a recessed interior, satin wrapping and the reveal **«خرا عليك»**.
 
 ## Run it
 
@@ -8,8 +8,9 @@ Open `index.html` in a modern browser. No build step, Node.js, packages, server,
 
 ## Design and implementation
 
-- **Rebuilt 3D box geometry:** the top and bottom planes now align with the true edges of the box instead of sitting halfway through the sides. The lid has a consistent shallow thickness and a small overhang, with the bow attached to its top.
-- **Gift-wrap details:** matte textured paper, beveled seams, a dark inner cavity, aligned satin bands, folded bow tails and a small front seal.
+- **Measured 3D construction:** the box uses a 280 × 190 × 180 body. Its front, back, sides, top rim and bottom plane share the same edge coordinates. The lid walls are aligned to the top rim with a consistent 38px depth and a correctly placed top panel.
+- **Recessed interior:** opening the lid reveals four inner walls and a lower floor, rather than a flat surface pretending to be the inside of a box.
+- **Gift-wrap finish:** matte paper texture, subtle panel seams, aligned satin bands, folded bow tails, a raised knot and a small front seal.
 - **Two-way interaction:** click the gift to open it; click the revealed phrase to draw it smoothly back inside and close the scene. The replay control is available after opening.
 - **Layered opening choreography:** the box recoils and rattles, the lid lifts, tumbles through the air and lands behind the box, while staggered fireworks, glowing rings, paper shards and ribbon confetti burst around it.
 - **Optional sound and haptics:** synthesized chimes are off by default and can be enabled with the sound control. Supported devices also receive a short vibration on opening and closing.
