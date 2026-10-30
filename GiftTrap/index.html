@@ -821,6 +821,167 @@
       .sound-toggle,.gift,.message { transition:none !important; }
     }
 
+  
+    /* Geometric correction — one measured gift volume: 280 × 190 × 180. */
+    .gift-geometry { transform:translate(-50%,-50%) scale(var(--gift-scale,1)) rotateX(-13deg) rotateY(-23deg); }
+    .gift-body { left:10px;top:62px;width:280px;height:190px;transform-style:preserve-3d; }
+    .front,.back { width:280px;height:190px;left:50%;top:50%; }
+    .front { transform:translate(-50%,-50%) translateZ(90px); }
+    .back { transform:translate(-50%,-50%) rotateY(180deg) translateZ(90px); }
+    .right,.left { width:180px;height:190px;left:50%;top:50%; }
+    .right { transform:translate(-50%,-50%) rotateY(90deg) translateZ(140px); }
+    .left { transform:translate(-50%,-50%) rotateY(-90deg) translateZ(140px); }
+
+    /* The top panel is centered at y=0; the floor is centered at y=190. */
+    .body-top {
+      left:50%;top:90px;width:280px;height:180px;
+      transform:translate(-50%,-50%) rotateX(90deg);
+      overflow:visible;
+      background:
+        linear-gradient(90deg,#4b5d85 0 9px,transparent 9px calc(100% - 9px),#28385e calc(100% - 9px)),
+        linear-gradient(180deg,#7188b4 0 9px,transparent 9px calc(100% - 9px),#303c69 calc(100% - 9px));
+      border:0;
+      box-shadow:none;
+    }
+    .body-top::before {
+      content:"";position:absolute;inset:7px;
+      border:1px solid rgba(225,237,255,.3);
+      box-shadow:inset 0 0 0 1px rgba(15,21,49,.55);
+      pointer-events:none;
+    }
+    .body-top::after {
+      content:"";position:absolute;inset:12px;
+      border:1px solid rgba(9,13,35,.75);
+      pointer-events:none;
+    }
+    .body-top .ribbon-v { z-index:4; }
+    .body-bottom {
+      left:50%;top:280px;width:280px;height:180px;
+      transform:translate(-50%,-50%) rotateX(-90deg);
+      border:1px solid rgba(150,171,213,.22);
+      background:linear-gradient(145deg,#202a4a,#11172f 65%,#090d20);
+      box-shadow:inset 0 0 0 8px rgba(255,255,255,.025);
+    }
+
+    /* Open interior — four inner walls and a recessed floor, not a flat lid-shaped panel. */
+    .inner-cavity { position:absolute;inset:0;transform-style:preserve-3d;pointer-events:none; }
+    .inner-face {
+      position:absolute;
+      backface-visibility:hidden;
+      border:1px solid rgba(190,205,235,.15);
+      background:
+        linear-gradient(180deg,rgba(255,255,255,.055),transparent 24%),
+        linear-gradient(145deg,#17203a,#090f25 70%,#070b1a);
+      box-shadow:inset 0 0 18px rgba(0,0,0,.48);
+    }
+    .inner-front,.inner-back { width:244px;height:150px;left:50%;top:150px; }
+    .inner-front { transform:translate(-50%,-50%) translateZ(72px); }
+    .inner-back { transform:translate(-50%,-50%) rotateY(180deg) translateZ(72px);filter:brightness(.68); }
+    .inner-right,.inner-left { width:144px;height:150px;left:50%;top:150px; }
+    .inner-right { transform:translate(-50%,-50%) rotateY(90deg) translateZ(122px);filter:brightness(.74); }
+    .inner-left { transform:translate(-50%,-50%) rotateY(-90deg) translateZ(122px);filter:brightness(.58); }
+    .inner-floor {
+      position:absolute;width:244px;height:144px;left:50%;top:222px;
+      transform:translate(-50%,-50%) rotateX(-90deg);
+      border:1px solid rgba(180,198,233,.12);
+      background:
+        radial-gradient(ellipse at 50% 38%,rgba(62,87,132,.18),transparent 68%),
+        repeating-linear-gradient(0deg,rgba(255,255,255,.012) 0 1px,transparent 1px 5px),
+        linear-gradient(145deg,#10182e,#080d20 72%);
+      box-shadow:inset 0 0 30px rgba(0,0,0,.48);
+      backface-visibility:hidden;
+    }
+
+    /* The lid walls meet the rim from y=-38 to y=0. Its cap is exactly at y=-38. */
+    .gift-lid {
+      left:-15px;top:-19px;width:310px;height:38px;
+      transform-origin:50% 50% 0;
+      transform-style:preserve-3d;
+    }
+    .lid-front,.lid-back { width:310px;height:38px;left:50%;top:50%; }
+    .lid-front { transform:translate(-50%,-50%) translateZ(105px); }
+    .lid-back { transform:translate(-50%,-50%) rotateY(180deg) translateZ(105px); }
+    .lid-side { width:210px;height:38px;left:50%;top:50%; }
+    .lid-right { transform:translate(-50%,-50%) rotateY(90deg) translateZ(155px); }
+    .lid-left { transform:translate(-50%,-50%) rotateY(-90deg) translateZ(155px); }
+    .lid-top {
+      left:50%;top:86px;width:310px;height:210px;
+      transform:translate(-50%,-50%) rotateX(90deg);
+    }
+    .lid-top .ribbon-v { left:calc(50% - 18px);top:0;width:36px;height:100%; }
+    .lid-top .ribbon-h { display:none; }
+
+    /* Material and edge definition: premium wrapped board, soft satin, restrained highlights. */
+    .face {
+      border:1px solid rgba(222,232,250,.2);
+      border-radius:2px;
+      background:
+        linear-gradient(112deg,rgba(255,255,255,.19),transparent 24%),
+        repeating-linear-gradient(0deg,rgba(255,255,255,.012) 0 1px,transparent 1px 4px),
+        linear-gradient(145deg,#647da9 0%,#455c8c 35%,#303c70 75%,#20264e 100%);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.24),inset 0 -18px 26px rgba(6,8,29,.25),0 4px 9px rgba(0,0,0,.08);
+    }
+    .front::before,.back::before,.side::before {
+      content:"";position:absolute;inset:8px;
+      border:1px solid rgba(233,241,255,.09);
+      pointer-events:none;
+    }
+    .front::after {
+      content:"";position:absolute;inset:0;pointer-events:none;
+      background:linear-gradient(105deg,transparent 0 35%,rgba(255,255,255,.045) 48%,transparent 62%);
+    }
+    .lid-front,.lid-back,.lid-side {
+      border:1px solid rgba(229,237,253,.24);
+      border-radius:2px;
+      background:
+        linear-gradient(112deg,rgba(255,255,255,.24),transparent 24%),
+        repeating-linear-gradient(0deg,rgba(255,255,255,.012) 0 1px,transparent 1px 4px),
+        linear-gradient(145deg,#7088b3 0%,#536b9d 42%,#323d72 100%);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.32),inset 0 -7px 14px rgba(9,8,34,.2);
+    }
+    .lid-top {
+      border:1px solid rgba(226,237,255,.38);
+      background:
+        linear-gradient(118deg,rgba(255,255,255,.18),transparent 28%),
+        repeating-linear-gradient(0deg,rgba(255,255,255,.012) 0 1px,transparent 1px 4px),
+        linear-gradient(145deg,#7b92bd 0%,#5a73a7 38%,#3a427e 78%,#282b58 100%);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.4),inset 0 -12px 24px rgba(14,12,43,.2),0 2px 7px rgba(0,0,0,.15);
+    }
+    .ribbon-v,.ribbon-h {
+      box-shadow:inset 1px 0 rgba(255,255,255,.65),inset -2px 0 rgba(64,10,49,.22),0 2px 6px rgba(22,5,28,.16);
+    }
+    .front .ribbon-v,.back .ribbon-v,.lid-front .ribbon-v,.lid-back .ribbon-v {
+      left:calc(50% - 18px);width:36px;
+    }
+    .front .ribbon-h,.back .ribbon-h {
+      top:57%;height:21px;
+      background:linear-gradient(180deg,#ffe9f6 0%,#f6acd8 24%,#ce649f 67%,#a84c84 100%);
+    }
+    .side .ribbon-v { left:calc(50% - 14px);width:28px; }
+    .side .ribbon-h { top:57%;height:21px;background:linear-gradient(180deg,#f8d3e9,#d46aa6 55%,#80396d); }
+
+    .opened .gift-lid { animation:giftLidFlight 1.68s .02s cubic-bezier(.2,.65,.3,1) both; }
+    .opened .gift-zone::after {
+      opacity:.95;
+      background:radial-gradient(ellipse,rgba(40,84,165,.21),rgba(104,54,145,.12) 45%,transparent 74%);
+    }
+    .opened .gift-shadow { opacity:.56;transform:translate(-50%,-35%) rotateX(68deg) scale(.88); }
+    .sound-toggle { background:linear-gradient(135deg,rgba(255,255,255,.09),rgba(255,255,255,.018)); }
+    @media(max-width:560px) {
+      .gift-geometry { --gift-scale:.84; }
+      .gift-zone { top:54%;transform:translate(-50%,-50%) scale(.78); }
+      .opened .gift-zone { top:66%;transform:translate(-50%,-50%) scale(.62); }
+    }
+    @media(max-height:700px) and (min-width:561px) {
+      .gift-zone { top:57%; }
+      .opened .gift-zone { top:66%; }
+      .gift-geometry { --gift-scale:.84; }
+    }
+    @media(prefers-reduced-motion:reduce) {
+      .opened .gift-lid { animation:none!important;transform:translate3d(-24px,174px,-158px) rotateX(0) rotateY(-3deg) rotateZ(-2deg); }
+      .stage.retracting .gift-lid { transition:none;transform:none; }
+    }
+
   </style>
 </head>
 <body>
@@ -859,6 +1020,13 @@
               <div class="face side right"><i class="ribbon-v"></i><i class="ribbon-h"></i></div>
               <div class="face side left"><i class="ribbon-v"></i><i class="ribbon-h"></i></div>
               <div class="body-bottom" aria-hidden="true"></div>
+              <div class="inner-cavity" aria-hidden="true">
+                <div class="inner-face inner-front"></div>
+                <div class="inner-face inner-back"></div>
+                <div class="inner-face inner-right"></div>
+                <div class="inner-face inner-left"></div>
+                <div class="inner-floor"></div>
+              </div>
               <div class="body-top"><i class="ribbon-v"></i></div>
               <div class="side-ribbon"></div>
               <div class="gift-lid">
