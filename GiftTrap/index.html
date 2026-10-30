@@ -548,6 +548,278 @@
       }
     }
 
+
+    /* Real-box construction: all horizontal planes sit on the actual top/bottom edges. */
+    .gift-geometry { transform:translate(-50%,-50%) scale(var(--gift-scale,1)) rotateX(-13deg) rotateY(-23deg); }
+    .gift-body { left:10px; top:62px; width:280px; height:190px; transform-style:preserve-3d; }
+    .face {
+      border:1px solid rgba(235,243,255,.2);
+      border-radius:2px;
+      background:
+        linear-gradient(112deg,rgba(255,255,255,.22),transparent 23%),
+        repeating-linear-gradient(0deg,rgba(255,255,255,.012) 0 1px,transparent 1px 4px),
+        linear-gradient(145deg,#718bbd 0%,#4d659f 34%,#374174 72%,#242348 100%);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.28),inset 0 -18px 26px rgba(6,8,29,.25),0 5px 12px rgba(0,0,0,.08);
+    }
+    .front,.back { width:280px; height:190px; left:50%; top:50%; }
+    .front { transform:translate(-50%,-50%) translateZ(90px); }
+    .back { transform:translate(-50%,-50%) rotateY(180deg) translateZ(90px); filter:brightness(.34); }
+    .right,.left { width:180px; height:190px; left:50%; top:50%; }
+    .right {
+      transform:translate(-50%,-50%) rotateY(90deg) translateZ(140px);
+      background:linear-gradient(115deg,rgba(255,255,255,.14),transparent 35%),linear-gradient(145deg,#3d4f87,#2b2d61 66%,#1c1b3e);
+      filter:brightness(.78);
+    }
+    .left {
+      transform:translate(-50%,-50%) rotateY(-90deg) translateZ(140px);
+      background:linear-gradient(145deg,#303d70,#20234e 70%,#14152f);
+      filter:brightness(.62);
+    }
+    .front::before,.back::before,.side::before {
+      content:"";
+      position:absolute;
+      inset:9px;
+      border:1px solid rgba(239,246,255,.105);
+      border-radius:1px;
+      pointer-events:none;
+    }
+    .front::after {
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:linear-gradient(105deg,transparent 0 34%,rgba(255,255,255,.055) 48%,transparent 62%);
+      opacity:.7;
+    }
+    .body-top {
+      position:absolute;
+      width:280px;
+      height:180px;
+      left:50%;
+      top:-90px;
+      transform:translate(-50%,-50%) rotateX(90deg);
+      transform-style:preserve-3d;
+      overflow:hidden;
+      border:1px solid rgba(197,222,255,.42);
+      border-radius:2px;
+      background:
+        linear-gradient(135deg,rgba(255,255,255,.12),transparent 34%),
+        radial-gradient(ellipse at 50% 48%,#080c22 0%,#10132d 57%,#27345f 100%);
+      box-shadow:inset 0 0 0 5px rgba(193,217,255,.075),inset 0 0 0 8px rgba(5,8,25,.55),inset 0 0 28px rgba(0,0,0,.65);
+    }
+    .body-top::before {
+      content:"";
+      position:absolute;
+      inset:13px;
+      border:1px solid rgba(209,226,255,.19);
+      background:linear-gradient(135deg,rgba(255,255,255,.025),transparent 55%),#0a0d24;
+      box-shadow:inset 0 10px 22px rgba(0,0,0,.58),inset 0 0 0 1px rgba(255,255,255,.025);
+    }
+    .body-top::after {
+      content:"";
+      position:absolute;
+      inset:6px;
+      border:1px solid rgba(209,226,255,.14);
+      pointer-events:none;
+    }
+    .body-top .ribbon-v { z-index:2; }
+    .body-bottom {
+      position:absolute;
+      width:280px;
+      height:180px;
+      left:50%;
+      top:100px;
+      transform:translate(-50%,-50%) rotateX(-90deg);
+      border:1px solid rgba(161,181,222,.13);
+      background:linear-gradient(145deg,#171a38,#090b1d);
+      backface-visibility:hidden;
+    }
+
+    /* A fitted lid: its vertical walls meet the body at y=0; the cap is exactly on that edge. */
+    .gift-lid {
+      left:-15px;
+      top:-38px;
+      width:310px;
+      height:38px;
+      transform-origin:50% 50% 0;
+      transform-style:preserve-3d;
+      filter:drop-shadow(0 7px 10px rgba(0,0,0,.22));
+    }
+    .lid-front,.lid-back,.lid-side {
+      position:absolute;
+      border:1px solid rgba(238,244,255,.24);
+      border-radius:2px;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.3),inset 0 -7px 14px rgba(9,8,34,.2);
+      background:
+        linear-gradient(112deg,rgba(255,255,255,.2),transparent 25%),
+        repeating-linear-gradient(0deg,rgba(255,255,255,.012) 0 1px,transparent 1px 4px),
+        linear-gradient(145deg,#8198c5 0%,#536ea7 42%,#34386f 100%);
+    }
+    .lid-front,.lid-back { width:310px; height:38px; left:50%; top:50%; }
+    .lid-front { transform:translate(-50%,-50%) translateZ(105px); }
+    .lid-back { transform:translate(-50%,-50%) rotateY(180deg) translateZ(105px);filter:brightness(.35); }
+    .lid-side { width:210px; height:38px; left:50%; top:50%; }
+    .lid-right { transform:translate(-50%,-50%) rotateY(90deg) translateZ(155px);filter:brightness(.76); }
+    .lid-left { transform:translate(-50%,-50%) rotateY(-90deg) translateZ(155px);filter:brightness(.54); }
+    .lid-top {
+      position:absolute;
+      width:310px;
+      height:210px;
+      left:50%;
+      top:-105px;
+      transform:translate(-50%,-50%) rotateX(90deg);
+      border:1px solid rgba(219,232,255,.46);
+      border-radius:2px;
+      overflow:hidden;
+      background:
+        linear-gradient(118deg,rgba(255,255,255,.19),transparent 28%),
+        repeating-linear-gradient(0deg,rgba(255,255,255,.012) 0 1px,transparent 1px 4px),
+        linear-gradient(145deg,#8ba4d0 0%,#607cb3 38%,#3d417e 78%,#29254f 100%);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.42),inset 0 -12px 24px rgba(14,12,43,.2),0 2px 7px rgba(0,0,0,.15);
+    }
+    .lid-top::before {
+      content:"";
+      position:absolute;
+      inset:9px;
+      border:1px solid rgba(241,247,255,.16);
+      pointer-events:none;
+    }
+    .lid-top::after {
+      content:"";
+      position:absolute;
+      inset:14px;
+      border:1px solid rgba(21,24,60,.16);
+      box-shadow:inset 0 0 18px rgba(255,255,255,.035);
+      pointer-events:none;
+    }
+    .ribbon-v,.ribbon-h { box-shadow:inset 1px 0 rgba(255,255,255,.68),inset -2px 0 rgba(74,15,57,.24),0 2px 6px rgba(22,5,28,.18); }
+    .front .ribbon-v,.back .ribbon-v { left:calc(50% - 18px);width:36px; }
+    .front .ribbon-h,.back .ribbon-h { top:57%;height:21px;background:linear-gradient(180deg,#ffe9f6 0%,#f6acd8 24%,#ce649f 67%,#a84c84 100%); }
+    .side .ribbon-v { left:calc(50% - 14px);width:28px;background:linear-gradient(90deg,#9f3b79,#f1afd6 35%,#fff0fa 51%,#d46aa6 72%,#8e386f); }
+    .side .ribbon-h { top:57%;height:21px;background:linear-gradient(180deg,#f8d3e9,#d46aa6 55%,#80396d); }
+    .body-top .ribbon-v {
+      left:calc(50% - 18px);top:0;width:36px;height:100%;
+      background:linear-gradient(90deg,#9d3b78 0%,#e993c3 28%,#fff0fa 49%,#d96eaa 72%,#91336d 100%);
+      box-shadow:inset 1px 0 rgba(255,255,255,.6),inset -1px 0 rgba(66,10,48,.2);
+    }
+    .lid-front .ribbon-v,.lid-back .ribbon-v { left:calc(50% - 18px);top:0;width:36px;height:100%; }
+    .lid-front .ribbon-h,.lid-back .ribbon-h { left:0;top:52%;width:100%;height:14px; }
+    .lid-top .ribbon-v {
+      left:calc(50% - 18px);top:0;width:36px;height:100%;
+      background:linear-gradient(90deg,#9d3b78 0%,#e993c3 28%,#fff0fa 49%,#d96eaa 72%,#91336d 100%);
+    }
+    .lid-top .ribbon-h { display:none; }
+
+    /* Satin bow: layered loops, folded tails and a raised knot. */
+    .bow { top:-53px;width:170px;height:88px;filter:drop-shadow(0 4px 5px rgba(18,5,30,.36)); }
+    .bow-loop {
+      top:8px;width:78px;height:48px;
+      border:10px solid #eaa5d0;
+      border-top-color:#fff2fa;
+      border-left-color:#f7d5eb;
+      border-radius:76% 70% 58% 74%;
+      background:radial-gradient(ellipse at 38% 35%,rgba(255,255,255,.68),rgba(255,125,199,.19) 42%,rgba(91,31,111,.48) 100%);
+      box-shadow:inset 0 0 9px rgba(255,255,255,.26),0 2px 8px rgba(47,8,46,.18);
+    }
+    .bow-loop.left-loop { left:16px;transform:rotate(24deg) skewX(-8deg) rotateY(-12deg); }
+    .bow-loop.right-loop { right:16px;transform:scaleX(-1) rotate(24deg) skewX(-8deg) rotateY(12deg); }
+    .bow-tail {
+      top:31px;width:29px;height:49px;
+      border:1px solid rgba(255,240,252,.49);
+      background:linear-gradient(90deg,#87336d 0%,#df78b4 28%,#fff0fa 51%,#d06aa3 74%,#843064 100%);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.62),0 3px 7px rgba(25,5,28,.25);
+    }
+    .bow-tail.tail-left { left:48px;transform:rotate(14deg) translateZ(3px); }
+    .bow-tail.tail-right { right:48px;transform:rotate(-14deg) scaleX(-1) translateZ(2px); }
+    .bow-knot {
+      left:66px;top:31px;width:39px;height:31px;border-radius:11px 11px 13px 13px;
+      background:linear-gradient(135deg,#fff6fc 0%,#f7c1e2 28%,#d866ad 72%,#87336d 100%);
+      box-shadow:inset 0 2px 3px rgba(255,255,255,.72),0 3px 8px rgba(39,7,38,.27);
+    }
+    .bow-knot::after {
+      left:11px;top:-15px;width:17px;height:25px;
+      background:linear-gradient(90deg,#a54b85,#ffe2f3 48%,#c95e9c);
+    }
+    .gift-seal {
+      position:absolute;right:14px;bottom:13px;
+      display:flex;align-items:center;gap:6px;
+      padding:5px 7px;
+      border:1px solid rgba(248,230,244,.34);
+      border-radius:3px;
+      background:linear-gradient(135deg,rgba(255,255,255,.14),rgba(18,12,43,.22));
+      color:rgba(255,245,252,.83);
+      font:700 7px/1 "Segoe UI",sans-serif;
+      letter-spacing:.12em;
+      box-shadow:inset 0 1px rgba(255,255,255,.2),0 2px 5px rgba(9,8,25,.14);
+      pointer-events:none;
+    }
+    .gift-seal b {
+      display:grid;place-items:center;width:14px;height:14px;border-radius:2px;
+      background:linear-gradient(135deg,#f3d8eb,#b76a9f);
+      color:#34213f;font-size:7px;
+    }
+
+    /* Little interface details: sound toggle, tactile press, and quiet captions. */
+    .sound-toggle {
+      position:fixed;z-index:16;top:max(20px,env(safe-area-inset-top));right:max(20px,env(safe-area-inset-right));
+      display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 13px;
+      border:1px solid rgba(224,239,255,.16);border-radius:999px;
+      background:linear-gradient(135deg,rgba(255,255,255,.11),rgba(255,255,255,.025));
+      -webkit-backdrop-filter:blur(18px) saturate(160%);backdrop-filter:blur(18px) saturate(160%);
+      box-shadow:inset 0 1px rgba(255,255,255,.18),0 8px 24px rgba(0,0,0,.2);
+      color:rgba(232,244,255,.72);font-size:10px;font-weight:700;cursor:pointer;
+      transition:background .2s ease,border-color .2s ease,transform .2s ease,color .2s ease;
+    }
+    .sound-toggle:hover { transform:translateY(-2px);border-color:rgba(143,237,255,.42); }
+    .sound-toggle svg { width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round; }
+    .sound-waves { opacity:.18;transition:opacity .2s ease; }
+    .sound-muted { opacity:1;transition:opacity .2s ease; }
+    .sound-toggle.is-on { color:#dffcff;border-color:rgba(127,243,255,.4);background:linear-gradient(135deg,rgba(75,229,245,.18),rgba(255,255,255,.035)); }
+    .sound-toggle.is-on .sound-waves { opacity:1; }
+    .sound-toggle.is-on .sound-muted { opacity:0; }
+    .gift { touch-action:manipulation; }
+    .gift:focus-visible { outline-offset:10px; }
+    .gift:hover .gift-geometry { filter:drop-shadow(0 15px 17px rgba(0,0,0,.2)); }
+    .gift-shadow { width:min(64vw,330px);height:39px;filter:blur(11px);opacity:.78; }
+    .gift-zone::after { background:radial-gradient(ellipse,rgba(25,88,177,.22),rgba(126,64,168,.12) 43%,transparent 73%); }
+    .spark-label { top:91.5%;letter-spacing:.015em;font-size:11px;color:rgba(219,233,255,.68); }
+    .spark-label::before {
+      content:"";display:inline-block;width:16px;height:1px;vertical-align:middle;margin-inline-end:9px;
+      background:linear-gradient(90deg,transparent,rgba(205,226,255,.52));
+    }
+    .gift-seal,.body-top,.body-bottom { backface-visibility:hidden; }
+    .opened .gift-lid { transform-origin:50% 50% 0; }
+    .opened .gift-zone { top:64%; }
+    .stage.retracting .gift-lid { transform:translate3d(0,0,0) rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+    .message::after { pointer-events:none; }
+    @media (max-width:560px) {
+      .sound-toggle { top:max(13px,env(safe-area-inset-top));right:12px;min-height:35px;padding:0 10px;font-size:9px; }
+      .top-mark { top:max(14px,env(safe-area-inset-top));left:12px;transform:none;padding:8px 10px;gap:6px;font-size:7px;letter-spacing:.11em; }
+      .gift-geometry { --gift-scale:.84; }
+      .gift-zone { top:54%;transform:translate(-50%,-50%) scale(.78); }
+      .opened .gift-zone { top:66%;transform:translate(-50%,-50%) scale(.62); }
+      .message { top:42%; }
+      .bow-tail { top:29px;width:26px;height:43px; }
+      .bow-tail.tail-left { left:51px; }
+      .bow-tail.tail-right { right:51px; }
+    }
+    @media (max-height:700px) and (min-width:561px) {
+      .gift-zone { top:57%; }
+      .opened .gift-zone { top:66%; }
+      .gift-geometry { --gift-scale:.84; }
+      .message { top:39%; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      .gift-geometry { animation:none !important; }
+      .opened .gift,.opened .gift-geometry,.opened .gift-body { animation:none !important; }
+      .opened .gift-lid {
+        animation:none !important;
+        transform:translate3d(-24px,174px,-158px) rotateX(0deg) rotateY(-3deg) rotateZ(-2deg);
+      }
+      .stage.retracting .gift-lid { transition:none;transform:none; }
+      .sound-toggle,.gift,.message { transition:none !important; }
+    }
+
   </style>
 </head>
 <body>
@@ -556,6 +828,10 @@
   <div class="grain" aria-hidden="true"></div>
   <div class="vignette" aria-hidden="true"></div>
   <div class="top-mark"><i></i> GIFT.EXE <span>·</span> SURPRISE PROTOCOL</div>
+  <button class="sound-toggle" id="soundToggle" type="button" aria-label="تشغيل المؤثرات الصوتية" aria-pressed="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path class="speaker-shape" d="M4 10v4h4l5 4V6l-5 4H4Z"/><path class="sound-waves" d="M16 9a5 5 0 0 1 0 6M18.5 6.5a8.5 8.5 0 0 1 0 11"/><path class="sound-muted" d="m16 9 5 6m0-6-5 6"/></svg>
+    <span>الصوت مغلق</span>
+  </button>
 
   <main class="app">
     <section class="stage" id="stage" aria-label="المفاجأة">
@@ -577,10 +853,11 @@
         <button class="gift" id="gift" type="button" aria-label="افتح صندوق الهدية" aria-controls="prankMessage">
           <div class="gift-geometry">
             <div class="gift-body">
-              <div class="face front"><i class="ribbon-v"></i><i class="ribbon-h"></i><i class="glint"></i></div>
+              <div class="face front"><i class="ribbon-v"></i><i class="ribbon-h"></i><i class="glint"></i><span class="gift-seal"><span>FOR YOU</span><b>01</b></span></div>
               <div class="face back"><i class="ribbon-v"></i><i class="ribbon-h"></i></div>
               <div class="face side right"><i class="ribbon-v"></i><i class="ribbon-h"></i></div>
               <div class="face side left"><i class="ribbon-v"></i><i class="ribbon-h"></i></div>
+              <div class="body-bottom" aria-hidden="true"></div>
               <div class="body-top"><i class="ribbon-v"></i></div>
               <div class="side-ribbon"></div>
               <div class="gift-lid">
@@ -706,6 +983,7 @@
       var stage = document.getElementById("stage");
       var gift = document.getElementById("gift");
       var replay = document.getElementById("replay");
+      var soundToggle = document.getElementById("soundToggle");
       var message = document.getElementById("prankMessage");
       var giftLid = gift.querySelector(".gift-lid");
       var liveRegion = document.getElementById("liveRegion");
@@ -723,6 +1001,8 @@
       var stars = [];
       var lastFrame = 0;
       var hasOpened = false;
+      var soundEnabled = false;
+      var audioContext = null;
       var openingToken = 0;
       var returnTimer = 0;
 
@@ -937,6 +1217,44 @@
         if (!running) startAnimation();
       }
 
+      function playSound(kind) {
+        if (!soundEnabled) return;
+        var AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContextClass) return;
+        try {
+          if (!audioContext) audioContext = new AudioContextClass();
+          if (audioContext.state === "suspended") audioContext.resume();
+          var presets = {
+            open: [{ f: 392, d: 0 }, { f: 523.25, d: .075 }, { f: 659.25, d: .16 }, { f: 880, d: .27 }],
+            close: [{ f: 783.99, d: 0 }, { f: 587.33, d: .09 }, { f: 440, d: .18 }],
+            enable: [{ f: 659.25, d: 0 }, { f: 880, d: .1 }]
+          };
+          var tones = presets[kind] || presets.enable;
+          var now = audioContext.currentTime;
+          tones.forEach(function (tone) {
+            var oscillator = audioContext.createOscillator();
+            var gain = audioContext.createGain();
+            var startAt = now + tone.d;
+            oscillator.type = "sine";
+            oscillator.frequency.setValueAtTime(tone.f, startAt);
+            gain.gain.setValueAtTime(.0001, startAt);
+            gain.gain.linearRampToValueAtTime(.045, startAt + .025);
+            gain.gain.exponentialRampToValueAtTime(.0001, startAt + .42);
+            oscillator.connect(gain);
+            gain.connect(audioContext.destination);
+            oscillator.start(startAt);
+            oscillator.stop(startAt + .44);
+          });
+        } catch (error) {
+          console.warn("Optional gift sound is unavailable.", error);
+        }
+      }
+
+      function softHaptic(pattern) {
+        if (reducedMotion || !navigator.vibrate) return;
+        try { navigator.vibrate(pattern); } catch (error) { /* Haptics are optional. */ }
+      }
+
       function openGift() {
         if (hasOpened || stage.classList.contains("retracting")) return;
         hasOpened = true;
@@ -947,6 +1265,8 @@
         message.setAttribute("aria-hidden", "false");
         liveRegion.textContent = "خرا عليك";
         state.targetReveal = 1;
+        playSound("open");
+        softHaptic([24, 35, 18]);
 
         function scheduleFirework(delay, offsetX, offsetY, intensity) {
           window.setTimeout(function () {
@@ -1011,6 +1331,8 @@
         gift.setAttribute("aria-label", "جارٍ إغلاق الهدية");
         state.targetReveal = 0;
         liveRegion.textContent = "تعود العبارة إلى داخل الهدية";
+        playSound("close");
+        softHaptic(16);
 
         if (reducedMotion) {
           finishReturn();
@@ -1053,6 +1375,15 @@
         if (event.propertyName === "transform" && stage.classList.contains("retracting")) finishReturn();
       });
       replay.addEventListener("click", resetGift);
+      soundToggle.addEventListener("click", function () {
+        soundEnabled = !soundEnabled;
+        soundToggle.classList.toggle("is-on", soundEnabled);
+        soundToggle.setAttribute("aria-pressed", soundEnabled ? "true" : "false");
+        soundToggle.setAttribute("aria-label", soundEnabled ? "إيقاف المؤثرات الصوتية" : "تشغيل المؤثرات الصوتية");
+        soundToggle.querySelector("span").textContent = soundEnabled ? "الصوت مفعّل" : "الصوت مغلق";
+        liveRegion.textContent = soundEnabled ? "تم تشغيل المؤثرات الصوتية" : "تم إيقاف المؤثرات الصوتية";
+        if (soundEnabled) playSound("enable");
+      });
 
       gift.addEventListener("pointermove", function (event) {
         if (event.pointerType === "touch" || reducedMotion || hasOpened) return;
