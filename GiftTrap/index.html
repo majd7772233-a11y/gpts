@@ -711,7 +711,7 @@
     .lid-top .ribbon-h { display:none; }
 
     /* Satin bow: layered loops, folded tails and a raised knot. */
-    .bow { top:-53px;width:170px;height:88px;filter:drop-shadow(0 4px 5px rgba(18,5,30,.36)); }
+    .bow { top:-53px;width:170px;height:88px;transform:translateX(-50%) translateZ(0);filter:drop-shadow(0 4px 5px rgba(18,5,30,.36)); }
     .bow-loop {
       top:8px;width:78px;height:48px;
       border:10px solid #eaa5d0;
@@ -789,6 +789,7 @@
     }
     .gift-seal,.body-top,.body-bottom { backface-visibility:hidden; }
     .opened .gift-lid { transform-origin:50% 50% 0; }
+    .opened .bow { transform:translateX(-50%) translateZ(0); }
     .opened .gift-zone { top:64%; }
     .stage.retracting .gift-lid { transform:translate3d(0,0,0) rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
     .message::after { pointer-events:none; }
