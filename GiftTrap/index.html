@@ -1000,6 +1000,119 @@
       background:linear-gradient(180deg,#ffe8f5 0%,#e99cc9 30%,#bd5b96 72%,#873968 100%);
     }
 
+  
+    /* FINAL GIFT ART: one illustrated, perspective-consistent package.
+       No CSS filters on transformed ancestors: filters flatten preserved 3D layers. */
+    .gift {
+      transform-style:preserve-3d;
+      transform:perspective(1100px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,-5deg)) translateY(0);
+      filter:none !important;
+      transition:transform .32s cubic-bezier(.2,.8,.2,1);
+      touch-action:manipulation;
+    }
+    .gift:hover {
+      filter:none !important;
+      transform:perspective(1100px) rotateX(calc(var(--tilt-x,0deg) - 1deg)) rotateY(var(--tilt-y,-5deg)) translateY(-5px) scale(1.012);
+    }
+    .gift:active {
+      filter:none !important;
+      transform:perspective(1100px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,-5deg)) translateY(3px) scale(.992);
+    }
+    .gift-geometry {
+      position:absolute;
+      left:50%;
+      top:51%;
+      width:min(500px,94vw);
+      height:min(520px,98vw);
+      max-width:500px;
+      max-height:520px;
+      transform:translate(-50%,-50%) scale(var(--gift-scale,1));
+      transform-style:preserve-3d;
+      filter:none !important;
+      transition:transform .7s cubic-bezier(.2,.8,.2,1);
+    }
+    .gift-body {
+      position:absolute;
+      z-index:2;
+      inset:0;
+      width:100%;
+      height:100%;
+      transform:none;
+      transform-style:preserve-3d;
+      animation:none;
+    }
+    .gift-body-art {
+      display:block;
+      width:100%;
+      height:100%;
+      overflow:visible;
+    }
+    .gift-lid {
+      position:absolute;
+      z-index:3;
+      left:0;
+      top:0;
+      width:100%;
+      height:65.4%;
+      transform:translate3d(0,0,0);
+      transform-origin:50% 55% 0;
+      transform-style:preserve-3d;
+      filter:none !important;
+      will-change:transform;
+    }
+    .gift-lid-art {
+      display:block;
+      width:100%;
+      height:100%;
+      overflow:visible;
+    }
+    .gift-geometry,
+    .gift-body,
+    .gift-lid,
+    .gift-body-art,
+    .gift-lid-art {
+      -webkit-backface-visibility:visible;
+      backface-visibility:visible;
+    }
+    .gift:hover .gift-geometry { filter:none !important; }
+    .gift:hover .gift-body-art { filter:none !important; }
+    .gift-geometry.lid-landed .gift-lid { z-index:1; }
+    .gift-geometry.lid-landed .gift-body { z-index:2; }
+    .opened .gift-lid {
+      animation:giftLidFlight 1.72s .02s cubic-bezier(.2,.65,.3,1) both;
+      transform-origin:50% 55% 0;
+    }
+    .opened .gift-geometry { transform:translate(-50%,-50%) scale(var(--gift-scale,1)); }
+    .opened .gift-body { animation:boxRattle .86s .02s cubic-bezier(.18,.85,.24,1) both; }
+    .stage.retracting .gift-lid {
+      animation:none !important;
+      transform:translate3d(0,0,0) rotateX(0) rotateY(0) rotateZ(0);
+      transition:transform .82s cubic-bezier(.2,.8,.2,1);
+    }
+    @keyframes giftLidFlight {
+      0% { transform:translate3d(0,0,0) rotateX(0) rotateY(0) rotateZ(0); }
+      12% { transform:translate3d(10px,-48px,35px) rotateX(-20deg) rotateY(5deg) rotateZ(8deg); }
+      30% { transform:translate3d(32px,-175px,75px) rotateX(-62deg) rotateY(13deg) rotateZ(34deg); }
+      48% { transform:translate3d(48px,-166px,-14px) rotateX(-118deg) rotateY(24deg) rotateZ(76deg); }
+      68% { transform:translate3d(-18px,-62px,-135px) rotateX(-72deg) rotateY(-8deg) rotateZ(126deg); }
+      84% { transform:translate3d(-25px,58px,-174px) rotateX(8deg) rotateY(-5deg) rotateZ(19deg); }
+      92% { transform:translate3d(-25px,49px,-174px) rotateX(-3deg) rotateY(-2deg) rotateZ(7deg); }
+      100% { transform:translate3d(-25px,56px,-174px) rotateX(0) rotateY(0) rotateZ(9deg); }
+    }
+    @media(max-width:560px) {
+      .gift-geometry { width:min(440px,96vw);height:min(460px,101vw); }
+      .opened .gift-zone { top:66%; }
+      .opened .gift-lid { animation-duration:1.55s; }
+    }
+    @media(max-height:700px) and (min-width:561px) {
+      .gift-geometry { width:430px;height:447px; }
+    }
+    @media(prefers-reduced-motion:reduce) {
+      .gift,.gift-geometry,.gift-lid { transition:none !important; }
+      .opened .gift,.opened .gift-body { animation:none !important; }
+      .opened .gift-lid { animation:none !important;transform:translate3d(-25px,56px,-174px) rotateZ(9deg); }
+    }
+
   </style>
 </head>
 <body>
@@ -1031,36 +1144,211 @@
       <div class="gift-zone" id="giftZone">
         <div class="gift-shadow" aria-hidden="true"></div>
         <button class="gift" id="gift" type="button" aria-label="افتح صندوق الهدية" aria-controls="prankMessage">
-          <div class="gift-geometry">
+          <div class="gift-geometry" id="giftGeometry">
             <div class="gift-body">
-              <div class="face front"><i class="ribbon-v"></i><i class="ribbon-h"></i><i class="glint"></i><span class="gift-seal"><span>FOR YOU</span><b>01</b></span></div>
-              <div class="face back"><i class="ribbon-v"></i><i class="ribbon-h"></i></div>
-              <div class="face side right"><i class="ribbon-v"></i><i class="ribbon-h"></i></div>
-              <div class="face side left"><i class="ribbon-v"></i><i class="ribbon-h"></i></div>
-              <div class="body-bottom" aria-hidden="true"></div>
-              <div class="inner-cavity" aria-hidden="true">
-                <div class="inner-face inner-front"></div>
-                <div class="inner-face inner-back"></div>
-                <div class="inner-face inner-right"></div>
-                <div class="inner-face inner-left"></div>
-                <div class="inner-floor"></div>
-              </div>
-              <div class="body-top"><i class="ribbon-v"></i></div>
-              <div class="side-ribbon"></div>
-              <div class="gift-lid">
-                <div class="lid-front"><i class="ribbon-v"></i><i class="ribbon-h"></i><i class="glint"></i></div>
-                <div class="lid-back"><i class="ribbon-v"></i><i class="ribbon-h"></i></div>
-                <div class="lid-side lid-right"><i class="ribbon-h"></i></div>
-                <div class="lid-side lid-left"><i class="ribbon-h"></i></div>
-                <div class="lid-top"><i class="ribbon-v"></i><i class="ribbon-h"></i><i class="glint"></i></div>
-                <div class="bow">
-                  <span class="bow-tail tail-left"></span>
-                  <span class="bow-tail tail-right"></span>
-                  <span class="bow-loop left-loop"></span>
-                  <span class="bow-loop right-loop"></span>
-                  <span class="bow-knot"></span>
-                </div>
-              </div>
+              <svg class="gift-body-art" viewBox="0 0 500 520" role="img" aria-label="صندوق هدية ثلاثي الأبعاد بتغليف بنفسجي وشريط ساتان وردي">
+                <defs>
+                  <linearGradient id="boxFrontLeft" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#80618f"/>
+                    <stop offset=".32" stop-color="#573d70"/>
+                    <stop offset=".72" stop-color="#382a59"/>
+                    <stop offset="1" stop-color="#211b3d"/>
+                  </linearGradient>
+                  <linearGradient id="boxFrontRight" x1="0" y1="0" x2=".9" y2="1">
+                    <stop offset="0" stop-color="#594477"/>
+                    <stop offset=".42" stop-color="#34284f"/>
+                    <stop offset="1" stop-color="#17172f"/>
+                  </linearGradient>
+                  <linearGradient id="boxTop" x1=".05" y1="0" x2=".9" y2="1">
+                    <stop offset="0" stop-color="#a080ae"/>
+                    <stop offset=".33" stop-color="#715481"/>
+                    <stop offset=".72" stop-color="#49345f"/>
+                    <stop offset="1" stop-color="#302448"/>
+                  </linearGradient>
+                  <linearGradient id="boxSide" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#45345f"/>
+                    <stop offset="1" stop-color="#17172f"/>
+                  </linearGradient>
+                  <linearGradient id="cavityWall" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#19142c"/>
+                    <stop offset="1" stop-color="#090b1a"/>
+                  </linearGradient>
+                  <linearGradient id="satin" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0" stop-color="#8d315f"/>
+                    <stop offset=".2" stop-color="#d86ca7"/>
+                    <stop offset=".47" stop-color="#ffe2f2"/>
+                    <stop offset=".57" stop-color="#f6b4d8"/>
+                    <stop offset=".78" stop-color="#c14d8e"/>
+                    <stop offset="1" stop-color="#76294f"/>
+                  </linearGradient>
+                  <linearGradient id="satinLight" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#fff0f9"/>
+                    <stop offset=".25" stop-color="#e79ac5"/>
+                    <stop offset=".65" stop-color="#ba568e"/>
+                    <stop offset="1" stop-color="#74335f"/>
+                  </linearGradient>
+                  <linearGradient id="goldFoil" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#fff0bd"/>
+                    <stop offset=".3" stop-color="#d7ae71"/>
+                    <stop offset=".62" stop-color="#fff0bd"/>
+                    <stop offset="1" stop-color="#91633d"/>
+                  </linearGradient>
+                  <linearGradient id="sealFill" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#fff0cf"/>
+                    <stop offset=".4" stop-color="#d8ad78"/>
+                    <stop offset="1" stop-color="#916044"/>
+                  </linearGradient>
+                  <pattern id="paperGrain" width="7" height="7" patternUnits="userSpaceOnUse">
+                    <path d="M0 1.5H7M0 5.5H7" stroke="#fff" stroke-opacity=".045" stroke-width=".55"/>
+                    <circle cx="2" cy="3.2" r=".35" fill="#fff" fill-opacity=".08"/>
+                  </pattern>
+                  <filter id="boxContactShadow" x="-35%" y="-30%" width="170%" height="180%">
+                    <feGaussianBlur stdDeviation="13"/>
+                  </filter>
+                  <filter id="foilGlow" x="-80%" y="-80%" width="260%" height="260%">
+                    <feGaussianBlur stdDeviation="2.2" result="blur"/>
+                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
+                </defs>
+
+                <!-- Grounded shadow: a broad contact ellipse, separate from the box geometry. -->
+                <ellipse cx="264" cy="455" rx="205" ry="27" fill="#050711" opacity=".75" filter="url(#boxContactShadow)"/>
+                <ellipse cx="260" cy="453" rx="158" ry="15" fill="#11162c" opacity=".65"/>
+
+                <!-- Main volume: two front-facing planes with one shared lower corner. -->
+                <path d="M78 190 250 285 250 466 78 371Z" fill="url(#boxFrontLeft)" stroke="#b99ec8" stroke-opacity=".38" stroke-width="1.5"/>
+                <path d="M250 285 422 190 422 371 250 466Z" fill="url(#boxFrontRight)" stroke="#c2a9cc" stroke-opacity=".24" stroke-width="1.5"/>
+                <path d="M78 190 250 285 250 466 78 371Z" fill="url(#paperGrain)" opacity=".5"/>
+                <path d="M250 285 422 190 422 371 250 466Z" fill="url(#paperGrain)" opacity=".34"/>
+
+                <!-- Folded paper edges, subtle corner seams and edge highlights. -->
+                <path d="M78 190 250 285 422 190" fill="none" stroke="#ead8ed" stroke-opacity=".5" stroke-width="2"/>
+                <path d="M78 371 250 466 422 371" fill="none" stroke="#0b0d20" stroke-opacity=".7" stroke-width="4"/>
+                <path d="M86 204 86 365 250 455" fill="none" stroke="#f0dff3" stroke-opacity=".12" stroke-width="2"/>
+                <path d="M414 204 414 365 250 455" fill="none" stroke="#050817" stroke-opacity=".45" stroke-width="3"/>
+                <path d="M94 218 94 361M406 218 406 361" stroke="#f8e9fa" stroke-opacity=".08" stroke-width="1"/>
+
+                <!-- Satin ribbon follows the angled front faces instead of floating above them. -->
+                <path d="M232 275 250 285 250 466 232 456Z" fill="url(#satin)" stroke="#f8c6e4" stroke-opacity=".55"/>
+                <path d="M250 285 268 275 268 456 250 466Z" fill="url(#satin)" stroke="#f8c6e4" stroke-opacity=".35"/>
+                <path d="M239 280 244 283 244 462 239 459Z" fill="#fff5fb" opacity=".48"/>
+                <path d="M256 282 261 279 261 459 256 462Z" fill="#6d234c" opacity=".25"/>
+                <path d="M78 292 250 387 250 410 78 315Z" fill="url(#satinLight)" stroke="#f8c4e1" stroke-opacity=".5"/>
+                <path d="M250 387 422 292 422 315 250 410Z" fill="url(#satinLight)" stroke="#f8c4e1" stroke-opacity=".3"/>
+                <path d="M83 296 250 388M255 387 417 297" stroke="#fff4fb" stroke-opacity=".58" stroke-width="2"/>
+                <path d="M83 311 250 403M255 403 417 312" stroke="#76294f" stroke-opacity=".35" stroke-width="2"/>
+
+                <!-- Top rim, recessed well and the four inner walls. These remain visible when the lid flies away. -->
+                <path d="M250 95 430 190 250 285 70 190Z" fill="url(#boxTop)" stroke="#e4c9e8" stroke-opacity=".68" stroke-width="2"/>
+                <path d="M250 106 413 190 250 272 87 190Z" fill="none" stroke="#f7e9f7" stroke-opacity=".29" stroke-width="2"/>
+                <path d="M102 190 250 266 250 321 102 246Z" fill="url(#cavityWall)" stroke="#b49bc5" stroke-opacity=".22"/>
+                <path d="M250 266 398 190 398 246 250 321Z" fill="#0b0d20" stroke="#b49bc5" stroke-opacity=".18"/>
+                <path d="M250 126 375 190 250 255 125 190Z" fill="#0a0d20" stroke="#b5a2c8" stroke-opacity=".32" stroke-width="1.5"/>
+                <path d="M125 190 250 255 250 291 125 226Z" fill="#17142c"/>
+                <path d="M250 255 375 190 375 226 250 291Z" fill="#090c1b"/>
+                <path d="M250 164 341 210 250 257 159 210Z" fill="#0c1125" stroke="#7b7197" stroke-opacity=".26"/>
+                <path d="M112 188 250 260 388 188" fill="none" stroke="#f5e5fa" stroke-opacity=".25" stroke-width="2"/>
+
+                <!-- Inner satin binding on the rim. -->
+                <path d="M242 101 258 109 258 278 242 270Z" fill="url(#satin)" opacity=".96"/>
+                <path d="M246 105 250 107 250 274 246 272Z" fill="#fff0fa" opacity=".36"/>
+
+                <!-- Decorative package seal on the right front face. -->
+                <g transform="translate(345 350)">
+                  <path d="M0 -17 14 -9 14 8 0 16 -14 8 -14 -9Z" fill="url(#goldFoil)" stroke="#fff1cf" stroke-opacity=".72"/>
+                  <path d="M0 -11 9 -6 9 5 0 10 -9 5 -9 -6Z" fill="#44324e"/>
+                  <path d="M-4 0 0 -5 4 0 0 5Z" fill="url(#goldFoil)"/>
+                </g>
+                <path d="M95 379 250 465 405 379" fill="none" stroke="#e5d5ef" stroke-opacity=".12" stroke-width="1.5"/>
+              </svg>
+            </div>
+
+            <div class="gift-lid" aria-hidden="true">
+              <svg class="gift-lid-art" viewBox="0 0 500 340">
+                <defs>
+                  <linearGradient id="lidTop" x1=".1" y1="0" x2=".9" y2="1">
+                    <stop offset="0" stop-color="#a987b2"/>
+                    <stop offset=".32" stop-color="#795985"/>
+                    <stop offset=".7" stop-color="#543b69"/>
+                    <stop offset="1" stop-color="#38294f"/>
+                  </linearGradient>
+                  <linearGradient id="lidFront" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#896a9a"/>
+                    <stop offset=".28" stop-color="#664676"/>
+                    <stop offset="1" stop-color="#302344"/>
+                  </linearGradient>
+                  <linearGradient id="lidSide" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#61476f"/>
+                    <stop offset="1" stop-color="#28203e"/>
+                  </linearGradient>
+                  <linearGradient id="lidSatin" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0" stop-color="#8d315f"/>
+                    <stop offset=".2" stop-color="#d86ca7"/>
+                    <stop offset=".47" stop-color="#ffe2f2"/>
+                    <stop offset=".57" stop-color="#f6b4d8"/>
+                    <stop offset=".78" stop-color="#c14d8e"/>
+                    <stop offset="1" stop-color="#76294f"/>
+                  </linearGradient>
+                  <linearGradient id="bowSilk" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#fff4fa"/>
+                    <stop offset=".23" stop-color="#f1b5d8"/>
+                    <stop offset=".58" stop-color="#d66aa9"/>
+                    <stop offset=".82" stop-color="#8d376e"/>
+                    <stop offset="1" stop-color="#f4c3df"/>
+                  </linearGradient>
+                  <linearGradient id="bowShadow" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#f9d4e9"/>
+                    <stop offset=".55" stop-color="#a3477d"/>
+                    <stop offset="1" stop-color="#4a2348"/>
+                  </linearGradient>
+                  <filter id="bowDrop" x="-40%" y="-40%" width="180%" height="190%">
+                    <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+                    <feOffset dy="5" result="offset"/>
+                    <feComponentTransfer><feFuncA type="linear" slope=".4"/></feComponentTransfer>
+                    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
+                </defs>
+
+                <!-- A single shallow lid with top, front apron and side apron. -->
+                <path d="M55 180 250 278 250 318 55 220Z" fill="url(#lidFront)" stroke="#e8d4ef" stroke-opacity=".42" stroke-width="1.5"/>
+                <path d="M250 278 445 180 445 220 250 318Z" fill="url(#lidSide)" stroke="#e8d4ef" stroke-opacity=".32" stroke-width="1.5"/>
+                <path d="M55 180 250 82 445 180 250 278Z" fill="url(#lidTop)" stroke="#f4e4f4" stroke-opacity=".72" stroke-width="2"/>
+                <path d="M67 180 250 89 433 180 250 271Z" fill="none" stroke="#fff2fb" stroke-opacity=".24" stroke-width="1.5"/>
+                <path d="M76 180 250 267 424 180" fill="none" stroke="#241a3b" stroke-opacity=".23" stroke-width="2"/>
+                <path d="M58 184 250 281 442 184" fill="none" stroke="#fff0f9" stroke-opacity=".18" stroke-width="1.5"/>
+
+                <!-- A broad cross-wrap band laid on the top plane and continuing down the apron. -->
+                <path d="M55 172 250 270 445 172 445 190 250 288 55 190Z" fill="url(#lidSatin)" stroke="#ffe7f6" stroke-opacity=".45"/>
+                <path d="M55 179 250 277 445 179" fill="none" stroke="#fff6fc" stroke-opacity=".62" stroke-width="2"/>
+                <path d="M55 188 250 286 445 188" fill="none" stroke="#78284f" stroke-opacity=".42" stroke-width="2"/>
+                <path d="M238 88 262 100 262 307 238 295Z" fill="url(#lidSatin)" stroke="#ffe7f6" stroke-opacity=".48"/>
+                <path d="M244 92 250 95 250 301 244 298Z" fill="#fff3fb" opacity=".44"/>
+                <path d="M256 99 260 101 260 306 256 304Z" fill="#732950" opacity=".26"/>
+
+                <!-- Sculpted satin bow: loops have volume, folded inner valleys and separate tails. -->
+                <g filter="url(#bowDrop)">
+                  <path d="M245 117 C213 83 165 59 138 79 C111 99 143 145 197 155 C217 160 235 145 250 132Z"
+                        fill="url(#bowSilk)" stroke="#ffe8f5" stroke-opacity=".75" stroke-width="2"/>
+                  <path d="M246 121 C213 103 179 88 158 93 C146 97 150 111 168 124 C190 140 216 143 246 133Z"
+                        fill="url(#bowShadow)" opacity=".62"/>
+                  <path d="M255 117 C287 83 335 59 362 79 C389 99 357 145 303 155 C283 160 265 145 250 132Z"
+                        fill="url(#bowSilk)" stroke="#ffe8f5" stroke-opacity=".75" stroke-width="2"/>
+                  <path d="M254 121 C287 103 321 88 342 93 C354 97 350 111 332 124 C310 140 284 143 254 133Z"
+                        fill="url(#bowShadow)" opacity=".62"/>
+                  <path d="M242 125 C220 159 201 181 187 211 L231 219 C246 185 254 153 250 132Z"
+                        fill="url(#bowSilk)" stroke="#f7d3e8" stroke-opacity=".6"/>
+                  <path d="M258 125 C280 159 299 181 313 211 L269 219 C254 185 246 153 250 132Z"
+                        fill="url(#bowSilk)" stroke="#f7d3e8" stroke-opacity=".6"/>
+                  <path d="M202 183 214 190 204 207 188 210Z" fill="#fff2fa" opacity=".34"/>
+                  <path d="M298 183 286 190 296 207 312 210Z" fill="#fff2fa" opacity=".28"/>
+                  <path d="M250 103 C229 109 224 130 237 143 C245 151 258 151 266 141 C278 126 269 108 250 103Z"
+                        fill="url(#bowSilk)" stroke="#fff1fa" stroke-opacity=".82" stroke-width="2"/>
+                  <path d="M244 108 C237 117 239 130 248 137" fill="none" stroke="#fff8fc" stroke-opacity=".7" stroke-width="2"/>
+                  <path d="M259 110 C266 119 263 130 255 138" fill="none" stroke="#78345f" stroke-opacity=".42" stroke-width="2"/>
+                  <path d="M245 104 Q250 99 255 104" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="2"/>
+                </g>
+                <path d="M76 183 250 269 424 183" fill="none" stroke="#fff3fa" stroke-opacity=".12" stroke-width="2"/>
+              </svg>
             </div>
           </div>
         </button>
@@ -1173,6 +1461,7 @@
       var soundToggle = document.getElementById("soundToggle");
       var message = document.getElementById("prankMessage");
       var giftLid = gift.querySelector(".gift-lid");
+      var giftGeometry = document.getElementById("giftGeometry");
       var liveRegion = document.getElementById("liveRegion");
       var universe = document.getElementById("universe");
       var sparkCanvas = document.getElementById("sparkCanvas");
@@ -1447,6 +1736,7 @@
         hasOpened = true;
         var sequence = ++openingToken;
         stage.classList.remove("retracting");
+        giftGeometry.classList.remove("lid-landed");
         stage.classList.add("opened");
         gift.setAttribute("aria-label", "الهدية مفتوحة؛ اضغط على العبارة لإعادتها");
         message.setAttribute("aria-hidden", "false");
@@ -1473,6 +1763,7 @@
           scheduleFirework(825, 0.015, 0.005, 0.34);
           startAnimation();
         } else {
+          giftGeometry.classList.add("lid-landed");
           drawFrame(0, true);
         }
       }
@@ -1510,6 +1801,7 @@
           : "translate3d(0,0,0)";
         void giftLid.offsetWidth;
 
+        giftGeometry.classList.remove("lid-landed");
         stage.classList.add("retracting");
         giftLid.style.removeProperty("transform");
         giftLid.style.removeProperty("transition");
@@ -1541,6 +1833,7 @@
         giftLid.style.removeProperty("filter");
         hasOpened = false;
         stage.classList.remove("opened", "retracting");
+        giftGeometry.classList.remove("lid-landed");
         gift.setAttribute("aria-label", "افتح صندوق الهدية");
         message.setAttribute("aria-hidden", "true");
         liveRegion.textContent = "";
@@ -1558,6 +1851,9 @@
 
       gift.addEventListener("click", openGift);
       message.addEventListener("click", returnMessageToGift);
+      giftLid.addEventListener("animationend", function (event) {
+        if (event.animationName === "giftLidFlight" && stage.classList.contains("opened")) giftGeometry.classList.add("lid-landed");
+      });
       giftLid.addEventListener("transitionend", function (event) {
         if (event.propertyName === "transform" && stage.classList.contains("retracting")) finishReturn();
       });
