@@ -1113,6 +1113,315 @@
       .opened .gift-lid { animation:none !important;transform:translate3d(-25px,56px,-174px) rotateZ(9deg); }
     }
 
+  
+    /* True CSS 3D gift. Every face is placed from one shared box centre.
+       Never apply filter/opacity/clip to these preserved-3D ancestors: that flattens them. */
+    .gift {
+      transform-style:preserve-3d;
+      transform:rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,-9deg)) translateY(0);
+      filter:none !important;
+      transition:transform .34s cubic-bezier(.2,.8,.2,1);
+      touch-action:manipulation;
+    }
+    .gift:hover {
+      filter:none !important;
+      transform:rotateX(calc(var(--tilt-x,0deg) - 1deg)) rotateY(var(--tilt-y,-9deg)) translateY(-5px) scale(1.012);
+    }
+    .gift:active {
+      filter:none !important;
+      transform:rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,-9deg)) translateY(4px) scale(.992);
+    }
+    .gift-geometry {
+      position:absolute;
+      left:50%;top:51%;
+      width:360px;height:360px;
+      transform:translate(-50%,-50%) scale(var(--gift-scale,1));
+      transform-style:preserve-3d;
+      filter:none !important;
+      overflow:visible;
+      transition:transform .65s cubic-bezier(.2,.8,.2,1);
+    }
+    .gift-body {
+      position:absolute;
+      left:50%;top:50%;
+      width:280px;height:190px;
+      transform:translate(-50%,-50%);
+      transform-style:preserve-3d;
+      z-index:2;
+      filter:none !important;
+    }
+    .face,.body-top,.body-bottom,.lid-front,.lid-back,.lid-side,.lid-top {
+      position:absolute;
+      left:50%;top:50%;
+      backface-visibility:hidden;
+      border:1px solid rgba(242,225,244,.2);
+    }
+    .face {
+      overflow:hidden;
+      border-radius:2px;
+      background:
+        linear-gradient(112deg,rgba(255,255,255,.2),transparent 22%),
+        repeating-linear-gradient(0deg,rgba(255,255,255,.016) 0 1px,transparent 1px 4px),
+        linear-gradient(145deg,#786087 0%,#59446f 37%,#382a53 75%,#211b37 100%);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.24),inset 0 -20px 28px rgba(7,5,24,.34);
+    }
+    .front,.back { width:280px;height:190px; }
+    .front { transform:translate(-50%,-50%) translateZ(90px); }
+    .back { transform:translate(-50%,-50%) rotateY(180deg) translateZ(90px);filter:brightness(.48); }
+    .right,.left { width:180px;height:190px; }
+    .right {
+      transform:translate(-50%,-50%) rotateY(90deg) translateZ(140px);
+      background:linear-gradient(120deg,rgba(255,255,255,.12),transparent 30%),linear-gradient(145deg,#4b3b62,#2c2444 70%,#19172e);
+      filter:brightness(.87);
+    }
+    .left {
+      transform:translate(-50%,-50%) rotateY(-90deg) translateZ(140px);
+      background:linear-gradient(145deg,#443552,#241e3c 70%,#17152a);
+      filter:brightness(.62);
+    }
+    .front::before,.back::before,.side::before {
+      content:"";position:absolute;inset:9px;
+      border:1px solid rgba(255,238,248,.11);
+      box-shadow:inset 0 0 0 1px rgba(13,9,31,.12);
+      pointer-events:none;
+    }
+    .front::after {
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(108deg,transparent 20%,rgba(255,255,255,.09) 43%,transparent 59%);
+      pointer-events:none;
+    }
+    .panel-gloss {
+      position:absolute;inset:0;pointer-events:none;
+      background:radial-gradient(ellipse at 22% 7%,rgba(255,255,255,.2),transparent 34%);
+      mix-blend-mode:screen;
+    }
+
+    /* The top is one horizontal plane at y=-95px; no upright cardboard panel. */
+    .body-top {
+      width:280px;height:180px;
+      transform:translate(-50%,-50%) rotateX(90deg) translateZ(95px);
+      overflow:hidden;
+      border:1px solid rgba(222,202,233,.5);
+      background:
+        linear-gradient(135deg,rgba(255,255,255,.12),transparent 42%),
+        linear-gradient(145deg,#48345d,#261d40 70%,#17152d);
+      box-shadow:inset 0 0 0 7px rgba(232,210,239,.12),inset 0 0 0 10px rgba(10,7,25,.4),inset 0 0 28px rgba(0,0,0,.42);
+    }
+    .top-inset {
+      position:absolute;inset:14px;
+      border:1px solid rgba(243,224,248,.22);
+      background:linear-gradient(145deg,rgba(255,255,255,.035),transparent 40%),#171327;
+      box-shadow:inset 0 0 0 4px rgba(255,255,255,.025),inset 0 0 27px rgba(0,0,0,.7);
+    }
+    .top-inset::after {
+      content:"";position:absolute;inset:9px;
+      border:1px solid rgba(222,197,232,.12);
+      box-shadow:inset 0 0 18px rgba(0,0,0,.65);
+    }
+    .body-bottom {
+      width:280px;height:180px;
+      transform:translate(-50%,-50%) rotateX(-90deg) translateZ(95px);
+      background:linear-gradient(145deg,#29213d,#100f21);
+      border-color:rgba(255,255,255,.08);
+    }
+
+    .ribbon-v,.ribbon-h {
+      position:absolute;display:block;pointer-events:none;
+      background:linear-gradient(90deg,#7e2b59 0%,#bd568c 18%,#f2b7d8 39%,#fff0fa 49%,#e9a2cb 62%,#aa477a 84%,#69234b 100%);
+      box-shadow:inset 1px 0 rgba(255,255,255,.58),inset -2px 0 rgba(57,12,42,.27),0 2px 5px rgba(12,4,20,.2);
+    }
+    .front .ribbon-v,.back .ribbon-v {
+      left:calc(50% - 18px);top:0;width:36px;height:100%;
+    }
+    .front .ribbon-h,.back .ribbon-h {
+      left:0;top:58%;width:100%;height:22px;
+      background:linear-gradient(180deg,#ffedf8 0%,#e7a0c7 27%,#bb588e 67%,#80375e 100%);
+    }
+    .side .ribbon-v {
+      left:calc(50% - 14px);top:0;width:28px;height:100%;
+    }
+    .side .ribbon-h {
+      left:0;top:58%;width:100%;height:22px;
+      background:linear-gradient(180deg,#f6d4e8,#c66b9d 60%,#713255);
+    }
+    .body-top .ribbon-v {
+      z-index:3;left:calc(50% - 18px);top:0;width:36px;height:100%;
+    }
+    .body-top .ribbon-h {
+      z-index:2;left:0;top:calc(50% - 10px);width:100%;height:20px;
+      background:linear-gradient(180deg,#fff0f9,#d981b3 48%,#77345f);
+    }
+
+    /* Correctly fitted lid: 310 × 38 × 210; its walls finish exactly at the box rim. */
+    .gift-lid {
+      position:absolute;
+      left:50%;
+      top:calc(50% - 133px);
+      width:310px;height:38px;
+      transform:translateX(-50%);
+      transform-style:preserve-3d;
+      transform-origin:50% 50% 0;
+      z-index:3;
+      filter:none !important;
+      overflow:visible;
+      will-change:transform;
+    }
+    .lid-front,.lid-back {
+      width:310px;height:38px;
+      overflow:hidden;
+      border-radius:2px;
+      background:linear-gradient(110deg,rgba(255,255,255,.22),transparent 24%),linear-gradient(145deg,#8e729f,#644a7b 52%,#39294f);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.32),inset 0 -7px 13px rgba(8,5,22,.28);
+    }
+    .lid-front { transform:translate(-50%,-50%) translateZ(105px); }
+    .lid-back { transform:translate(-50%,-50%) rotateY(180deg) translateZ(105px);filter:brightness(.48); }
+    .lid-side {
+      width:210px;height:38px;
+      overflow:hidden;
+      border-radius:2px;
+      background:linear-gradient(145deg,#5b456e,#29213f 75%,#19152c);
+    }
+    .lid-right { transform:translate(-50%,-50%) rotateY(90deg) translateZ(155px); }
+    .lid-left { transform:translate(-50%,-50%) rotateY(-90deg) translateZ(155px);filter:brightness(.68); }
+    .lid-top {
+      width:310px;height:210px;
+      transform:translate(-50%,-50%) rotateX(90deg) translateZ(19px);
+      overflow:hidden;
+      border:1px solid rgba(244,222,245,.52);
+      border-radius:2px;
+      background:
+        linear-gradient(118deg,rgba(255,255,255,.19),transparent 29%),
+        linear-gradient(145deg,#9578a5 0%,#715382 44%,#49345f 78%,#302343 100%);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.46),inset 0 -12px 24px rgba(12,7,29,.2),0 0 0 1px rgba(30,18,48,.35);
+    }
+    .lid-inset {
+      position:absolute;inset:10px;border:1px solid rgba(255,244,252,.24);
+      box-shadow:inset 0 0 16px rgba(255,255,255,.035),0 0 0 1px rgba(25,13,39,.13);
+      pointer-events:none;
+    }
+    .lid-top .ribbon-v {
+      left:calc(50% - 18px);top:0;width:36px;height:100%;
+    }
+    .lid-top .ribbon-h {
+      left:0;top:calc(50% - 10px);width:100%;height:20px;
+      background:linear-gradient(180deg,#fff0f9,#d981b3 48%,#77345f);
+    }
+    .lid-side .ribbon-h {
+      left:0;top:11px;width:100%;height:15px;
+      background:linear-gradient(180deg,#fff0fa,#df8cba 42%,#87385f);
+    }
+    .lid-front .ribbon-v,.lid-back .ribbon-v {
+      left:calc(50% - 18px);top:0;width:36px;height:100%;
+    }
+    .lid-front .ribbon-h,.lid-back .ribbon-h {
+      left:0;top:11px;width:100%;height:15px;
+      background:linear-gradient(180deg,#fff0fa,#df8cba 42%,#87385f);
+    }
+
+    /* Voluminous satin bow, seated on the lid's horizontal plane. */
+    .bow {
+      position:absolute;z-index:8;
+      left:50%;top:-43px;width:170px;height:88px;
+      transform:translateX(-50%) rotateX(90deg) translateZ(8px);
+      transform-style:preserve-3d;
+      filter:none !important;
+    }
+    .bow-loop {
+      position:absolute;top:8px;width:78px;height:49px;
+      border:11px solid #e9a9ce;
+      border-top-color:#fff0fa;border-left-color:#f8d9eb;
+      border-radius:76% 70% 58% 74%;
+      background:radial-gradient(ellipse at 36% 30%,rgba(255,255,255,.72),rgba(245,166,211,.28) 38%,rgba(95,37,83,.72) 100%);
+      box-shadow:inset 0 0 11px rgba(255,255,255,.3),0 3px 8px rgba(15,5,22,.24);
+    }
+    .bow-loop::after {
+      content:"";position:absolute;inset:5px 8px 8px;
+      border-radius:inherit;border:1px solid rgba(255,255,255,.35);
+      transform:rotate(-12deg);
+    }
+    .bow-loop.left-loop { left:11px;transform:rotate(24deg) skewX(-8deg) rotateY(-12deg); }
+    .bow-loop.right-loop { right:11px;transform:scaleX(-1) rotate(24deg) skewX(-8deg) rotateY(12deg); }
+    .bow-tail {
+      position:absolute;top:31px;width:30px;height:51px;
+      clip-path:polygon(8% 0,100% 0,83% 100%,50% 78%,0 100%);
+      border:1px solid rgba(255,240,252,.5);
+      background:linear-gradient(90deg,#84315c,#d77eae 28%,#fff0fa 50%,#d37aab 75%,#7a2c55);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.68),0 4px 8px rgba(16,4,20,.25);
+    }
+    .bow-tail.tail-left { left:46px;transform:rotate(14deg) translateZ(2px); }
+    .bow-tail.tail-right { right:46px;transform:rotate(-14deg) scaleX(-1) translateZ(2px); }
+    .bow-knot {
+      position:absolute;left:66px;top:31px;width:38px;height:32px;
+      border:1px solid rgba(255,242,250,.8);border-radius:11px 11px 14px 14px;
+      background:linear-gradient(135deg,#fff1fa 0%,#efb2d4 31%,#bd5b91 72%,#713052 100%);
+      box-shadow:inset 0 2px 4px rgba(255,255,255,.8),0 4px 9px rgba(14,4,22,.28);
+    }
+    .bow-knot::after {
+      content:"";position:absolute;left:11px;top:-17px;width:16px;height:24px;
+      border-radius:60% 40% 50% 50%;
+      background:linear-gradient(90deg,#943c6e,#ffeaf6 48%,#b85a8f);
+      transform:rotate(34deg);
+    }
+    .gift-seal {
+      position:absolute;right:18px;bottom:15px;
+      display:flex;align-items:center;gap:7px;padding:6px 8px;
+      border:1px solid rgba(255,231,203,.52);border-radius:3px;
+      background:linear-gradient(135deg,rgba(255,239,215,.2),rgba(31,19,45,.34));
+      color:#f7e8ee;font:700 7px/1 "Segoe UI",sans-serif;letter-spacing:.13em;
+      box-shadow:inset 0 1px rgba(255,255,255,.25),0 2px 7px rgba(0,0,0,.2);
+      pointer-events:none;
+    }
+    .gift-seal b {
+      width:14px;height:14px;display:grid;place-items:center;
+      border-radius:2px;background:linear-gradient(135deg,#fff0c7,#bc8c60);
+      color:#493047;font-size:9px;
+    }
+
+    /* Nothing may flatten the 3D chain on hover. Shadows live on the faces themselves. */
+    .gift,.gift-geometry,.gift-body,.gift-lid { filter:none !important; }
+    .gift:hover .gift-geometry,.gift:hover .gift-body,.gift:hover .gift-lid { filter:none !important; }
+    .gift-geometry.lid-landed .gift-lid { z-index:1; }
+    .gift-geometry.lid-landed .gift-body { z-index:2; }
+    .opened .gift-geometry { transform:translate(-50%,-50%) scale(var(--gift-scale,1)); }
+    .opened .gift-lid {
+      transform-origin:50% 50% 0;
+      animation:giftLidFlight 1.72s .02s cubic-bezier(.2,.65,.3,1) both;
+    }
+    .opened .gift-body { animation:boxRattle .86s .02s cubic-bezier(.18,.85,.24,1) both; }
+    .stage.retracting .gift-lid {
+      animation:none !important;
+      transform:translateX(-50%);
+      transition:transform .82s cubic-bezier(.2,.8,.2,1);
+    }
+    @keyframes giftLidFlight {
+      0% { transform:translateX(-50%) translate3d(0,0,0) rotateX(0) rotateY(0) rotateZ(0); }
+      12% { transform:translateX(-50%) translate3d(8px,-58px,35px) rotateX(-24deg) rotateY(7deg) rotateZ(9deg); }
+      30% { transform:translateX(-50%) translate3d(35px,-190px,80px) rotateX(-68deg) rotateY(14deg) rotateZ(38deg); }
+      49% { transform:translateX(-50%) translate3d(48px,-167px,-18px) rotateX(-128deg) rotateY(24deg) rotateZ(82deg); }
+      69% { transform:translateX(-50%) translate3d(-20px,-65px,-142px) rotateX(-78deg) rotateY(-8deg) rotateZ(132deg); }
+      84% { transform:translateX(-50%) translate3d(-25px,65px,-176px) rotateX(8deg) rotateY(-4deg) rotateZ(18deg); }
+      92% { transform:translateX(-50%) translate3d(-25px,55px,-176px) rotateX(-3deg) rotateY(-2deg) rotateZ(7deg); }
+      100% { transform:translateX(-50%) translate3d(-25px,62px,-176px) rotateX(0) rotateY(0) rotateZ(9deg); }
+    }
+    @media(max-width:560px) {
+      .gift-geometry { width:340px;height:340px;--gift-scale:.86; }
+      .gift-zone { top:54%; }
+      .opened .gift-zone { top:66%; }
+      .gift-lid { top:calc(50% - 133px); }
+      .bow { transform:translateX(-50%) rotateX(90deg) translateZ(8px) scale(.9); }
+    }
+    @media(max-height:700px) and (min-width:561px) {
+      .gift-geometry { width:340px;height:340px;--gift-scale:.86; }
+      .gift-zone { top:57%; }
+      .opened .gift-zone { top:66%; }
+    }
+    @media(prefers-reduced-motion:reduce) {
+      .gift,.gift-geometry,.gift-lid { transition:none !important; }
+      .opened .gift,.opened .gift-body { animation:none !important; }
+      .opened .gift-lid { animation:none !important;transform:translateX(-50%) translate3d(-25px,62px,-176px) rotateZ(9deg); }
+      .stage.retracting .gift-lid { transition:none;transform:translateX(-50%); }
+    }
+
   </style>
 </head>
 <body>
@@ -1146,209 +1455,37 @@
         <button class="gift" id="gift" type="button" aria-label="افتح صندوق الهدية" aria-controls="prankMessage">
           <div class="gift-geometry" id="giftGeometry">
             <div class="gift-body">
-              <svg class="gift-body-art" viewBox="0 0 500 520" role="img" aria-label="صندوق هدية ثلاثي الأبعاد بتغليف بنفسجي وشريط ساتان وردي">
-                <defs>
-                  <linearGradient id="boxFrontLeft" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="#80618f"/>
-                    <stop offset=".32" stop-color="#573d70"/>
-                    <stop offset=".72" stop-color="#382a59"/>
-                    <stop offset="1" stop-color="#211b3d"/>
-                  </linearGradient>
-                  <linearGradient id="boxFrontRight" x1="0" y1="0" x2=".9" y2="1">
-                    <stop offset="0" stop-color="#594477"/>
-                    <stop offset=".42" stop-color="#34284f"/>
-                    <stop offset="1" stop-color="#17172f"/>
-                  </linearGradient>
-                  <linearGradient id="boxTop" x1=".05" y1="0" x2=".9" y2="1">
-                    <stop offset="0" stop-color="#a080ae"/>
-                    <stop offset=".33" stop-color="#715481"/>
-                    <stop offset=".72" stop-color="#49345f"/>
-                    <stop offset="1" stop-color="#302448"/>
-                  </linearGradient>
-                  <linearGradient id="boxSide" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="#45345f"/>
-                    <stop offset="1" stop-color="#17172f"/>
-                  </linearGradient>
-                  <linearGradient id="cavityWall" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0" stop-color="#19142c"/>
-                    <stop offset="1" stop-color="#090b1a"/>
-                  </linearGradient>
-                  <linearGradient id="satin" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0" stop-color="#8d315f"/>
-                    <stop offset=".2" stop-color="#d86ca7"/>
-                    <stop offset=".47" stop-color="#ffe2f2"/>
-                    <stop offset=".57" stop-color="#f6b4d8"/>
-                    <stop offset=".78" stop-color="#c14d8e"/>
-                    <stop offset="1" stop-color="#76294f"/>
-                  </linearGradient>
-                  <linearGradient id="satinLight" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0" stop-color="#fff0f9"/>
-                    <stop offset=".25" stop-color="#e79ac5"/>
-                    <stop offset=".65" stop-color="#ba568e"/>
-                    <stop offset="1" stop-color="#74335f"/>
-                  </linearGradient>
-                  <linearGradient id="goldFoil" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="#fff0bd"/>
-                    <stop offset=".3" stop-color="#d7ae71"/>
-                    <stop offset=".62" stop-color="#fff0bd"/>
-                    <stop offset="1" stop-color="#91633d"/>
-                  </linearGradient>
-                  <linearGradient id="sealFill" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="#fff0cf"/>
-                    <stop offset=".4" stop-color="#d8ad78"/>
-                    <stop offset="1" stop-color="#916044"/>
-                  </linearGradient>
-                  <pattern id="paperGrain" width="7" height="7" patternUnits="userSpaceOnUse">
-                    <path d="M0 1.5H7M0 5.5H7" stroke="#fff" stroke-opacity=".045" stroke-width=".55"/>
-                    <circle cx="2" cy="3.2" r=".35" fill="#fff" fill-opacity=".08"/>
-                  </pattern>
-                  <filter id="boxContactShadow" x="-35%" y="-30%" width="170%" height="180%">
-                    <feGaussianBlur stdDeviation="13"/>
-                  </filter>
-                  <filter id="foilGlow" x="-80%" y="-80%" width="260%" height="260%">
-                    <feGaussianBlur stdDeviation="2.2" result="blur"/>
-                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-                  </filter>
-                </defs>
-
-                <!-- Grounded shadow: a broad contact ellipse, separate from the box geometry. -->
-                <ellipse cx="264" cy="455" rx="205" ry="27" fill="#050711" opacity=".75" filter="url(#boxContactShadow)"/>
-                <ellipse cx="260" cy="453" rx="158" ry="15" fill="#11162c" opacity=".65"/>
-
-                <!-- Main volume: two front-facing planes with one shared lower corner. -->
-                <path d="M78 190 250 285 250 466 78 371Z" fill="url(#boxFrontLeft)" stroke="#b99ec8" stroke-opacity=".38" stroke-width="1.5"/>
-                <path d="M250 285 422 190 422 371 250 466Z" fill="url(#boxFrontRight)" stroke="#c2a9cc" stroke-opacity=".24" stroke-width="1.5"/>
-                <path d="M78 190 250 285 250 466 78 371Z" fill="url(#paperGrain)" opacity=".5"/>
-                <path d="M250 285 422 190 422 371 250 466Z" fill="url(#paperGrain)" opacity=".34"/>
-
-                <!-- Folded paper edges, subtle corner seams and edge highlights. -->
-                <path d="M78 190 250 285 422 190" fill="none" stroke="#ead8ed" stroke-opacity=".5" stroke-width="2"/>
-                <path d="M78 371 250 466 422 371" fill="none" stroke="#0b0d20" stroke-opacity=".7" stroke-width="4"/>
-                <path d="M86 204 86 365 250 455" fill="none" stroke="#f0dff3" stroke-opacity=".12" stroke-width="2"/>
-                <path d="M414 204 414 365 250 455" fill="none" stroke="#050817" stroke-opacity=".45" stroke-width="3"/>
-                <path d="M94 218 94 361M406 218 406 361" stroke="#f8e9fa" stroke-opacity=".08" stroke-width="1"/>
-
-                <!-- Satin ribbon follows the angled front faces instead of floating above them. -->
-                <path d="M232 275 250 285 250 466 232 456Z" fill="url(#satin)" stroke="#f8c6e4" stroke-opacity=".55"/>
-                <path d="M250 285 268 275 268 456 250 466Z" fill="url(#satin)" stroke="#f8c6e4" stroke-opacity=".35"/>
-                <path d="M239 280 244 283 244 462 239 459Z" fill="#fff5fb" opacity=".48"/>
-                <path d="M256 282 261 279 261 459 256 462Z" fill="#6d234c" opacity=".25"/>
-                <path d="M78 292 250 387 250 410 78 315Z" fill="url(#satinLight)" stroke="#f8c4e1" stroke-opacity=".5"/>
-                <path d="M250 387 422 292 422 315 250 410Z" fill="url(#satinLight)" stroke="#f8c4e1" stroke-opacity=".3"/>
-                <path d="M83 296 250 388M255 387 417 297" stroke="#fff4fb" stroke-opacity=".58" stroke-width="2"/>
-                <path d="M83 311 250 403M255 403 417 312" stroke="#76294f" stroke-opacity=".35" stroke-width="2"/>
-
-                <!-- Top rim, recessed well and the four inner walls. These remain visible when the lid flies away. -->
-                <path d="M250 95 430 190 250 285 70 190Z" fill="url(#boxTop)" stroke="#e4c9e8" stroke-opacity=".68" stroke-width="2"/>
-                <path d="M250 106 413 190 250 272 87 190Z" fill="none" stroke="#f7e9f7" stroke-opacity=".29" stroke-width="2"/>
-                <path d="M102 190 250 266 250 321 102 246Z" fill="url(#cavityWall)" stroke="#b49bc5" stroke-opacity=".22"/>
-                <path d="M250 266 398 190 398 246 250 321Z" fill="#0b0d20" stroke="#b49bc5" stroke-opacity=".18"/>
-                <path d="M250 126 375 190 250 255 125 190Z" fill="#0a0d20" stroke="#b5a2c8" stroke-opacity=".32" stroke-width="1.5"/>
-                <path d="M125 190 250 255 250 291 125 226Z" fill="#17142c"/>
-                <path d="M250 255 375 190 375 226 250 291Z" fill="#090c1b"/>
-                <path d="M250 164 341 210 250 257 159 210Z" fill="#0c1125" stroke="#7b7197" stroke-opacity=".26"/>
-                <path d="M112 188 250 260 388 188" fill="none" stroke="#f5e5fa" stroke-opacity=".25" stroke-width="2"/>
-
-                <!-- Inner satin binding on the rim. -->
-                <path d="M242 101 258 109 258 278 242 270Z" fill="url(#satin)" opacity=".96"/>
-                <path d="M246 105 250 107 250 274 246 272Z" fill="#fff0fa" opacity=".36"/>
-
-                <!-- Decorative package seal on the right front face. -->
-                <g transform="translate(345 350)">
-                  <path d="M0 -17 14 -9 14 8 0 16 -14 8 -14 -9Z" fill="url(#goldFoil)" stroke="#fff1cf" stroke-opacity=".72"/>
-                  <path d="M0 -11 9 -6 9 5 0 10 -9 5 -9 -6Z" fill="#44324e"/>
-                  <path d="M-4 0 0 -5 4 0 0 5Z" fill="url(#goldFoil)"/>
-                </g>
-                <path d="M95 379 250 465 405 379" fill="none" stroke="#e5d5ef" stroke-opacity=".12" stroke-width="1.5"/>
-              </svg>
+              <div class="face front">
+                <i class="ribbon-v"></i><i class="ribbon-h"></i>
+                <span class="panel-gloss"></span>
+                <span class="gift-seal"><span>FOR YOU</span><b>✦</b></span>
+              </div>
+              <div class="face back"><i class="ribbon-v"></i><i class="ribbon-h"></i></div>
+              <div class="face side right"><i class="ribbon-v"></i><i class="ribbon-h"></i></div>
+              <div class="face side left"><i class="ribbon-v"></i><i class="ribbon-h"></i></div>
+              <div class="body-top">
+                <span class="top-inset"></span>
+                <i class="ribbon-v"></i><i class="ribbon-h"></i>
+              </div>
+              <div class="body-bottom"></div>
             </div>
 
             <div class="gift-lid" aria-hidden="true">
-              <svg class="gift-lid-art" viewBox="0 0 500 340">
-                <defs>
-                  <linearGradient id="lidTop" x1=".1" y1="0" x2=".9" y2="1">
-                    <stop offset="0" stop-color="#a987b2"/>
-                    <stop offset=".32" stop-color="#795985"/>
-                    <stop offset=".7" stop-color="#543b69"/>
-                    <stop offset="1" stop-color="#38294f"/>
-                  </linearGradient>
-                  <linearGradient id="lidFront" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0" stop-color="#896a9a"/>
-                    <stop offset=".28" stop-color="#664676"/>
-                    <stop offset="1" stop-color="#302344"/>
-                  </linearGradient>
-                  <linearGradient id="lidSide" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="#61476f"/>
-                    <stop offset="1" stop-color="#28203e"/>
-                  </linearGradient>
-                  <linearGradient id="lidSatin" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0" stop-color="#8d315f"/>
-                    <stop offset=".2" stop-color="#d86ca7"/>
-                    <stop offset=".47" stop-color="#ffe2f2"/>
-                    <stop offset=".57" stop-color="#f6b4d8"/>
-                    <stop offset=".78" stop-color="#c14d8e"/>
-                    <stop offset="1" stop-color="#76294f"/>
-                  </linearGradient>
-                  <linearGradient id="bowSilk" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="#fff4fa"/>
-                    <stop offset=".23" stop-color="#f1b5d8"/>
-                    <stop offset=".58" stop-color="#d66aa9"/>
-                    <stop offset=".82" stop-color="#8d376e"/>
-                    <stop offset="1" stop-color="#f4c3df"/>
-                  </linearGradient>
-                  <linearGradient id="bowShadow" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="#f9d4e9"/>
-                    <stop offset=".55" stop-color="#a3477d"/>
-                    <stop offset="1" stop-color="#4a2348"/>
-                  </linearGradient>
-                  <filter id="bowDrop" x="-40%" y="-40%" width="180%" height="190%">
-                    <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
-                    <feOffset dy="5" result="offset"/>
-                    <feComponentTransfer><feFuncA type="linear" slope=".4"/></feComponentTransfer>
-                    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
-                  </filter>
-                </defs>
-
-                <!-- A single shallow lid with top, front apron and side apron. -->
-                <path d="M55 180 250 278 250 318 55 220Z" fill="url(#lidFront)" stroke="#e8d4ef" stroke-opacity=".42" stroke-width="1.5"/>
-                <path d="M250 278 445 180 445 220 250 318Z" fill="url(#lidSide)" stroke="#e8d4ef" stroke-opacity=".32" stroke-width="1.5"/>
-                <path d="M55 180 250 82 445 180 250 278Z" fill="url(#lidTop)" stroke="#f4e4f4" stroke-opacity=".72" stroke-width="2"/>
-                <path d="M67 180 250 89 433 180 250 271Z" fill="none" stroke="#fff2fb" stroke-opacity=".24" stroke-width="1.5"/>
-                <path d="M76 180 250 267 424 180" fill="none" stroke="#241a3b" stroke-opacity=".23" stroke-width="2"/>
-                <path d="M58 184 250 281 442 184" fill="none" stroke="#fff0f9" stroke-opacity=".18" stroke-width="1.5"/>
-
-                <!-- A broad cross-wrap band laid on the top plane and continuing down the apron. -->
-                <path d="M55 172 250 270 445 172 445 190 250 288 55 190Z" fill="url(#lidSatin)" stroke="#ffe7f6" stroke-opacity=".45"/>
-                <path d="M55 179 250 277 445 179" fill="none" stroke="#fff6fc" stroke-opacity=".62" stroke-width="2"/>
-                <path d="M55 188 250 286 445 188" fill="none" stroke="#78284f" stroke-opacity=".42" stroke-width="2"/>
-                <path d="M238 88 262 100 262 307 238 295Z" fill="url(#lidSatin)" stroke="#ffe7f6" stroke-opacity=".48"/>
-                <path d="M244 92 250 95 250 301 244 298Z" fill="#fff3fb" opacity=".44"/>
-                <path d="M256 99 260 101 260 306 256 304Z" fill="#732950" opacity=".26"/>
-
-                <!-- Sculpted satin bow: loops have volume, folded inner valleys and separate tails. -->
-                <g filter="url(#bowDrop)">
-                  <path d="M245 117 C213 83 165 59 138 79 C111 99 143 145 197 155 C217 160 235 145 250 132Z"
-                        fill="url(#bowSilk)" stroke="#ffe8f5" stroke-opacity=".75" stroke-width="2"/>
-                  <path d="M246 121 C213 103 179 88 158 93 C146 97 150 111 168 124 C190 140 216 143 246 133Z"
-                        fill="url(#bowShadow)" opacity=".62"/>
-                  <path d="M255 117 C287 83 335 59 362 79 C389 99 357 145 303 155 C283 160 265 145 250 132Z"
-                        fill="url(#bowSilk)" stroke="#ffe8f5" stroke-opacity=".75" stroke-width="2"/>
-                  <path d="M254 121 C287 103 321 88 342 93 C354 97 350 111 332 124 C310 140 284 143 254 133Z"
-                        fill="url(#bowShadow)" opacity=".62"/>
-                  <path d="M242 125 C220 159 201 181 187 211 L231 219 C246 185 254 153 250 132Z"
-                        fill="url(#bowSilk)" stroke="#f7d3e8" stroke-opacity=".6"/>
-                  <path d="M258 125 C280 159 299 181 313 211 L269 219 C254 185 246 153 250 132Z"
-                        fill="url(#bowSilk)" stroke="#f7d3e8" stroke-opacity=".6"/>
-                  <path d="M202 183 214 190 204 207 188 210Z" fill="#fff2fa" opacity=".34"/>
-                  <path d="M298 183 286 190 296 207 312 210Z" fill="#fff2fa" opacity=".28"/>
-                  <path d="M250 103 C229 109 224 130 237 143 C245 151 258 151 266 141 C278 126 269 108 250 103Z"
-                        fill="url(#bowSilk)" stroke="#fff1fa" stroke-opacity=".82" stroke-width="2"/>
-                  <path d="M244 108 C237 117 239 130 248 137" fill="none" stroke="#fff8fc" stroke-opacity=".7" stroke-width="2"/>
-                  <path d="M259 110 C266 119 263 130 255 138" fill="none" stroke="#78345f" stroke-opacity=".42" stroke-width="2"/>
-                  <path d="M245 104 Q250 99 255 104" fill="none" stroke="#fff" stroke-opacity=".8" stroke-width="2"/>
-                </g>
-                <path d="M76 183 250 269 424 183" fill="none" stroke="#fff3fa" stroke-opacity=".12" stroke-width="2"/>
-              </svg>
+              <div class="lid-front"><i class="ribbon-v"></i><i class="ribbon-h"></i><span class="panel-gloss"></span></div>
+              <div class="lid-back"><i class="ribbon-v"></i><i class="ribbon-h"></i></div>
+              <div class="lid-side lid-right"><i class="ribbon-h"></i></div>
+              <div class="lid-side lid-left"><i class="ribbon-h"></i></div>
+              <div class="lid-top">
+                <span class="lid-inset"></span>
+                <i class="ribbon-v"></i><i class="ribbon-h"></i>
+              </div>
+              <div class="bow">
+                <span class="bow-tail tail-left"></span>
+                <span class="bow-tail tail-right"></span>
+                <span class="bow-loop left-loop"></span>
+                <span class="bow-loop right-loop"></span>
+                <span class="bow-knot"></span>
+              </div>
             </div>
           </div>
         </button>
