@@ -982,6 +982,24 @@
       .stage.retracting .gift-lid { transition:none;transform:none; }
     }
 
+  
+    /* Final mechanical alignment: CSS left/top represent the transformed face center. */
+    .body-top { left:50%;top:0;width:280px;height:180px; }
+    .body-bottom { left:50%;top:190px;width:280px;height:180px; }
+    .inner-front,.inner-back { left:50%;top:75px;width:244px;height:150px; }
+    .inner-right,.inner-left { left:50%;top:75px;width:144px;height:150px; }
+    .inner-floor { left:50%;top:150px;width:244px;height:144px; }
+    .gift-lid { left:-15px;top:-19px;width:310px;height:38px;transform-origin:50% 0% 0; }
+    .lid-front,.lid-back { left:50%;top:0;width:310px;height:38px; }
+    .lid-side { left:50%;top:0;width:210px;height:38px; }
+    .lid-top { left:50%;top:-19px;width:310px;height:210px; }
+    .opened .gift-lid { transform-origin:50% 0% 0; }
+    .opened .gift-geometry { transform:translate(-50%,-50%) scale(var(--gift-scale,1)) rotateX(-18deg) rotateY(-25deg); }
+    .lid-side .ribbon-h {
+      position:absolute;left:0;top:12px;width:100%;height:14px;
+      background:linear-gradient(180deg,#ffe8f5 0%,#e99cc9 30%,#bd5b96 72%,#873968 100%);
+    }
+
   </style>
 </head>
 <body>
@@ -1032,8 +1050,8 @@
               <div class="gift-lid">
                 <div class="lid-front"><i class="ribbon-v"></i><i class="ribbon-h"></i><i class="glint"></i></div>
                 <div class="lid-back"><i class="ribbon-v"></i><i class="ribbon-h"></i></div>
-                <div class="lid-side lid-right"></div>
-                <div class="lid-side lid-left"></div>
+                <div class="lid-side lid-right"><i class="ribbon-h"></i></div>
+                <div class="lid-side lid-left"><i class="ribbon-h"></i></div>
                 <div class="lid-top"><i class="ribbon-v"></i><i class="ribbon-h"></i><i class="glint"></i></div>
                 <div class="bow">
                   <span class="bow-tail tail-left"></span>
