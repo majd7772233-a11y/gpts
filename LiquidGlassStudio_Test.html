@@ -8,7 +8,7 @@
 <title>Liquid Glass Studio — مختبر الزجاج السائل</title>
 <style>
 :root{color-scheme:dark;--text:#f5f7ff;--muted:#a8b2ca;--line:rgb(222 232 255/.17);--line-strong:rgb(231 240 255/.34);--accent:#a5c8ff;--glass-blur:22px;--glass-fill:.105;--glass-shadow:0 22px 68px rgb(0 0 0/.23),inset 0 1px 0 rgb(255 255 255/.23);--pointer-x:50vw;--pointer-y:50vh;font-family:"Segoe UI",Tahoma,Arial,sans-serif;font-synthesis:none;text-rendering:optimizeLegibility}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{min-width:320px;min-height:100vh;margin:0;overflow-x:hidden;color:var(--text);background:#080d1b}button,input,select{font:inherit}button{color:inherit}a{color:inherit;text-decoration:none}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{min-width:320px;min-height:100vh;margin:0;overflow-x:hidden;color:var(--text);background:#080d1b}button,input,select{font:inherit}button{color:inherit;transition:translate .18s cubic-bezier(.2,.8,.2,1)}body[data-magnet="false"] button{translate:0 0!important}a{color:inherit;text-decoration:none}
 button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,[tabindex="0"]:focus-visible{outline:2px solid #b9d4ff;outline-offset:4px}
 .skip-link:focus{transform:translateY(0)!important}
 #world{position:fixed;z-index:0;inset:0;width:100%;height:100%;pointer-events:none;background:radial-gradient(ellipse at 20% 20%,#263c69 0,transparent 42%),radial-gradient(ellipse at 82% 28%,#422e68 0,transparent 38%),linear-gradient(135deg,#090f20,#101c37 58%,#0a1021)}
@@ -316,7 +316,7 @@ document.addEventListener("pointerdown",e=>{$$(".custom-select.open").forEach(ro
 $$("[data-scene]").forEach(b=>b.addEventListener("click",()=>setScene(b.dataset.scene)));
 $$("[data-shape]").forEach(b=>b.addEventListener("click",()=>{setShape(b.dataset.shape);toastMessage("تم تغيير شكل العدسة")}));
 $$("[data-preset]").forEach(b=>b.addEventListener("click",()=>applyPreset(b.dataset.preset)));
-$("[data-gallery-preset]").forEach(b=>b.addEventListener("click",()=>{const n=b.dataset.galleryPreset;applyPreset(n);b.animate?.([{transform:"translateY(0) scale(1)"},{transform:"translateY(-2px) scale(1.035)"},{transform:"translateY(0) scale(1)"}],{duration:360,easing:"cubic-bezier(.2,.8,.2,1)"})}));
+$$("[data-gallery-preset]").forEach(b=>b.addEventListener("click",()=>{const n=b.dataset.galleryPreset;applyPreset(n);$$(".showcase-card").forEach(card=>card.classList.toggle("activated",card.contains(b)));b.animate?.([{transform:"translateY(0) scale(1)"},{transform:"translateY(-2px) scale(1.035)"},{transform:"translateY(0) scale(1)"}],{duration:360,easing:"cubic-bezier(.2,.8,.2,1)"})}));
 setSwitch("animation-toggle",state.animate,v=>{state.animate=v;state.paused=!v;$("#pause-button").textContent=v?"إيقاف مؤقت":"استئناف الحركة";applyMotion()});
 setSwitch("grid-toggle",state.grid,v=>state.grid=v);
 setSwitch("particles-toggle",state.particles,v=>state.particles=v);setSwitch("cursor-toggle",state.cursorEnabled,v=>{state.cursorEnabled=v;body.dataset.cursor=String(v);if(!v)$("#cursor-aura").classList.remove("visible")});setSwitch("global-magnet-toggle",state.magnetEnabled,v=>{state.magnetEnabled=v;body.dataset.magnet=String(v);if(!v)resetMagnet()});$("#magnet-strength").addEventListener("input",e=>{state.magnetStrength=Number(e.target.value);$("#magnet-strength-out").textContent=state.magnetStrength+"%"});
@@ -407,7 +407,7 @@ function layoutFloatCards(reset){
 }
 function initializeFloatingCards(){
   floatItems.clear();floatTopZ=3;
-  $("[data-float-card]",floatBoard).forEach((el,index)=>floatItems.set(el.dataset.floatCard,{id:el.dataset.floatCard,el,x:0,y:0,targetX:0,targetY:0,group:null,index}));
+  $$("[data-float-card]",floatBoard).forEach((el,index)=>floatItems.set(el.dataset.floatCard,{id:el.dataset.floatCard,el,x:0,y:0,targetX:0,targetY:0,group:null,index}));
   layoutFloatCards(true);updateFloatStatus("4 بطاقات حرة · لا توجد قيود جاذبية.");
 }
 function updateFloatStatus(message){
@@ -495,7 +495,7 @@ floatBoard.addEventListener("pointerdown",e=>{const card=e.target.closest("[data
 floatBoard.addEventListener("pointermove",moveFloatDrag);
 floatBoard.addEventListener("pointerup",e=>finishFloatDrag(e,true));
 floatBoard.addEventListener("pointercancel",e=>finishFloatDrag(e,false));
-$("[data-float-card]",floatBoard).forEach(card=>card.addEventListener("keydown",e=>{
+$$("[data-float-card]",floatBoard).forEach(card=>card.addEventListener("keydown",e=>{
   const item=floatItems.get(card.dataset.floatCard);if(!item)return;
   const step=e.shiftKey?28:12,delta={ArrowLeft:[-step,0],ArrowRight:[step,0],ArrowUp:[0,-step],ArrowDown:[0,step]};
   if(delta[e.key]){
@@ -599,7 +599,7 @@ $$("[data-command]").forEach(b=>b.addEventListener("click",()=>{const c=b.datase
 const navLinks=$$(".side-link");if("IntersectionObserver"in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)navLinks.forEach(link=>link.classList.toggle("active",link.getAttribute("href")==="#"+entry.target.id))}),{rootMargin:"-18% 0px -68% 0px"});["overview","scenes","material","shapes","gallery","float-lab","playground","diagnostics"].forEach(id=>{const el=document.getElementById(id);if(el)observer.observe(el)})}
 const motionPref=window.matchMedia("(prefers-reduced-motion: reduce)");if(motionPref.matches){state.reduced=true;$("#reduced-toggle").setAttribute("aria-checked","true");applyMotion()}
 $("#diag-backdrop").textContent=CSS.supports("backdrop-filter","blur(1px)")?"مدعوم ✓":"بديل لوني";if(CSS.supports("backdrop-filter","blur(1px)"))$("#diag-backdrop").classList.add("good");$("#diag-motion").textContent=motionPref.matches?"مطلوب من النظام":"غير مطلوب";
-body.dataset.magnet=String(state.magnetEnabled);body.dataset.cursor=String(state.cursorEnabled);initializeFloatingCards();initializeWebGL();restoreSettings();resizeCanvas();positionLensHome(true);raf=requestAnimationFrame(draw);
+body.dataset.magnet=String(state.magnetEnabled);body.dataset.cursor=String(state.cursorEnabled);initializeWebGL();restoreSettings();resizeCanvas();positionLensHome(true);raf=requestAnimationFrame(draw);try{initializeFloatingCards()}catch(error){console.error("Floating card workspace initialization failed",error);const status=$("#float-status");if(status)status.textContent="تعذّر تهيئة البطاقات؛ بقي المختبر الأساسي يعمل."}
 canvas.addEventListener("webglcontextlost",e=>{e.preventDefault();webglReady=false;body.dataset.renderer="fallback";cancelAnimationFrame(raf);canvas.style.display="none";$("#diag-webgl").textContent="فُقد السياق";$("#diag-refraction").textContent="L1 fallback";$("#refraction-value").textContent="L1";$("#sidebar-tier").textContent="◈ L1 FALLBACK";$("#renderer-value").textContent="CSS";$("#renderer-hint").textContent="تم تفعيل البديل الآمن";$("#footer-state").textContent="WEBGL LOST / CSS FALLBACK";toastMessage("فُقد سياق WebGL؛ بقيت الواجهة في وضعها البديل")});
 })();
 </script>
