@@ -342,6 +342,171 @@ function updateGlobalMagnet(e){const target=e.pointerType==="touch"||!state.magn
 
 let pointerX=innerWidth*.5,pointerY=innerHeight*.5,dragging=false,dpr=1,lensCurrent={x:0,y:0},lensTarget={x:0,y:0};
 let gl=null,program=null,uniforms={},raf=0,time=0,rendererName="CSS FALLBACK",webglReady=false;
+
+function clampNumber(n,min,max){return Math.max(min,Math.min(max,n))}
+const floatBoard=$("#float-board"),floatLayer=$("#float-fusion-layer"),floatItems=new Map();
+let floatBridges=[],floatRaf=0,floatDrag=null,floatTopZ=3,floatFusionSerial=0;
+function cardBounds(){return floatBoard.getBoundingClientRect()}
+function updateFloatBridges(){
+  floatBridges.forEach(bridge=>{
+    const a=bridge.a,b=bridge.b;
+    const ax=a.x+a.el.offsetWidth/2,ay=a.y+a.el.offsetHeight/2;
+    const bx=b.x+b.el.offsetWidth/2,by=b.y+b.el.offsetHeight/2;
+    const dx=bx-ax,dy=by-ay;
+    bridge.el.style.left=ax+"px";bridge.el.style.top=ay+"px";
+    bridge.el.style.width=Math.hypot(dx,dy)+"px";
+    bridge.el.style.transform="translateY(-50%) rotate("+Math.atan2(dy,dx)+"rad)";
+  });
+}
+function rebuildFloatBridges(){
+  floatLayer.replaceChildren();floatBridges=[];
+  const groups=new Map();
+  floatItems.forEach(item=>{if(item.group){if(!groups.has(item.group))groups.set(item.group,[]);groups.get(item.group).push(item)}});
+  groups.forEach(members=>{
+    if(members.length<2)return;
+    const anchor=members[0];
+    members.slice(1).forEach(other=>{
+      const bridge=document.createElement("span");
+      bridge.className="float-fusion-bridge";floatLayer.appendChild(bridge);
+      floatBridges.push({el:bridge,a:anchor,b:other});
+    });
+  });
+  updateFloatBridges();
+}
+function scheduleFloatFrame(){if(!floatRaf)floatRaf=requestAnimationFrame(tickFloatCards)}
+function tickFloatCards(){
+  floatRaf=0;let moving=false;
+  floatItems.forEach(item=>{
+    const ease=state.reduced?1:.23,dx=item.targetX-item.x,dy=item.targetY-item.y;
+    item.x+=dx*ease;item.y+=dy*ease;
+    if(Math.abs(dx)>.3||Math.abs(dy)>.3)moving=true;
+    else{item.x=item.targetX;item.y=item.targetY}
+    item.el.style.left=item.x+"px";item.el.style.top=item.y+"px";
+  });
+  updateFloatBridges();
+  if(moving)floatRaf=requestAnimationFrame(tickFloatCards);
+}
+function layoutFloatCards(reset){
+  const rect=cardBounds();if(!rect.width)return;
+  const positions=rect.width<600?[[.025,20],[.525,20],[.025,238],[.525,238]]:[[.035,22],[.285,177],[.535,22],[.785,177]];
+  let i=0;
+  floatItems.forEach(item=>{
+    const p=positions[i++]||positions[0];
+    const maxX=Math.max(8,rect.width-item.el.offsetWidth-8),maxY=Math.max(8,rect.height-item.el.offsetHeight-8);
+    if(reset){
+      item.x=item.targetX=clampNumber(p[0]*rect.width,8,maxX);
+      item.y=item.targetY=clampNumber(p[1],8,maxY);item.group=null;
+    }else{
+      item.targetX=clampNumber(item.targetX,8,maxX);item.targetY=clampNumber(item.targetY,8,maxY);
+      item.x=clampNumber(item.x,8,maxX);item.y=clampNumber(item.y,8,maxY);
+    }
+    item.el.style.left=item.x+"px";item.el.style.top=item.y+"px";
+  });
+  rebuildFloatBridges();
+}
+function initializeFloatingCards(){
+  floatItems.clear();floatTopZ=3;
+  $("[data-float-card]",floatBoard).forEach((el,index)=>floatItems.set(el.dataset.floatCard,{id:el.dataset.floatCard,el,x:0,y:0,targetX:0,targetY:0,group:null,index}));
+  layoutFloatCards(true);updateFloatStatus("4 بطاقات حرة · لا توجد قيود جاذبية.");
+}
+function updateFloatStatus(message){
+  const groups=new Set();floatItems.forEach(item=>{if(item.group)groups.add(item.group)});
+  const merged=[...floatItems.values()].filter(item=>item.group).length;
+  $("#float-status").textContent=message||((floatItems.size-merged)+" بطاقات حرة · "+(groups.size?groups.size+" مجموعات مدمجة":"لا توجد مجموعات مدمجة")+" · بلا جاذبية");
+}
+function floatGroupMembers(item){return item.group?[...floatItems.values()].filter(x=>x.group===item.group):[item]}
+function nearestFloatCard(item){
+  let best=null,bestDistance=Infinity;
+  floatItems.forEach(other=>{
+    if(other===item||(item.group&&other.group===item.group))return;
+    const dx=(item.targetX+item.el.offsetWidth/2)-(other.targetX+other.el.offsetWidth/2);
+    const dy=(item.targetY+item.el.offsetHeight/2)-(other.targetY+other.el.offsetHeight/2);
+    const distance=Math.hypot(dx,dy);
+    if(distance<bestDistance){bestDistance=distance;best=other}
+  });
+  return{item:best,distance:bestDistance};
+}
+function mergeFloatCard(item){
+  const nearest=nearestFloatCard(item);
+  if(!nearest.item||nearest.distance>Math.min(190,cardBounds().width*.28)){updateFloatBridges();return false}
+  const other=nearest.item,groups=new Set([item.group,other.group].filter(Boolean));
+  const group=item.group||other.group||("fusion-"+(++floatFusionSerial));
+  floatItems.forEach(x=>{if(x===item||x===other||(x.group&&groups.has(x.group)))x.group=group});
+  const ac=other.targetX+other.el.offsetWidth/2,bc=other.targetY+other.el.offsetHeight/2;
+  const ic=item.targetX+item.el.offsetWidth/2,jc=item.targetY+item.el.offsetHeight/2;
+  const dx=ic-ac,dy=jc-bc,len=Math.max(1,Math.hypot(dx,dy));
+  const gap=(item.el.offsetWidth+other.el.offsetWidth)*.42,rect=cardBounds();
+  item.targetX=clampNumber(ac+dx/len*gap-item.el.offsetWidth/2,8,rect.width-item.el.offsetWidth-8);
+  item.targetY=clampNumber(bc+dy/len*gap-item.el.offsetHeight/2,8,rect.height-item.el.offsetHeight-8);
+  floatItems.forEach(x=>x.el.classList.toggle("is-fused",Boolean(x.group)));
+  rebuildFloatBridges();scheduleFloatFrame();
+  updateFloatStatus("تم دمج «"+item.el.querySelector("strong").textContent+"» مع «"+other.el.querySelector("strong").textContent+"»؛ اسحب أي عضو لتحريك المجموعة.");
+  return true;
+}
+function splitFloatCard(item){
+  const group=item.group;if(!group)return;
+  item.group=null;
+  const remaining=[...floatItems.values()].filter(x=>x.group===group);
+  if(remaining.length===1)remaining[0].group=null;
+  floatItems.forEach(x=>x.el.classList.toggle("is-fused",Boolean(x.group)));
+  rebuildFloatBridges();updateFloatStatus("تم فصل البطاقة المحددة عن مجموعتها.");
+}
+function splitAllFloatCards(){
+  floatItems.forEach(item=>{item.group=null;item.el.classList.remove("is-fused")});
+  rebuildFloatBridges();updateFloatStatus("تم فصل جميع البطاقات؛ كل بطاقة أصبحت مستقلة.");
+}
+function resetFloatingCards(){splitAllFloatCards();layoutFloatCards(true);updateFloatStatus("أعيد ترتيب البطاقات الأربع؛ كلها مستقلة وبلا جاذبية.")}
+function startFloatDrag(e,card){
+  if(e.pointerType==="mouse"&&e.button!==0)return;
+  const item=floatItems.get(card.dataset.floatCard);if(!item)return;
+  e.preventDefault();
+  const members=floatGroupMembers(item),origin=new Map(members.map(x=>[x.id,{x:x.x,y:x.y}]));
+  floatDrag={id:item.id,pointerId:e.pointerId,startX:e.clientX,startY:e.clientY,origin,members,moved:false};
+  card.setPointerCapture?.(e.pointerId);card.classList.add("is-dragging");card.style.zIndex=String(++floatTopZ);
+  updateFloatStatus(item.group?"تحريك مجموعة زجاجية مترابطة…":"تحريك بطاقة حرة…");
+}
+function moveFloatDrag(e){
+  if(!floatDrag||e.pointerId!==floatDrag.pointerId)return;
+  const rect=cardBounds();let dx=e.clientX-floatDrag.startX,dy=e.clientY-floatDrag.startY;
+  if(Math.hypot(dx,dy)>5)floatDrag.moved=true;
+  let minX=-Infinity,maxX=Infinity,minY=-Infinity,maxY=Infinity;
+  floatDrag.members.forEach(item=>{
+    const o=floatDrag.origin.get(item.id);
+    minX=Math.max(minX,8-o.x);maxX=Math.min(maxX,rect.width-item.el.offsetWidth-8-o.x);
+    minY=Math.max(minY,8-o.y);maxY=Math.min(maxY,rect.height-item.el.offsetHeight-8-o.y);
+  });
+  dx=clampNumber(dx,minX,maxX);dy=clampNumber(dy,minY,maxY);
+  floatDrag.members.forEach(item=>{const o=floatDrag.origin.get(item.id);item.targetX=o.x+dx;item.targetY=o.y+dy});
+  scheduleFloatFrame();
+}
+function finishFloatDrag(e,commit){
+  if(!floatDrag||(e&&e.pointerId!==floatDrag.pointerId))return;
+  const item=floatItems.get(floatDrag.id),members=floatDrag.members,moved=floatDrag.moved;
+  if(!commit)members.forEach(x=>{const o=floatDrag.origin.get(x.id);x.targetX=o.x;x.targetY=o.y});
+  members.forEach(x=>x.el.classList.remove("is-dragging"));floatDrag=null;
+  if(commit&&moved&&item)mergeFloatCard(item);
+  else{scheduleFloatFrame();if(commit)updateFloatStatus("تم وضع البطاقة في موضعها الجديد.")}
+}
+floatBoard.addEventListener("pointerdown",e=>{const card=e.target.closest("[data-float-card]");if(card)startFloatDrag(e,card)});
+floatBoard.addEventListener("pointermove",moveFloatDrag);
+floatBoard.addEventListener("pointerup",e=>finishFloatDrag(e,true));
+floatBoard.addEventListener("pointercancel",e=>finishFloatDrag(e,false));
+$("[data-float-card]",floatBoard).forEach(card=>card.addEventListener("keydown",e=>{
+  const item=floatItems.get(card.dataset.floatCard);if(!item)return;
+  const step=e.shiftKey?28:12,delta={ArrowLeft:[-step,0],ArrowRight:[step,0],ArrowUp:[0,-step],ArrowDown:[0,step]};
+  if(delta[e.key]){
+    e.preventDefault();const rect=cardBounds();
+    floatGroupMembers(item).forEach(x=>{
+      x.targetX=clampNumber(x.targetX+delta[e.key][0],8,rect.width-x.el.offsetWidth-8);
+      x.targetY=clampNumber(x.targetY+delta[e.key][1],8,rect.height-x.el.offsetHeight-8);
+    });scheduleFloatFrame();
+  }else if(e.key==="Enter"){e.preventDefault();mergeFloatCard(item)}
+  else if(e.key===" "){e.preventDefault();if(item.group)splitFloatCard(item);else mergeFloatCard(item)}
+}));
+$("#split-all").addEventListener("click",splitAllFloatCards);
+$("#reset-float").addEventListener("click",resetFloatingCards);
+window.addEventListener("resize",()=>{if(!floatDrag){layoutFloatCards(false);updateFloatBridges()}},{passive:true});
+
 const vertexSource=[
 "#version 300 es","in vec2 a_position;","out vec2 v_uv;","void main(){v_uv=a_position*.5+.5;gl_Position=vec4(a_position,0.,1.);}"
 ].join("\n");
@@ -430,7 +595,7 @@ $$("[data-command]").forEach(b=>b.addEventListener("click",()=>{const c=b.datase
 const navLinks=$$(".side-link");if("IntersectionObserver"in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)navLinks.forEach(link=>link.classList.toggle("active",link.getAttribute("href")==="#"+entry.target.id))}),{rootMargin:"-18% 0px -68% 0px"});["overview","scenes","material","shapes","playground","diagnostics"].forEach(id=>{const el=document.getElementById(id);if(el)observer.observe(el)})}
 const motionPref=window.matchMedia("(prefers-reduced-motion: reduce)");if(motionPref.matches){state.reduced=true;$("#reduced-toggle").setAttribute("aria-checked","true");applyMotion()}
 $("#diag-backdrop").textContent=CSS.supports("backdrop-filter","blur(1px)")?"مدعوم ✓":"بديل لوني";if(CSS.supports("backdrop-filter","blur(1px)"))$("#diag-backdrop").classList.add("good");$("#diag-motion").textContent=motionPref.matches?"مطلوب من النظام":"غير مطلوب";
-initializeWebGL();restoreSettings();resizeCanvas();positionLensHome(true);raf=requestAnimationFrame(draw);
+body.dataset.magnet=String(state.magnetEnabled);body.dataset.cursor=String(state.cursorEnabled);initializeFloatingCards();initializeWebGL();restoreSettings();resizeCanvas();positionLensHome(true);raf=requestAnimationFrame(draw);
 canvas.addEventListener("webglcontextlost",e=>{e.preventDefault();webglReady=false;body.dataset.renderer="fallback";cancelAnimationFrame(raf);canvas.style.display="none";$("#diag-webgl").textContent="فُقد السياق";$("#diag-refraction").textContent="L1 fallback";$("#refraction-value").textContent="L1";$("#sidebar-tier").textContent="◈ L1 FALLBACK";$("#renderer-value").textContent="CSS";$("#renderer-hint").textContent="تم تفعيل البديل الآمن";$("#footer-state").textContent="WEBGL LOST / CSS FALLBACK";toastMessage("فُقد سياق WebGL؛ بقيت الواجهة في وضعها البديل")});
 })();
 </script>
