@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101426">
+  <meta name="description" content="صفحة مستقلة لاختبار تأثيرات Liquid Glass في المتصفح.">
+  <title>Glass Lab — مختبر الزجاج</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --glass-blur: 18px;
+      --glass-saturation: 155%;
+      --glass-opacity: .13;
+      --line: rgb(255 255 255 / .25);
+      --text: #f7f7ff;
+      --muted: #c5c9dc;
+      --accent: #a9b8ff;
+      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--text);
+      background: #101426;
+      overflow-x: hidden;
+      transition: background 700ms ease;
+    }
+
+    body[data-scene="aurora"] {
+      background:
+        radial-gradient(ellipse at 12% 18%, #6f49a8 0, transparent 34%),
+        radial-gradient(ellipse at 84% 15%, #176a8a 0, transparent 32%),
+        radial-gradient(ellipse at 58% 92%, #35478f 0, transparent 38%),
+        linear-gradient(135deg, #101426, #182b46 55%, #11172c);
+    }
+
+    body[data-scene="sunset"] {
+      background:
+        radial-gradient(ellipse at 15% 20%, #d45c76 0, transparent 34%),
+        radial-gradient(ellipse at 85% 12%, #dc934d 0, transparent 30%),
+        radial-gradient(ellipse at 54% 95%, #65459f 0, transparent 42%),
+        linear-gradient(135deg, #24172f, #42233f 55%, #17172f);
+    }
+
+    body[data-scene="ice"] {
+      color-scheme: light;
+      color: #17233d;
+      --text: #17233d;
+      --muted: #4b5b78;
+      --line: rgb(255 255 255 / .72);
+      --accent: #345fbe;
+      background:
+        radial-gradient(ellipse at 14% 14%, #ffffff 0, transparent 35%),
+        radial-gradient(ellipse at 88% 18%, #81cce9 0, transparent 34%),
+        radial-gradient(ellipse at 55% 90%, #a8a9f4 0, transparent 40%),
+        linear-gradient(135deg, #bedcf0, #e4e8ff 55%, #a7c9e8);
+    }
+
+    .backdrop-grid {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: .22;
+      background-image:
+        linear-gradient(rgb(255 255 255 / .1) 1px, transparent 1px),
+        linear-gradient(90deg, rgb(255 255 255 / .1) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: linear-gradient(to bottom, black, transparent 90%);
+    }
+
+    .orb {
+      position: fixed;
+      z-index: -1;
+      width: 190px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      filter: blur(2px);
+      opacity: .45;
+      pointer-events: none;
+      background: radial-gradient(circle at 32% 28%, #fff, #a6c5ff 20%, #8b77ef 52%, transparent 72%);
+      animation: drift 16s ease-in-out infinite alternate;
+    }
+
+    .orb.one { top: 42%; left: -65px; }
+    .orb.two {
+      width: 125px;
+      right: -35px;
+      top: 65%;
+      animation-duration: 21s;
+      animation-direction: alternate-reverse;
+    }
+
+    @keyframes drift {
+      from { transform: translate3d(0, -12px, 0) scale(.92); }
+      to { transform: translate3d(42px, 24px, 0) scale(1.12); }
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      right: 12px;
+      z-index: 20;
+      padding: 10px 14px;
+      color: #101426;
+      background: white;
+      border-radius: 12px;
+      transform: translateY(-160%);
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    .wrap {
+      width: min(1120px, calc(100% - 36px));
+      margin-inline: auto;
+      padding-block: 28px 54px;
+    }
+
+    .glass {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgb(255 255 255 / .19), rgb(255 255 255 / var(--glass-opacity)) 45%, rgb(255 255 255 / .06));
+      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
+      backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
+      box-shadow:
+        0 22px 70px rgb(0 0 0 / .18),
+        inset 0 1px 0 rgb(255 255 255 / .35),
+        inset 0 -1px 0 rgb(255 255 255 / .08);
+    }
+
+    .glass::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 1px;
+      pointer-events: none;
+      background: linear-gradient(90deg, transparent, rgb(255 255 255 / .75), transparent);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 13px 17px;
+      border-radius: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-weight: 750;
+      letter-spacing: .2px;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 38px;
+      aspect-ratio: 1;
+      place-items: center;
+      border: 1px solid rgb(255 255 255 / .55);
+      border-radius: 13px;
+      color: white;
+      background: linear-gradient(145deg, rgb(255 255 255 / .42), rgb(255 255 255 / .08));
+      box-shadow: inset 0 1px 0 rgb(255 255 255 / .55);
+    }
+
+    .nav-meta { color: var(--muted); font-size: .84rem; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      align-items: center;
+      gap: 25px;
+      margin-top: 22px;
+      padding: clamp(24px, 5vw, 52px);
+      border-radius: 30px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent);
+      font-size: .82rem;
+      font-weight: 700;
+    }
+
+    .live-dot {
+      width: 8px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: #74e5bd;
+      box-shadow: 0 0 14px #74e5bd;
+    }
+
+    h1 {
+      margin: 14px 0 12px;
+      font-size: clamp(2.2rem, 6vw, 4.6rem);
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+    }
+
+    .lead {
+      max-width: 610px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.12rem);
+      line-height: 1.9;
+    }
+
+    .hero-art {
+      position: relative;
+      display: grid;
+      min-height: 220px;
+      place-items: center;
+      perspective: 700px;
+    }
+
+    .lens {
+      position: relative;
+      display: grid;
+      width: min(205px, 56vw);
+      aspect-ratio: 1;
+      place-items: center;
+      border: 1px solid rgb(255 255 255 / .72);
+      border-radius: 38% 62% 55% 45% / 48% 42% 58% 52%;
+      background:
+        radial-gradient(circle at 30% 22%, rgb(255 255 255 / .62), transparent 25%),
+        linear-gradient(145deg, rgb(255 255 255 / .28), rgb(255 255 255 / .04));
+      -webkit-backdrop-filter: blur(7px) saturate(180%);
+      backdrop-filter: blur(7px) saturate(180%);
+      box-shadow:
+        0 25px 60px rgb(0 0 0 / .2),
+        inset 0 2px 2px rgb(255 255 255 / .7),
+        inset -10px -14px 30px rgb(108 154 255 / .12);
+      transform: rotateX(13deg) rotateY(-17deg);
+      animation: lens-float 7s ease-in-out infinite;
+    }
+
+    .lens::after {
+      content: "GLASS";
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: 5px;
+      color: rgb(255 255 255 / .9);
+      text-shadow: 0 2px 18px rgb(75 103 188 / .7);
+    }
+
+    @keyframes lens-float {
+      0%, 100% { transform: translateY(0) rotateX(13deg) rotateY(-17deg); }
+      50% { transform: translateY(-13px) rotateX(18deg) rotateY(-9deg); }
+    }
+
+    .orbital {
+      position: absolute;
+      width: 255px;
+      height: 110px;
+      border: 1px solid rgb(255 255 255 / .25);
+      border-radius: 50%;
+      transform: rotate(-25deg);
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 31px 2px 14px;
+    }
+
+    .section-heading h2 { margin: 0; font-size: 1.2rem; }
+    .section-heading p { margin: 0; color: var(--muted); font-size: .86rem; }
+
+    .lab-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 16px;
+    }
+
+    .panel {
+      padding: 22px;
+      border-radius: 24px;
+    }
+
+    .panel h3 { margin: 0 0 8px; font-size: 1.02rem; }
+    .panel-copy { margin: 0 0 18px; color: var(--muted); line-height: 1.7; font-size: .9rem; }
+
+    .scene-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    button, input { font: inherit; }
+
+    button {
+      min-height: 42px;
+      padding: 9px 14px;
+      color: var(--text);
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: rgb(255 255 255 / .09);
+      cursor: pointer;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+    }
+
+    button:hover { background: rgb(255 255 255 / .19); transform: translateY(-2px); }
+    button[aria-pressed="true"] {
+      border-color: rgb(255 255 255 / .75);
+      background: rgb(255 255 255 / .24);
+      box-shadow: inset 0 1px 0 rgb(255 255 255 / .3);
+    }
+
+    button:focus-visible, input:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .control-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 14px;
+      margin-top: 19px;
+    }
+
+    .control-row label { font-weight: 650; }
+    .control-row output { color: var(--accent); font-variant-numeric: tabular-nums; }
+
+    input[type="range"] {
+      width: 100%;
+      margin-top: 12px;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+
+    .switches { display: grid; gap: 10px; margin-top: 18px; }
+    .switch-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .demo-card {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 14px;
+      margin-top: 15px;
+      padding: 15px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: linear-gradient(120deg, rgb(255 255 255 / .13), rgb(255 255 255 / .04));
+      -webkit-backdrop-filter: blur(calc(var(--glass-blur) * .7));
+      backdrop-filter: blur(calc(var(--glass-blur) * .7));
+    }
+
+    .demo-icon {
+      display: grid;
+      width: 44px;
+      aspect-ratio: 1;
+      place-items: center;
+      border-radius: 14px;
+      color: white;
+      background: linear-gradient(145deg, #819cff, #7964c9);
+      box-shadow: 0 7px 22px rgb(94 103 208 / .3);
+    }
+
+    .demo-card strong { display: block; font-size: .92rem; }
+    .demo-card small { display: block; margin-top: 4px; color: var(--muted); }
+    .demo-card .arrow { color: var(--muted); font-size: 1.15rem; }
+
+    .action-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 18px;
+    }
+
+    .primary {
+      color: #17213e;
+      border-color: rgb(255 255 255 / .75);
+      background: linear-gradient(135deg, #f1f4ff, #aebeff);
+      font-weight: 750;
+    }
+
+    .primary:hover { background: linear-gradient(135deg, #fff, #c4ceff); }
+
+    .status {
+      margin-top: 17px;
+      padding: 11px 13px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      color: var(--muted);
+      background: rgb(0 0 0 / .08);
+      font-size: .84rem;
+      line-height: 1.65;
+    }
+
+    .footnote {
+      margin: 18px 4px 0;
+      color: var(--muted);
+      font-size: .79rem;
+      line-height: 1.8;
+      text-align: center;
+    }
+
+    body[data-flat="true"] .glass,
+    body[data-flat="true"] .demo-card,
+    body[data-flat="true"] .lens {
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+      background-color: rgb(65 75 110 / .82);
+    }
+
+    body[data-motion="reduce"] *,
+    body[data-motion="reduce"] *::before,
+    body[data-motion="reduce"] *::after {
+      animation: none !important;
+      scroll-behavior: auto !important;
+      transition-duration: .01ms !important;
+    }
+
+    @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+      .glass, .demo-card, .lens {
+        background-color: rgb(42 51 80 / .92);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .hero, .lab-grid { grid-template-columns: 1fr; }
+      .hero { gap: 2px; }
+      .hero-art { min-height: 190px; }
+      .nav-meta { display: none; }
+      .section-heading { align-items: start; flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body data-scene="aurora">
+  <a class="skip-link" href="#main">تجاوز إلى المحتوى</a>
+  <div class="backdrop-grid" aria-hidden="true"></div>
+  <div class="orb one" aria-hidden="true"></div>
+  <div class="orb two" aria-hidden="true"></div>
+
+  <main class="wrap" id="main">
+    <header class="nav glass">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">◈</span>
+        <span>Glass Lab <span class="nav-meta">/ مختبر الزجاج</span></span>
+      </div>
+      <span class="nav-meta">صفحة تجريبية مستقلة · HTML / CSS / JavaScript</span>
+    </header>
+
+    <section class="hero glass" aria-labelledby="page-title">
+      <div>
+        <span class="eyebrow"><span class="live-dot" aria-hidden="true"></span> مساحة اختبار تفاعلية</span>
+        <h1 id="page-title">الزجاج،<br>لكن بطريقة مختلفة.</h1>
+        <p class="lead">
+          صفحة صغيرة لاختبار الشفافية والضبابية والانعكاسات والحواف والحركة،
+          مع إمكانية تغيير الخلفية والتحكم في قوة تأثير الزجاج مباشرة.
+        </p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbital"></div>
+        <div class="lens"></div>
+      </div>
+    </section>
+
+    <div class="section-heading">
+      <h2>لوحة التجربة</h2>
+      <p>غيّر المشهد ثم راقب تأثيره على الأسطح الزجاجية.</p>
+    </div>
+
+    <section class="lab-grid" aria-label="أدوات اختبار الزجاج">
+      <article class="panel glass">
+        <h3>1 — المشهد والخلفية</h3>
+        <p class="panel-copy">اختبر وضوح السطح فوق خلفيات داكنة وفاتحة ومتنوعة الألوان.</p>
+        <div class="scene-options" role="group" aria-label="اختيار الخلفية">
+          <button type="button" data-scene-choice="aurora" aria-pressed="true">الشفق</button>
+          <button type="button" data-scene-choice="sunset" aria-pressed="false">الغروب</button>
+          <button type="button" data-scene-choice="ice" aria-pressed="false">الجليد</button>
+        </div>
+
+        <div class="control-row">
+          <label for="blur">قوة الضبابية</label>
+          <output id="blur-value" for="blur">18 px</output>
+        </div>
+        <input id="blur" type="range" min="0" max="36" value="18" step="1">
+
+        <div class="switches">
+          <div class="switch-line">
+            <label for="flat">تعطيل الضبابية للمقارنة</label>
+            <input id="flat" type="checkbox">
+          </div>
+          <div class="switch-line">
+            <label for="motion">تقليل الحركة</label>
+            <input id="motion" type="checkbox">
+          </div>
+        </div>
+
+        <div class="status" id="support-status" role="status" aria-live="polite">
+          يجري التحقق من دعم المتصفح لتأثير backdrop-filter…
+        </div>
+      </article>
+
+      <article class="panel glass">
+        <h3>2 — مكوّنات الواجهة</h3>
+        <p class="panel-copy">عناصر واجهة قابلة للتفاعل لاختبار التباين والحواف وحالات الأزرار.</p>
+
+        <div class="demo-card">
+          <span class="demo-icon" aria-hidden="true">✦</span>
+          <span><strong>بطاقة زجاجية</strong><small>سطح شفاف مع حافة مضيئة</small></span>
+          <span class="arrow" aria-hidden="true">←</span>
+        </div>
+
+        <div class="demo-card">
+          <span class="demo-icon" aria-hidden="true">⌘</span>
+          <span><strong>طبقة المحتوى</strong><small>النص يبقى واضحاً فوق الزجاج</small></span>
+          <span class="arrow" aria-hidden="true">←</span>
+        </div>
+
+        <div class="action-row">
+          <button class="primary" id="action-button" type="button">جرّب التفاعل</button>
+          <button id="reset-button" type="button">إعادة الضبط</button>
+        </div>
+        <div class="status" id="action-status" role="status" aria-live="polite">
+          عدد مرات التفاعل: 0
+        </div>
+      </article>
+    </section>
+
+    <p class="footnote">
+      ملاحظة تقنية: هذا النموذج يستخدم CSS <bdi>backdrop-filter</bdi> للشفافية والضبابية
+      (مستوى DOM تجريبي L1)، ولا يدّعي تنفيذ انكسار ضوئي حقيقي أو إزاحة لعينة الخلفية.
+      لا يحتاج إلى مكتبات أو ملفات خارجية.
+    </p>
+  </main>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const root = document.documentElement;
+      const body = document.body;
+      const blur = document.getElementById("blur");
+      const blurValue = document.getElementById("blur-value");
+      const flat = document.getElementById("flat");
+      const motion = document.getElementById("motion");
+      const actionStatus = document.getElementById("action-status");
+      const supportStatus = document.getElementById("support-status");
+      let count = 0;
+
+      blur.addEventListener("input", () => {
+        root.style.setProperty("--glass-blur", blur.value + "px");
+        blurValue.value = blur.value + " px";
+        blurValue.textContent = blur.value + " px";
+      });
+
+      document.querySelectorAll("[data-scene-choice]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const scene = button.dataset.sceneChoice;
+          body.dataset.scene = scene;
+          document.querySelectorAll("[data-scene-choice]").forEach((item) => {
+            item.setAttribute("aria-pressed", String(item === button));
+          });
+        });
+      });
+
+      flat.addEventListener("change", () => {
+        body.dataset.flat = String(flat.checked);
+      });
+
+      motion.addEventListener("change", () => {
+        body.dataset.motion = motion.checked ? "reduce" : "auto";
+      });
+
+      document.getElementById("action-button").addEventListener("click", () => {
+        count += 1;
+        actionStatus.textContent = "عدد مرات التفاعل: " + count;
+      });
+
+      document.getElementById("reset-button").addEventListener("click", () => {
+        count = 0;
+        blur.value = "18";
+        blur.dispatchEvent(new Event("input"));
+        flat.checked = false;
+        motion.checked = false;
+        body.dataset.flat = "false";
+        body.dataset.motion = "auto";
+        body.dataset.scene = "aurora";
+        document.querySelectorAll("[data-scene-choice]").forEach((item) => {
+          item.setAttribute("aria-pressed", String(item.dataset.sceneChoice === "aurora"));
+        });
+        actionStatus.textContent = "عدد مرات التفاعل: 0";
+      });
+
+      const supportsGlass = window.CSS && CSS.supports &&
+        (CSS.supports("backdrop-filter", "blur(1px)") ||
+         CSS.supports("-webkit-backdrop-filter", "blur(1px)"));
+
+      supportStatus.textContent = supportsGlass
+        ? "✓ يبدو أن المتصفح يدعم backdrop-filter. جرّب تغيير الخلفية وقوة الضبابية."
+        : "تنبيه: لا يظهر دعم backdrop-filter؛ ستستخدم الصفحة لوناً بديلاً للحفاظ على وضوح العناصر.";
+    })();
+  </script>
+</body>
+</html>
