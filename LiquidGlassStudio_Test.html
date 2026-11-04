@@ -1,628 +1,384 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#101426">
-  <meta name="description" content="صفحة مستقلة لاختبار تأثيرات Liquid Glass في المتصفح.">
-  <title>Glass Lab — مختبر الزجاج</title>
-  <style>
-    :root {
-      color-scheme: dark;
-      --glass-blur: 18px;
-      --glass-saturation: 155%;
-      --glass-opacity: .13;
-      --line: rgb(255 255 255 / .25);
-      --text: #f7f7ff;
-      --muted: #c5c9dc;
-      --accent: #a9b8ff;
-      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      min-height: 100vh;
-      margin: 0;
-      color: var(--text);
-      background: #101426;
-      overflow-x: hidden;
-      transition: background 700ms ease;
-    }
-
-    body[data-scene="aurora"] {
-      background:
-        radial-gradient(ellipse at 12% 18%, #6f49a8 0, transparent 34%),
-        radial-gradient(ellipse at 84% 15%, #176a8a 0, transparent 32%),
-        radial-gradient(ellipse at 58% 92%, #35478f 0, transparent 38%),
-        linear-gradient(135deg, #101426, #182b46 55%, #11172c);
-    }
-
-    body[data-scene="sunset"] {
-      background:
-        radial-gradient(ellipse at 15% 20%, #d45c76 0, transparent 34%),
-        radial-gradient(ellipse at 85% 12%, #dc934d 0, transparent 30%),
-        radial-gradient(ellipse at 54% 95%, #65459f 0, transparent 42%),
-        linear-gradient(135deg, #24172f, #42233f 55%, #17172f);
-    }
-
-    body[data-scene="ice"] {
-      color-scheme: light;
-      color: #17233d;
-      --text: #17233d;
-      --muted: #4b5b78;
-      --line: rgb(255 255 255 / .72);
-      --accent: #345fbe;
-      background:
-        radial-gradient(ellipse at 14% 14%, #ffffff 0, transparent 35%),
-        radial-gradient(ellipse at 88% 18%, #81cce9 0, transparent 34%),
-        radial-gradient(ellipse at 55% 90%, #a8a9f4 0, transparent 40%),
-        linear-gradient(135deg, #bedcf0, #e4e8ff 55%, #a7c9e8);
-    }
-
-    .backdrop-grid {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      opacity: .22;
-      background-image:
-        linear-gradient(rgb(255 255 255 / .1) 1px, transparent 1px),
-        linear-gradient(90deg, rgb(255 255 255 / .1) 1px, transparent 1px);
-      background-size: 54px 54px;
-      mask-image: linear-gradient(to bottom, black, transparent 90%);
-    }
-
-    .orb {
-      position: fixed;
-      z-index: 0;
-      width: 190px;
-      aspect-ratio: 1;
-      border-radius: 50%;
-      filter: blur(2px);
-      opacity: .45;
-      pointer-events: none;
-      background: radial-gradient(circle at 32% 28%, #fff, #a6c5ff 20%, #8b77ef 52%, transparent 72%);
-      animation: drift 16s ease-in-out infinite alternate;
-    }
-
-    .orb.one { top: 42%; left: -65px; }
-    .orb.two {
-      width: 125px;
-      right: -35px;
-      top: 65%;
-      animation-duration: 21s;
-      animation-direction: alternate-reverse;
-    }
-
-    @keyframes drift {
-      from { transform: translate3d(0, -12px, 0) scale(.92); }
-      to { transform: translate3d(42px, 24px, 0) scale(1.12); }
-    }
-
-    .skip-link {
-      position: fixed;
-      top: 12px;
-      right: 12px;
-      z-index: 20;
-      padding: 10px 14px;
-      color: #101426;
-      background: white;
-      border-radius: 12px;
-      transform: translateY(-160%);
-    }
-    .skip-link:focus { transform: translateY(0); }
-
-    .wrap {
-      position: relative;
-      z-index: 1;
-      width: min(1120px, calc(100% - 36px));
-      margin-inline: auto;
-      padding-block: 28px 54px;
-    }
-
-    .glass {
-      position: relative;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      background:
-        linear-gradient(135deg, rgb(255 255 255 / .19), rgb(255 255 255 / var(--glass-opacity)) 45%, rgb(255 255 255 / .06));
-      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
-      backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
-      box-shadow:
-        0 22px 70px rgb(0 0 0 / .18),
-        inset 0 1px 0 rgb(255 255 255 / .35),
-        inset 0 -1px 0 rgb(255 255 255 / .08);
-    }
-
-    .glass::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 auto;
-      height: 1px;
-      pointer-events: none;
-      background: linear-gradient(90deg, transparent, rgb(255 255 255 / .75), transparent);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 13px 17px;
-      border-radius: 20px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-      font-weight: 750;
-      letter-spacing: .2px;
-    }
-
-    .brand-mark {
-      display: grid;
-      width: 38px;
-      aspect-ratio: 1;
-      place-items: center;
-      border: 1px solid rgb(255 255 255 / .55);
-      border-radius: 13px;
-      color: white;
-      background: linear-gradient(145deg, rgb(255 255 255 / .42), rgb(255 255 255 / .08));
-      box-shadow: inset 0 1px 0 rgb(255 255 255 / .55);
-    }
-
-    .nav-meta { color: var(--muted); font-size: .84rem; }
-
-    .hero {
-      display: grid;
-      grid-template-columns: 1.25fr .75fr;
-      align-items: center;
-      gap: 25px;
-      margin-top: 22px;
-      padding: clamp(24px, 5vw, 52px);
-      border-radius: 30px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--accent);
-      font-size: .82rem;
-      font-weight: 700;
-    }
-
-    .live-dot {
-      width: 8px;
-      aspect-ratio: 1;
-      border-radius: 50%;
-      background: #74e5bd;
-      box-shadow: 0 0 14px #74e5bd;
-    }
-
-    h1 {
-      margin: 14px 0 12px;
-      font-size: clamp(2.2rem, 6vw, 4.6rem);
-      line-height: 1.08;
-      letter-spacing: -1.5px;
-    }
-
-    .lead {
-      max-width: 610px;
-      margin: 0;
-      color: var(--muted);
-      font-size: clamp(1rem, 2vw, 1.12rem);
-      line-height: 1.9;
-    }
-
-    .hero-art {
-      position: relative;
-      display: grid;
-      min-height: 220px;
-      place-items: center;
-      perspective: 700px;
-    }
-
-    .lens {
-      position: relative;
-      display: grid;
-      width: min(205px, 56vw);
-      aspect-ratio: 1;
-      place-items: center;
-      border: 1px solid rgb(255 255 255 / .72);
-      border-radius: 38% 62% 55% 45% / 48% 42% 58% 52%;
-      background:
-        radial-gradient(circle at 30% 22%, rgb(255 255 255 / .62), transparent 25%),
-        linear-gradient(145deg, rgb(255 255 255 / .28), rgb(255 255 255 / .04));
-      -webkit-backdrop-filter: blur(7px) saturate(180%);
-      backdrop-filter: blur(7px) saturate(180%);
-      box-shadow:
-        0 25px 60px rgb(0 0 0 / .2),
-        inset 0 2px 2px rgb(255 255 255 / .7),
-        inset -10px -14px 30px rgb(108 154 255 / .12);
-      transform: rotateX(13deg) rotateY(-17deg);
-      animation: lens-float 7s ease-in-out infinite;
-    }
-
-    .lens::after {
-      content: "GLASS";
-      font-size: 1.45rem;
-      font-weight: 800;
-      letter-spacing: 5px;
-      color: rgb(255 255 255 / .9);
-      text-shadow: 0 2px 18px rgb(75 103 188 / .7);
-    }
-
-    @keyframes lens-float {
-      0%, 100% { transform: translateY(0) rotateX(13deg) rotateY(-17deg); }
-      50% { transform: translateY(-13px) rotateX(18deg) rotateY(-9deg); }
-    }
-
-    .orbital {
-      position: absolute;
-      width: 255px;
-      height: 110px;
-      border: 1px solid rgb(255 255 255 / .25);
-      border-radius: 50%;
-      transform: rotate(-25deg);
-    }
-
-    .section-heading {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 16px;
-      margin: 31px 2px 14px;
-    }
-
-    .section-heading h2 { margin: 0; font-size: 1.2rem; }
-    .section-heading p { margin: 0; color: var(--muted); font-size: .86rem; }
-
-    .lab-grid {
-      display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 16px;
-    }
-
-    .panel {
-      padding: 22px;
-      border-radius: 24px;
-    }
-
-    .panel h3 { margin: 0 0 8px; font-size: 1.02rem; }
-    .panel-copy { margin: 0 0 18px; color: var(--muted); line-height: 1.7; font-size: .9rem; }
-
-    .scene-options {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-    }
-
-    button, input { font: inherit; }
-
-    button {
-      min-height: 42px;
-      padding: 9px 14px;
-      color: var(--text);
-      border: 1px solid var(--line);
-      border-radius: 13px;
-      background: rgb(255 255 255 / .09);
-      cursor: pointer;
-      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
-    }
-
-    button:hover { background: rgb(255 255 255 / .19); transform: translateY(-2px); }
-    button[aria-pressed="true"] {
-      border-color: rgb(255 255 255 / .75);
-      background: rgb(255 255 255 / .24);
-      box-shadow: inset 0 1px 0 rgb(255 255 255 / .3);
-    }
-
-    button:focus-visible, input:focus-visible {
-      outline: 3px solid var(--accent);
-      outline-offset: 3px;
-    }
-
-    .control-row {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      gap: 14px;
-      margin-top: 19px;
-    }
-
-    .control-row label { font-weight: 650; }
-    .control-row output { color: var(--accent); font-variant-numeric: tabular-nums; }
-
-    input[type="range"] {
-      width: 100%;
-      margin-top: 12px;
-      accent-color: var(--accent);
-      cursor: pointer;
-    }
-
-    .switches { display: grid; gap: 10px; margin-top: 18px; }
-    .switch-line {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      color: var(--muted);
-      font-size: .9rem;
-    }
-
-    .demo-card {
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      align-items: center;
-      gap: 14px;
-      margin-top: 15px;
-      padding: 15px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: linear-gradient(120deg, rgb(255 255 255 / .13), rgb(255 255 255 / .04));
-      -webkit-backdrop-filter: blur(calc(var(--glass-blur) * .7));
-      backdrop-filter: blur(calc(var(--glass-blur) * .7));
-    }
-
-    .demo-icon {
-      display: grid;
-      width: 44px;
-      aspect-ratio: 1;
-      place-items: center;
-      border-radius: 14px;
-      color: white;
-      background: linear-gradient(145deg, #819cff, #7964c9);
-      box-shadow: 0 7px 22px rgb(94 103 208 / .3);
-    }
-
-    .demo-card strong { display: block; font-size: .92rem; }
-    .demo-card small { display: block; margin-top: 4px; color: var(--muted); }
-    .demo-card .arrow { color: var(--muted); font-size: 1.15rem; }
-
-    .action-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 18px;
-    }
-
-    .primary {
-      color: #17213e;
-      border-color: rgb(255 255 255 / .75);
-      background: linear-gradient(135deg, #f1f4ff, #aebeff);
-      font-weight: 750;
-    }
-
-    .primary:hover { background: linear-gradient(135deg, #fff, #c4ceff); }
-
-    .status {
-      margin-top: 17px;
-      padding: 11px 13px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      color: var(--muted);
-      background: rgb(0 0 0 / .08);
-      font-size: .84rem;
-      line-height: 1.65;
-    }
-
-    .footnote {
-      margin: 18px 4px 0;
-      color: var(--muted);
-      font-size: .79rem;
-      line-height: 1.8;
-      text-align: center;
-    }
-
-    body[data-flat="true"] .glass,
-    body[data-flat="true"] .demo-card,
-    body[data-flat="true"] .lens {
-      -webkit-backdrop-filter: none;
-      backdrop-filter: none;
-      background-color: rgb(65 75 110 / .82);
-    }
-
-    body[data-motion="reduce"] *,
-    body[data-motion="reduce"] *::before,
-    body[data-motion="reduce"] *::after {
-      animation: none !important;
-      scroll-behavior: auto !important;
-      transition-duration: .01ms !important;
-    }
-
-    @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-      .glass, .demo-card, .lens {
-        background-color: rgb(42 51 80 / .92);
-      }
-    }
-
-    @media (max-width: 760px) {
-      .hero, .lab-grid { grid-template-columns: 1fr; }
-      .hero { gap: 2px; }
-      .hero-art { min-height: 190px; }
-      .nav-meta { display: none; }
-      .section-heading { align-items: start; flex-direction: column; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-        transition-duration: .01ms !important;
-      }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080d1b">
+<meta name="description" content="مختبر تفاعلي متقدم لاستكشاف الزجاج السائل والانكسار الحي والحركة والمواد البصرية.">
+<title>Liquid Glass Studio — مختبر الزجاج السائل</title>
+<style>
+:root{color-scheme:dark;--text:#f5f7ff;--muted:#a8b2ca;--line:rgb(222 232 255/.17);--line-strong:rgb(231 240 255/.34);--accent:#a5c8ff;--glass-blur:22px;--glass-fill:.105;--glass-shadow:0 22px 68px rgb(0 0 0/.23),inset 0 1px 0 rgb(255 255 255/.23);--pointer-x:50vw;--pointer-y:50vh;font-family:"Segoe UI",Tahoma,Arial,sans-serif;font-synthesis:none;text-rendering:optimizeLegibility}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{min-width:320px;min-height:100vh;margin:0;overflow-x:hidden;color:var(--text);background:#080d1b}button,input,select{font:inherit}button{color:inherit}a{color:inherit;text-decoration:none}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,[tabindex="0"]:focus-visible{outline:2px solid #b9d4ff;outline-offset:4px}
+#world{position:fixed;z-index:0;inset:0;width:100%;height:100%;pointer-events:none;background:radial-gradient(ellipse at 20% 20%,#263c69 0,transparent 42%),radial-gradient(ellipse at 82% 28%,#422e68 0,transparent 38%),linear-gradient(135deg,#090f20,#101c37 58%,#0a1021)}
+body::after{content:"";position:fixed;z-index:1;inset:0;pointer-events:none;opacity:.35;background:radial-gradient(360px circle at var(--pointer-x) var(--pointer-y),rgb(139 177 255/.10),transparent 72%)}
+.app-shell{position:relative;z-index:2;width:min(1540px,calc(100% - 36px));margin:0 auto;padding:18px 0 46px}
+.glass{position:relative;border:1px solid var(--line);background:linear-gradient(138deg,rgb(255 255 255/.145),rgb(255 255 255/var(--glass-fill)) 44%,rgb(255 255 255/.045));-webkit-backdrop-filter:blur(var(--glass-blur)) saturate(165%);backdrop-filter:blur(var(--glass-blur)) saturate(165%);box-shadow:var(--glass-shadow);isolation:isolate}
+.glass::before{content:"";position:absolute;z-index:-1;inset:0 8% auto;height:1px;background:linear-gradient(90deg,transparent,rgb(255 255 255/.53),transparent);pointer-events:none}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:68px;padding:12px 17px;border-radius:22px}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}.brand-mark{display:grid;width:41px;height:41px;flex:0 0 auto;place-items:center;border:1px solid rgb(255 255 255/.48);border-radius:14px;background:linear-gradient(145deg,rgb(255 255 255/.32),rgb(255 255 255/.035));box-shadow:inset 0 1px 0 rgb(255 255 255/.5),0 7px 22px rgb(78 113 201/.18);color:white;font-size:1.35rem}
+.brand-name{font-weight:800;letter-spacing:.2px}.brand-sub{display:block;margin-top:3px;color:var(--muted);font-size:.68rem;letter-spacing:1.7px}
+.top-actions{display:flex;align-items:center;gap:9px}.live-indicator{display:inline-flex;align-items:center;gap:8px;padding:8px 11px;color:#bcebdc;border:1px solid rgb(120 232 194/.22);border-radius:999px;background:rgb(65 201 155/.07);font-size:.75rem;white-space:nowrap}.live-dot{width:7px;height:7px;border-radius:50%;background:#65e7b6;box-shadow:0 0 13px #65e7b6}
+.icon-button,.soft-button,.primary-button,.seg-button,.scene-button,.preset-button{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:41px;padding:9px 14px;border:1px solid var(--line);border-radius:13px;background:rgb(255 255 255/.065);color:var(--text);cursor:pointer;transition:transform .18s ease,background .18s ease,border-color .18s ease,box-shadow .18s ease}
+.icon-button{width:42px;padding:0;font-size:1.1rem}.soft-button:hover,.icon-button:hover,.seg-button:hover,.scene-button:hover,.preset-button:hover{transform:translateY(-2px);border-color:var(--line-strong);background:rgb(255 255 255/.13)}
+.primary-button{color:#101a31;border-color:rgb(255 255 255/.7);background:linear-gradient(135deg,#f4f7ff,#a8c3ff 55%,#d6c2ff);box-shadow:0 9px 28px rgb(108 144 222/.22),inset 0 1px 0 white;font-weight:800}.primary-button:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgb(108 144 222/.3),inset 0 1px 0 white}
+.soft-button:active,.icon-button:active,.primary-button:active,.seg-button:active{transform:scale(.97)}.kbd{display:inline-grid;min-width:21px;height:21px;place-items:center;padding:0 5px;border:1px solid var(--line-strong);border-radius:6px;color:var(--muted);font-size:.67rem}
+.layout{display:grid;grid-template-columns:218px minmax(0,1fr);align-items:start;gap:18px;margin-top:18px}.sidebar{position:sticky;top:18px;display:flex;flex-direction:column;gap:20px;padding:18px 12px;border-radius:23px}.side-label{padding:0 10px;color:#7785a7;font-size:.65rem;font-weight:800;letter-spacing:1.6px}.side-nav{display:grid;gap:5px}
+.side-link{display:flex;align-items:center;gap:11px;min-height:42px;padding:9px 11px;border:1px solid transparent;border-radius:12px;color:var(--muted);font-size:.82rem;transition:.18s ease}.side-link span:first-child{width:20px;text-align:center;font-size:1rem}.side-link:hover{color:white;background:rgb(255 255 255/.07)}.side-link.active{color:white;border-color:rgb(179 205 255/.2);background:linear-gradient(100deg,rgb(139 174 255/.19),rgb(177 151 255/.06));box-shadow:inset 2px 0 0 #a9c6ff}
+.sidebar-note{padding:13px;border:1px solid rgb(169 193 255/.15);border-radius:15px;background:linear-gradient(145deg,rgb(129 160 244/.1),rgb(255 255 255/.025))}.sidebar-note strong{display:block;margin-bottom:6px;font-size:.78rem}.sidebar-note p{margin:0;color:var(--muted);font-size:.72rem;line-height:1.7}.tier-chip{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:5px 9px;border:1px solid rgb(110 224 190/.25);border-radius:999px;color:#9de6cd;background:rgb(77 194 155/.07);font-size:.68rem;font-weight:800}
+.content{min-width:0}.eyebrow{display:inline-flex;align-items:center;gap:8px;color:#b2c9ff;font-size:.72rem;font-weight:800;letter-spacing:1.4px;text-transform:uppercase}.eyebrow::before{content:"";width:20px;height:1px;background:currentColor;opacity:.8}
+.hero{display:grid;grid-template-columns:minmax(0,1.03fr) minmax(310px,.97fr);gap:16px;min-height:360px;padding:clamp(22px,3vw,38px);overflow:hidden;border:1px solid var(--line);border-radius:30px;background:linear-gradient(138deg,rgb(255 255 255/.075),rgb(255 255 255/.012) 48%,rgb(255 255 255/.035));box-shadow:0 22px 68px rgb(0 0 0/.12),inset 0 1px 0 rgb(255 255 255/.12)}
+.hero-copy{align-self:center}h1{max-width:720px;margin:16px 0 15px;font-size:clamp(2.35rem,5.1vw,4.35rem);line-height:1.08;letter-spacing:-1.8px}.gradient-text{color:transparent;background:linear-gradient(110deg,#fff 8%,#c4d6ff 48%,#d6bfff 94%);-webkit-background-clip:text;background-clip:text}
+.hero-description{max-width:600px;margin:0;color:#b2bdd4;font-size:.98rem;line-height:2}.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:23px}.hero-micro{display:flex;flex-wrap:wrap;gap:16px;margin-top:24px;color:#8e9cba;font-size:.72rem}.hero-micro span{display:inline-flex;align-items:center;gap:7px}.hero-micro b{color:#dce6ff;font-weight:700}
+.lens-stage{position:relative;display:grid;min-height:292px;place-items:center;align-self:stretch;border:1px solid rgb(210 226 255/.09);border-radius:24px;background:radial-gradient(ellipse at 50% 48%,rgb(117 147 255/.11),transparent 62%),linear-gradient(145deg,rgb(255 255 255/.025),transparent);overflow:hidden;cursor:grab;touch-action:pan-y;user-select:none}
+.lens-stage::before,.lens-stage::after{content:"";position:absolute;width:76%;height:1px;background:linear-gradient(90deg,transparent,rgb(198 218 255/.20),transparent);pointer-events:none}.lens-stage::before{transform:rotate(52deg)}.lens-stage::after{transform:rotate(-52deg)}
+.stage-orbit{position:absolute;width:245px;height:245px;border:1px solid rgb(202 221 255/.12);border-radius:50%;box-shadow:0 0 55px rgb(115 151 255/.08),inset 0 0 35px rgb(170 190 255/.035);pointer-events:none}.stage-orbit.orbit-two{width:295px;height:105px;transform:rotate(-34deg);border-color:rgb(196 177 255/.12)}
+.stage-tag{position:absolute;right:15px;top:14px;padding:7px 10px;border:1px solid rgb(222 235 255/.18);border-radius:999px;color:#c9dbff;background:rgb(12 19 38/.33);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);font-size:.63rem;letter-spacing:1.1px;pointer-events:none}
+.stage-instruction{position:absolute;bottom:14px;left:50%;width:max-content;max-width:calc(100% - 24px);padding:8px 12px;transform:translateX(-50%);border:1px solid rgb(222 235 255/.17);border-radius:999px;color:#c4cfe7;background:rgb(8 14 28/.42);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);font-size:.68rem;pointer-events:none;white-space:nowrap}
+.stage-crosshair{position:absolute;width:28px;height:28px;border:1px solid rgb(216 230 255/.32);border-radius:50%;pointer-events:none;opacity:.8}.stage-crosshair::before,.stage-crosshair::after{content:"";position:absolute;left:50%;top:50%;background:rgb(221 234 255/.45);transform:translate(-50%,-50%)}.stage-crosshair::before{width:44px;height:1px}.stage-crosshair::after{width:1px;height:44px}
+.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:14px}.metric{min-height:108px;padding:16px;border-radius:18px}.metric-top{display:flex;align-items:center;justify-content:space-between;gap:9px;color:var(--muted);font-size:.7rem}.metric-icon{display:grid;width:30px;height:30px;place-items:center;border:1px solid var(--line);border-radius:10px;color:#c8d8ff;background:rgb(255 255 255/.07);font-size:.95rem}.metric-value{margin-top:10px;font-size:1.43rem;font-weight:800;letter-spacing:-.5px}.metric-hint{margin-top:3px;color:#7887a7;font-size:.66rem}
+.section{margin-top:34px;scroll-margin-top:22px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin:0 2px 15px}.section-kicker{color:#8595b8;font-size:.65rem;font-weight:800;letter-spacing:1.8px}h2{margin:5px 0 0;font-size:clamp(1.25rem,2.1vw,1.65rem);letter-spacing:-.3px}.section-sub{max-width:500px;margin:0;color:var(--muted);font-size:.78rem;line-height:1.8}
+.workspace-grid{display:grid;grid-template-columns:minmax(0,1.16fr) minmax(280px,.84fr);gap:14px}.panel{min-width:0;padding:21px;border-radius:22px}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:7px}.panel-title{margin:0;font-size:.95rem}.panel-caption{margin:0 0 17px;color:var(--muted);font-size:.74rem;line-height:1.7}.mini-label{color:#8292b2;font-size:.64rem;font-weight:800;letter-spacing:1.2px}
+.scene-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}.scene-button{position:relative;display:flex;flex-direction:column;align-items:stretch;justify-content:space-between;min-height:105px;padding:9px;overflow:hidden;text-align:right;background:rgb(255 255 255/.035)}.scene-button[aria-pressed="true"]{border-color:rgb(178 204 255/.65);background:rgb(135 167 255/.12);box-shadow:inset 0 0 0 1px rgb(175 200 255/.09),0 0 24px rgb(100 139 230/.1)}
+.scene-swatch{display:block;height:48px;border-radius:9px;border:1px solid rgb(255 255 255/.17)}.swatch-aurora{background:radial-gradient(ellipse at 25% 15%,#71e6ca,transparent 40%),linear-gradient(135deg,#1a3159,#4d3b80 55%,#122b46)}.swatch-ocean{background:radial-gradient(ellipse at 80% 20%,#50d3dc,transparent 45%),linear-gradient(135deg,#082c47,#175c7d 55%,#101e4b)}.swatch-sunset{background:radial-gradient(ellipse at 70% 15%,#ffd18a,transparent 40%),linear-gradient(135deg,#47264a,#c15c75 55%,#34245d)}.swatch-prism{background:linear-gradient(120deg,#303d80,#8c71c9 35%,#62b9bd 70%,#1e4768)}.scene-name{font-size:.72rem;font-weight:750}.scene-desc{color:var(--muted);font-size:.6rem}
+.range-list{display:grid;gap:17px}.range-item{display:grid;gap:8px}.range-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.range-head label{color:#dbe3f4;font-size:.74rem}.range-head output{color:#a9c6ff;font-size:.7rem;font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;height:5px;margin:0;border-radius:999px;background:linear-gradient(90deg,#849ef0,#bdabff);accent-color:#b8ceff;cursor:pointer;appearance:none}input[type=range]::-webkit-slider-thumb{width:15px;height:15px;border:2px solid white;border-radius:50%;background:linear-gradient(145deg,#f7faff,#98b9ff);box-shadow:0 0 0 4px rgb(160 188 255/.13),0 2px 9px rgb(0 0 0/.35);appearance:none}input[type=range]::-moz-range-thumb{width:13px;height:13px;border:2px solid white;border-radius:50%;background:#a9c4ff;box-shadow:0 0 0 4px rgb(160 188 255/.13)}
+.select-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:18px}.select-row label{color:#dbe3f4;font-size:.74rem}select{max-width:170px;min-height:36px;padding:6px 10px;border:1px solid var(--line);border-radius:10px;color:var(--text);background:#17213a;font-size:.72rem}.preset-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:19px}.preset-button{min-height:34px;padding:7px 10px;font-size:.68rem}.preset-button.active{color:#d9e6ff;border-color:rgb(171 199 255/.58);background:rgb(142 171 255/.13)}
+.toggle-list{display:grid;gap:2px}.toggle-row{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:49px;border-bottom:1px solid rgb(255 255 255/.07)}.toggle-row:last-child{border-bottom:0}.toggle-copy strong{display:block;color:#e3eafa;font-size:.74rem;font-weight:650}.toggle-copy small{display:block;margin-top:3px;color:#8290ad;font-size:.64rem}
+.switch{position:relative;width:42px;height:24px;flex:0 0 auto;padding:0;border:1px solid rgb(255 255 255/.2);border-radius:999px;background:rgb(255 255 255/.07);cursor:pointer;transition:.2s ease}.switch::after{content:"";position:absolute;top:3px;right:3px;width:16px;height:16px;border-radius:50%;background:#aab5ca;box-shadow:0 2px 6px rgb(0 0 0/.24);transition:.22s cubic-bezier(.2,.8,.2,1)}.switch[aria-checked=true]{border-color:rgb(147 184 255/.56);background:rgb(123 158 255/.23)}.switch[aria-checked=true]::after{right:21px;background:#e7f0ff;box-shadow:0 0 12px rgb(170 207 255/.6)}
+.shape-row,.segmented{display:flex;flex-wrap:wrap;gap:7px}.segmented{padding:4px;border:1px solid var(--line);border-radius:13px;background:rgb(0 0 0/.12)}.seg-button{min-height:34px;padding:7px 11px;border-color:transparent;background:transparent;color:var(--muted);font-size:.69rem}.seg-button[aria-pressed=true]{border-color:rgb(195 215 255/.2);color:#f2f6ff;background:linear-gradient(135deg,rgb(160 190 255/.22),rgb(197 167 255/.12));box-shadow:inset 0 1px 0 rgb(255 255 255/.12)}
+.shape-preview-row{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:17px}.shape-preview{display:grid;min-height:82px;place-items:center;border:1px solid var(--line);border-radius:14px;background:linear-gradient(145deg,rgb(255 255 255/.055),rgb(255 255 255/.015))}.shape-preview span{display:block;border:1px solid rgb(255 255 255/.72);background:linear-gradient(145deg,rgb(255 255 255/.42),rgb(140 170 255/.09));box-shadow:inset 0 1px 0 rgb(255 255 255/.8),0 8px 20px rgb(120 153 235/.14)}.shape-preview.orb-shape span{width:39px;height:39px;border-radius:50%}.shape-preview.pill-shape span{width:66px;height:29px;border-radius:999px}.shape-preview.organic-shape span{width:52px;height:43px;border-radius:45% 55% 63% 37%/48% 36% 64% 52%}.shape-preview small{display:block;margin-top:7px;color:var(--muted);font-size:.63rem;text-align:center}
+.showcase-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.showcase-card{position:relative;min-height:190px;padding:18px;overflow:hidden;border-radius:21px}.showcase-card::after{content:"";position:absolute;width:170px;height:170px;left:-72px;bottom:-100px;border-radius:50%;background:radial-gradient(circle,rgb(160 190 255/.18),transparent 70%);pointer-events:none}.showcase-icon{display:grid;width:40px;height:40px;place-items:center;border:1px solid rgb(255 255 255/.22);border-radius:13px;color:#d6e2ff;background:linear-gradient(145deg,rgb(255 255 255/.17),rgb(255 255 255/.04));font-size:1.1rem}.showcase-card h3{margin:17px 0 6px;font-size:.88rem}.showcase-card p{margin:0;color:var(--muted);font-size:.72rem;line-height:1.75}.showcase-card button{position:relative;z-index:1;min-height:34px;margin-top:14px;padding:6px 11px;font-size:.68rem}.showcase-card.activated{border-color:rgb(157 203 255/.6);box-shadow:0 0 0 1px rgb(157 203 255/.13),0 16px 40px rgb(76 125 218/.13)}
+.control-playground{display:grid;grid-template-columns:1fr 1fr;gap:14px}.playground-card{min-width:0;padding:20px;border-radius:21px}.pill-nav{display:inline-flex;align-items:center;gap:4px;max-width:100%;padding:5px;border:1px solid rgb(255 255 255/.28);border-radius:999px;background:linear-gradient(135deg,rgb(255 255 255/.16),rgb(255 255 255/.055));box-shadow:inset 0 1px 0 rgb(255 255 255/.3),0 9px 28px rgb(0 0 0/.13);-webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%)}.pill-nav button{min-width:41px;min-height:38px;padding:7px 12px;border:0;border-radius:999px;background:transparent;color:var(--muted);font-size:.75rem}.pill-nav button[aria-pressed=true]{color:white;background:linear-gradient(135deg,rgb(180 206 255/.3),rgb(205 181 255/.17));box-shadow:inset 0 1px 0 rgb(255 255 255/.25),0 2px 11px rgb(0 0 0/.12)}
+.playground-note{margin:15px 0 0;color:var(--muted);font-size:.72rem;line-height:1.8}.magnetic-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}.magnetic{will-change:transform}.interaction-output{min-height:43px;margin-top:13px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;color:#b7c7e4;background:rgb(255 255 255/.035);font-size:.7rem}
+.diagnostics-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.diag-list{display:grid;gap:0}.diag-row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 0;border-bottom:1px solid rgb(255 255 255/.07);font-size:.72rem}.diag-row:last-child{border-bottom:0}.diag-row span:first-child{color:var(--muted)}.diag-value{color:#dce7ff;text-align:left;overflow-wrap:anywhere}.diag-value.good{color:#a6e9ce}.diag-value.warn{color:#f3d49a}.code-note{margin:0;color:var(--muted);font-size:.72rem;line-height:1.9}.code-note code{padding:2px 5px;border:1px solid var(--line);border-radius:6px;color:#dce8ff;background:rgb(0 0 0/.18)}.action-tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}
+.footer{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:28px;padding:17px 4px 0;border-top:1px solid rgb(255 255 255/.10);color:#7483a3;font-size:.67rem}.footer strong{color:#b9c9e9;font-weight:700}
+.toast{position:fixed;z-index:20;right:50%;bottom:22px;max-width:min(460px,calc(100% - 30px));padding:12px 17px;transform:translate(50%,25px);opacity:0;border:1px solid rgb(224 236 255/.28);border-radius:14px;color:white;background:rgb(19 29 52/.82);box-shadow:0 18px 48px rgb(0 0 0/.28);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);font-size:.76rem;pointer-events:none;transition:.28s ease}.toast.show{opacity:1;transform:translate(50%,0)}
+dialog{width:min(520px,calc(100% - 28px));max-height:min(80vh,650px);padding:0;border:1px solid rgb(220 234 255/.28);border-radius:23px;color:var(--text);background:rgb(17 26 47/.88);box-shadow:0 28px 90px rgb(0 0 0/.5),inset 0 1px 0 rgb(255 255 255/.22);-webkit-backdrop-filter:blur(30px) saturate(160%);backdrop-filter:blur(30px) saturate(160%)}dialog::backdrop{background:rgb(2 5 13/.62);-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px)}.dialog-inner{padding:21px}.dialog-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:15px}.dialog-head h2{margin:0;font-size:1.05rem}.command-list{display:grid;gap:7px}.command-list button{justify-content:flex-start;width:100%;text-align:right}.command-list button small{margin-right:auto;color:#8796b6}
+body[data-contrast=true] .glass{--glass-fill:.25;border-color:rgb(255 255 255/.56);box-shadow:0 16px 48px rgb(0 0 0/.35),inset 0 1px 0 rgb(255 255 255/.48)}
+body[data-motion=reduced] *,body[data-motion=reduced] *::before,body[data-motion=reduced] *::after{animation:none!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
+body[data-opaque=true] .glass,body[data-opaque=true] .pill-nav{background:rgb(17 27 49/.94);-webkit-backdrop-filter:none;backdrop-filter:none}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.glass,.pill-nav,dialog{background:rgb(18 28 51/.96)}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+@media(prefers-reduced-transparency:reduce){.glass,.pill-nav{background:rgb(17 27 49/.92);-webkit-backdrop-filter:none;backdrop-filter:none}}
+@media(max-width:1120px){.layout{grid-template-columns:184px minmax(0,1fr);gap:13px}.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{grid-template-columns:minmax(0,1fr) minmax(270px,.8fr)}.scene-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:820px){.app-shell{width:min(calc(100% - 24px),720px);padding-top:12px}.layout{display:block}.sidebar{position:static;display:block;margin-bottom:13px;padding:9px}.sidebar .side-label,.sidebar-note{display:none}.side-nav{display:flex;gap:4px;overflow-x:auto}.side-link{flex:0 0 auto;min-height:39px;padding:8px 11px;font-size:.72rem}.hero{grid-template-columns:1fr}.lens-stage{min-height:280px}.workspace-grid{grid-template-columns:1fr}.showcase-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.control-playground,.diagnostics-grid{grid-template-columns:1fr}}
+@media(max-width:520px){.app-shell{width:calc(100% - 18px)}.topbar{min-height:58px;padding:8px 10px;border-radius:17px}.brand-mark{width:36px;height:36px}.brand-sub{font-size:.57rem}.live-indicator{display:none}.top-actions{gap:5px}.top-actions .soft-button{min-height:37px;padding:7px 9px;font-size:.67rem}.hero{padding:19px;border-radius:23px}h1{font-size:2.45rem}.hero-description{font-size:.85rem}.hero-micro{gap:9px;font-size:.64rem}.lens-stage{min-height:245px}.metrics{gap:8px}.metric{min-height:96px;padding:12px}.metric-value{font-size:1.2rem}.section{margin-top:27px}.section-head{align-items:flex-start;flex-direction:column}.panel,.playground-card{padding:16px}.scene-grid{gap:7px}.showcase-grid{grid-template-columns:1fr}.showcase-card{min-height:165px}.shape-preview-row{gap:6px}.footer{align-items:flex-start;flex-direction:column}}
+</style>
 </head>
-<body data-scene="aurora">
-  <a class="skip-link" href="#main">تجاوز إلى المحتوى</a>
-  <div class="backdrop-grid" aria-hidden="true"></div>
-  <div class="orb one" aria-hidden="true"></div>
-  <div class="orb two" aria-hidden="true"></div>
+<body data-scene="0" data-motion="running">
+<canvas id="world" aria-hidden="true"></canvas>
+<a class="skip-link" href="#main" style="position:fixed;z-index:30;top:10px;right:10px;padding:10px 14px;transform:translateY(-160%);border-radius:10px;color:#101a31;background:white">تجاوز إلى المحتوى</a>
+<div class="app-shell">
+<header class="topbar glass">
+  <div class="brand"><span class="brand-mark" aria-hidden="true">◈</span><div><div class="brand-name">LIQUID GLASS STUDIO</div><span class="brand-sub">OPTICAL MATERIAL PLAYGROUND</span></div></div>
+  <div class="top-actions"><span class="live-indicator"><span class="live-dot"></span> المحرك يعمل</span><button class="soft-button" id="command-open" type="button" aria-haspopup="dialog">الأوامر <span class="kbd">⌘ K</span></button><button class="icon-button" id="fullscreen" type="button" aria-label="ملء الشاشة" title="ملء الشاشة">⛶</button></div>
+</header>
+<div class="layout">
+<aside class="sidebar glass" aria-label="التنقل داخل المختبر">
+  <div class="side-label">WORKSPACE</div>
+  <nav class="side-nav">
+    <a class="side-link active" href="#overview"><span>⌂</span><span>نظرة عامة</span></a>
+    <a class="side-link" href="#scenes"><span>◉</span><span>المشاهد الحية</span></a>
+    <a class="side-link" href="#material"><span>✧</span><span>خصائص المادة</span></a>
+    <a class="side-link" href="#shapes"><span>◌</span><span>الأشكال السائلة</span></a>
+    <a class="side-link" href="#playground"><span>⌘</span><span>ميدان التفاعل</span></a>
+    <a class="side-link" href="#diagnostics"><span>⌁</span><span>التشخيص</span></a>
+  </nav>
+  <div class="side-label">QUICK ACCESS</div>
+  <div class="sidebar-note"><strong>مختبر بصري حي</strong><p>الخلفية مرسومة داخل WebGL2، والعدسة تزيح عينات المشهد وتغيّر شكلها مع التفاعل.</p><span class="tier-chip" id="sidebar-tier">◈ جارٍ الفحص</span></div>
+  <div class="sidebar-note"><strong>اختصارات سريعة</strong><p><b>Ctrl / ⌘ + K</b> لفتح لوحة الأوامر. استخدم الأسهم لتحريك العدسة عند التركيز على مسرحها.</p></div>
+</aside>
 
-  <main class="wrap" id="main">
-    <header class="nav glass">
-      <div class="brand">
-        <span class="brand-mark" aria-hidden="true">◈</span>
-        <span>Glass Lab <span class="nav-meta">/ مختبر الزجاج</span></span>
-      </div>
-      <span class="nav-meta">صفحة تجريبية مستقلة · HTML / CSS / JavaScript</span>
-    </header>
+<main class="content" id="main">
+<section class="hero" id="overview" aria-labelledby="hero-title">
+  <div class="hero-copy">
+    <span class="eyebrow">ADVANCED MATERIAL SYSTEM</span>
+    <h1 id="hero-title">ليس مجرد زجاج.<br><span class="gradient-text">إنه يتفاعل معك.</span></h1>
+    <p class="hero-description">استكشف مادة بصرية تتفاعل مع الضوء والخلفية والحركة. حرّك العدسة، غيّر انحناءها، افصل أجزائها ثم أعد دمجها، وشاهد كيف يتغير الانكسار والسطح مع كل حركة.</p>
+    <div class="hero-actions"><a class="primary-button" href="#material">ابدأ التجربة <span aria-hidden="true">↙</span></a><button class="soft-button" type="button" id="random-scene">مشهد عشوائي ✦</button></div>
+    <div class="hero-micro"><span><b>01</b> انكسار حي</span><span><b>02</b> أشكال مترابطة</span><span><b>03</b> تحكم لحظي</span></div>
+  </div>
+  <div class="lens-stage" id="lens-stage" tabindex="0" role="group" aria-label="مسرح العدسة. حرّك المؤشر أو اسحب لتحريك سطح الزجاج. استخدم مفاتيح الأسهم عند التركيز.">
+    <div class="stage-orbit"></div><div class="stage-orbit orbit-two"></div><span class="stage-tag">LIVE REFRACTION / L2</span><span class="stage-crosshair" aria-hidden="true"></span><span class="stage-instruction" id="stage-instruction">اسحب داخل المسرح لتحريك العدسة · الأسهم للتحكم</span>
+  </div>
+</section>
 
-    <section class="hero glass" aria-labelledby="page-title">
-      <div>
-        <span class="eyebrow"><span class="live-dot" aria-hidden="true"></span> مساحة اختبار تفاعلية</span>
-        <h1 id="page-title">الزجاج،<br>لكن بطريقة مختلفة.</h1>
-        <p class="lead">
-          صفحة صغيرة لاختبار الشفافية والضبابية والانعكاسات والحواف والحركة،
-          مع إمكانية تغيير الخلفية والتحكم في قوة تأثير الزجاج مباشرة.
-        </p>
-      </div>
-      <div class="hero-art" aria-hidden="true">
-        <div class="orbital"></div>
-        <div class="lens"></div>
-      </div>
-    </section>
+<section class="metrics" aria-label="مؤشرات المحرك">
+  <article class="metric glass"><div class="metric-top"><span>معدل الإطارات</span><span class="metric-icon">◷</span></div><div class="metric-value"><span id="fps-value">--</span> <small style="font-size:.65rem;color:#91a0bd">FPS</small></div><div class="metric-hint">قراءة حية من حلقة الرسم</div></article>
+  <article class="metric glass"><div class="metric-top"><span>مسار الرسم</span><span class="metric-icon">◈</span></div><div class="metric-value" id="renderer-value">فحص...</div><div class="metric-hint" id="renderer-hint">قدرات المتصفح</div></article>
+  <article class="metric glass"><div class="metric-top"><span>الانكسار</span><span class="metric-icon">⌁</span></div><div class="metric-value" id="refraction-value">--</div><div class="metric-hint">عينات الخلفية داخل العدسة</div></article>
+  <article class="metric glass"><div class="metric-top"><span>حالة الشكل</span><span class="metric-icon">◌</span></div><div class="metric-value" id="shape-value">متصل</div><div class="metric-hint">دمج وانفصال مستمران</div></article>
+</section>
 
-    <div class="section-heading">
-      <h2>لوحة التجربة</h2>
-      <p>غيّر المشهد ثم راقب تأثيره على الأسطح الزجاجية.</p>
+<section class="section" id="scenes">
+  <div class="section-head"><div><div class="section-kicker">01 / ENVIRONMENT</div><h2>اختر العالم الذي يمر عبر الزجاج</h2></div><p class="section-sub">الخلفية ليست صورة ثابتة؛ إنها مشهد متحرك تملكه طبقة الرسم، ويمكن للعدسة إزاحة تفاصيله فعلياً.</p></div>
+  <div class="panel glass"><div class="panel-head"><h3 class="panel-title">المشاهد الحية</h3><span class="mini-label">4 WORLDS</span></div><p class="panel-caption">بدّل البيئة لمعاينة الانكسار فوق الألوان والخطوط والتفاصيل المتحركة.</p>
+    <div class="scene-grid" role="group" aria-label="اختيار المشهد">
+      <button class="scene-button" type="button" data-scene="0" aria-pressed="true"><span class="scene-swatch swatch-aurora"></span><span class="scene-name">الشفق القطبي</span><span class="scene-desc">Aurora flow</span></button>
+      <button class="scene-button" type="button" data-scene="1" aria-pressed="false"><span class="scene-swatch swatch-ocean"></span><span class="scene-name">أعماق المحيط</span><span class="scene-desc">Deep ocean</span></button>
+      <button class="scene-button" type="button" data-scene="2" aria-pressed="false"><span class="scene-swatch swatch-sunset"></span><span class="scene-name">وهج الغروب</span><span class="scene-desc">Solar haze</span></button>
+      <button class="scene-button" type="button" data-scene="3" aria-pressed="false"><span class="scene-swatch swatch-prism"></span><span class="scene-name">طيف المنشور</span><span class="scene-desc">Prismatic field</span></button>
     </div>
+  </div>
+</section>
 
-    <section class="lab-grid" aria-label="أدوات اختبار الزجاج">
-      <article class="panel glass">
-        <h3>1 — المشهد والخلفية</h3>
-        <p class="panel-copy">اختبر وضوح السطح فوق خلفيات داكنة وفاتحة ومتنوعة الألوان.</p>
-        <div class="scene-options" role="group" aria-label="اختيار الخلفية">
-          <button type="button" data-scene-choice="aurora" aria-pressed="true">الشفق</button>
-          <button type="button" data-scene-choice="sunset" aria-pressed="false">الغروب</button>
-          <button type="button" data-scene-choice="ice" aria-pressed="false">الجليد</button>
-        </div>
+<section class="section" id="material">
+  <div class="section-head"><div><div class="section-kicker">02 / MATERIAL ENGINE</div><h2>اضبط خصائص المادة</h2></div><p class="section-sub">كل منزلق يغيّر معاملًا فعلياً في طبقة الرسم أو مظهر الأسطح. جرّب القيم القصوى ثم أعد التوازن.</p></div>
+  <div class="workspace-grid">
+    <article class="panel glass">
+      <div class="panel-head"><h3 class="panel-title">معاملات الانكسار والسطح</h3><span class="mini-label">REAL-TIME UNIFORMS</span></div><p class="panel-caption">تتحكم هذه القيم في شدة إزاحة الخلفية، واستجابة الحافة، والانتشار اللوني، وشفافية الواجهة.</p>
+      <div class="range-list">
+        <div class="range-item"><div class="range-head"><label for="strength">قوة الانكسار</label><output id="strength-out">68%</output></div><input id="strength" type="range" min="0" max="100" value="68"></div>
+        <div class="range-item"><div class="range-head"><label for="curvature">تقوس العدسة وسماكتها</label><output id="curvature-out">72%</output></div><input id="curvature" type="range" min="0" max="100" value="72"></div>
+        <div class="range-item"><div class="range-head"><label for="edge">انعكاس الحواف</label><output id="edge-out">64%</output></div><input id="edge" type="range" min="0" max="100" value="64"></div>
+        <div class="range-item"><div class="range-head"><label for="dispersion">التشتت الطيفي</label><output id="dispersion-out">18%</output></div><input id="dispersion" type="range" min="0" max="100" value="18"></div>
+        <div class="range-item"><div class="range-head"><label for="blur">ضبابية الأسطح المحيطة</label><output id="blur-out">22 px</output></div><input id="blur" type="range" min="0" max="38" value="22"></div>
+        <div class="range-item"><div class="range-head"><label for="speed">سرعة حركة الخلفية</label><output id="speed-out">55%</output></div><input id="speed" type="range" min="0" max="150" value="55"></div>
+      </div>
+      <div class="select-row"><label for="tint">لون امتصاص المادة</label><select id="tint"><option value="ice">جليدي بارد</option><option value="pearl">لؤلؤي محايد</option><option value="rose">وردي خفيف</option><option value="aqua">أزرق مائي</option><option value="clear">شفاف تقريباً</option></select></div>
+      <div class="preset-row" aria-label="إعدادات مسبقة"><button class="preset-button active" type="button" data-preset="crystal">Crystal</button><button class="preset-button" type="button" data-preset="liquid">Liquid</button><button class="preset-button" type="button" data-preset="frost">Frost</button><button class="preset-button" type="button" data-preset="prism">Prism</button></div>
+    </article>
 
-        <div class="control-row">
-          <label for="blur">قوة الضبابية</label>
-          <output id="blur-value" for="blur">18 px</output>
-        </div>
-        <input id="blur" type="range" min="0" max="36" value="18" step="1">
+    <article class="panel glass">
+      <div class="panel-head"><h3 class="panel-title">سلوك المحرك</h3><span class="mini-label">LIVE CONTROLS</span></div><p class="panel-caption">تحكم في حركة البيئة وجودة التأثيرات وطريقة استجابة العدسة.</p>
+      <div class="toggle-list">
+        <div class="toggle-row"><div class="toggle-copy"><strong>حركة الخلفية</strong><small>تدفق الألوان والموجات باستمرار</small></div><button class="switch" type="button" role="switch" id="animation-toggle" aria-checked="true" aria-label="حركة الخلفية"></button></div>
+        <div class="toggle-row"><div class="toggle-copy"><strong>شبكة التفاصيل</strong><small>خطوط مرجعية لإظهار التشوه البصري</small></div><button class="switch" type="button" role="switch" id="grid-toggle" aria-checked="true" aria-label="شبكة التفاصيل"></button></div>
+        <div class="toggle-row"><div class="toggle-copy"><strong>الجسيمات والنجوم</strong><small>نقاط ضوئية متحركة في الخلفية</small></div><button class="switch" type="button" role="switch" id="particles-toggle" aria-checked="true" aria-label="الجسيمات"></button></div>
+        <div class="toggle-row"><div class="toggle-copy"><strong>تتبّع المؤشر</strong><small>العدسة تتبع المؤشر داخل المسرح</small></div><button class="switch" type="button" role="switch" id="follow-toggle" aria-checked="false" aria-label="تتبّع المؤشر"></button></div>
+        <div class="toggle-row"><div class="toggle-copy"><strong>تقليل الحركة</strong><small>إيقاف الطفو والانتقالات الكبيرة</small></div><button class="switch" type="button" role="switch" id="reduced-toggle" aria-checked="false" aria-label="تقليل الحركة"></button></div>
+        <div class="toggle-row"><div class="toggle-copy"><strong>تباين مرتفع</strong><small>حواف ومحتوى أكثر وضوحاً</small></div><button class="switch" type="button" role="switch" id="contrast-toggle" aria-checked="false" aria-label="تباين مرتفع"></button></div>
+        <div class="toggle-row"><div class="toggle-copy"><strong>تقليل الشفافية</strong><small>بديل أوضح للواجهات الزجاجية</small></div><button class="switch" type="button" role="switch" id="opaque-toggle" aria-checked="false" aria-label="تقليل الشفافية"></button></div>
+      </div>
+      <div class="select-row"><label for="quality">جودة الرسم</label><select id="quality"><option value="1">اقتصادية · 1×</option><option value="1.25" selected>متوازنة · 1.25×</option><option value="1.5">عالية · 1.5×</option></select></div>
+      <div class="action-tools"><button class="soft-button" id="pause-button" type="button">إيقاف مؤقت</button><button class="soft-button" id="reset-button" type="button">إعادة ضبط الكل</button></div>
+    </article>
+  </div>
+</section>
 
-        <div class="switches">
-          <div class="switch-line">
-            <label for="flat">تعطيل الضبابية للمقارنة</label>
-            <input id="flat" type="checkbox">
-          </div>
-          <div class="switch-line">
-            <label for="motion">تقليل الحركة</label>
-            <input id="motion" type="checkbox">
-          </div>
-        </div>
+<section class="section" id="shapes">
+  <div class="section-head"><div><div class="section-kicker">03 / SHAPE MORPHING</div><h2>الشكل ليس ثابتاً</h2></div><p class="section-sub">اختبر دائرة وعدسة كبسولية وشكلاً عضوياً، ثم بدّل اتصال الفقاعات لترى تغير الحافة والانكسار معاً.</p></div>
+  <div class="workspace-grid">
+    <article class="panel glass">
+      <div class="panel-head"><h3 class="panel-title">هندسة السطح</h3><span class="mini-label">SDF / SMOOTH UNION</span></div><p class="panel-caption">الاختيار يبدّل مجال الشكل داخل تظليل WebGL. جرّب الدمج والانفصال بينما العدسة تتحرك.</p>
+      <div class="shape-row" role="group" aria-label="نوع شكل العدسة"><button class="seg-button" type="button" data-shape="0" aria-pressed="true">◯ كروي</button><button class="seg-button" type="button" data-shape="1" aria-pressed="false">▱ كبسولي</button><button class="seg-button" type="button" data-shape="2" aria-pressed="false">❋ عضوي</button></div>
+      <div class="shape-preview-row"><div class="shape-preview orb-shape"><div><span></span><small>Orb</small></div></div><div class="shape-preview pill-shape"><div><span></span><small>Pill</small></div></div><div class="shape-preview organic-shape"><div><span></span><small>Organic</small></div></div></div>
+      <div class="action-tools"><button class="primary-button" id="connect-toggle" type="button" aria-pressed="true">فصل الفقاعات</button><button class="soft-button" id="follow-center" type="button">إعادة العدسة للمركز</button></div>
+      <div class="interaction-output" id="shape-output" role="status" aria-live="polite">الشكل الحالي: كروي مترابط. الحقل الهندسي والانعكاس يعملان معاً.</div>
+    </article>
+    <article class="panel glass">
+      <div class="panel-head"><h3 class="panel-title">سلوك العدسة</h3><span class="mini-label">INPUT RESPONSE</span></div><p class="panel-caption">التحكم المرئي مستقل عن منطقة اللمس؛ لن تتغير أزرار الصفحة بسبب حركة الشكل.</p>
+      <div class="toggle-list">
+        <div class="toggle-row"><div class="toggle-copy"><strong>اتباع المؤشر</strong><small>حرّك المؤشر داخل نافذة العدسة</small></div><button class="switch" type="button" role="switch" id="follow-toggle-2" aria-checked="false" aria-label="اتباع المؤشر داخل المسرح"></button></div>
+        <div class="toggle-row"><div class="toggle-copy"><strong>وضع السحب</strong><small>اسحب من داخل المسرح لتحديد موضع العدسة</small></div><span class="tier-chip" style="margin:0">DRAG READY</span></div>
+        <div class="toggle-row"><div class="toggle-copy"><strong>تحكم لوحة المفاتيح</strong><small>الأسهم لتحريك العدسة و Shift للحركة الأسرع</small></div><span class="kbd">← ↑ ↓ →</span></div>
+      </div>
+      <div class="action-tools"><button class="soft-button" id="lens-follow" type="button" aria-pressed="false">تفعيل تتبّع المؤشر</button><button class="soft-button" id="shape-cycle" type="button">تغيير الشكل ↻</button></div>
+    </article>
+  </div>
+</section>
 
-        <div class="status" id="support-status" role="status" aria-live="polite">
-          يجري التحقق من دعم المتصفح لتأثير backdrop-filter…
-        </div>
-      </article>
+<section class="section" id="gallery">
+  <div class="section-head"><div><div class="section-kicker">04 / MATERIAL LIBRARY</div><h2>مكتبة الأسطح</h2></div><p class="section-sub">تدرجات وأنواع مختلفة من الزجاج لتجربة التباين والحواف والشفافية في واجهة حقيقية.</p></div>
+  <div class="showcase-grid">
+    <article class="showcase-card glass"><span class="showcase-icon">✧</span><h3>Crystal Clear</h3><p>سطح رقيق قليل الامتصاص، يترك تفاصيل البيئة في المقدمة.</p><button type="button" data-gallery-preset="crystal">استخدم المادة</button></article>
+    <article class="showcase-card glass"><span class="showcase-icon">❋</span><h3>Liquid Volume</h3><p>انحناء بارز وحافة مضيئة مع استجابة أقوى للانكسار.</p><button type="button" data-gallery-preset="liquid">استخدم المادة</button></article>
+    <article class="showcase-card glass"><span class="showcase-icon">❄</span><h3>Frosted Pearl</h3><p>انتشار ناعم ومظهر لؤلؤي مع تباين هادئ ومريح.</p><button type="button" data-gallery-preset="frost">استخدم المادة</button></article>
+    <article class="showcase-card glass"><span class="showcase-icon">◇</span><h3>Prismatic Edge</h3><p>فصل لوني خفيف عند الأطراف فقط، دون تشويش المحتوى.</p><button type="button" data-gallery-preset="prism">استخدم المادة</button></article>
+    <article class="showcase-card glass"><span class="showcase-icon">◉</span><h3>Soft Control</h3><p>مادة مناسبة للأزرار الصغيرة وحالات التحديد والضغط.</p><button type="button" data-gallery-preset="soft">استخدم المادة</button></article>
+    <article class="showcase-card glass"><span class="showcase-icon">⌁</span><h3>Deep Optical</h3><p>سماكة أعمق وعمق بصري واضح على خلفيات متنوعة.</p><button type="button" data-gallery-preset="deep">استخدم المادة</button></article>
+  </div>
+</section>
 
-      <article class="panel glass">
-        <h3>2 — مكوّنات الواجهة</h3>
-        <p class="panel-copy">عناصر واجهة قابلة للتفاعل لاختبار التباين والحواف وحالات الأزرار.</p>
+<section class="section" id="playground">
+  <div class="section-head"><div><div class="section-kicker">05 / INTERACTION LAB</div><h2>جرّب التفاعل نفسه</h2></div><p class="section-sub">الأزرار وحالاتها والشرائح والمجموعات المتصلة قابلة للاستخدام، وليست مجرد عناصر للعرض.</p></div>
+  <div class="control-playground">
+    <article class="playground-card glass"><div class="panel-head"><h3 class="panel-title">شريط زجاجي متصل</h3><span class="mini-label">CONNECTED CONTROL</span></div><p class="panel-caption">غيّر التحديد؛ يبقى جسم الشريط واحداً بينما تنتقل الحالة بين عناصره.</p>
+      <div class="pill-nav" role="group" aria-label="اختيار عنصر الشريط"><button type="button" data-pill="home" aria-pressed="true">⌂ الرئيسية</button><button type="button" data-pill="search" aria-pressed="false">⌕ بحث</button><button type="button" data-pill="layers" aria-pressed="false">▱ الطبقات</button><button type="button" data-pill="settings" aria-pressed="false">⚙</button></div>
+      <p class="playground-note" id="pill-output" aria-live="polite">العنصر النشط: الرئيسية. جرّب بقية العناصر.</p>
+    </article>
+    <article class="playground-card glass"><div class="panel-head"><h3 class="panel-title">أزرار مغناطيسية</h3><span class="mini-label">HOVER / PRESS</span></div><p class="panel-caption">استجابة صغيرة للمؤشر مع بقاء المساحة الدلالية ومكان الزر ثابتين.</p>
+      <div class="magnetic-row"><button class="primary-button magnetic" type="button" data-action="حفظ">حفظ الاختيار</button><button class="soft-button magnetic" type="button" data-action="مشاركة">مشاركة</button><button class="icon-button magnetic" type="button" aria-label="إضافة للمفضلة" data-action="مفضلة">♡</button></div>
+      <div class="interaction-output" id="magnetic-output" role="status" aria-live="polite">مرّر المؤشر فوق الأزرار ثم اضغط لتجربة الحالة النشطة.</div>
+    </article>
+  </div>
+</section>
 
-        <div class="demo-card">
-          <span class="demo-icon" aria-hidden="true">✦</span>
-          <span><strong>بطاقة زجاجية</strong><small>سطح شفاف مع حافة مضيئة</small></span>
-          <span class="arrow" aria-hidden="true">←</span>
-        </div>
+<section class="section" id="diagnostics">
+  <div class="section-head"><div><div class="section-kicker">06 / RUNTIME DIAGNOSTICS</div><h2>التشخيص وحدود المنصة</h2></div><p class="section-sub">تعرض هذه اللوحة القدرات التي تم اكتشافها فعلياً، وتفصل مسار الانكسار عن بديل الضبابية.</p></div>
+  <div class="diagnostics-grid">
+    <article class="panel glass"><div class="panel-head"><h3 class="panel-title">قدرات المتصفح</h3><span class="mini-label">CAPABILITY CHECK</span></div><div class="diag-list">
+      <div class="diag-row"><span>WebGL2</span><strong class="diag-value" id="diag-webgl">جارٍ الفحص</strong></div><div class="diag-row"><span>محرك الانكسار</span><strong class="diag-value" id="diag-refraction">جارٍ الفحص</strong></div><div class="diag-row"><span>Backdrop Filter</span><strong class="diag-value" id="diag-backdrop">جارٍ الفحص</strong></div><div class="diag-row"><span>تقليل الحركة</span><strong class="diag-value" id="diag-motion">جارٍ الفحص</strong></div><div class="diag-row"><span>كثافة البكسل</span><strong class="diag-value" id="diag-dpr">--</strong></div><div class="diag-row"><span>الحد الأقصى للملمس</span><strong class="diag-value" id="diag-texture">--</strong></div><div class="diag-row"><span>المعالج الرسومي</span><strong class="diag-value" id="diag-gpu">--</strong></div>
+    </div></article>
+    <article class="panel glass"><div class="panel-head"><h3 class="panel-title">ما الذي يحدث فعلياً؟</h3><span class="mini-label">HONEST FIDELITY</span></div>
+      <p class="code-note">يرسم <code>WebGL2</code> الخلفية والعدسة ضمن مشهد تملكه الصفحة. تحسب العدسة مجال شكل (SDF)، ثم تزيح مواضع أخذ عينات الخلفية وفق تدرج المجال، وتضيف تظليل الحافة والانعكاس والتشتت اللوني الاختياري. عند توافر WebGL2 يكون هذا مساراً تجريبياً من مستوى <bdi>L2</bdi>، ومع دمج/انفصال الشكل والتفاعل يصبح اختباراً لسلوك <bdi>L3</bdi>. لا يعني ذلك محاكاة فيزيائية دقيقة.</p>
+      <p class="code-note" style="margin-top:10px">أسطح الواجهة العادية تستخدم <code>backdrop-filter</code> لمظهر L1 فقط. عند تعذّر WebGL2، تبقى الصفحة قابلة للاستخدام وتعود العدسة إلى خلفية CSS مع توضيح ذلك.</p>
+      <div class="action-tools"><button class="soft-button" id="copy-diagnostics" type="button">نسخ تقرير التشخيص</button><button class="soft-button" id="capture" type="button">حفظ لقطة المشهد</button><button class="soft-button" id="save-settings" type="button">حفظ إعداداتي</button></div>
+      <div class="interaction-output" id="diagnostic-output" role="status" aria-live="polite">لم يتم نسخ تقرير بعد.</div>
+    </article>
+  </div>
+</section>
+<footer class="footer"><span>LIQUID GLASS STUDIO <strong>· LAB BUILD 2.0</strong></span><span>مشهد مستقل · لا توجد مكتبات أو خدمات خارجية</span><span id="footer-state">WEBGL INITIALIZING</span></footer>
+</main>
+</div>
+</div>
 
-        <div class="demo-card">
-          <span class="demo-icon" aria-hidden="true">⌘</span>
-          <span><strong>طبقة المحتوى</strong><small>النص يبقى واضحاً فوق الزجاج</small></span>
-          <span class="arrow" aria-hidden="true">←</span>
-        </div>
+<dialog id="command-dialog" aria-labelledby="command-title"><div class="dialog-inner"><div class="dialog-head"><h2 id="command-title">لوحة الأوامر السريعة</h2><button class="icon-button" id="command-close" type="button" aria-label="إغلاق">×</button></div><div class="command-list">
+<button type="button" data-command="scene-0">◉ تفعيل مشهد الشفق <small>Scene</small></button><button type="button" data-command="scene-1">◉ تفعيل مشهد المحيط <small>Scene</small></button><button type="button" data-command="preset-liquid">✧ إعداد Liquid <small>Material</small></button><button type="button" data-command="toggle-follow">⌖ تبديل تتبّع المؤشر <small>Motion</small></button><button type="button" data-command="toggle-connect">◌ تبديل اتصال الشكل <small>Shape</small></button><button type="button" data-command="reset">↻ إعادة ضبط المختبر <small>System</small></button>
+</div></div></dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-        <div class="action-row">
-          <button class="primary" id="action-button" type="button">جرّب التفاعل</button>
-          <button id="reset-button" type="button">إعادة الضبط</button>
-        </div>
-        <div class="status" id="action-status" role="status" aria-live="polite">
-          عدد مرات التفاعل: 0
-        </div>
-      </article>
-    </section>
+<script>
+(() => {
+"use strict";
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
+const body=document.body, canvas=$("#world"), stage=$("#lens-stage"), toast=$("#toast");
+let toastTimer=0;
+const state={scene:0,shape:0,connected:true,follow:false,animate:true,grid:true,particles:true,reduced:window.matchMedia("(prefers-reduced-motion: reduce)").matches,contrast:false,opaque:false,paused:false,quality:1.25,strength:68,curvature:72,edge:64,dispersion:18,blur:22,speed:55,tint:"ice",fps:0};
+const tintMap={ice:[.79,.89,1],pearl:[.94,.97,1],rose:[1,.82,.89],aqua:[.72,.94,.96],clear:[1,1,1]};
+const presets={
+crystal:{strength:68,curvature:72,edge:64,dispersion:18,blur:22,speed:55,tint:"ice",shape:0,connected:true},
+liquid:{strength:92,curvature:96,edge:88,dispersion:26,blur:25,speed:82,tint:"aqua",shape:2,connected:true},
+frost:{strength:38,curvature:48,edge:47,dispersion:5,blur:34,speed:30,tint:"pearl",shape:1,connected:false},
+prism:{strength:82,curvature:80,edge:78,dispersion:62,blur:16,speed:68,tint:"rose",shape:2,connected:true},
+soft:{strength:45,curvature:40,edge:43,dispersion:0,blur:18,speed:35,tint:"clear",shape:0,connected:true},
+deep:{strength:100,curvature:100,edge:95,dispersion:12,blur:28,speed:45,tint:"ice",shape:1,connected:true}
+};
+function toastMessage(message){toast.textContent=message;toast.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove("show"),2300)}
+function setRange(id,value){const el=document.getElementById(id);if(el){el.value=String(value);el.dispatchEvent(new Event("input",{bubbles:true}))}}
+function setShape(shape){state.shape=Number(shape);$$("[data-shape]").forEach(b=>b.setAttribute("aria-pressed",String(Number(b.dataset.shape)===state.shape)))}
+function setConnected(value){state.connected=Boolean(value);$("#connect-toggle").setAttribute("aria-pressed",String(state.connected));$("#connect-toggle").textContent=state.connected?"فصل الفقاعات":"دمج الفقاعات";$("#shape-value").textContent=state.connected?"متصل":"منفصل";$("#shape-output").textContent=state.connected?"الشكل الحالي: الفقاعات تندمج في سطح سائل متصل بحافة واحدة.":"الشكل الحالي: الفقاعات منفصلة؛ لكل جزء حافته وانكساره المستقل."}
+function setFollow(value){state.follow=Boolean(value);["follow-toggle","follow-toggle-2","lens-follow"].forEach(id=>{const el=document.getElementById(id);if(!el)return;el.setAttribute(id==="lens-follow"?"aria-pressed":"aria-checked",String(state.follow));if(id==="lens-follow")el.textContent=state.follow?"إيقاف تتبّع المؤشر":"تفعيل تتبّع المؤشر"});$("#stage-instruction").textContent=state.follow?"حرّك المؤشر داخل المسرح لمتابعة العدسة · الأسهم للتحكم":"اسحب داخل المسرح لتحريك العدسة · الأسهم للتحكم"}
+function setScene(scene){state.scene=Number(scene);body.dataset.scene=String(state.scene);$$("[data-scene]").forEach(b=>b.setAttribute("aria-pressed",String(Number(b.dataset.scene)===state.scene)))}
+function setSwitch(id,value,callback){const el=document.getElementById(id);if(!el)return;el.setAttribute("aria-checked",String(Boolean(value)));el.addEventListener("click",()=>{const next=el.getAttribute("aria-checked")!=="true";el.setAttribute("aria-checked",String(next));callback(next)})}
+function applyMotion(){body.dataset.motion=state.reduced?"reduced":state.paused?"paused":"running"}
+function applyPreset(name){const p=presets[name];if(!p)return;["strength","curvature","edge","dispersion","blur","speed"].forEach(k=>setRange(k,p[k]));$("#tint").value=p.tint;$("#tint").dispatchEvent(new Event("change"));setShape(p.shape);setConnected(p.connected);$$("[data-preset]").forEach(b=>b.classList.toggle("active",b.dataset.preset===name));toastMessage("تم تطبيق مادة "+name)}
+function resetAll(){setScene(0);applyPreset("crystal");setFollow(false);["animation-toggle","grid-toggle","particles-toggle"].forEach(id=>document.getElementById(id).setAttribute("aria-checked","true"));state.animate=state.grid=state.particles=true;["reduced-toggle","contrast-toggle","opaque-toggle"].forEach(id=>document.getElementById(id).setAttribute("aria-checked","false"));state.reduced=state.contrast=state.opaque=false;body.dataset.contrast="false";body.dataset.opaque="false";state.paused=false;$("#pause-button").textContent="إيقاف مؤقت";applyMotion();setLensHome();toastMessage("أعيد ضبط المختبر إلى القيم الافتراضية")}
+$("#strength").addEventListener("input",e=>{state.strength=Number(e.target.value);$("#strength-out").textContent=state.strength+"%"});
+$("#curvature").addEventListener("input",e=>{state.curvature=Number(e.target.value);$("#curvature-out").textContent=state.curvature+"%"});
+$("#edge").addEventListener("input",e=>{state.edge=Number(e.target.value);$("#edge-out").textContent=state.edge+"%"});
+$("#dispersion").addEventListener("input",e=>{state.dispersion=Number(e.target.value);$("#dispersion-out").textContent=state.dispersion+"%"});
+$("#blur").addEventListener("input",e=>{state.blur=Number(e.target.value);$("#blur-out").textContent=state.blur+" px";document.documentElement.style.setProperty("--glass-blur",state.blur+"px")});
+$("#speed").addEventListener("input",e=>{state.speed=Number(e.target.value);$("#speed-out").textContent=state.speed+"%"});
+$("#tint").addEventListener("change",e=>{state.tint=e.target.value});
+$$("[data-scene]").forEach(b=>b.addEventListener("click",()=>setScene(b.dataset.scene)));
+$$("[data-shape]").forEach(b=>b.addEventListener("click",()=>{setShape(b.dataset.shape);toastMessage("تم تغيير شكل العدسة")}));
+$$("[data-preset]").forEach(b=>b.addEventListener("click",()=>applyPreset(b.dataset.preset)));
+$$("[data-gallery-preset]").forEach(b=>b.addEventListener("click",()=>{const n=b.dataset.galleryPreset;applyPreset(n);$$(".showcase-card").forEach(card=>card.classList.toggle("activated",card.contains(b)))}));
+setSwitch("animation-toggle",state.animate,v=>{state.animate=v;if(v)state.paused=false;applyMotion()});
+setSwitch("grid-toggle",state.grid,v=>state.grid=v);
+setSwitch("particles-toggle",state.particles,v=>state.particles=v);
+setSwitch("follow-toggle",state.follow,setFollow);
+setSwitch("follow-toggle-2",state.follow,setFollow);
+setSwitch("reduced-toggle",state.reduced,v=>{state.reduced=v;applyMotion()});
+setSwitch("contrast-toggle",state.contrast,v=>{state.contrast=v;body.dataset.contrast=String(v)});
+setSwitch("opaque-toggle",state.opaque,v=>{state.opaque=v;body.dataset.opaque=String(v)});
+$("#connect-toggle").addEventListener("click",()=>setConnected(!state.connected));
+$("#lens-follow").addEventListener("click",()=>setFollow(!state.follow));
+$("#follow-center").addEventListener("click",()=>{setLensHome();toastMessage("عادت العدسة إلى مركز المسرح")});
+$("#shape-cycle").addEventListener("click",()=>setShape((state.shape+1)%3));
+$("#pause-button").addEventListener("click",()=>{state.paused=!state.paused;state.animate=!state.paused;$("#animation-toggle").setAttribute("aria-checked",String(state.animate));$("#pause-button").textContent=state.paused?"استئناف الحركة":"إيقاف مؤقت";applyMotion()});
+$("#reset-button").addEventListener("click",resetAll);
+$("#random-scene").addEventListener("click",()=>{let n=Math.floor(Math.random()*4);if(n===state.scene)n=(n+1)%4;setScene(n);toastMessage("تم اختيار مشهد جديد")});
+$("#quality").addEventListener("change",e=>{state.quality=Number(e.target.value);resizeCanvas()});
+$$("[data-pill]").forEach(b=>b.addEventListener("click",()=>{$$("[data-pill]").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));const labels={home:"الرئيسية",search:"بحث",layers:"الطبقات",settings:"الإعدادات"};$("#pill-output").textContent="العنصر النشط: "+labels[b.dataset.pill]+". بقي جسم الشريط الزجاجي موحداً."}));
+$$("[data-action]").forEach(b=>b.addEventListener("click",()=>{$("#magnetic-output").textContent="تم تنفيذ تفاعل: "+b.dataset.action+" ✓";if(b.animate)b.animate([{transform:"scale(1)"},{transform:"scale(.94)"},{transform:"scale(1)"}],{duration:230,easing:"ease-out"})}));
+$$(".magnetic").forEach(b=>{b.addEventListener("pointermove",e=>{if(state.reduced)return;const r=b.getBoundingClientRect(),dx=(e.clientX-r.left-r.width/2)/r.width,dy=(e.clientY-r.top-r.height/2)/r.height;b.style.transform="translate("+(dx*7)+"px,"+(dy*6)+"px)"});b.addEventListener("pointerleave",()=>b.style.transform="")});
 
-    <p class="footnote">
-      ملاحظة تقنية: هذا النموذج يستخدم CSS <bdi>backdrop-filter</bdi> للشفافية والضبابية
-      (مستوى DOM تجريبي L1)، ولا يدّعي تنفيذ انكسار ضوئي حقيقي أو إزاحة لعينة الخلفية.
-      لا يحتاج إلى مكتبات أو ملفات خارجية.
-    </p>
-  </main>
+let pointerX=innerWidth*.5,pointerY=innerHeight*.5,dragging=false,dpr=1,lensCurrent={x:0,y:0},lensTarget={x:0,y:0};
+let gl=null,program=null,uniforms={},raf=0,lastFrame=0,time=0,rendererName="CSS FALLBACK",webglReady=false,fpsFrames=0,fpsStart=performance.now();
+const vertexSource=[
+"#version 300 es","in vec2 a_position;","out vec2 v_uv;","void main(){v_uv=a_position*.5+.5;gl_Position=vec4(a_position,0.,1.);}"
+].join("\n");
+const fragmentSource=[
+"#version 300 es",
+"precision highp float; in vec2 v_uv; out vec4 outColor;",
+"uniform vec2 u_resolution; uniform float u_time; uniform float u_speed; uniform vec2 u_lens;",
+"uniform float u_strength; uniform float u_curvature; uniform float u_edge; uniform float u_dispersion; uniform float u_blend;",
+"uniform int u_scene; uniform int u_shape; uniform int u_grid; uniform int u_particles; uniform vec3 u_tint; uniform vec2 u_pointer;",
+"float hash21(vec2 p){p=fract(p*vec2(123.34,456.21));p+=dot(p,p+45.32);return fract(p.x*p.y);}",
+"vec3 backgroundScene(vec2 uv){float aspect=u_resolution.x/max(1.,u_resolution.y);vec2 p=(uv-.5)*vec2(aspect,1.);float t=u_time*u_speed;vec3 col;",
+"if(u_scene==0){float a=sin(p.x*3.4+sin(p.y*4.+t*.42)*.8+t*.25);float b=sin(p.x*2.1-p.y*4.8-t*.31);float veil=smoothstep(-.55,.85,a*.62+b*.36);col=mix(vec3(.025,.055,.14),vec3(.12,.20,.38),smoothstep(-.5,.8,p.y));col+=vec3(.025,.30,.31)*veil*(.25+.75*smoothstep(-.6,.5,p.y));col+=vec3(.19,.10,.34)*smoothstep(.25,.95,sin(p.x*3.1+p.y*2.3-t*.23));}",
+"else if(u_scene==1){float wave=sin(p.x*4.5+sin(p.y*5.+t*.55)*.9-t*.5);float caustic=pow(max(0.,sin(p.x*8.+p.y*5.+t*.65)),5.);col=mix(vec3(.008,.045,.105),vec3(.02,.31,.43),smoothstep(-.75,.65,wave));col+=vec3(.03,.29,.34)*caustic*.48;col+=vec3(.08,.12,.26)*smoothstep(.15,.85,sin(p.y*4.-t*.34));}",
+"else if(u_scene==2){float sun=exp(-length((p-vec2(.30,.20))*vec2(1.,1.25))*3.);float bands=.5+.5*sin(p.y*7.+sin(p.x*3.+t*.22)*.7);col=mix(vec3(.12,.035,.16),vec3(.52,.16,.26),smoothstep(-.7,.75,p.y));col+=vec3(.63,.27,.16)*bands*.18;col+=vec3(.72,.43,.22)*sun*.68;}",
+"else{float bands=sin(p.x*5.+p.y*3.+t*.28);float prism=.5+.5*sin(p.x*2.3-p.y*4.+t*.18);col=mix(vec3(.035,.07,.18),vec3(.19,.12,.36),prism);col+=vec3(.025,.25,.31)*smoothstep(-.2,.9,bands);col+=vec3(.24,.10,.28)*smoothstep(.45,1.,sin(p.y*6.-p.x*2.5-t*.25));}",
+"float vignette=1.-smoothstep(.35,1.12,length(p*vec2(.72,1.)));col*=.72+vignette*.34;",
+"if(u_grid==1){vec2 gp=uv*vec2(36.*aspect,36.);vec2 gf=abs(fract(gp-.5)-.5);float line=1.-smoothstep(0.,.018,min(gf.x,gf.y));col+=vec3(.28,.40,.62)*line*.105;float contour=sin((p.x*1.25+p.y*.8+sin(p.x*2.+t*.12)*.17)*16.);float cl=1.-smoothstep(0.,.055,abs(contour));col+=vec3(.20,.38,.60)*cl*.095;}",
+"if(u_particles==1){vec2 cells=uv*vec2(82.*aspect,54.);vec2 id=floor(cells);vec2 local=fract(cells)-.5;float seed=hash21(id);float star=(1.-smoothstep(.015,.07,length(local)))*step(.988,seed);float blink=.45+.55*sin(t*(.8+seed*1.8)+seed*22.);col+=vec3(.50,.66,1.)*star*blink*.85;}",
+"float light=exp(-length((uv-u_pointer)*vec2(aspect,1.))*2.);col+=vec3(.08,.12,.22)*light*.35;return clamp(col,0.,1.);}",
+"float sdRoundBox(vec2 p,vec2 b,float r){vec2 q=abs(p)-b+r;return length(max(q,0.))+min(max(q.x,q.y),0.)-r;}",
+"float sdEllipse(vec2 p,vec2 r){float k0=length(p/r);float k1=length(p/(r*r));return k0*(k0-1.)/max(k1,.0001);}",
+"float smoothMin(float a,float b,float k){float h=max(k-abs(a-b),0.)/max(k,.0001);return min(a,b)-h*h*k*.25;}",
+"float lensDistance(vec2 frag){vec2 p=(frag-u_lens)/u_resolution.y;float mainShape;if(u_shape==0){mainShape=sdEllipse(p,vec2(.155,.145));}else if(u_shape==1){mainShape=sdRoundBox(p,vec2(.22,.105),.085);}else{float core=sdEllipse(p,vec2(.14,.14));float la=length(p-vec2(.12,.025))-.098;float lb=length(p-vec2(-.105,-.045))-.073;mainShape=smoothMin(smoothMin(core,la,.075),lb,.065);}float bubble=length(p-vec2(.205,-.035))-.082;return smoothMin(mainShape,bubble,mix(.003,.11,u_blend));}",
+"void main(){vec2 uv=gl_FragCoord.xy/u_resolution;vec3 base=backgroundScene(uv);float d=lensDistance(gl_FragCoord.xy);float inside=1.-smoothstep(0.,.008,d);",
+"if(inside>.001||abs(d)<.05){float e=.0018*u_resolution.y;vec2 grad=vec2(lensDistance(gl_FragCoord.xy+vec2(e,0.))-lensDistance(gl_FragCoord.xy-vec2(e,0.)),lensDistance(gl_FragCoord.xy+vec2(0.,e))-lensDistance(gl_FragCoord.xy-vec2(0.,e)));vec2 normal=normalize(grad+vec2(.00001));float thick=pow(max(0.,1.-abs(d)/.19),.72);float curve=.22+thick*u_curvature;float disp=u_strength*curve*(.012+.061*thick);float aspect=u_resolution.x/max(1.,u_resolution.y);vec2 offsetUv=normal*disp/vec2(aspect,1.);",
+"vec3 rr=backgroundScene(clamp(uv+offsetUv*(1.+u_dispersion*.28),.001,.999));vec3 rg=backgroundScene(clamp(uv+offsetUv,.001,.999));vec3 rb=backgroundScene(clamp(uv+offsetUv*(1.-u_dispersion*.22),.001,.999));vec3 transmitted=vec3(rr.r,rg.g,rb.b);transmitted=mix(transmitted,transmitted*u_tint+vec3(.025,.035,.055),.16+thick*.09);base=mix(base,transmitted,inside*.985);",
+"vec2 ld=normalize(vec2(-.48,.62)+(u_pointer-.5)*.34);float fresnel=.35+.65*pow(1.-abs(dot(normal,ld)),2.);float rim=exp(-abs(d)*43.)*fresnel*u_edge;float innerRim=exp(-max(0.,-d)*62.)*(1.-smoothstep(0.,.025,-d));float spec=pow(max(0.,dot(normal,ld)),15.)*exp(-abs(d)*18.);vec2 p=(gl_FragCoord.xy-u_lens)/u_resolution.y;float reflection=exp(-length((p-vec2(-.055,.075))*vec2(3.5,4.5))*2.4);base+=vec3(.48,.62,.88)*rim*.24;base+=vec3(.55,.72,1.)*innerRim*u_edge*.11;base+=vec3(.78,.86,1.)*spec*u_edge*.34;base+=vec3(.40,.53,.75)*reflection*inside*.055;}",
+"outColor=vec4(clamp(base,0.,1.),1.);}"
+].join("\n");
 
-  <script>
-    (() => {
-      "use strict";
-
-      const root = document.documentElement;
-      const body = document.body;
-      const blur = document.getElementById("blur");
-      const blurValue = document.getElementById("blur-value");
-      const flat = document.getElementById("flat");
-      const motion = document.getElementById("motion");
-      const actionStatus = document.getElementById("action-status");
-      const supportStatus = document.getElementById("support-status");
-      let count = 0;
-
-      blur.addEventListener("input", () => {
-        root.style.setProperty("--glass-blur", blur.value + "px");
-        blurValue.value = blur.value + " px";
-        blurValue.textContent = blur.value + " px";
-      });
-
-      document.querySelectorAll("[data-scene-choice]").forEach((button) => {
-        button.addEventListener("click", () => {
-          const scene = button.dataset.sceneChoice;
-          body.dataset.scene = scene;
-          document.querySelectorAll("[data-scene-choice]").forEach((item) => {
-            item.setAttribute("aria-pressed", String(item === button));
-          });
-        });
-      });
-
-      flat.addEventListener("change", () => {
-        body.dataset.flat = String(flat.checked);
-      });
-
-      motion.addEventListener("change", () => {
-        body.dataset.motion = motion.checked ? "reduce" : "auto";
-      });
-
-      document.getElementById("action-button").addEventListener("click", () => {
-        count += 1;
-        actionStatus.textContent = "عدد مرات التفاعل: " + count;
-      });
-
-      document.getElementById("reset-button").addEventListener("click", () => {
-        count = 0;
-        blur.value = "18";
-        blur.dispatchEvent(new Event("input"));
-        flat.checked = false;
-        motion.checked = false;
-        body.dataset.flat = "false";
-        body.dataset.motion = "auto";
-        body.dataset.scene = "aurora";
-        document.querySelectorAll("[data-scene-choice]").forEach((item) => {
-          item.setAttribute("aria-pressed", String(item.dataset.sceneChoice === "aurora"));
-        });
-        actionStatus.textContent = "عدد مرات التفاعل: 0";
-      });
-
-      const supportsGlass = window.CSS && CSS.supports &&
-        (CSS.supports("backdrop-filter", "blur(1px)") ||
-         CSS.supports("-webkit-backdrop-filter", "blur(1px)"));
-
-      supportStatus.textContent = supportsGlass
-        ? "✓ يبدو أن المتصفح يدعم backdrop-filter. جرّب تغيير الخلفية وقوة الضبابية."
-        : "تنبيه: لا يظهر دعم backdrop-filter؛ ستستخدم الصفحة لوناً بديلاً للحفاظ على وضوح العناصر.";
-    })();
-  </script>
+function compileShader(type,source){const shader=gl.createShader(type);gl.shaderSource(shader,source);gl.compileShader(shader);if(!gl.getShaderParameter(shader,gl.COMPILE_STATUS)){const msg=gl.getShaderInfoLog(shader)||"Shader compilation failed";gl.deleteShader(shader);throw new Error(msg)}return shader}
+function initializeWebGL(){
+  try{
+    gl=canvas.getContext("webgl2",{alpha:false,antialias:false,depth:false,stencil:false,powerPreference:"low-power",preserveDrawingBuffer:true});
+    if(!gl)throw new Error("WebGL2 unavailable");
+    const vs=compileShader(gl.VERTEX_SHADER,vertexSource),fs=compileShader(gl.FRAGMENT_SHADER,fragmentSource);
+    program=gl.createProgram();gl.attachShader(program,vs);gl.attachShader(program,fs);gl.linkProgram(program);gl.deleteShader(vs);gl.deleteShader(fs);
+    if(!gl.getProgramParameter(program,gl.LINK_STATUS))throw new Error(gl.getProgramInfoLog(program)||"Program linking failed");
+    gl.useProgram(program);const buffer=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buffer);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+    const pos=gl.getAttribLocation(program,"a_position");gl.enableVertexAttribArray(pos);gl.vertexAttribPointer(pos,2,gl.FLOAT,false,0,0);
+    ["u_resolution","u_time","u_speed","u_lens","u_strength","u_curvature","u_edge","u_dispersion","u_blend","u_scene","u_shape","u_grid","u_particles","u_tint","u_pointer"].forEach(n=>uniforms[n]=gl.getUniformLocation(program,n));
+    rendererName="WEBGL2 / GLSL 300";webglReady=true;canvas.style.background="transparent";
+    $("#diag-webgl").textContent="متاح ✓";$("#diag-webgl").classList.add("good");$("#diag-refraction").textContent="L2 + L3 تجريبي";$("#diag-refraction").classList.add("good");
+    $("#renderer-value").textContent="WebGL2";$("#renderer-hint").textContent="مشهد ومواد مملوكة";$("#refraction-value").textContent="L2 / L3";$("#sidebar-tier").textContent="◈ L3 DYNAMIC";$("#footer-state").textContent="WEBGL2 / REFRACTION ACTIVE";
+    $("#diag-gpu").textContent=String(gl.getParameter(gl.RENDERER)).replace("WebKit WebGL","").slice(0,42);$("#diag-texture").textContent=gl.getParameter(gl.MAX_TEXTURE_SIZE)+" px";return true;
+  }catch(error){
+    console.warn("Liquid Glass WebGL fallback:",error);webglReady=false;rendererName="CSS FALLBACK";canvas.style.display="none";
+    $("#diag-webgl").textContent="غير متاح";$("#diag-webgl").classList.add("warn");$("#diag-refraction").textContent="L1 fallback";$("#diag-refraction").classList.add("warn");
+    $("#renderer-value").textContent="CSS";$("#renderer-hint").textContent="مسار بديل آمن";$("#refraction-value").textContent="L1";$("#sidebar-tier").textContent="◈ L1 FALLBACK";$("#footer-state").textContent="CSS FALLBACK ACTIVE";$("#diag-gpu").textContent="غير متاح";$("#diag-texture").textContent="—";return false;
+  }
+}
+function positionLensHome(snap){const r=stage.getBoundingClientRect();const x=(r.left+r.width*.51)*dpr,y=(innerHeight-(r.top+r.height*.5))*dpr;lensTarget={x,y};if(snap||!lensCurrent.x)lensCurrent={x,y}}
+function setLensHome(){positionLensHome(true)}
+function resizeCanvas(){if(!webglReady||!gl)return;dpr=Math.min(window.devicePixelRatio||1,state.quality);const w=Math.max(1,Math.floor(innerWidth*dpr)),h=Math.max(1,Math.floor(innerHeight*dpr));if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;gl.viewport(0,0,w,h)}$("#diag-dpr").textContent=dpr.toFixed(2)+"×";positionLensHome(false)}
+function setU(name,fn){const loc=uniforms[name];if(loc!==null&&loc!==undefined)fn(loc)}
+let lastFrame=0,fpsStart=performance.now(),fpsFrames=0;
+function draw(now){
+  raf=requestAnimationFrame(draw);if(!webglReady||!gl||!program||document.hidden)return;
+  const interval=state.quality<=1?1000/30:1000/60;if(now-lastFrame<interval)return;
+  const dt=Math.min(.05,(now-(lastFrame||now))/1000);lastFrame=now;
+  if(state.animate&&!state.paused&&!state.reduced)time+=dt;else if(state.animate&&!state.paused&&state.reduced)time+=dt*.12;
+  const ease=state.reduced?1:1-Math.pow(.001,dt||.016);lensCurrent.x+=(lensTarget.x-lensCurrent.x)*ease;lensCurrent.y+=(lensTarget.y-lensCurrent.y)*ease;
+  fpsFrames++;if(now-fpsStart>650){state.fps=Math.round(fpsFrames*1000/(now-fpsStart));$("#fps-value").textContent=String(state.fps);fpsFrames=0;fpsStart=now}
+  gl.useProgram(program);
+  setU("u_resolution",l=>gl.uniform2f(l,canvas.width,canvas.height));setU("u_time",l=>gl.uniform1f(l,time));setU("u_speed",l=>gl.uniform1f(l,state.speed/55));setU("u_lens",l=>gl.uniform2f(l,lensCurrent.x,lensCurrent.y));
+  setU("u_strength",l=>gl.uniform1f(l,state.strength/100));setU("u_curvature",l=>gl.uniform1f(l,state.curvature/100));setU("u_edge",l=>gl.uniform1f(l,state.edge/100));setU("u_dispersion",l=>gl.uniform1f(l,state.dispersion/100));setU("u_blend",l=>gl.uniform1f(l,state.connected?1:0));
+  setU("u_scene",l=>gl.uniform1i(l,state.scene));setU("u_shape",l=>gl.uniform1i(l,state.shape));setU("u_grid",l=>gl.uniform1i(l,state.grid?1:0));setU("u_particles",l=>gl.uniform1i(l,state.particles?1:0));
+  const t=tintMap[state.tint]||tintMap.ice;setU("u_tint",l=>gl.uniform3f(l,t[0],t[1],t[2]));setU("u_pointer",l=>gl.uniform2f(l,pointerX/innerWidth,1-pointerY/innerHeight));gl.drawArrays(gl.TRIANGLES,0,3)
+}
+function pointerToLens(e){const r=stage.getBoundingClientRect(),x=Math.max(r.left+50,Math.min(r.right-35,e.clientX)),y=Math.max(r.top+45,Math.min(r.bottom-45,e.clientY));lensTarget={x:x*dpr,y:(innerHeight-y)*dpr}}
+stage.addEventListener("pointerdown",e=>{dragging=true;stage.setPointerCapture?.(e.pointerId);pointerToLens(e);stage.style.cursor="grabbing"});
+stage.addEventListener("pointermove",e=>{if(dragging||state.follow)pointerToLens(e)});
+const release=()=>{dragging=false;stage.style.cursor=state.follow?"crosshair":"grab"};stage.addEventListener("pointerup",release);stage.addEventListener("pointercancel",release);stage.addEventListener("lostpointercapture",release);
+stage.addEventListener("keydown",e=>{const n=e.shiftKey?28:10,m={ArrowLeft:[-n,0],ArrowRight:[n,0],ArrowUp:[0,n],ArrowDown:[0,-n]};if(!m[e.key])return;e.preventDefault();lensTarget.x+=m[e.key][0]*dpr;lensTarget.y+=m[e.key][1]*dpr});
+window.addEventListener("pointermove",e=>{pointerX=e.clientX;pointerY=e.clientY;document.documentElement.style.setProperty("--pointer-x",pointerX+"px");document.documentElement.style.setProperty("--pointer-y",pointerY+"px")},{passive:true});
+window.addEventListener("resize",resizeCanvas,{passive:true});window.addEventListener("scroll",()=>{if(!dragging)positionLensHome(false)},{passive:true});document.addEventListener("visibilitychange",()=>{if(!document.hidden&&webglReady)lastFrame=0});
+$("#fullscreen").addEventListener("click",async()=>{try{if(!document.fullscreenElement)await document.documentElement.requestFullscreen();else await document.exitFullscreen()}catch(_){toastMessage("ملء الشاشة غير متاح في هذا السياق")}});
+$("#capture").addEventListener("click",()=>{if(!webglReady){toastMessage("لقطة المشهد تتطلب WebGL2");return}try{const a=document.createElement("a");a.download="liquid-glass-scene.png";a.href=canvas.toDataURL("image/png");a.click();toastMessage("تم حفظ لقطة الخلفية والعدسة")}catch(_){toastMessage("تعذر حفظ الصورة في هذا المتصفح")}});
+function getReport(){return["LIQUID GLASS STUDIO — RUNTIME REPORT","Renderer: "+rendererName,"Fidelity: "+(webglReady?"L2 refractive path + interactive L3 shape behavior":"L1 CSS fallback"),"Scene: "+state.scene,"Shape: "+state.shape,"Connected: "+state.connected,"Strength: "+state.strength+"%","Curvature: "+state.curvature+"%","Edge: "+state.edge+"%","Dispersion: "+state.dispersion+"%","Blur: "+state.blur+"px","Quality cap: "+state.quality+"x","Measured FPS: "+state.fps].join("\n")}
+$("#copy-diagnostics").addEventListener("click",async()=>{const report=getReport();try{await navigator.clipboard.writeText(report);$("#diagnostic-output").textContent="تم نسخ تقرير التشخيص إلى الحافظة."}catch(_){$("#diagnostic-output").textContent=report}});
+$("#save-settings").addEventListener("click",()=>{const v={scene:state.scene,strength:state.strength,curvature:state.curvature,edge:state.edge,dispersion:state.dispersion,blur:state.blur,speed:state.speed,tint:state.tint,shape:state.shape,connected:state.connected};try{localStorage.setItem("liquid-glass-studio-settings",JSON.stringify(v));toastMessage("تم حفظ إعداداتك على هذا الجهاز")}catch(_){toastMessage("التخزين المحلي غير متاح")}});
+function restoreSettings(){try{const v=JSON.parse(localStorage.getItem("liquid-glass-studio-settings")||"null");if(!v||typeof v!=="object")return;setScene(Number.isInteger(v.scene)?v.scene:0);["strength","curvature","edge","dispersion","blur","speed"].forEach(k=>{if(Number.isFinite(v[k]))setRange(k,Math.max(0,Math.min(k==="blur"?38:k==="speed"?150:100,v[k])))});if(tintMap[v.tint]){$("#tint").value=v.tint;state.tint=v.tint}if([0,1,2].includes(v.shape))setShape(v.shape);if(typeof v.connected==="boolean")setConnected(v.connected)}catch(_){}}
+const dialog=$("#command-dialog");$("#command-open").addEventListener("click",()=>dialog.showModal());$("#command-close").addEventListener("click",()=>dialog.close());
+document.addEventListener("keydown",e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){e.preventDefault();dialog.showModal()}if(e.key==="Escape"&&dialog.open)dialog.close()});
+$$("[data-command]").forEach(b=>b.addEventListener("click",()=>{const c=b.dataset.command;if(c==="scene-0")setScene(0);if(c==="scene-1")setScene(1);if(c==="preset-liquid")applyPreset("liquid");if(c==="toggle-follow")setFollow(!state.follow);if(c==="toggle-connect")setConnected(!state.connected);if(c==="reset")resetAll();dialog.close()}));
+const navLinks=$$(".side-link");if("IntersectionObserver"in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)navLinks.forEach(link=>link.classList.toggle("active",link.getAttribute("href")==="#"+entry.target.id))}),{rootMargin:"-18% 0px -68% 0px"});["overview","scenes","material","shapes","playground","diagnostics"].forEach(id=>{const el=document.getElementById(id);if(el)observer.observe(el)})}
+const motionPref=window.matchMedia("(prefers-reduced-motion: reduce)");if(motionPref.matches){state.reduced=true;$("#reduced-toggle").setAttribute("aria-checked","true");applyMotion()}
+$("#diag-backdrop").textContent=CSS.supports("backdrop-filter","blur(1px)")?"مدعوم ✓":"بديل لوني";if(CSS.supports("backdrop-filter","blur(1px)"))$("#diag-backdrop").classList.add("good");$("#diag-motion").textContent=motionPref.matches?"مطلوب من النظام":"غير مطلوب";
+initializeWebGL();restoreSettings();resizeCanvas();positionLensHome(true);raf=requestAnimationFrame(draw);
+canvas.addEventListener("webglcontextlost",e=>{e.preventDefault();webglReady=false;cancelAnimationFrame(raf);canvas.style.display="none";$("#diag-webgl").textContent="فُقد السياق";$("#diag-refraction").textContent="L1 fallback";$("#refraction-value").textContent="L1";$("#sidebar-tier").textContent="◈ L1 FALLBACK";$("#renderer-value").textContent="CSS";$("#renderer-hint").textContent="تم تفعيل البديل الآمن";$("#footer-state").textContent="WEBGL LOST / CSS FALLBACK";toastMessage("فُقد سياق WebGL؛ بقيت الواجهة في وضعها البديل")});
+})();
+</script>
 </body>
 </html>
