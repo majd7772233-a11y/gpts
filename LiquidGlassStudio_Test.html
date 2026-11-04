@@ -299,7 +299,7 @@ $$("[data-action]").forEach(b=>b.addEventListener("click",()=>{$("#magnetic-outp
 $$(".magnetic").forEach(b=>{b.addEventListener("pointermove",e=>{if(state.reduced)return;const r=b.getBoundingClientRect(),dx=(e.clientX-r.left-r.width/2)/r.width,dy=(e.clientY-r.top-r.height/2)/r.height;b.style.transform="translate("+(dx*7)+"px,"+(dy*6)+"px)"});b.addEventListener("pointerleave",()=>b.style.transform="")});
 
 let pointerX=innerWidth*.5,pointerY=innerHeight*.5,dragging=false,dpr=1,lensCurrent={x:0,y:0},lensTarget={x:0,y:0};
-let gl=null,program=null,uniforms={},raf=0,lastFrame=0,time=0,rendererName="CSS FALLBACK",webglReady=false,fpsFrames=0,fpsStart=performance.now();
+let gl=null,program=null,uniforms={},raf=0,time=0,rendererName="CSS FALLBACK",webglReady=false,fpsFrames=0,fpsStart=performance.now();
 const vertexSource=[
 "#version 300 es","in vec2 a_position;","out vec2 v_uv;","void main(){v_uv=a_position*.5+.5;gl_Position=vec4(a_position,0.,1.);}"
 ].join("\n");
