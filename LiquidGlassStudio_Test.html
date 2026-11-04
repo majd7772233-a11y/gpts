@@ -266,7 +266,7 @@ function setScene(scene){state.scene=Number(scene);body.dataset.scene=String(sta
 function setSwitch(id,value,callback){const el=document.getElementById(id);if(!el)return;el.setAttribute("aria-checked",String(Boolean(value)));el.addEventListener("click",()=>{const next=el.getAttribute("aria-checked")!=="true";el.setAttribute("aria-checked",String(next));callback(next)})}
 function applyMotion(){body.dataset.motion=state.reduced?"reduced":state.paused?"paused":"running"}
 function applyPreset(name){const p=presets[name];if(!p)return;["strength","curvature","edge","dispersion","blur","speed"].forEach(k=>setRange(k,p[k]));$("#tint").value=p.tint;$("#tint").dispatchEvent(new Event("change"));setShape(p.shape);setConnected(p.connected);$$("[data-preset]").forEach(b=>b.classList.toggle("active",b.dataset.preset===name));toastMessage("تم تطبيق مادة "+name)}
-function resetAll(){setScene(0);applyPreset("crystal");setFollow(false);["animation-toggle","grid-toggle","particles-toggle"].forEach(id=>document.getElementById(id).setAttribute("aria-checked","true"));state.animate=state.grid=state.particles=true;["reduced-toggle","contrast-toggle","opaque-toggle"].forEach(id=>document.getElementById(id).setAttribute("aria-checked","false"));state.reduced=state.contrast=state.opaque=false;body.dataset.contrast="false";body.dataset.opaque="false";state.paused=false;$("#pause-button").textContent="إيقاف مؤقت";applyMotion();setLensHome();toastMessage("أعيد ضبط المختبر إلى القيم الافتراضية")}
+function resetAll(){setScene(0);applyPreset("crystal");setFollow(false);["animation-toggle","grid-toggle","particles-toggle"].forEach(id=>document.getElementById(id).setAttribute("aria-checked","true"));state.animate=state.grid=state.particles=true;["contrast-toggle","opaque-toggle"].forEach(id=>document.getElementById(id).setAttribute("aria-checked","false"));state.reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;$("#reduced-toggle").setAttribute("aria-checked",String(state.reduced));state.contrast=state.opaque=false;body.dataset.contrast="false";body.dataset.opaque="false";state.paused=false;$("#pause-button").textContent="إيقاف مؤقت";applyMotion();setLensHome();toastMessage("أعيد ضبط المختبر إلى القيم الافتراضية")}
 $("#strength").addEventListener("input",e=>{state.strength=Number(e.target.value);$("#strength-out").textContent=state.strength+"%"});
 $("#curvature").addEventListener("input",e=>{state.curvature=Number(e.target.value);$("#curvature-out").textContent=state.curvature+"%"});
 $("#edge").addEventListener("input",e=>{state.edge=Number(e.target.value);$("#edge-out").textContent=state.edge+"%"});
@@ -283,7 +283,7 @@ setSwitch("grid-toggle",state.grid,v=>state.grid=v);
 setSwitch("particles-toggle",state.particles,v=>state.particles=v);
 setSwitch("follow-toggle",state.follow,setFollow);
 setSwitch("follow-toggle-2",state.follow,setFollow);
-setSwitch("reduced-toggle",state.reduced,v=>{state.reduced=v;applyMotion()});
+setSwitch("reduced-toggle",state.reduced,v=>{state.reduced=motionPref.matches||v;$("#reduced-toggle").setAttribute("aria-checked",String(state.reduced));applyMotion()});
 setSwitch("contrast-toggle",state.contrast,v=>{state.contrast=v;body.dataset.contrast=String(v)});
 setSwitch("opaque-toggle",state.opaque,v=>{state.opaque=v;body.dataset.opaque=String(v)});
 $("#connect-toggle").addEventListener("click",()=>setConnected(!state.connected));
