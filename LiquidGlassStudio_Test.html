@@ -278,7 +278,7 @@ $$("[data-scene]").forEach(b=>b.addEventListener("click",()=>setScene(b.dataset.
 $$("[data-shape]").forEach(b=>b.addEventListener("click",()=>{setShape(b.dataset.shape);toastMessage("تم تغيير شكل العدسة")}));
 $$("[data-preset]").forEach(b=>b.addEventListener("click",()=>applyPreset(b.dataset.preset)));
 $$("[data-gallery-preset]").forEach(b=>b.addEventListener("click",()=>{const n=b.dataset.galleryPreset;applyPreset(n);$$(".showcase-card").forEach(card=>card.classList.toggle("activated",card.contains(b)))}));
-setSwitch("animation-toggle",state.animate,v=>{state.animate=v;if(v)state.paused=false;applyMotion()});
+setSwitch("animation-toggle",state.animate,v=>{state.animate=v;state.paused=!v;$("#pause-button").textContent=v?"إيقاف مؤقت":"استئناف الحركة";applyMotion()});
 setSwitch("grid-toggle",state.grid,v=>state.grid=v);
 setSwitch("particles-toggle",state.particles,v=>state.particles=v);
 setSwitch("follow-toggle",state.follow,setFollow);
@@ -360,7 +360,7 @@ function draw(now){
   if(!webglReady||!gl||!program)return;raf=requestAnimationFrame(draw);if(document.hidden)return;
   const interval=state.quality<=1?1000/30:1000/60;if(now-lastFrame<interval)return;
   const dt=Math.min(.05,(now-(lastFrame||now))/1000);lastFrame=now;
-  if(state.animate&&!state.paused&&!state.reduced)time+=dt;else if(state.animate&&!state.paused&&state.reduced)time+=dt*.12;
+  if(state.animate&&!state.paused&&!state.reduced)time+=dt;
   const ease=state.reduced?1:1-Math.pow(.001,dt||.016);lensCurrent.x+=(lensTarget.x-lensCurrent.x)*ease;lensCurrent.y+=(lensTarget.y-lensCurrent.y)*ease;
   fpsFrames++;if(now-fpsStart>650){state.fps=Math.round(fpsFrames*1000/(now-fpsStart));$("#fps-value").textContent=String(state.fps);fpsFrames=0;fpsStart=now}
   gl.useProgram(program);
