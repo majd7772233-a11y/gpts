@@ -2,6 +2,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
 |   
 \---mineclonia
     |   API.md
+    |   ARABIC_TRANSLATION_MANIFEST.json
     |   CONTRIBUTING.md
     |   CREDITS.md
     |   DEV_TRANSLATION_WORKFLOW.md
@@ -206,6 +207,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |           mcl_init.kk.po
         |   |           mcl_init.kmr.po
         |   |           mcl_init.ko.po
+        |   |           mcl_init.mcl_init.ar.tr
         |   |           mcl_init.pl.po
         |   |           mcl_init.pt.po
         |   |           mcl_init.pt_BR.po
@@ -240,6 +242,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |           mcl_liquids.kk.po
         |   |           mcl_liquids.kmr.po
         |   |           mcl_liquids.ko.po
+        |   |           mcl_liquids.mcl_liquids.ar.tr
         |   |           mcl_liquids.pl.po
         |   |           mcl_liquids.pt.po
         |   |           mcl_liquids.pt_BR.po
@@ -413,6 +416,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_boats.kk.po
         |   |   |       mcl_boats.kmr.po
         |   |   |       mcl_boats.ko.po
+        |   |   |       mcl_boats.mcl_boats.ar.tr
         |   |   |       mcl_boats.pl.po
         |   |   |       mcl_boats.pt.po
         |   |   |       mcl_boats.pt_BR.po
@@ -492,6 +496,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_charges.kk.po
         |   |   |       mcl_charges.kmr.po
         |   |   |       mcl_charges.ko.po
+        |   |   |       mcl_charges.mcl_charges.ar.tr
         |   |   |       mcl_charges.pl.po
         |   |   |       mcl_charges.pt.po
         |   |   |       mcl_charges.pt_BR.po
@@ -591,6 +596,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_minecarts.kk.po
         |   |   |       mcl_minecarts.kmr.po
         |   |   |       mcl_minecarts.ko.po
+        |   |   |       mcl_minecarts.mcl_minecarts.ar.tr
         |   |   |       mcl_minecarts.pl.po
         |   |   |       mcl_minecarts.pt.po
         |   |   |       mcl_minecarts.pt_BR.po
@@ -681,6 +687,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_mobs.kk.po
         |   |   |       mcl_mobs.kmr.po
         |   |   |       mcl_mobs.ko.po
+        |   |   |       mcl_mobs.mcl_mobs.ar.tr
         |   |   |       mcl_mobs.pl.po
         |   |   |       mcl_mobs.pt.po
         |   |   |       mcl_mobs.pt_BR.po
@@ -731,6 +738,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_paintings.kk.po
         |   |   |       mcl_paintings.kmr.po
         |   |   |       mcl_paintings.ko.po
+        |   |   |       mcl_paintings.mcl_paintings.ar.tr
         |   |   |       mcl_paintings.pl.po
         |   |   |       mcl_paintings.pt.po
         |   |   |       mcl_paintings.pt_BR.po
@@ -862,6 +870,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |       |       mobs_mc.kk.po
         |       |       mobs_mc.kmr.po
         |       |       mobs_mc.ko.po
+        |       |       mobs_mc.mobs_mc.ar.tr
         |       |       mobs_mc.pl.po
         |       |       mobs_mc.pt.po
         |       |       mobs_mc.pt_BR.po
@@ -1515,6 +1524,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_lightning.kk.po
         |   |   |       mcl_lightning.kmr.po
         |   |   |       mcl_lightning.ko.po
+        |   |   |       mcl_lightning.mcl_lightning.ar.tr
         |   |   |       mcl_lightning.pl.po
         |   |   |       mcl_lightning.pt.po
         |   |   |       mcl_lightning.pt_BR.po
@@ -1567,6 +1577,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_raids.kk.po
         |   |   |       mcl_raids.kmr.po
         |   |   |       mcl_raids.ko.po
+        |   |   |       mcl_raids.mcl_raids.ar.tr
         |   |   |       mcl_raids.pl.po
         |   |   |       mcl_raids.pt.po
         |   |   |       mcl_raids.pt_BR.po
@@ -1604,6 +1615,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |           mcl_void_damage.kk.po
         |   |           mcl_void_damage.kmr.po
         |   |           mcl_void_damage.ko.po
+        |   |           mcl_void_damage.mcl_void_damage.ar.tr
         |   |           mcl_void_damage.pl.po
         |   |           mcl_void_damage.pt.po
         |   |           mcl_void_damage.pt_BR.po
@@ -1645,6 +1657,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_weather.kk.po
         |   |   |       mcl_weather.kmr.po
         |   |   |       mcl_weather.ko.po
+        |   |   |       mcl_weather.mcl_weather.ar.tr
         |   |   |       mcl_weather.pl.po
         |   |   |       mcl_weather.pt.po
         |   |   |       mcl_weather.pt_BR.po
@@ -1693,6 +1706,18 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |   mod.conf
         |   |   |   README.md
         |   |   |   
+        |   |   +---doc
+        |   |   |   \---locale
+        |   |   |           doc.doc.ar.tr
+        |   |   |           
+        |   |   +---doc_identifier
+        |   |   |   \---locale
+        |   |   |           doc_identifier.doc_identifier.ar.tr
+        |   |   |           
+        |   |   +---doc_items
+        |   |   |   \---locale
+        |   |   |           doc_items.doc_items.ar.tr
+        |   |   |           
         |   |   +---locale
         |   |   |       doc.be.po
         |   |   |       doc.cs.po
@@ -1829,6 +1854,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_craftguide.kk.po
         |   |   |       mcl_craftguide.kmr.po
         |   |   |       mcl_craftguide.ko.po
+        |   |   |       mcl_craftguide.mcl_craftguide.ar.tr
         |   |   |       mcl_craftguide.pl.po
         |   |   |       mcl_craftguide.pt.po
         |   |   |       mcl_craftguide.pt_BR.po
@@ -1877,6 +1903,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |           mcl_doc.kk.po
         |   |           mcl_doc.kmr.po
         |   |           mcl_doc.ko.po
+        |   |           mcl_doc.mcl_doc.ar.tr
         |   |           mcl_doc.pl.po
         |   |           mcl_doc.pt.po
         |   |           mcl_doc.pt_BR.po
@@ -1914,6 +1941,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_doc_basics.kk.po
         |   |   |       mcl_doc_basics.kmr.po
         |   |   |       mcl_doc_basics.ko.po
+        |   |   |       mcl_doc_basics.mcl_doc_basics.ar.tr
         |   |   |       mcl_doc_basics.pl.po
         |   |   |       mcl_doc_basics.pt.po
         |   |   |       mcl_doc_basics.pt_BR.po
@@ -1972,6 +2000,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |           mcl_tt.kk.po
         |   |           mcl_tt.kmr.po
         |   |           mcl_tt.ko.po
+        |   |           mcl_tt.mcl_tt.ar.tr
         |   |           mcl_tt.pl.po
         |   |           mcl_tt.pt.po
         |   |           mcl_tt.pt_BR.po
@@ -2001,6 +2030,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |   README.md
         |   |   |   
         |   |   +---locale
+        |   |   |       awards.awards.ar.tr
         |   |   |       awards.be.po
         |   |   |       awards.cs.po
         |   |   |       awards.da.po
@@ -2066,6 +2096,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       hudbars.fi.po
         |   |   |       hudbars.fr.po
         |   |   |       hudbars.hu.po
+        |   |   |       hudbars.hudbars.ar.tr
         |   |   |       hudbars.id.po
         |   |   |       hudbars.it.po
         |   |   |       hudbars.ja.po
@@ -2116,6 +2147,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_achievements.kk.po
         |   |   |       mcl_achievements.kmr.po
         |   |   |       mcl_achievements.ko.po
+        |   |   |       mcl_achievements.mcl_achievements.ar.tr
         |   |   |       mcl_achievements.pl.po
         |   |   |       mcl_achievements.pt.po
         |   |   |       mcl_achievements.pt_BR.po
@@ -2169,6 +2201,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_bossbars.kk.po
         |   |   |       mcl_bossbars.kmr.po
         |   |   |       mcl_bossbars.ko.po
+        |   |   |       mcl_bossbars.mcl_bossbars.ar.tr
         |   |   |       mcl_bossbars.pl.po
         |   |   |       mcl_bossbars.pt.po
         |   |   |       mcl_bossbars.pt_BR.po
@@ -2208,6 +2241,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_credits.kk.po
         |   |   |       mcl_credits.kmr.po
         |   |   |       mcl_credits.ko.po
+        |   |   |       mcl_credits.mcl_credits.ar.tr
         |   |   |       mcl_credits.pl.po
         |   |   |       mcl_credits.pt.po
         |   |   |       mcl_credits.pt_BR.po
@@ -2247,6 +2281,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |           mcl_death_messages.kk.po
         |   |           mcl_death_messages.kmr.po
         |   |           mcl_death_messages.ko.po
+        |   |           mcl_death_messages.mcl_death_messages.ar.tr
         |   |           mcl_death_messages.pl.po
         |   |           mcl_death_messages.pt.po
         |   |           mcl_death_messages.pt_BR.po
@@ -2285,6 +2320,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_experience.kk.po
         |   |   |       mcl_experience.kmr.po
         |   |   |       mcl_experience.ko.po
+        |   |   |       mcl_experience.mcl_experience.ar.tr
         |   |   |       mcl_experience.pl.po
         |   |   |       mcl_experience.pt.po
         |   |   |       mcl_experience.pt_BR.po
@@ -2344,6 +2380,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |           mcl_game_meta.kk.po
         |   |           mcl_game_meta.kmr.po
         |   |           mcl_game_meta.ko.po
+        |   |           mcl_game_meta.mcl_game_meta.ar.tr
         |   |           mcl_game_meta.pl.po
         |   |           mcl_game_meta.pt.po
         |   |           mcl_game_meta.pt_BR.po
@@ -2379,6 +2416,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_hbarmor.kk.po
         |   |   |       mcl_hbarmor.kmr.po
         |   |   |       mcl_hbarmor.ko.po
+        |   |   |       mcl_hbarmor.mcl_hbarmor.ar.tr
         |   |   |       mcl_hbarmor.pl.po
         |   |   |       mcl_hbarmor.pt.po
         |   |   |       mcl_hbarmor.pt_BR.po
@@ -2419,6 +2457,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |           mcl_info.kk.po
         |   |           mcl_info.kmr.po
         |   |           mcl_info.ko.po
+        |   |           mcl_info.mcl_info.ar.tr
         |   |           mcl_info.pl.po
         |   |           mcl_info.pt.po
         |   |           mcl_info.pt_BR.po
@@ -2457,6 +2496,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_inventory.kk.po
         |   |   |       mcl_inventory.kmr.po
         |   |   |       mcl_inventory.ko.po
+        |   |   |       mcl_inventory.mcl_inventory.ar.tr
         |   |   |       mcl_inventory.pl.po
         |   |   |       mcl_inventory.pt.po
         |   |   |       mcl_inventory.pt_BR.po
@@ -2539,6 +2579,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mclx_core.kk.po
         |   |   |       mclx_core.kmr.po
         |   |   |       mclx_core.ko.po
+        |   |   |       mclx_core.mclx_core.ar.tr
         |   |   |       mclx_core.pl.po
         |   |   |       mclx_core.pt.po
         |   |   |       mclx_core.pt_BR.po
@@ -2578,6 +2619,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mclx_fences.kk.po
         |   |   |       mclx_fences.kmr.po
         |   |   |       mclx_fences.ko.po
+        |   |   |       mclx_fences.mclx_fences.ar.tr
         |   |   |       mclx_fences.pl.po
         |   |   |       mclx_fences.pt.po
         |   |   |       mclx_fences.pt_BR.po
@@ -2621,6 +2663,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mclx_stairs.kk.po
         |   |   |       mclx_stairs.kmr.po
         |   |   |       mclx_stairs.ko.po
+        |   |   |       mclx_stairs.mclx_stairs.ar.tr
         |   |   |       mclx_stairs.pl.po
         |   |   |       mclx_stairs.pt.po
         |   |   |       mclx_stairs.pt_BR.po
@@ -2662,6 +2705,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_amethyst.kk.po
         |   |   |       mcl_amethyst.kmr.po
         |   |   |       mcl_amethyst.ko.po
+        |   |   |       mcl_amethyst.mcl_amethyst.ar.tr
         |   |   |       mcl_amethyst.pl.po
         |   |   |       mcl_amethyst.pt.po
         |   |   |       mcl_amethyst.pt_BR.po
@@ -2717,6 +2761,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_anvils.kk.po
         |   |   |       mcl_anvils.kmr.po
         |   |   |       mcl_anvils.ko.po
+        |   |   |       mcl_anvils.mcl_anvils.ar.tr
         |   |   |       mcl_anvils.pl.po
         |   |   |       mcl_anvils.pt.po
         |   |   |       mcl_anvils.pt_BR.po
@@ -2770,6 +2815,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_armor.kk.po
         |   |   |       mcl_armor.kmr.po
         |   |   |       mcl_armor.ko.po
+        |   |   |       mcl_armor.mcl_armor.ar.tr
         |   |   |       mcl_armor.pl.po
         |   |   |       mcl_armor.pt.po
         |   |   |       mcl_armor.pt_BR.po
@@ -2971,6 +3017,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_armor_stand.kk.po
         |   |   |       mcl_armor_stand.kmr.po
         |   |   |       mcl_armor_stand.ko.po
+        |   |   |       mcl_armor_stand.mcl_armor_stand.ar.tr
         |   |   |       mcl_armor_stand.pl.po
         |   |   |       mcl_armor_stand.pt.po
         |   |   |       mcl_armor_stand.pt_BR.po
@@ -3015,6 +3062,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_bamboo.kk.po
         |   |   |       mcl_bamboo.kmr.po
         |   |   |       mcl_bamboo.ko.po
+        |   |   |       mcl_bamboo.mcl_bamboo.ar.tr
         |   |   |       mcl_bamboo.pl.po
         |   |   |       mcl_bamboo.pt.po
         |   |   |       mcl_bamboo.pt_BR.po
@@ -3084,6 +3132,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_banners.kk.po
         |   |   |       mcl_banners.kmr.po
         |   |   |       mcl_banners.ko.po
+        |   |   |       mcl_banners.mcl_banners.ar.tr
         |   |   |       mcl_banners.pl.po
         |   |   |       mcl_banners.pt.po
         |   |   |       mcl_banners.pt_BR.po
@@ -3182,6 +3231,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_barrels.kk.po
         |   |   |       mcl_barrels.kmr.po
         |   |   |       mcl_barrels.ko.po
+        |   |   |       mcl_barrels.mcl_barrels.ar.tr
         |   |   |       mcl_barrels.pl.po
         |   |   |       mcl_barrels.pt.po
         |   |   |       mcl_barrels.pt_BR.po
@@ -3228,6 +3278,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_beacons.kk.po
         |   |   |       mcl_beacons.kmr.po
         |   |   |       mcl_beacons.ko.po
+        |   |   |       mcl_beacons.mcl_beacons.ar.tr
         |   |   |       mcl_beacons.pl.po
         |   |   |       mcl_beacons.pt.po
         |   |   |       mcl_beacons.pt_BR.po
@@ -3283,6 +3334,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_beds.kk.po
         |   |   |       mcl_beds.kmr.po
         |   |   |       mcl_beds.ko.po
+        |   |   |       mcl_beds.mcl_beds.ar.tr
         |   |   |       mcl_beds.pl.po
         |   |   |       mcl_beds.pt.po
         |   |   |       mcl_beds.pt_BR.po
@@ -3363,6 +3415,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_beehives.kk.po
         |   |   |       mcl_beehives.kmr.po
         |   |   |       mcl_beehives.ko.po
+        |   |   |       mcl_beehives.mcl_beehives.ar.tr
         |   |   |       mcl_beehives.pl.po
         |   |   |       mcl_beehives.pt.po
         |   |   |       mcl_beehives.pt_BR.po
@@ -3409,6 +3462,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_bells.kk.po
         |   |   |       mcl_bells.kmr.po
         |   |   |       mcl_bells.ko.po
+        |   |   |       mcl_bells.mcl_bells.ar.tr
         |   |   |       mcl_bells.pl.po
         |   |   |       mcl_bells.pt.po
         |   |   |       mcl_bells.pt_BR.po
@@ -3459,6 +3513,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_blackstone.kk.po
         |   |   |       mcl_blackstone.kmr.po
         |   |   |       mcl_blackstone.ko.po
+        |   |   |       mcl_blackstone.mcl_blackstone.ar.tr
         |   |   |       mcl_blackstone.pl.po
         |   |   |       mcl_blackstone.pt.po
         |   |   |       mcl_blackstone.pt_BR.po
@@ -3521,6 +3576,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_blast_furnace.kk.po
         |   |   |       mcl_blast_furnace.kmr.po
         |   |   |       mcl_blast_furnace.ko.po
+        |   |   |       mcl_blast_furnace.mcl_blast_furnace.ar.tr
         |   |   |       mcl_blast_furnace.pl.po
         |   |   |       mcl_blast_furnace.pt.po
         |   |   |       mcl_blast_furnace.pt_BR.po
@@ -3562,6 +3618,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_bone_meal.kk.po
         |   |   |       mcl_bone_meal.kmr.po
         |   |   |       mcl_bone_meal.ko.po
+        |   |   |       mcl_bone_meal.mcl_bone_meal.ar.tr
         |   |   |       mcl_bone_meal.pl.po
         |   |   |       mcl_bone_meal.pt.po
         |   |   |       mcl_bone_meal.pt_BR.po
@@ -3601,6 +3658,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_books.kk.po
         |   |   |       mcl_books.kmr.po
         |   |   |       mcl_books.ko.po
+        |   |   |       mcl_books.mcl_books.ar.tr
         |   |   |       mcl_books.pl.po
         |   |   |       mcl_books.pt.po
         |   |   |       mcl_books.pt_BR.po
@@ -3660,6 +3718,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_bows.kk.po
         |   |   |       mcl_bows.kmr.po
         |   |   |       mcl_bows.ko.po
+        |   |   |       mcl_bows.mcl_bows.ar.tr
         |   |   |       mcl_bows.pl.po
         |   |   |       mcl_bows.pt.po
         |   |   |       mcl_bows.pt_BR.po
@@ -3734,6 +3793,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_brewing.kk.po
         |   |   |       mcl_brewing.kmr.po
         |   |   |       mcl_brewing.ko.po
+        |   |   |       mcl_brewing.mcl_brewing.ar.tr
         |   |   |       mcl_brewing.pl.po
         |   |   |       mcl_brewing.pt.po
         |   |   |       mcl_brewing.pt_BR.po
@@ -3792,6 +3852,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_buckets.kk.po
         |   |   |       mcl_buckets.kmr.po
         |   |   |       mcl_buckets.ko.po
+        |   |   |       mcl_buckets.mcl_buckets.ar.tr
         |   |   |       mcl_buckets.pl.po
         |   |   |       mcl_buckets.pt.po
         |   |   |       mcl_buckets.pt_BR.po
@@ -3833,6 +3894,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_cake.kk.po
         |   |   |       mcl_cake.kmr.po
         |   |   |       mcl_cake.ko.po
+        |   |   |       mcl_cake.mcl_cake.ar.tr
         |   |   |       mcl_cake.pl.po
         |   |   |       mcl_cake.pt.po
         |   |   |       mcl_cake.pt_BR.po
@@ -3878,6 +3940,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_campfires.kk.po
         |   |   |       mcl_campfires.kmr.po
         |   |   |       mcl_campfires.ko.po
+        |   |   |       mcl_campfires.mcl_campfires.ar.tr
         |   |   |       mcl_campfires.pl.po
         |   |   |       mcl_campfires.pt.po
         |   |   |       mcl_campfires.pt_BR.po
@@ -3936,6 +3999,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_candles.kk.po
         |   |   |       mcl_candles.kmr.po
         |   |   |       mcl_candles.ko.po
+        |   |   |       mcl_candles.mcl_candles.ar.tr
         |   |   |       mcl_candles.pl.po
         |   |   |       mcl_candles.pt.po
         |   |   |       mcl_candles.pt_BR.po
@@ -4005,6 +4069,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_cartography_table.kk.po
         |   |   |       mcl_cartography_table.kmr.po
         |   |   |       mcl_cartography_table.ko.po
+        |   |   |       mcl_cartography_table.mcl_cartography_table.ar.tr
         |   |   |       mcl_cartography_table.pl.po
         |   |   |       mcl_cartography_table.pt.po
         |   |   |       mcl_cartography_table.pt_BR.po
@@ -4045,6 +4110,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_cauldrons.kk.po
         |   |   |       mcl_cauldrons.kmr.po
         |   |   |       mcl_cauldrons.ko.po
+        |   |   |       mcl_cauldrons.mcl_cauldrons.ar.tr
         |   |   |       mcl_cauldrons.pl.po
         |   |   |       mcl_cauldrons.pt.po
         |   |   |       mcl_cauldrons.pt_BR.po
@@ -4086,6 +4152,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_cherry_blossom.kk.po
         |   |   |       mcl_cherry_blossom.kmr.po
         |   |   |       mcl_cherry_blossom.ko.po
+        |   |   |       mcl_cherry_blossom.mcl_cherry_blossom.ar.tr
         |   |   |       mcl_cherry_blossom.pl.po
         |   |   |       mcl_cherry_blossom.pt.po
         |   |   |       mcl_cherry_blossom.pt_BR.po
@@ -4152,6 +4219,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_chests.kk.po
         |   |   |       mcl_chests.kmr.po
         |   |   |       mcl_chests.ko.po
+        |   |   |       mcl_chests.mcl_chests.ar.tr
         |   |   |       mcl_chests.pl.po
         |   |   |       mcl_chests.pt.po
         |   |   |       mcl_chests.pt_BR.po
@@ -4225,6 +4293,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_clock.kk.po
         |   |   |       mcl_clock.kmr.po
         |   |   |       mcl_clock.ko.po
+        |   |   |       mcl_clock.mcl_clock.ar.tr
         |   |   |       mcl_clock.pl.po
         |   |   |       mcl_clock.pt.po
         |   |   |       mcl_clock.pt_BR.po
@@ -4326,6 +4395,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_cocoas.kk.po
         |   |   |       mcl_cocoas.kmr.po
         |   |   |       mcl_cocoas.ko.po
+        |   |   |       mcl_cocoas.mcl_cocoas.ar.tr
         |   |   |       mcl_cocoas.pl.po
         |   |   |       mcl_cocoas.pt.po
         |   |   |       mcl_cocoas.pt_BR.po
@@ -4371,6 +4441,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_colorblocks.kk.po
         |   |   |       mcl_colorblocks.kmr.po
         |   |   |       mcl_colorblocks.ko.po
+        |   |   |       mcl_colorblocks.mcl_colorblocks.ar.tr
         |   |   |       mcl_colorblocks.pl.po
         |   |   |       mcl_colorblocks.pt.po
         |   |   |       mcl_colorblocks.pt_BR.po
@@ -4473,6 +4544,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_compass.kk.po
         |   |   |       mcl_compass.kmr.po
         |   |   |       mcl_compass.ko.po
+        |   |   |       mcl_compass.mcl_compass.ar.tr
         |   |   |       mcl_compass.pl.po
         |   |   |       mcl_compass.pt.po
         |   |   |       mcl_compass.pt_BR.po
@@ -4579,6 +4651,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_composters.kk.po
         |   |   |       mcl_composters.kmr.po
         |   |   |       mcl_composters.ko.po
+        |   |   |       mcl_composters.mcl_composters.ar.tr
         |   |   |       mcl_composters.pl.po
         |   |   |       mcl_composters.pt.po
         |   |   |       mcl_composters.pt_BR.po
@@ -4620,6 +4693,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_conduits.kk.po
         |   |   |       mcl_conduits.kmr.po
         |   |   |       mcl_conduits.ko.po
+        |   |   |       mcl_conduits.mcl_conduits.ar.tr
         |   |   |       mcl_conduits.pl.po
         |   |   |       mcl_conduits.pt.po
         |   |   |       mcl_conduits.pt_BR.po
@@ -4663,6 +4737,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_copper.kk.po
         |   |   |       mcl_copper.kmr.po
         |   |   |       mcl_copper.ko.po
+        |   |   |       mcl_copper.mcl_copper.ar.tr
         |   |   |       mcl_copper.pl.po
         |   |   |       mcl_copper.pt.po
         |   |   |       mcl_copper.pt_BR.po
@@ -4828,6 +4903,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_core.kk.po
         |   |   |       mcl_core.kmr.po
         |   |   |       mcl_core.ko.po
+        |   |   |       mcl_core.mcl_core.ar.tr
         |   |   |       mcl_core.pl.po
         |   |   |       mcl_core.pt.po
         |   |   |       mcl_core.pt_BR.po
@@ -5135,6 +5211,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_crafting_table.kk.po
         |   |   |       mcl_crafting_table.kmr.po
         |   |   |       mcl_crafting_table.ko.po
+        |   |   |       mcl_crafting_table.mcl_crafting_table.ar.tr
         |   |   |       mcl_crafting_table.pl.po
         |   |   |       mcl_crafting_table.pt.po
         |   |   |       mcl_crafting_table.pt_BR.po
@@ -5178,6 +5255,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_crimson.kk.po
         |   |   |       mcl_crimson.kmr.po
         |   |   |       mcl_crimson.ko.po
+        |   |   |       mcl_crimson.mcl_crimson.ar.tr
         |   |   |       mcl_crimson.pl.po
         |   |   |       mcl_crimson.pt.po
         |   |   |       mcl_crimson.pt_BR.po
@@ -5277,6 +5355,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_deepslate.kk.po
         |   |   |       mcl_deepslate.kmr.po
         |   |   |       mcl_deepslate.ko.po
+        |   |   |       mcl_deepslate.mcl_deepslate.ar.tr
         |   |   |       mcl_deepslate.pl.po
         |   |   |       mcl_deepslate.pt.po
         |   |   |       mcl_deepslate.pt_BR.po
@@ -5345,6 +5424,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_doors.kk.po
         |   |   |       mcl_doors.kmr.po
         |   |   |       mcl_doors.ko.po
+        |   |   |       mcl_doors.mcl_doors.ar.tr
         |   |   |       mcl_doors.pl.po
         |   |   |       mcl_doors.pt.po
         |   |   |       mcl_doors.pt_BR.po
@@ -5437,6 +5517,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_dripstone.kk.po
         |   |   |       mcl_dripstone.kmr.po
         |   |   |       mcl_dripstone.ko.po
+        |   |   |       mcl_dripstone.mcl_dripstone.ar.tr
         |   |   |       mcl_dripstone.pl.po
         |   |   |       mcl_dripstone.pt.po
         |   |   |       mcl_dripstone.pt_BR.po
@@ -5481,6 +5562,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_dyes.kk.po
         |   |   |       mcl_dyes.kmr.po
         |   |   |       mcl_dyes.ko.po
+        |   |   |       mcl_dyes.mcl_dyes.ar.tr
         |   |   |       mcl_dyes.pl.po
         |   |   |       mcl_dyes.pt.po
         |   |   |       mcl_dyes.pt_BR.po
@@ -5537,6 +5619,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_enchanting.kk.po
         |   |   |       mcl_enchanting.kmr.po
         |   |   |       mcl_enchanting.ko.po
+        |   |   |       mcl_enchanting.mcl_enchanting.ar.tr
         |   |   |       mcl_enchanting.pl.po
         |   |   |       mcl_enchanting.pt.po
         |   |   |       mcl_enchanting.pt_BR.po
@@ -5625,6 +5708,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_end.kk.po
         |   |   |       mcl_end.kmr.po
         |   |   |       mcl_end.ko.po
+        |   |   |       mcl_end.mcl_end.ar.tr
         |   |   |       mcl_end.pl.po
         |   |   |       mcl_end.pt.po
         |   |   |       mcl_end.pt_BR.po
@@ -5726,6 +5810,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_farming.kk.po
         |   |   |       mcl_farming.kmr.po
         |   |   |       mcl_farming.ko.po
+        |   |   |       mcl_farming.mcl_farming.ar.tr
         |   |   |       mcl_farming.pl.po
         |   |   |       mcl_farming.pt.po
         |   |   |       mcl_farming.pt_BR.po
@@ -5831,6 +5916,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_fences.kk.po
         |   |   |       mcl_fences.kmr.po
         |   |   |       mcl_fences.ko.po
+        |   |   |       mcl_fences.mcl_fences.ar.tr
         |   |   |       mcl_fences.pl.po
         |   |   |       mcl_fences.pt.po
         |   |   |       mcl_fences.pt_BR.po
@@ -5889,6 +5975,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_fire.kk.po
         |   |   |       mcl_fire.kmr.po
         |   |   |       mcl_fire.ko.po
+        |   |   |       mcl_fire.mcl_fire.ar.tr
         |   |   |       mcl_fire.pl.po
         |   |   |       mcl_fire.pt.po
         |   |   |       mcl_fire.pt_BR.po
@@ -5944,6 +6031,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_fireworks.kk.po
         |   |   |       mcl_fireworks.kmr.po
         |   |   |       mcl_fireworks.ko.po
+        |   |   |       mcl_fireworks.mcl_fireworks.ar.tr
         |   |   |       mcl_fireworks.pl.po
         |   |   |       mcl_fireworks.pt.po
         |   |   |       mcl_fireworks.pt_BR.po
@@ -5986,6 +6074,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_fishing.kk.po
         |   |   |       mcl_fishing.kmr.po
         |   |   |       mcl_fishing.ko.po
+        |   |   |       mcl_fishing.mcl_fishing.ar.tr
         |   |   |       mcl_fishing.pl.po
         |   |   |       mcl_fishing.pt.po
         |   |   |       mcl_fishing.pt_BR.po
@@ -6040,6 +6129,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_fletching_table.kk.po
         |   |   |       mcl_fletching_table.kmr.po
         |   |   |       mcl_fletching_table.ko.po
+        |   |   |       mcl_fletching_table.mcl_fletching_table.ar.tr
         |   |   |       mcl_fletching_table.pl.po
         |   |   |       mcl_fletching_table.pt.po
         |   |   |       mcl_fletching_table.pt_BR.po
@@ -6082,6 +6172,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_flowerpots.kk.po
         |   |   |       mcl_flowerpots.kmr.po
         |   |   |       mcl_flowerpots.ko.po
+        |   |   |       mcl_flowerpots.mcl_flowerpots.ar.tr
         |   |   |       mcl_flowerpots.pl.po
         |   |   |       mcl_flowerpots.pt.po
         |   |   |       mcl_flowerpots.pt_BR.po
@@ -6131,6 +6222,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_flowers.kk.po
         |   |   |       mcl_flowers.kmr.po
         |   |   |       mcl_flowers.ko.po
+        |   |   |       mcl_flowers.mcl_flowers.ar.tr
         |   |   |       mcl_flowers.pl.po
         |   |   |       mcl_flowers.pt.po
         |   |   |       mcl_flowers.pt_BR.po
@@ -6224,6 +6316,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_furnaces.kk.po
         |   |   |       mcl_furnaces.kmr.po
         |   |   |       mcl_furnaces.ko.po
+        |   |   |       mcl_furnaces.mcl_furnaces.ar.tr
         |   |   |       mcl_furnaces.pl.po
         |   |   |       mcl_furnaces.pt.po
         |   |   |       mcl_furnaces.pt_BR.po
@@ -6270,6 +6363,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_grindstone.kk.po
         |   |   |       mcl_grindstone.kmr.po
         |   |   |       mcl_grindstone.ko.po
+        |   |   |       mcl_grindstone.mcl_grindstone.ar.tr
         |   |   |       mcl_grindstone.pl.po
         |   |   |       mcl_grindstone.pt.po
         |   |   |       mcl_grindstone.pt_BR.po
@@ -6309,6 +6403,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_heads.kk.po
         |   |   |       mcl_heads.kmr.po
         |   |   |       mcl_heads.ko.po
+        |   |   |       mcl_heads.mcl_heads.ar.tr
         |   |   |       mcl_heads.pl.po
         |   |   |       mcl_heads.pt.po
         |   |   |       mcl_heads.pt_BR.po
@@ -6362,6 +6457,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_honey.kk.po
         |   |   |       mcl_honey.kmr.po
         |   |   |       mcl_honey.ko.po
+        |   |   |       mcl_honey.mcl_honey.ar.tr
         |   |   |       mcl_honey.pl.po
         |   |   |       mcl_honey.pt.po
         |   |   |       mcl_honey.pt_BR.po
@@ -6407,6 +6503,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_hoppers.kk.po
         |   |   |       mcl_hoppers.kmr.po
         |   |   |       mcl_hoppers.ko.po
+        |   |   |       mcl_hoppers.mcl_hoppers.ar.tr
         |   |   |       mcl_hoppers.pl.po
         |   |   |       mcl_hoppers.pt.po
         |   |   |       mcl_hoppers.pt_BR.po
@@ -6450,6 +6547,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_itemframes.kk.po
         |   |   |       mcl_itemframes.kmr.po
         |   |   |       mcl_itemframes.ko.po
+        |   |   |       mcl_itemframes.mcl_itemframes.ar.tr
         |   |   |       mcl_itemframes.pl.po
         |   |   |       mcl_itemframes.pt.po
         |   |   |       mcl_itemframes.pt_BR.po
@@ -6497,6 +6595,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_jukebox.kk.po
         |   |   |       mcl_jukebox.kmr.po
         |   |   |       mcl_jukebox.ko.po
+        |   |   |       mcl_jukebox.mcl_jukebox.ar.tr
         |   |   |       mcl_jukebox.pl.po
         |   |   |       mcl_jukebox.pt.po
         |   |   |       mcl_jukebox.pt_BR.po
@@ -6558,6 +6657,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_lanterns.kk.po
         |   |   |       mcl_lanterns.kmr.po
         |   |   |       mcl_lanterns.ko.po
+        |   |   |       mcl_lanterns.mcl_lanterns.ar.tr
         |   |   |       mcl_lanterns.pl.po
         |   |   |       mcl_lanterns.pt.po
         |   |   |       mcl_lanterns.pt_BR.po
@@ -6606,6 +6706,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_lectern.kk.po
         |   |   |       mcl_lectern.kmr.po
         |   |   |       mcl_lectern.ko.po
+        |   |   |       mcl_lectern.mcl_lectern.ar.tr
         |   |   |       mcl_lectern.pl.po
         |   |   |       mcl_lectern.pt.po
         |   |   |       mcl_lectern.pt_BR.po
@@ -6647,6 +6748,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_lightning_rods.kk.po
         |   |   |       mcl_lightning_rods.kmr.po
         |   |   |       mcl_lightning_rods.ko.po
+        |   |   |       mcl_lightning_rods.mcl_lightning_rods.ar.tr
         |   |   |       mcl_lightning_rods.pl.po
         |   |   |       mcl_lightning_rods.pt.po
         |   |   |       mcl_lightning_rods.pt_BR.po
@@ -6691,6 +6793,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_loom.kk.po
         |   |   |       mcl_loom.kmr.po
         |   |   |       mcl_loom.ko.po
+        |   |   |       mcl_loom.mcl_loom.ar.tr
         |   |   |       mcl_loom.pl.po
         |   |   |       mcl_loom.pt.po
         |   |   |       mcl_loom.pt_BR.po
@@ -6738,6 +6841,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_lush_caves.kk.po
         |   |   |       mcl_lush_caves.kmr.po
         |   |   |       mcl_lush_caves.ko.po
+        |   |   |       mcl_lush_caves.mcl_lush_caves.ar.tr
         |   |   |       mcl_lush_caves.pl.po
         |   |   |       mcl_lush_caves.pt.po
         |   |   |       mcl_lush_caves.pt_BR.po
@@ -6820,6 +6924,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_mangrove.kk.po
         |   |   |       mcl_mangrove.kmr.po
         |   |   |       mcl_mangrove.ko.po
+        |   |   |       mcl_mangrove.mcl_mangrove.ar.tr
         |   |   |       mcl_mangrove.pl.po
         |   |   |       mcl_mangrove.pt.po
         |   |   |       mcl_mangrove.pt_BR.po
@@ -6890,6 +6995,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_maps.kk.po
         |   |   |       mcl_maps.kmr.po
         |   |   |       mcl_maps.ko.po
+        |   |   |       mcl_maps.mcl_maps.ar.tr
         |   |   |       mcl_maps.pl.po
         |   |   |       mcl_maps.pt.po
         |   |   |       mcl_maps.pt_BR.po
@@ -6932,6 +7038,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_mobitems.kk.po
         |   |   |       mcl_mobitems.kmr.po
         |   |   |       mcl_mobitems.ko.po
+        |   |   |       mcl_mobitems.mcl_mobitems.ar.tr
         |   |   |       mcl_mobitems.pl.po
         |   |   |       mcl_mobitems.pt.po
         |   |   |       mcl_mobitems.pt_BR.po
@@ -7019,6 +7126,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_mobspawners.kk.po
         |   |   |       mcl_mobspawners.kmr.po
         |   |   |       mcl_mobspawners.ko.po
+        |   |   |       mcl_mobspawners.mcl_mobspawners.ar.tr
         |   |   |       mcl_mobspawners.pl.po
         |   |   |       mcl_mobspawners.pt.po
         |   |   |       mcl_mobspawners.pt_BR.po
@@ -7057,6 +7165,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |           mcl_monster_eggs.kk.po
         |   |           mcl_monster_eggs.kmr.po
         |   |           mcl_monster_eggs.ko.po
+        |   |           mcl_monster_eggs.mcl_monster_eggs.ar.tr
         |   |           mcl_monster_eggs.pl.po
         |   |           mcl_monster_eggs.pt.po
         |   |           mcl_monster_eggs.pt_BR.po
@@ -7092,6 +7201,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_mud.kk.po
         |   |   |       mcl_mud.kmr.po
         |   |   |       mcl_mud.ko.po
+        |   |   |       mcl_mud.mcl_mud.ar.tr
         |   |   |       mcl_mud.pl.po
         |   |   |       mcl_mud.pt.po
         |   |   |       mcl_mud.pt_BR.po
@@ -7139,6 +7249,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_mushrooms.kk.po
         |   |   |       mcl_mushrooms.kmr.po
         |   |   |       mcl_mushrooms.ko.po
+        |   |   |       mcl_mushrooms.mcl_mushrooms.ar.tr
         |   |   |       mcl_mushrooms.pl.po
         |   |   |       mcl_mushrooms.pt.po
         |   |   |       mcl_mushrooms.pt_BR.po
@@ -7191,6 +7302,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_nether.kk.po
         |   |   |       mcl_nether.kmr.po
         |   |   |       mcl_nether.ko.po
+        |   |   |       mcl_nether.mcl_nether.ar.tr
         |   |   |       mcl_nether.pl.po
         |   |   |       mcl_nether.pt.po
         |   |   |       mcl_nether.pt_BR.po
@@ -7264,6 +7376,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_ocean.kk.po
         |   |   |       mcl_ocean.kmr.po
         |   |   |       mcl_ocean.ko.po
+        |   |   |       mcl_ocean.mcl_ocean.ar.tr
         |   |   |       mcl_ocean.pl.po
         |   |   |       mcl_ocean.pt.po
         |   |   |       mcl_ocean.pt_BR.po
@@ -7355,6 +7468,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_pale_oak.kk.po
         |   |   |       mcl_pale_oak.kmr.po
         |   |   |       mcl_pale_oak.ko.po
+        |   |   |       mcl_pale_oak.mcl_pale_oak.ar.tr
         |   |   |       mcl_pale_oak.pl.po
         |   |   |       mcl_pale_oak.pt.po
         |   |   |       mcl_pale_oak.pt_BR.po
@@ -7418,6 +7532,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_panes.kk.po
         |   |   |       mcl_panes.kmr.po
         |   |   |       mcl_panes.ko.po
+        |   |   |       mcl_panes.mcl_panes.ar.tr
         |   |   |       mcl_panes.pl.po
         |   |   |       mcl_panes.pt.po
         |   |   |       mcl_panes.pt_BR.po
@@ -7479,6 +7594,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_portals.kk.po
         |   |   |       mcl_portals.kmr.po
         |   |   |       mcl_portals.ko.po
+        |   |   |       mcl_portals.mcl_portals.ar.tr
         |   |   |       mcl_portals.pl.po
         |   |   |       mcl_portals.pt.po
         |   |   |       mcl_portals.pt_BR.po
@@ -7547,6 +7663,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_potions.kk.po
         |   |   |       mcl_potions.kmr.po
         |   |   |       mcl_potions.ko.po
+        |   |   |       mcl_potions.mcl_potions.ar.tr
         |   |   |       mcl_potions.pl.po
         |   |   |       mcl_potions.pt.po
         |   |   |       mcl_potions.pt_BR.po
@@ -7627,6 +7744,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_pottery_sherds.kk.po
         |   |   |       mcl_pottery_sherds.kmr.po
         |   |   |       mcl_pottery_sherds.ko.po
+        |   |   |       mcl_pottery_sherds.mcl_pottery_sherds.ar.tr
         |   |   |       mcl_pottery_sherds.pl.po
         |   |   |       mcl_pottery_sherds.pt.po
         |   |   |       mcl_pottery_sherds.pt_BR.po
@@ -7713,6 +7831,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_powder_snow.kk.po
         |   |   |       mcl_powder_snow.kmr.po
         |   |   |       mcl_powder_snow.ko.po
+        |   |   |       mcl_powder_snow.mcl_powder_snow.ar.tr
         |   |   |       mcl_powder_snow.pl.po
         |   |   |       mcl_powder_snow.pt.po
         |   |   |       mcl_powder_snow.pt_BR.po
@@ -7755,6 +7874,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_raw_ores.kk.po
         |   |   |       mcl_raw_ores.kmr.po
         |   |   |       mcl_raw_ores.ko.po
+        |   |   |       mcl_raw_ores.mcl_raw_ores.ar.tr
         |   |   |       mcl_raw_ores.pl.po
         |   |   |       mcl_raw_ores.pt.po
         |   |   |       mcl_raw_ores.pt_BR.po
@@ -7796,6 +7916,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_sculk.kk.po
         |   |   |       mcl_sculk.kmr.po
         |   |   |       mcl_sculk.ko.po
+        |   |   |       mcl_sculk.mcl_sculk.ar.tr
         |   |   |       mcl_sculk.pl.po
         |   |   |       mcl_sculk.pt.po
         |   |   |       mcl_sculk.pt_BR.po
@@ -7849,6 +7970,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_shields.kk.po
         |   |   |       mcl_shields.kmr.po
         |   |   |       mcl_shields.ko.po
+        |   |   |       mcl_shields.mcl_shields.ar.tr
         |   |   |       mcl_shields.pl.po
         |   |   |       mcl_shields.pt.po
         |   |   |       mcl_shields.pt_BR.po
@@ -7899,6 +8021,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_signs.kk.po
         |   |   |       mcl_signs.kmr.po
         |   |   |       mcl_signs.ko.po
+        |   |   |       mcl_signs.mcl_signs.ar.tr
         |   |   |       mcl_signs.pl.po
         |   |   |       mcl_signs.pt.po
         |   |   |       mcl_signs.pt_BR.po
@@ -8410,6 +8533,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_smithing_table.kk.po
         |   |   |       mcl_smithing_table.kmr.po
         |   |   |       mcl_smithing_table.ko.po
+        |   |   |       mcl_smithing_table.mcl_smithing_table.ar.tr
         |   |   |       mcl_smithing_table.pl.po
         |   |   |       mcl_smithing_table.pt.po
         |   |   |       mcl_smithing_table.pt_BR.po
@@ -8454,6 +8578,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_smoker.kk.po
         |   |   |       mcl_smoker.kmr.po
         |   |   |       mcl_smoker.ko.po
+        |   |   |       mcl_smoker.mcl_smoker.ar.tr
         |   |   |       mcl_smoker.pl.po
         |   |   |       mcl_smoker.pt.po
         |   |   |       mcl_smoker.pt_BR.po
@@ -8495,6 +8620,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_sponges.kk.po
         |   |   |       mcl_sponges.kmr.po
         |   |   |       mcl_sponges.ko.po
+        |   |   |       mcl_sponges.mcl_sponges.ar.tr
         |   |   |       mcl_sponges.pl.po
         |   |   |       mcl_sponges.pt.po
         |   |   |       mcl_sponges.pt_BR.po
@@ -8539,6 +8665,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_spyglass.kk.po
         |   |   |       mcl_spyglass.kmr.po
         |   |   |       mcl_spyglass.ko.po
+        |   |   |       mcl_spyglass.mcl_spyglass.ar.tr
         |   |   |       mcl_spyglass.pl.po
         |   |   |       mcl_spyglass.pt.po
         |   |   |       mcl_spyglass.pt_BR.po
@@ -8583,6 +8710,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_stairs.kk.po
         |   |   |       mcl_stairs.kmr.po
         |   |   |       mcl_stairs.ko.po
+        |   |   |       mcl_stairs.mcl_stairs.ar.tr
         |   |   |       mcl_stairs.pl.po
         |   |   |       mcl_stairs.pt.po
         |   |   |       mcl_stairs.pt_BR.po
@@ -8626,6 +8754,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_stonecutter.kk.po
         |   |   |       mcl_stonecutter.kmr.po
         |   |   |       mcl_stonecutter.ko.po
+        |   |   |       mcl_stonecutter.mcl_stonecutter.ar.tr
         |   |   |       mcl_stonecutter.pl.po
         |   |   |       mcl_stonecutter.pt.po
         |   |   |       mcl_stonecutter.pt_BR.po
@@ -8666,6 +8795,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_sus_nodes.kk.po
         |   |   |       mcl_sus_nodes.kmr.po
         |   |   |       mcl_sus_nodes.ko.po
+        |   |   |       mcl_sus_nodes.mcl_sus_nodes.ar.tr
         |   |   |       mcl_sus_nodes.pl.po
         |   |   |       mcl_sus_nodes.pt.po
         |   |   |       mcl_sus_nodes.pt_BR.po
@@ -8709,6 +8839,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_sus_stew.kk.po
         |   |   |       mcl_sus_stew.kmr.po
         |   |   |       mcl_sus_stew.ko.po
+        |   |   |       mcl_sus_stew.mcl_sus_stew.ar.tr
         |   |   |       mcl_sus_stew.pl.po
         |   |   |       mcl_sus_stew.pt.po
         |   |   |       mcl_sus_stew.pt_BR.po
@@ -8749,6 +8880,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_throwing.kk.po
         |   |   |       mcl_throwing.kmr.po
         |   |   |       mcl_throwing.ko.po
+        |   |   |       mcl_throwing.mcl_throwing.ar.tr
         |   |   |       mcl_throwing.pl.po
         |   |   |       mcl_throwing.pt.po
         |   |   |       mcl_throwing.pt_BR.po
@@ -8795,6 +8927,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_tnt.kk.po
         |   |   |       mcl_tnt.kmr.po
         |   |   |       mcl_tnt.ko.po
+        |   |   |       mcl_tnt.mcl_tnt.ar.tr
         |   |   |       mcl_tnt.pl.po
         |   |   |       mcl_tnt.pt.po
         |   |   |       mcl_tnt.pt_BR.po
@@ -8842,6 +8975,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_tools.kk.po
         |   |   |       mcl_tools.kmr.po
         |   |   |       mcl_tools.ko.po
+        |   |   |       mcl_tools.mcl_tools.ar.tr
         |   |   |       mcl_tools.pl.po
         |   |   |       mcl_tools.pt.po
         |   |   |       mcl_tools.pt_BR.po
@@ -8914,6 +9048,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_torches.kk.po
         |   |   |       mcl_torches.kmr.po
         |   |   |       mcl_torches.ko.po
+        |   |   |       mcl_torches.mcl_torches.ar.tr
         |   |   |       mcl_torches.pl.po
         |   |   |       mcl_torches.pt.po
         |   |   |       mcl_torches.pt_BR.po
@@ -8956,6 +9091,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_totems.kk.po
         |   |   |       mcl_totems.kmr.po
         |   |   |       mcl_totems.ko.po
+        |   |   |       mcl_totems.mcl_totems.ar.tr
         |   |   |       mcl_totems.pl.po
         |   |   |       mcl_totems.pt.po
         |   |   |       mcl_totems.pt_BR.po
@@ -9003,6 +9139,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_trees.kk.po
         |   |   |       mcl_trees.kmr.po
         |   |   |       mcl_trees.ko.po
+        |   |   |       mcl_trees.mcl_trees.ar.tr
         |   |   |       mcl_trees.pl.po
         |   |   |       mcl_trees.pt.po
         |   |   |       mcl_trees.pt_BR.po
@@ -9045,6 +9182,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_trial_spawners.kk.po
         |   |   |       mcl_trial_spawners.kmr.po
         |   |   |       mcl_trial_spawners.ko.po
+        |   |   |       mcl_trial_spawners.mcl_trial_spawners.ar.tr
         |   |   |       mcl_trial_spawners.pl.po
         |   |   |       mcl_trial_spawners.pt.po
         |   |   |       mcl_trial_spawners.pt_BR.po
@@ -9096,6 +9234,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_tridents.kk.po
         |   |   |       mcl_tridents.kmr.po
         |   |   |       mcl_tridents.ko.po
+        |   |   |       mcl_tridents.mcl_tridents.ar.tr
         |   |   |       mcl_tridents.pl.po
         |   |   |       mcl_tridents.pt.po
         |   |   |       mcl_tridents.pt_BR.po
@@ -9150,6 +9289,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_vaults.kk.po
         |   |   |       mcl_vaults.kmr.po
         |   |   |       mcl_vaults.ko.po
+        |   |   |       mcl_vaults.mcl_vaults.ar.tr
         |   |   |       mcl_vaults.pl.po
         |   |   |       mcl_vaults.pt.po
         |   |   |       mcl_vaults.pt_BR.po
@@ -9209,6 +9349,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_walls.kk.po
         |   |   |       mcl_walls.kmr.po
         |   |   |       mcl_walls.ko.po
+        |   |   |       mcl_walls.mcl_walls.ar.tr
         |   |   |       mcl_walls.pl.po
         |   |   |       mcl_walls.pt.po
         |   |   |       mcl_walls.pt_BR.po
@@ -9251,6 +9392,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_wool.kk.po
         |   |   |       mcl_wool.kmr.po
         |   |   |       mcl_wool.ko.po
+        |   |   |       mcl_wool.mcl_wool.ar.tr
         |   |   |       mcl_wool.pl.po
         |   |   |       mcl_wool.pt.po
         |   |   |       mcl_wool.pt_BR.po
@@ -9308,6 +9450,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |   |       mcl_buttons.kk.po
         |   |   |   |       mcl_buttons.kmr.po
         |   |   |   |       mcl_buttons.ko.po
+        |   |   |   |       mcl_buttons.mcl_buttons.ar.tr
         |   |   |   |       mcl_buttons.pl.po
         |   |   |   |       mcl_buttons.pt.po
         |   |   |   |       mcl_buttons.pt_BR.po
@@ -9345,6 +9488,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |   |       mcl_commandblock.kk.po
         |   |   |   |       mcl_commandblock.kmr.po
         |   |   |   |       mcl_commandblock.ko.po
+        |   |   |   |       mcl_commandblock.mcl_commandblock.ar.tr
         |   |   |   |       mcl_commandblock.pl.po
         |   |   |   |       mcl_commandblock.pt.po
         |   |   |   |       mcl_commandblock.pt_BR.po
@@ -9383,6 +9527,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |   |       mcl_comparators.kk.po
         |   |   |   |       mcl_comparators.kmr.po
         |   |   |   |       mcl_comparators.ko.po
+        |   |   |   |       mcl_comparators.mcl_comparators.ar.tr
         |   |   |   |       mcl_comparators.pl.po
         |   |   |   |       mcl_comparators.pt.po
         |   |   |   |       mcl_comparators.pt_BR.po
@@ -9432,6 +9577,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |   |       mcl_daylight_detector.kk.po
         |   |   |   |       mcl_daylight_detector.kmr.po
         |   |   |   |       mcl_daylight_detector.ko.po
+        |   |   |   |       mcl_daylight_detector.mcl_daylight_detector.ar.tr
         |   |   |   |       mcl_daylight_detector.pl.po
         |   |   |   |       mcl_daylight_detector.pt.po
         |   |   |   |       mcl_daylight_detector.pt_BR.po
@@ -9472,6 +9618,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |   |       mcl_dispensers.kk.po
         |   |   |   |       mcl_dispensers.kmr.po
         |   |   |   |       mcl_dispensers.ko.po
+        |   |   |   |       mcl_dispensers.mcl_dispensers.ar.tr
         |   |   |   |       mcl_dispensers.pl.po
         |   |   |   |       mcl_dispensers.pt.po
         |   |   |   |       mcl_dispensers.pt_BR.po
@@ -9512,6 +9659,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |   |       mcl_lever.kk.po
         |   |   |   |       mcl_lever.kmr.po
         |   |   |   |       mcl_lever.ko.po
+        |   |   |   |       mcl_lever.mcl_lever.ar.tr
         |   |   |   |       mcl_lever.pl.po
         |   |   |   |       mcl_lever.pt.po
         |   |   |   |       mcl_lever.pt_BR.po
@@ -9551,6 +9699,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |   |       mcl_noteblock.kk.po
         |   |   |   |       mcl_noteblock.kmr.po
         |   |   |   |       mcl_noteblock.ko.po
+        |   |   |   |       mcl_noteblock.mcl_noteblock.ar.tr
         |   |   |   |       mcl_noteblock.pl.po
         |   |   |   |       mcl_noteblock.pt.po
         |   |   |   |       mcl_noteblock.pt_BR.po
@@ -9630,6 +9779,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |   |       mcl_observers.kk.po
         |   |   |   |       mcl_observers.kmr.po
         |   |   |   |       mcl_observers.ko.po
+        |   |   |   |       mcl_observers.mcl_observers.ar.tr
         |   |   |   |       mcl_observers.pl.po
         |   |   |   |       mcl_observers.pt.po
         |   |   |   |       mcl_observers.pt_BR.po
@@ -9673,6 +9823,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |   |       mcl_pistons.kk.po
         |   |   |   |       mcl_pistons.kmr.po
         |   |   |   |       mcl_pistons.ko.po
+        |   |   |   |       mcl_pistons.mcl_pistons.ar.tr
         |   |   |   |       mcl_pistons.pl.po
         |   |   |   |       mcl_pistons.pt.po
         |   |   |   |       mcl_pistons.pt_BR.po
@@ -9724,6 +9875,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |   |       mcl_pressureplates.kk.po
         |   |   |   |       mcl_pressureplates.kmr.po
         |   |   |   |       mcl_pressureplates.ko.po
+        |   |   |   |       mcl_pressureplates.mcl_pressureplates.ar.tr
         |   |   |   |       mcl_pressureplates.pl.po
         |   |   |   |       mcl_pressureplates.pt.po
         |   |   |   |       mcl_pressureplates.pt_BR.po
@@ -9767,6 +9919,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |   |       mcl_redstone.kk.po
         |   |   |   |       mcl_redstone.kmr.po
         |   |   |   |       mcl_redstone.ko.po
+        |   |   |   |       mcl_redstone.mcl_redstone.ar.tr
         |   |   |   |       mcl_redstone.pl.po
         |   |   |   |       mcl_redstone.pt.po
         |   |   |   |       mcl_redstone.pt_BR.po
@@ -9817,6 +9970,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |   |       mcl_redstone_lamp.kk.po
         |   |   |   |       mcl_redstone_lamp.kmr.po
         |   |   |   |       mcl_redstone_lamp.ko.po
+        |   |   |   |       mcl_redstone_lamp.mcl_redstone_lamp.ar.tr
         |   |   |   |       mcl_redstone_lamp.pl.po
         |   |   |   |       mcl_redstone_lamp.pt.po
         |   |   |   |       mcl_redstone_lamp.pt_BR.po
@@ -9855,6 +10009,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |   |       mcl_redstone_torch.kk.po
         |   |   |   |       mcl_redstone_torch.kmr.po
         |   |   |   |       mcl_redstone_torch.ko.po
+        |   |   |   |       mcl_redstone_torch.mcl_redstone_torch.ar.tr
         |   |   |   |       mcl_redstone_torch.pl.po
         |   |   |   |       mcl_redstone_torch.pt.po
         |   |   |   |       mcl_redstone_torch.pt_BR.po
@@ -9893,6 +10048,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |   |       mcl_repeaters.kk.po
         |   |   |   |       mcl_repeaters.kmr.po
         |   |   |   |       mcl_repeaters.ko.po
+        |   |   |   |       mcl_repeaters.mcl_repeaters.ar.tr
         |   |   |   |       mcl_repeaters.pl.po
         |   |   |   |       mcl_repeaters.pt.po
         |   |   |   |       mcl_repeaters.pt_BR.po
@@ -9944,6 +10100,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |       |       mcl_target.kk.po
         |   |       |       mcl_target.kmr.po
         |   |       |       mcl_target.ko.po
+        |   |       |       mcl_target.mcl_target.ar.tr
         |   |       |       mcl_target.pl.po
         |   |       |       mcl_target.pt.po
         |   |       |       mcl_target.pt_BR.po
@@ -9989,6 +10146,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |       |       screwdriver.pt.po
         |       |       screwdriver.pt_BR.po
         |       |       screwdriver.ru.po
+        |       |       screwdriver.screwdriver.ar.tr
         |       |       screwdriver.sv.po
         |       |       screwdriver.tr.po
         |       |       screwdriver.uk.po
@@ -10020,6 +10178,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |   mod.conf
         |   |   |   
         |   |   +---locale
+        |   |   |       mcl_biome_dispatch.ar.po
         |   |   |       mcl_biome_dispatch.be.po
         |   |   |       mcl_biome_dispatch.cs.po
         |   |   |       mcl_biome_dispatch.da.po
@@ -10141,6 +10300,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_levelgen.kk.po
         |   |   |       mcl_levelgen.kmr.po
         |   |   |       mcl_levelgen.ko.po
+        |   |   |       mcl_levelgen.mcl_levelgen.ar.tr
         |   |   |       mcl_levelgen.pl.po
         |   |   |       mcl_levelgen.pt.po
         |   |   |       mcl_levelgen.pt_BR.po
@@ -10427,6 +10587,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_structures.kk.po
         |   |   |       mcl_structures.kmr.po
         |   |   |       mcl_structures.ko.po
+        |   |   |       mcl_structures.mcl_structures.ar.tr
         |   |   |       mcl_structures.pl.po
         |   |   |       mcl_structures.pt.po
         |   |   |       mcl_structures.pt_BR.po
@@ -10543,6 +10704,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |   |       mcl_villages.kk.po
         |   |   |       mcl_villages.kmr.po
         |   |   |       mcl_villages.ko.po
+        |   |   |       mcl_villages.mcl_villages.ar.tr
         |   |   |       mcl_villages.pl.po
         |   |   |       mcl_villages.pt.po
         |   |   |       mcl_villages.pt_BR.po
@@ -10673,6 +10835,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |           findbiome.es.po
         |   |           findbiome.eu.po
         |   |           findbiome.fi.po
+        |   |           findbiome.findbiome.ar.tr
         |   |           findbiome.fr.po
         |   |           findbiome.hu.po
         |   |           findbiome.id.po
@@ -10725,6 +10888,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |           mcl_commands.kk.po
         |   |           mcl_commands.kmr.po
         |   |           mcl_commands.ko.po
+        |   |           mcl_commands.mcl_commands.ar.tr
         |   |           mcl_commands.pl.po
         |   |           mcl_commands.pt.po
         |   |           mcl_commands.pt_BR.po
@@ -10759,6 +10923,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |   |           mcl_privs.kk.po
         |   |           mcl_privs.kmr.po
         |   |           mcl_privs.ko.po
+        |   |           mcl_privs.mcl_privs.ar.tr
         |   |           mcl_privs.pl.po
         |   |           mcl_privs.pt.po
         |   |           mcl_privs.pt_BR.po
@@ -10798,6 +10963,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
         |               mcl_wip.kk.po
         |               mcl_wip.kmr.po
         |               mcl_wip.ko.po
+        |               mcl_wip.mcl_wip.ar.tr
         |               mcl_wip.pl.po
         |               mcl_wip.pt.po
         |               mcl_wip.pt_BR.po
@@ -10858,6 +11024,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
             |           mcl_gamemode.kk.po
             |           mcl_gamemode.kmr.po
             |           mcl_gamemode.ko.po
+            |           mcl_gamemode.mcl_gamemode.ar.tr
             |           mcl_gamemode.pl.po
             |           mcl_gamemode.pt.po
             |           mcl_gamemode.pt_BR.po
@@ -10900,6 +11067,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
             |   |       mcl_hunger.kk.po
             |   |       mcl_hunger.kmr.po
             |   |       mcl_hunger.ko.po
+            |   |       mcl_hunger.mcl_hunger.ar.tr
             |   |       mcl_hunger.pl.po
             |   |       mcl_hunger.pt.po
             |   |       mcl_hunger.pt_BR.po
@@ -10968,6 +11136,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
             |   |       mcl_player.kk.po
             |   |       mcl_player.kmr.po
             |   |       mcl_player.ko.po
+            |   |       mcl_player.mcl_player.ar.tr
             |   |       mcl_player.pl.po
             |   |       mcl_player.pt.po
             |   |       mcl_player.pt_BR.po
@@ -11012,6 +11181,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
             |           mcl_serverplayer.kk.po
             |           mcl_serverplayer.kmr.po
             |           mcl_serverplayer.ko.po
+            |           mcl_serverplayer.mcl_serverplayer.ar.tr
             |           mcl_serverplayer.pl.po
             |           mcl_serverplayer.pt.po
             |           mcl_serverplayer.pt_BR.po
@@ -11052,6 +11222,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
             |   |       mcl_skins.kk.po
             |   |       mcl_skins.kmr.po
             |   |       mcl_skins.ko.po
+            |   |       mcl_skins.mcl_skins.ar.tr
             |   |       mcl_skins.pl.po
             |   |       mcl_skins.pt.po
             |   |       mcl_skins.pt_BR.po
@@ -11178,6 +11349,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
             |           mcl_spawn.kk.po
             |           mcl_spawn.kmr.po
             |           mcl_spawn.ko.po
+            |           mcl_spawn.mcl_spawn.ar.tr
             |           mcl_spawn.pl.po
             |           mcl_spawn.pt.po
             |           mcl_spawn.pt_BR.po
@@ -11228,6 +11400,7 @@ C:\Users\Magd\AppData\Roaming\Minetest\games/
                         playerphysics.kmr.po
                         playerphysics.ko.po
                         playerphysics.pl.po
+                        playerphysics.playerphysics.ar.tr
                         playerphysics.pt.po
                         playerphysics.pt_BR.po
                         playerphysics.ru.po
