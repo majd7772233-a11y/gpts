@@ -1,0 +1,743 @@
+Folder PATH listing
+Volume serial number is 40B4-1E57
+C:.
+|   Folder_Tree.txt
+|   luanti-icon.ico
+|   minetest.conf.example
+|   
++---bin
+|       libc++.dll
+|       libcurl.dll
+|       libfreetype.dll
+|       libiconv-2.dll
+|       libintl-8.dll
+|       libjpeg-62.dll
+|       libleveldb.dll
+|       libpng16.dll
+|       libsqlite3-0.dll
+|       libunwind.dll
+|       libvorbis.dll
+|       libvorbisfile.dll
+|       libwinpthread-1.dll
+|       libzstd.dll
+|       luanti.exe
+|       ogg.dll
+|       OpenAL32.dll
+|       SDL2.dll
+|       zlib1.dll
+|       
++---builtin
+|   |   CMakeLists.txt
+|   |   init.lua
+|   |   settingtypes.txt
+|   |   
+|   +---async
+|   |       CMakeLists.txt
+|   |       game.lua
+|   |       mainmenu.lua
+|   |       
+|   +---client
+|   |       chatcommands.lua
+|   |       CMakeLists.txt
+|   |       init.lua
+|   |       misc.lua
+|   |       register.lua
+|   |       
+|   +---common
+|   |   |   after.lua
+|   |   |   chatcommands.lua
+|   |   |   CMakeLists.txt
+|   |   |   filterlist.lua
+|   |   |   information_formspecs.lua
+|   |   |   item_s.lua
+|   |   |   math.lua
+|   |   |   menu.lua
+|   |   |   metatable.lua
+|   |   |   misc_helpers.lua
+|   |   |   mod_storage.lua
+|   |   |   register.lua
+|   |   |   serialize.lua
+|   |   |   strict.lua
+|   |   |   vector.lua
+|   |   |   vector2.lua
+|   |   |   
+|   |   +---settings
+|   |   |       CMakeLists.txt
+|   |   |       components.lua
+|   |   |       dlg_change_mapgen_flags.lua
+|   |   |       dlg_settings.lua
+|   |   |       generate_from_settingtypes.lua
+|   |   |       init.lua
+|   |   |       settingtypes.lua
+|   |   |       shadows_component.lua
+|   |   |       
+|   |   \---tests
+|   |           after_spec.lua
+|   |           math_spec.lua
+|   |           misc_helpers_spec.lua
+|   |           serialize_spec.lua
+|   |           vector2_spec.lua
+|   |           vector_spec.lua
+|   |           
+|   +---emerge
+|   |       CMakeLists.txt
+|   |       env.lua
+|   |       init.lua
+|   |       register.lua
+|   |       
+|   +---fstk
+|   |       buttonbar.lua
+|   |       CMakeLists.txt
+|   |       dialog.lua
+|   |       tabview.lua
+|   |       ui.lua
+|   |       
+|   +---game
+|   |   |   async.lua
+|   |   |   auth.lua
+|   |   |   chat.lua
+|   |   |   CMakeLists.txt
+|   |   |   constants.lua
+|   |   |   death_screen.lua
+|   |   |   deprecated.lua
+|   |   |   detached_inventory.lua
+|   |   |   falling.lua
+|   |   |   features.lua
+|   |   |   forceloading.lua
+|   |   |   hud.lua
+|   |   |   init.lua
+|   |   |   item.lua
+|   |   |   item_entity.lua
+|   |   |   knockback.lua
+|   |   |   misc.lua
+|   |   |   misc_s.lua
+|   |   |   privileges.lua
+|   |   |   register.lua
+|   |   |   static_spawn.lua
+|   |   |   voxelarea.lua
+|   |   |   
+|   |   \---tests
+|   |           test_moveaction.lua
+|   |           
+|   +---locale
+|   |       template.txt
+|   |       __builtin.be.tr
+|   |       __builtin.bg.tr
+|   |       __builtin.ca.tr
+|   |       __builtin.cs.tr
+|   |       __builtin.cy.tr
+|   |       __builtin.da.tr
+|   |       __builtin.de.tr
+|   |       __builtin.el.tr
+|   |       __builtin.eo.tr
+|   |       __builtin.es.tr
+|   |       __builtin.et.tr
+|   |       __builtin.eu.tr
+|   |       __builtin.fi.tr
+|   |       __builtin.fil.tr
+|   |       __builtin.fr.tr
+|   |       __builtin.ga.tr
+|   |       __builtin.gl.tr
+|   |       __builtin.hu.tr
+|   |       __builtin.id.tr
+|   |       __builtin.it.tr
+|   |       __builtin.ja.tr
+|   |       __builtin.jbo.tr
+|   |       __builtin.jv.tr
+|   |       __builtin.ko.tr
+|   |       __builtin.kv.tr
+|   |       __builtin.ky.tr
+|   |       __builtin.lt.tr
+|   |       __builtin.lv.tr
+|   |       __builtin.lzh.tr
+|   |       __builtin.mn.tr
+|   |       __builtin.mr.tr
+|   |       __builtin.ms.tr
+|   |       __builtin.nb.tr
+|   |       __builtin.nl.tr
+|   |       __builtin.nn.tr
+|   |       __builtin.oc.tr
+|   |       __builtin.pl.tr
+|   |       __builtin.pt.tr
+|   |       __builtin.pt_BR.tr
+|   |       __builtin.ro.tr
+|   |       __builtin.ru.tr
+|   |       __builtin.sk.tr
+|   |       __builtin.sl.tr
+|   |       __builtin.sr_Cyrl.tr
+|   |       __builtin.sr_Latn.tr
+|   |       __builtin.sv.tr
+|   |       __builtin.sw.tr
+|   |       __builtin.tok.tr
+|   |       __builtin.tr.tr
+|   |       __builtin.tt.tr
+|   |       __builtin.uk.tr
+|   |       __builtin.vi.tr
+|   |       __builtin.zh_CN.tr
+|   |       __builtin.zh_TW.tr
+|   |       
+|   +---mainmenu
+|   |   |   async_event.lua
+|   |   |   CMakeLists.txt
+|   |   |   common.lua
+|   |   |   credits.json
+|   |   |   dlg_clients_list.lua
+|   |   |   dlg_config_world.lua
+|   |   |   dlg_confirm_exit.lua
+|   |   |   dlg_create_world.lua
+|   |   |   dlg_delete_content.lua
+|   |   |   dlg_delete_world.lua
+|   |   |   dlg_rebind_keys.lua
+|   |   |   dlg_register.lua
+|   |   |   dlg_reinstall_mtg.lua
+|   |   |   dlg_rename_modpack.lua
+|   |   |   dlg_server_list_mods.lua
+|   |   |   dlg_version_info.lua
+|   |   |   game_theme.lua
+|   |   |   init.lua
+|   |   |   serverlistmgr.lua
+|   |   |   tab_about.lua
+|   |   |   tab_content.lua
+|   |   |   tab_local.lua
+|   |   |   tab_online.lua
+|   |   |   
+|   |   +---content
+|   |   |   |   CMakeLists.txt
+|   |   |   |   contentdb.lua
+|   |   |   |   dlg_contentdb.lua
+|   |   |   |   dlg_install.lua
+|   |   |   |   dlg_overwrite.lua
+|   |   |   |   dlg_package.lua
+|   |   |   |   init.lua
+|   |   |   |   pkgmgr.lua
+|   |   |   |   screenshots.lua
+|   |   |   |   update_detector.lua
+|   |   |   |   
+|   |   |   \---tests
+|   |   |           pkgmgr_spec.lua
+|   |   |           
+|   |   \---tests
+|   |           favorites_wellformed.txt
+|   |           serverlistmgr_spec.lua
+|   |           
+|   +---pause_menu
+|   |       CMakeLists.txt
+|   |       init.lua
+|   |       register.lua
+|   |       
+|   +---profiler
+|   |       CMakeLists.txt
+|   |       init.lua
+|   |       instrumentation.lua
+|   |       reporter.lua
+|   |       sampling.lua
+|   |       
+|   +---sscsm_client
+|   |       init.lua
+|   |       register.lua
+|   |       
+|   \---sscsm_server
+|           init.lua
+|           
++---client
+|   \---shaders
+|       +---3d_interlaced_merge
+|       |       opengl_fragment.glsl
+|       |       opengl_vertex.glsl
+|       |       
+|       +---bloom_downsample
+|       |       opengl_fragment.glsl
+|       |       opengl_vertex.glsl
+|       |       
+|       +---bloom_upsample
+|       |       opengl_fragment.glsl
+|       |       opengl_vertex.glsl
+|       |       
+|       +---blur_h
+|       |       opengl_fragment.glsl
+|       |       opengl_vertex.glsl
+|       |       
+|       +---blur_v
+|       |       opengl_fragment.glsl
+|       |       opengl_vertex.glsl
+|       |       
+|       +---cloud_shader
+|       |       opengl_fragment.glsl
+|       |       opengl_vertex.glsl
+|       |       
+|       +---extract_bloom
+|       |       opengl_fragment.glsl
+|       |       opengl_vertex.glsl
+|       |       
+|       +---fs_model_shader
+|       |       opengl_fragment.glsl
+|       |       opengl_vertex.glsl
+|       |       
+|       +---fxaa
+|       |       opengl_fragment.glsl
+|       |       opengl_vertex.glsl
+|       |       
+|       +---inventory_shader
+|       |       opengl_fragment.glsl
+|       |       opengl_vertex.glsl
+|       |       
+|       +---Irrlicht
+|       |       OneTextureBlend.fsh
+|       |       Renderer2D.fsh
+|       |       Renderer2D.vsh
+|       |       Renderer2D_noTex.fsh
+|       |       Solid.fsh
+|       |       Solid.vsh
+|       |       TransparentAlphaChannel.fsh
+|       |       TransparentAlphaChannelRef.fsh
+|       |       TransparentVertexAlpha.fsh
+|       |       
+|       +---minimap_shader
+|       |       opengl_fragment.glsl
+|       |       opengl_vertex.glsl
+|       |       
+|       +---nodes_shader
+|       |       opengl_fragment.glsl
+|       |       opengl_vertex.glsl
+|       |       
+|       +---object_shader
+|       |       opengl_fragment.glsl
+|       |       opengl_vertex.glsl
+|       |       
+|       +---second_stage
+|       |       opengl_fragment.glsl
+|       |       opengl_vertex.glsl
+|       |       
+|       +---selection_shader
+|       |       opengl_fragment.glsl
+|       |       opengl_vertex.glsl
+|       |       
+|       +---shadow
+|       |   +---pass1
+|       |   |       opengl_fragment.glsl
+|       |   |       opengl_vertex.glsl
+|       |   |       
+|       |   +---pass1_trans
+|       |   |       opengl_fragment.glsl
+|       |   |       opengl_vertex.glsl
+|       |   |       
+|       |   \---pass2
+|       |           opengl_fragment.glsl
+|       |           opengl_vertex.glsl
+|       |           
+|       +---stars_shader
+|       |       opengl_fragment.glsl
+|       |       opengl_vertex.glsl
+|       |       
+|       +---update_exposure
+|       |       opengl_fragment.glsl
+|       |       opengl_vertex.glsl
+|       |       
+|       \---volumetric_light
+|               opengl_fragment.glsl
+|               opengl_vertex.glsl
+|               
++---doc
+|       client_lua_api.md
+|       lua_api.md
+|       menu_lua_api.md
+|       README.md
+|       texture_packs.md
+|       world_format.md
+|       
++---fonts
+|       Arimo-Bold.ttf
+|       Arimo-BoldItalic.ttf
+|       Arimo-Italic.ttf
+|       Arimo-LICENSE.txt
+|       Arimo-Regular.ttf
+|       Cousine-Bold.ttf
+|       Cousine-BoldItalic.ttf
+|       Cousine-Italic.ttf
+|       Cousine-LICENSE.txt
+|       Cousine-Regular.ttf
+|       DroidSansFallbackFull-LICENSE.txt
+|       DroidSansFallbackFull.ttf
+|       
++---locale
+|   +---az
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---bar
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---be
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---bg
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---br
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---ca
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---cs
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---cy
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---da
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---de
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---el
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---eo
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---es
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---es_US
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---et
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---eu
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---fa
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---fi
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---fil
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---fr
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---ga
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---gd
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---gl
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---hu
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---id
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---io
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---isv
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---it
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---ja
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---jbo
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---jv
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---ka
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---kab
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---kk
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---kmr
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---ko
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---kv
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---kw
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---ky
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---lt
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---lv
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---lzh
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---mi
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---mn
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---mr
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---ms
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---nb
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---nl
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---nn
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---oc
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---pl
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---pt
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---pt_BR
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---ro
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---ru
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---sk
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---sl
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---sr
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---sr_Cyrl
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---sr_Latn
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---sv
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---sw
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---ta
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---tok
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---tr
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---tt
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---uk
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---vi
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   +---zh_CN
+|   |   \---LC_MESSAGES
+|   |           luanti.mo
+|   |           
+|   \---zh_TW
+|       \---LC_MESSAGES
+|               luanti.mo
+|               
+\---textures
+    \---base
+        \---pack
+                air.png
+                aux1_btn.png
+                blank.png
+                bubble.png
+                bubble_gone.png
+                button_hover_semitrans.png
+                button_press_semitrans.png
+                camera_btn.png
+                cdb_downloading.png
+                cdb_queued.png
+                cdb_update.png
+                cdb_update_cropped.png
+                chat_btn.png
+                chat_hide_btn.png
+                chat_show_btn.png
+                checkbox_16.png
+                checkbox_32.png
+                checkbox_64.png
+                clear.png
+                contentdb_neutral.png
+                contentdb_thumb_down.png
+                contentdb_thumb_up.png
+                crack_anylength.png
+                debug_btn.png
+                dig_btn.png
+                down.png
+                drop_btn.png
+                end_icon.png
+                error_icon_orange.png
+                error_icon_red.png
+                error_screenshot.png
+                exit_btn.png
+                fast_btn.png
+                fly_btn.png
+                halo.png
+                heart.png
+                heart_gone.png
+                ignore.png
+                inventory_btn.png
+                joystick_bg.png
+                joystick_center.png
+                joystick_off.png
+                jump_btn.png
+                loading_screenshot.png
+                logo.png
+                menu_header.png
+                minimap_btn.png
+                minimap_mask_round.png
+                minimap_mask_square.png
+                minimap_overlay_round.png
+                minimap_overlay_square.png
+                next_icon.png
+                noclip_btn.png
+                no_screenshot.png
+                no_texture.png
+                no_texture_airlike.png
+                object_marker_red.png
+                overflow_btn.png
+                place_btn.png
+                player.png
+                player_back.png
+                player_marker.png
+                plus.png
+                prev_icon.png
+                progress_bar.png
+                progress_bar_bg.png
+                rangeview_btn.png
+                refresh.png
+                search.png
+                server_favorite.png
+                server_favorite_delete.png
+                server_flags_creative.png
+                server_flags_damage.png
+                server_flags_pvp.png
+                server_incompatible.png
+                server_ping_1.png
+                server_ping_2.png
+                server_ping_3.png
+                server_ping_4.png
+                server_public.png
+                server_url.png
+                server_url_unavailable.png
+                server_view_clients.png
+                server_view_clients_unavailable.png
+                server_view_mods.png
+                server_view_mods_unavailable.png
+                settings_btn.png
+                settings_info.png
+                settings_reset.png
+                smoke_puff.png
+                start_icon.png
+                sunrisebg.png
+                unknown_item.png
+                unknown_node.png
+                unknown_object.png
+                wieldhand.png
+                zoom.png
+                
