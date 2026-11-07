@@ -14,7 +14,7 @@ function Find-LuantiRoot {
         }
         $current = $current.Parent
     }
-    throw "لم أجد مجلد Luanti المحمول. ضع هذا السكربت داخل مجلد 5.17.0 الذي يحتوي bin\luanti.exe."
+    throw "Luanti portable root was not found. Place this script beside the bin folder and minetest.conf.example."
 }
 
 function Set-ConfigValue {
@@ -74,7 +74,7 @@ try {
     }
 
     if ($null -eq $chosen) {
-        throw "لم أجد Tahoma أو Segoe UI أو Arial داخل مجلد خطوط Windows: $fontsDir"
+        throw "Tahoma, Segoe UI, or Arial was not found in the Windows Fonts directory: $fontsDir"
     }
 
     $resolveFont = {
@@ -124,18 +124,18 @@ try {
     [System.IO.File]::WriteAllLines($configPath, $lines.ToArray(), $utf8NoBom)
 
     Write-Host ""
-    Write-Host "تم تحديث إعدادات خط Luanti بنجاح." -ForegroundColor Green
-    Write-Host "المجلد: $root"
-    Write-Host "الخط المستخدم: $($chosen.Name)"
-    Write-Host "تم الإبقاء على خط fallback الأصلي ولم تُمس ملفات العوالم أو Mineclonia."
+    Write-Host "Luanti font settings were updated successfully." -ForegroundColor Green
+    Write-Host "Luanti root: $root"
+    Write-Host "Selected font: $($chosen.Name)"
+    Write-Host "The original fallback font was preserved. Worlds and Mineclonia files were not changed."
     Write-Host ""
     if (Get-Process -Name "luanti" -ErrorAction SilentlyContinue) {
-        Write-Host "أغلق Luanti المفتوح ثم أعد تشغيله حتى تُحمّل الخطوط الجديدة." -ForegroundColor Yellow
+        Write-Host "Close Luanti completely, then restart it to load the new fonts." -ForegroundColor Yellow
     } else {
-        Write-Host "شغّل Luanti الآن وافتح عالم Mineclonia." -ForegroundColor Green
+        Write-Host "Start Luanti and open your Mineclonia world." -ForegroundColor Green
     }
     Write-Host ""
-    Write-Host "تنبيه: هذا يعالج غياب أشكال الحروف من الخط. محرك 5.17.0 لا يطبق بعدُ تشكيل العربية واتجاه RTL الكامل؛ لذلك قد تظهر الحروف منفصلة أو بترتيب غير صحيح."
+    Write-Host "Note: this fixes missing Arabic glyph coverage only. Luanti 5.17.0 still lacks full Arabic shaping and RTL layout, so letters may remain disconnected or appear in the wrong order."
 }
 catch {
     Write-Host ""
