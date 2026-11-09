@@ -37,14 +37,20 @@ Official references:
 
 Double-click `Open-WebGPT.bat`.
 
-Choose the project folder. When ChatGPT opens, select the **WebGPT Worker** connector, paste the copied token into your first message, then describe the work.
+Choose the project folder. When ChatGPT opens, select the connector named by the launcher (normally **WebGPT Worker**), paste the copied token into your first message, then describe the work.
 
-The same token can be reused in that conversation while the Worker task remains running. A ready-to-paste instruction template is included as `FIRST-MESSAGE.txt`. Paste the token into its placeholder before sending. The script sets a 30-day backup-check interval; this is not a promise that a task can never be interrupted or revoked.
+The same token is reusable across multiple tool calls and follow-up requests while its Worker task remains `running`. It is not intended to be regenerated after each request. A task becomes unavailable for terminal work when it is completed, cancelled, or collected by the Worker. Do not ask the Worker to submit its result unless you intend to finish that task. A ready-to-paste instruction template is included as `FIRST-MESSAGE.txt`. Paste the token into its placeholder before sending.
+
+The script reads `dataDir` from the selected Worker's `config.json` and uses that exact directory for the protected session record and MCP route key. It no longer assumes that the data directory is always a `data` subfolder beside the config. If a saved session cannot be checked because local MCP transport is unavailable, the launcher stops and preserves the saved record rather than silently creating a duplicate task.
+
+The script sets a 30-day supervisor backup-check interval. This is not a token expiry and does not promise that a Worker process, tunnel, or task can never be interrupted. The Worker stores task state under its configured data directory; an in-progress terminal process itself does not survive a Worker restart.
 
 To revoke the saved session and cancel its Worker task, run:
 `powershell.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File .\Open-WebGPT.ps1 -Revoke`
 
-To rotate it, run the normal launcher with `-Rotate`; the old saved record is ignored and a new task is registered. If a task was already completed, cancelled, or revoked by the Worker, the launcher automatically registers a fresh task.
+The launcher removes the local encrypted session record only after the Worker confirms cancellation. If the Worker cannot confirm it, the record is retained so you can recover or retry.
+
+To rotate it, run the normal launcher with `-Rotate`; the old task is cancelled first and a new task is registered only after cancellation is confirmed. If cancellation cannot be confirmed, rotation stops and the old local record is preserved. Choosing a different project folder follows the same safe replacement process.
 
 ## Security
 
