@@ -24,7 +24,8 @@ Official references:
 
 ## Requirements
 
-- Windows 10/11.
+- Windows 10/11, including Windows PowerShell 5.1.
+- The launcher script is ASCII-only for reliable parsing by Windows PowerShell 5.1, regardless of the local ANSI code page.
 - Node.js available as `node.exe` on PATH (or in a standard Node.js installation folder).
 - WebGPT skill installed in one of the usual Codex locations:
   - `%USERPROFILE%\.codex\skills\webgpt`
