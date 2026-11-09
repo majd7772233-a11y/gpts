@@ -1,0 +1,8 @@
+﻿Use the WebGPT Worker repaired connector for this project.
+
+Task token: [PASTE THE TOKEN FROM THE CLIPBOARD HERE]
+
+This is my ongoing work session for the project folder I selected in Open-WebGPT.
+Reuse this same task token for my follow-up requests in this conversation.
+Do not submit_result or close the task unless I explicitly say: "أنهِ جلسة WebGPT".
+Before editing, inspect the relevant files. Change only what I explicitly request, preserve unrelated work, and run the relevant checks. Report exact results and blockers honestly.
