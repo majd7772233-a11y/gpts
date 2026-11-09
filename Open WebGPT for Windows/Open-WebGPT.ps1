@@ -117,11 +117,6 @@ try {
         Show-ErrorMessage 'لم أجد controller.key في مجلد بيانات WebGPT Worker المحدد في config.json. لم يتم إنشاء جلسة جديدة.'
         exit 1
     }
-    if (-not (Test-Path -LiteralPath (Join-Path $workerData 'mcp-path.key') -PathType Leaf)) {
-        Show-ErrorMessage 'لم أجد mcp-path.key في مجلد بيانات WebGPT Worker. تحقق من إعداد MCP قبل المتابعة.'
-        exit 1
-    }
-
     $env:WEBGPT_CONFIG = $workerConfig
     $env:WEBGPT_DATA_DIR = $workerData
 
@@ -219,7 +214,11 @@ try {
         # Stop here instead of silently creating a duplicate task.
         try {
             $candidateToken = Get-PlainText $saved.Token
-            $pathKey = (Get-Content -Raw -LiteralPath (Join-Path $workerData 'mcp-path.key')).Trim()
+            $mcpPathKeyFile = Join-Path $workerData 'mcp-path.key'
+            if (-not (Test-Path -LiteralPath $mcpPathKeyFile -PathType Leaf)) {
+                throw 'The configured public MCP path key is missing.'
+            }
+            $pathKey = (Get-Content -Raw -LiteralPath $mcpPathKeyFile).Trim()
             if ($pathKey -notmatch '^[a-f0-9]{64}
     # Copy the bearer token without displaying it or writing it to a file.
     try {
