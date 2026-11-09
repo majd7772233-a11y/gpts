@@ -1,8 +1,11 @@
-﻿# Open-WebGPT.ps1
-# Creates or reuses a WebGPT Worker task for the selected project folder.
-# The bearer token is copied to the clipboard and stored only as a DPAPI-protected SecureString.
+# Open-WebGPT.ps1
+# Creates or reuses a reusable WebGPT Worker task for the selected project.
+# Session records are protected by Windows DPAPI through Export-Clixml.
 
-param([switch]$Revoke, [switch]$Rotate)
+param(
+    [switch]$Revoke,
+    [switch]$Rotate
+)
 
 $ErrorActionPreference = 'Stop'
 
@@ -16,30 +19,77 @@ function Show-ErrorMessage {
     ) | Out-Null
 }
 
+function Show-InfoMessage {
+    param([string]$Message)
+    [System.Windows.Forms.MessageBox]::Show(
+        $Message,
+        'Open WebGPT',
+        [System.Windows.Forms.MessageBoxButtons]::OK,
+        [System.Windows.Forms.MessageBoxIcon]::Information
+    ) | Out-Null
+}
+
 function Save-Session {
-    param([string]$Path, [string]$ProjectPath, [string]$TaskId, [string]$Token)
-    [pscustomobject]@{ ProjectPath=$ProjectPath; TaskId=$TaskId; Token=(ConvertTo-SecureString $Token -AsPlainText -Force); SavedUtc=[DateTime]::UtcNow.ToString('o') } |
-        Export-Clixml -LiteralPath $Path -Force
+    param(
+        [string]$Path,
+        [string]$ProjectPath,
+        [string]$TaskId,
+        [string]$Token
+    )
+
+    $parent = Split-Path -Parent $Path
+    if (-not (Test-Path -LiteralPath $parent -PathType Container)) {
+        New-Item -ItemType Directory -Path $parent -Force | Out-Null
+    }
+
+    [pscustomobject]@{
+        ProjectPath = $ProjectPath
+        TaskId = $TaskId
+        Token = (ConvertTo-SecureString $Token -AsPlainText -Force)
+        SavedUtc = [DateTime]::UtcNow.ToString('o')
+    } | Export-Clixml -LiteralPath $Path -Force
 }
 
 function Read-Session {
     param([string]$Path)
-    if (-not (Test-Path -LiteralPath $Path -PathType Leaf)) { return $null }
-    try { $r=Import-Clixml -LiteralPath $Path; if ($r.ProjectPath -and $r.TaskId -and $r.Token -is [securestring]) { return $r } } catch { }
+
+    if (-not (Test-Path -LiteralPath $Path -PathType Leaf)) {
+        return $null
+    }
+
+    try {
+        $record = Import-Clixml -LiteralPath $Path
+        if ($record.ProjectPath -and $record.TaskId -and $record.Token -is [securestring]) {
+            return $record
+        }
+    } catch {
+        return $null
+    }
+
     return $null
 }
 
 function Get-PlainText {
     param([securestring]$Value)
-    $p=[Runtime.InteropServices.Marshal]::SecureStringToBSTR($Value)
-    try { [Runtime.InteropServices.Marshal]::PtrToStringBSTR($p) } finally { [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($p) }
+
+    $pointer = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($Value)
+    try {
+        return [Runtime.InteropServices.Marshal]::PtrToStringBSTR($pointer)
+    } finally {
+        [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($pointer)
+    }
 }
 
 function Cancel-Session {
-    param([string]$NodePath, [string]$ClientScript, [string]$TaskId)
+    param(
+        [string]$NodePath,
+        [string]$ClientScript,
+        [string]$TaskId
+    )
 
     $output = & $NodePath $ClientScript 'cancel' $TaskId 2>$null
     $exitCode = $LASTEXITCODE
+
     if ($exitCode -ne 0) {
         throw 'The Worker did not confirm task cancellation.'
     }
@@ -65,7 +115,10 @@ try {
         $nodeCommand = Get-Command 'node' -ErrorAction SilentlyContinue
     }
 
-    if (-not $nodeCommand) {
+    $nodePath = $null
+    if ($nodeCommand) {
+        $nodePath = $nodeCommand.Source
+    } else {
         $commonNodePaths = @(
             (Join-Path $env:ProgramFiles 'nodejs\node.exe'),
             (Join-Path $env:LOCALAPPDATA 'Programs\nodejs\node.exe')
@@ -73,54 +126,58 @@ try {
         $nodePath = $commonNodePaths |
             Where-Object { $_ -and (Test-Path -LiteralPath $_ -PathType Leaf) } |
             Select-Object -First 1
-    } else {
-        $nodePath = $nodeCommand.Source
     }
 
     if (-not $nodePath) {
-        Show-ErrorMessage 'لم أجد Node.js. ثبّت Node.js أو أضفه إلى PATH ثم أعد المحاولة.'
+        Show-ErrorMessage 'Node.js was not found. Install Node.js or add it to PATH, then try again.'
         exit 1
     }
 
-    # Use the same private profile as the installed Worker service. Keep the
-    # older launcher profile only as a backwards-compatible fallback.
+    # Prefer the current private Worker profile; retain the older profile as fallback.
     $workerRoots = @(
         (Join-Path $HOME 'Documents\Codex\webgpt-private'),
         (Join-Path $HOME 'Documents\Codex\Open-WebGPT-Worker')
     )
-    $workerRoot = $workerRoots | Where-Object { Test-Path -LiteralPath (Join-Path $_ 'config.json') -PathType Leaf } | Select-Object -First 1
+
+    $workerRoot = $workerRoots |
+        Where-Object { Test-Path -LiteralPath (Join-Path $_ 'config.json') -PathType Leaf } |
+        Select-Object -First 1
+
     if (-not $workerRoot) {
         Show-ErrorMessage 'WebGPT Worker configuration was not found.'
         exit 1
     }
-    $workerConfig = Join-Path $workerRoot 'config.json'
-    if (-not (Test-Path -LiteralPath $workerConfig -PathType Leaf)) {
-        Show-ErrorMessage 'لم أجد إعداد WebGPT Worker المحلي. شغّل إعداد Worker أولاً ثم أعد المحاولة.'
-        exit 1
-    }
 
-    # Match the exact data directory selected by the Worker configuration.
-    # Do not silently fall back to <workerRoot>\data when config.json points elsewhere.
+    $workerConfig = Join-Path $workerRoot 'config.json'
     $cfg = Get-Content -Raw -LiteralPath $workerConfig | ConvertFrom-Json
+
+    # Match the exact data directory used by the Worker service.
     if ([string]::IsNullOrWhiteSpace([string]$cfg.dataDir)) {
         $workerData = Join-Path $HOME '.local\share\webgpt'
     } else {
         if (-not [System.IO.Path]::IsPathRooted([string]$cfg.dataDir)) {
-            Show-ErrorMessage 'مسار dataDir في إعداد WebGPT Worker يجب أن يكون مساراً مطلقاً.'
+            Show-ErrorMessage 'The dataDir setting in config.json must be an absolute path.'
             exit 1
         }
         $workerData = [System.IO.Path]::GetFullPath([string]$cfg.dataDir)
     }
 
-    $sessionFile = Join-Path $workerData 'open-webgpt-session.xml'
-    if (-not (Test-Path -LiteralPath (Join-Path $workerData 'controller.key') -PathType Leaf)) {
-        Show-ErrorMessage 'لم أجد controller.key في مجلد بيانات WebGPT Worker المحدد في config.json. لم يتم إنشاء جلسة جديدة.'
+    if (-not (Test-Path -LiteralPath $workerData -PathType Container)) {
+        Show-ErrorMessage 'The configured WebGPT Worker data directory does not exist.'
         exit 1
     }
+
+    $controllerKeyFile = Join-Path $workerData 'controller.key'
+    if (-not (Test-Path -LiteralPath $controllerKeyFile -PathType Leaf)) {
+        Show-ErrorMessage 'controller.key was not found in the configured Worker data directory. No new task was created.'
+        exit 1
+    }
+
+    $sessionFile = Join-Path $workerData 'open-webgpt-session.xml'
     $env:WEBGPT_CONFIG = $workerConfig
     $env:WEBGPT_DATA_DIR = $workerData
 
-    # Find the installed WebGPT skill without scanning the whole computer.
+    # Find the installed WebGPT skill without scanning unrelated folders.
     $clientCandidates = @()
 
     if ($env:CODEX_HOME) {
@@ -137,7 +194,6 @@ try {
         Where-Object { Test-Path -LiteralPath $_ -PathType Leaf } |
         Select-Object -First 1
 
-    # Search only the normal Codex skill folders if the direct paths did not match.
     if (-not $clientScript) {
         $skillRoots = @(
             (Join-Path $HOME '.codex\skills'),
@@ -159,17 +215,19 @@ try {
     }
 
     if (-not $clientScript) {
-        Show-ErrorMessage 'لم أجد WebGPT skill في مجلدات Codex المعتادة. تأكد من تثبيت WebGPT skill أولاً.'
+        Show-ErrorMessage 'The WebGPT skill client.mjs was not found in the usual Codex skill folders.'
         exit 1
     }
 
+    # Revocation is available even when the public MCP route key is missing.
     if ($Revoke) {
         $saved = Read-Session $sessionFile
+
         if (-not $saved) {
             if (Test-Path -LiteralPath $sessionFile -PathType Leaf) {
-                Show-ErrorMessage 'تعذر قراءة سجل الجلسة المحفوظ. أبقيت الملف كما هو ولم أحذف أي بيانات.'
+                Show-ErrorMessage 'The saved session record cannot be read. The file was preserved.'
             } else {
-                Show-ErrorMessage 'لا توجد جلسة محفوظة لإلغائها في مجلد بيانات WebGPT Worker المحدد.'
+                Show-ErrorMessage 'There is no saved WebGPT session to revoke.'
             }
             exit 1
         }
@@ -177,18 +235,18 @@ try {
         try {
             Cancel-Session $nodePath $clientScript ([string]$saved.TaskId)
         } catch {
-            Show-ErrorMessage 'لم يؤكد WebGPT Worker إلغاء المهمة. أبقيت سجل الجلسة كما هو حتى لا نفقد إمكانية استعادتها.'
+            Show-ErrorMessage 'The Worker did not confirm cancellation. The encrypted session record was preserved.'
             exit 1
         }
 
         Remove-Item -LiteralPath $sessionFile -Force
-        [System.Windows.Forms.MessageBox]::Show('تم تأكيد إلغاء مهمة WebGPT وحذف سجلها المحلي.','Open WebGPT') | Out-Null
+        Show-InfoMessage 'The Worker confirmed cancellation. The local session record was removed.'
         exit 0
     }
 
     # Let the user choose the project folder.
     $folderDialog = New-Object System.Windows.Forms.FolderBrowserDialog
-    $folderDialog.Description = 'اختر مجلد المشروع الذي تريد ربطه بـ WebGPT'
+    $folderDialog.Description = 'Choose the project folder to connect to WebGPT'
     $folderDialog.ShowNewFolderButton = $false
     $folderDialog.RootFolder = [System.Environment+SpecialFolder]::MyComputer
 
@@ -200,116 +258,89 @@ try {
 
     $saved = Read-Session $sessionFile
     if ((Test-Path -LiteralPath $sessionFile -PathType Leaf) -and -not $saved) {
-        Show-ErrorMessage 'سجل الجلسة موجود لكنه غير قابل للقراءة. لم أنشئ جلسة أخرى حتى لا نترك مهمة قديمة نشطة دون سجل.'
+        Show-ErrorMessage 'A saved session file exists but cannot be read. No replacement task was created.'
         exit 1
     }
 
     $task = $null
-    $reuseSavedSession = $false
+    $reusedSession = $false
+    $createdNewTask = $false
 
+    # Reuse the same still-running task for the same project.
     if ($saved -and -not $Rotate -and
         ([IO.Path]::GetFullPath([string]$saved.ProjectPath) -eq $projectPath)) {
 
-        # A transport/probe failure is not proof that the saved token is invalid.
-        # Stop here instead of silently creating a duplicate task.
         try {
             $candidateToken = Get-PlainText $saved.Token
-            $mcpPathKeyFile = Join-Path $workerData 'mcp-path.key'
-            if (-not (Test-Path -LiteralPath $mcpPathKeyFile -PathType Leaf)) {
-                throw 'The configured public MCP path key is missing.'
+
+            $route = '/mcp'
+            if ($cfg.publicMcp -eq $true) {
+                $mcpPathKeyFile = Join-Path $workerData 'mcp-path.key'
+                if (-not (Test-Path -LiteralPath $mcpPathKeyFile -PathType Leaf)) {
+                    throw 'The configured public MCP path key is missing.'
+                }
+
+                $pathKey = (Get-Content -Raw -LiteralPath $mcpPathKeyFile).Trim()
+                if ($pathKey -notmatch '^[a-f0-9]{64}$') {
+                    throw 'The configured public MCP path key is invalid.'
+                }
+
+                $route = '/mcp/' + $pathKey
             }
-            $pathKey = (Get-Content -Raw -LiteralPath $mcpPathKeyFile).Trim()
-            if ($pathKey -notmatch '^[a-f0-9]{64}
-    # Copy the bearer token without displaying it or writing it to a file.
-    try {
-        Set-Clipboard -Value ([string]$task.token)
-    } catch {
-        # Keep the encrypted session record if cancellation cannot be confirmed.
-        try {
-            Cancel-Session $nodePath $clientScript ([string]$task.id)
-            Remove-Item -LiteralPath $sessionFile -Force -ErrorAction SilentlyContinue
-            Show-ErrorMessage 'تعذّر نسخ الرمز إلى الحافظة. تم تأكيد إلغاء المهمة وإزالة سجلها المحلي.'
-        } catch {
-            Show-ErrorMessage 'تعذّر نسخ الرمز، كما لم يمكن تأكيد إلغاء المهمة. أبقيت سجل الجلسة المشفر لاستعادتها؛ أعد تشغيل المشغّل بعد إصلاح الحافظة أو الاتصال.'
-        }
-        exit 1
-    }
-
-    # Open ChatGPT in the default browser.
-    Start-Process 'https://chatgpt.com/'
-
-    $connectionName = 'WebGPT Worker'
-    if ($task.connection -and $task.connection.name) {
-        $connectionName = [string]$task.connection.name
-    }
-
-    $message = @"
-تم إنشاء جلسة المشروع بنجاح.
-
-المجلد:
-$projectPath
-
-تم نسخ رمز الجلسة إلى الحافظة دون عرضه أو حفظه في ملف.
-
-في محادثة ChatGPT:
-1. اختر موصل WebGPT Worker.
-2. الصق رمز الجلسة في رسالتك الأولى.
-3. اكتب طلبك. بعد ذلك يمكن استخدام الجلسة نفسها في الطلبات التالية.
-
-تنبيه: الرمز يمنح وصولاً إلى حساب Windows الذي يعمل عليه العامل، ومجلد المشروع ليس عزلاً أمنياً. لا تشارك الرمز مع أحد.
-
-لإنهاء الجلسة، اطلب من ChatGPT إنهاء جلسة WebGPT وحفظ النتيجة النهائية.
-"@
-
-    [System.Windows.Forms.MessageBox]::Show(
-        $message,
-        'Open WebGPT',
-        [System.Windows.Forms.MessageBoxButtons]::OK,
-        [System.Windows.Forms.MessageBoxIcon]::Information
-    ) | Out-Null
-
-} catch {
-    Show-ErrorMessage 'حدث خطأ غير متوقع أثناء تشغيل Open WebGPT. تحقق من تثبيت WebGPT Worker وإعداداته ثم أعد المحاولة.'
-    exit 1
-}
-) { throw 'Invalid MCP route key.' }
 
             $mcpPort = if ($cfg.mcpPort) { [int]$cfg.mcpPort } else { 43137 }
-            $probe = @{jsonrpc='2.0';id=1;method='tools/call';params=@{name='get_task';arguments=@{token=$candidateToken}}} | ConvertTo-Json -Depth 6
-            $response = Invoke-RestMethod -Uri ('http://127.0.0.1:' + $mcpPort + '/mcp/' + $pathKey) -Method Post -ContentType 'application/json' -Body $probe -TimeoutSec 10
+            $probe = @{
+                jsonrpc = '2.0'
+                id = 1
+                method = 'tools/call'
+                params = @{
+                    name = 'get_task'
+                    arguments = @{ token = $candidateToken }
+                }
+            } | ConvertTo-Json -Depth 8
+
+            $probeUri = 'http://127.0.0.1:' + $mcpPort + $route
+            $response = Invoke-RestMethod -Uri $probeUri -Method Post -ContentType 'application/json' -Body $probe -TimeoutSec 10
 
             if ($null -eq $response.result -or $null -eq $response.result.isError) {
                 throw 'The Worker returned an unexpected MCP response.'
             }
 
-            if (-not $response.result.isError -and $response.result.structuredContent.status -eq 'running') {
-                $task = [pscustomobject]@{id=[string]$saved.TaskId;token=$candidateToken}
-                $reuseSavedSession = $true
+            if (-not $response.result.isError -and
+                $response.result.structuredContent.status -eq 'running') {
+                $task = [pscustomobject]@{
+                    id = [string]$saved.TaskId
+                    token = $candidateToken
+                }
+                $reusedSession = $true
             }
         } catch {
-            Show-ErrorMessage 'تعذر التحقق من الجلسة المحفوظة عبر MCP المحلي. لم أنشئ رمزاً جديداً ولم أحذف سجل الجلسة؛ أصلح اتصال العامل ثم أعد المحاولة.'
+            # A connection/probe failure is not proof that the token is invalid.
+            # Preserve the saved record and never silently create a duplicate task.
+            Show-ErrorMessage 'The saved session could not be checked through the local MCP endpoint. No new task was created and the saved record was preserved.'
             exit 1
         }
     }
 
-    # Revoke before replacing an older session, including explicit rotation.
-    if ($saved -and -not $reuseSavedSession) {
+    # Cancel an older saved task before replacing or rotating it.
+    if ($saved -and -not $reusedSession) {
         try {
             Cancel-Session $nodePath $clientScript ([string]$saved.TaskId)
         } catch {
-            Show-ErrorMessage 'لم أستطع تأكيد إلغاء المهمة السابقة. أوقفت العملية وأبقيت سجلها؛ لم أنشئ مهمة بديلة.'
+            Show-ErrorMessage 'The previous task could not be confirmed as cancelled. The saved record was preserved and no replacement was created.'
             exit 1
         }
+
         Remove-Item -LiteralPath $sessionFile -Force
     }
 
     if (-not $task) {
-        # The 30-day value is a supervisor backup-check interval, not a token expiry.
+        # This is the supervisor backup-check interval, not a token expiry.
         $rawOutput = & $nodePath $clientScript 'register' '--cwd' $projectPath '--backup-ms' '2592000000' 2>$null
         $commandExitCode = $LASTEXITCODE
 
         if ($commandExitCode -ne 0) {
-            Show-ErrorMessage 'تعذّر إنشاء جلسة WebGPT. تأكد أن خدمة WebGPT Worker تعمل وأن إعدادات الاتصال سليمة.'
+            Show-ErrorMessage 'WebGPT could not register a task. Check that the Worker service is running and configured correctly.'
             exit 1
         }
 
@@ -317,31 +348,46 @@ $projectPath
         try {
             $task = $jsonText | ConvertFrom-Json
         } catch {
-            Show-ErrorMessage 'وصل رد غير متوقع من WebGPT Worker. لم أتمكن من قراءة بيانات الجلسة.'
+            Show-ErrorMessage 'The Worker returned an unreadable task response.'
             exit 1
         }
 
         if (-not $task.token -or -not $task.id) {
-            Show-ErrorMessage 'لم يُرجع WebGPT Worker رمز جلسة صالحاً.'
+            Show-ErrorMessage 'The Worker did not return a valid task token.'
             exit 1
         }
 
         try {
             Save-Session $sessionFile $projectPath ([string]$task.id) ([string]$task.token)
+            $createdNewTask = $true
         } catch {
-            try { Cancel-Session $nodePath $clientScript ([string]$task.id) } catch { }
-            Show-ErrorMessage 'تعذر حفظ سجل الجلسة المشفر. أوقفت التسجيل وحاولت إلغاء المهمة الجديدة.'
+            try {
+                Cancel-Session $nodePath $clientScript ([string]$task.id)
+            } catch {
+                # Do not expose task credentials in an error message.
+            }
+
+            Show-ErrorMessage 'The encrypted session record could not be saved. The launcher attempted to cancel the new task.'
             exit 1
         }
     }
 
-    # Copy the bearer token without displaying it or writing it to a file.
+    # Copy the bearer token without displaying it.
     try {
         Set-Clipboard -Value ([string]$task.token)
     } catch {
-        # Avoid leaving an unused running task if clipboard access failed.
-        & $nodePath $clientScript 'cancel' ([string]$task.id) 2>$null | Out-Null
-        Show-ErrorMessage 'تعذّر نسخ رمز الجلسة إلى الحافظة. أُلغيت الجلسة غير المستخدمة.'
+        if ($createdNewTask) {
+            try {
+                Cancel-Session $nodePath $clientScript ([string]$task.id)
+                Remove-Item -LiteralPath $sessionFile -Force -ErrorAction SilentlyContinue
+                Show-ErrorMessage 'The token could not be copied. The Worker confirmed cancellation and the local record was removed.'
+            } catch {
+                Show-ErrorMessage 'The token could not be copied and cancellation could not be confirmed. The encrypted session record was preserved.'
+            }
+        } else {
+            Show-ErrorMessage 'The token could not be copied. The existing session remains active and its encrypted record was preserved.'
+        }
+
         exit 1
     }
 
@@ -354,31 +400,26 @@ $projectPath
     }
 
     $message = @"
-تم إنشاء جلسة المشروع بنجاح.
+The project session is ready.
 
-المجلد:
+Project folder:
 $projectPath
 
-تم نسخ رمز الجلسة إلى الحافظة دون عرضه أو حفظه في ملف.
+The task token has been copied to the clipboard. It was not displayed or written as plain text to a file.
 
-في محادثة ChatGPT:
-1. اختر موصل WebGPT Worker.
-2. الصق رمز الجلسة في رسالتك الأولى.
-3. اكتب طلبك. بعد ذلك يمكن استخدام الجلسة نفسها في الطلبات التالية.
+In ChatGPT:
+1. Select the "$connectionName" connector.
+2. Paste the task token into your first message.
+3. Continue using the same token for follow-up requests while the Worker task remains running.
 
-تنبيه: الرمز يمنح وصولاً إلى حساب Windows الذي يعمل عليه العامل، ومجلد المشروع ليس عزلاً أمنياً. لا تشارك الرمز مع أحد.
+Security note: The token grants access to the Windows account running the Worker. The project folder is a default working directory, not a security sandbox. Do not share the token.
 
-لإنهاء الجلسة، اطلب من ChatGPT إنهاء جلسة WebGPT وحفظ النتيجة النهائية.
+To end this session, run this launcher with -Revoke. The launcher removes the local encrypted record only after the Worker confirms cancellation.
 "@
 
-    [System.Windows.Forms.MessageBox]::Show(
-        $message,
-        'Open WebGPT',
-        [System.Windows.Forms.MessageBoxButtons]::OK,
-        [System.Windows.Forms.MessageBoxIcon]::Information
-    ) | Out-Null
+    Show-InfoMessage $message
 
 } catch {
-    Show-ErrorMessage 'حدث خطأ غير متوقع أثناء تشغيل Open WebGPT. تحقق من تثبيت WebGPT Worker وإعداداته ثم أعد المحاولة.'
+    Show-ErrorMessage 'An unexpected error occurred while running Open WebGPT. Check the WebGPT Worker installation and configuration.'
     exit 1
 }
