@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07101f">
+<meta name="description" content="درس تفاعلي للصف الثالث الإعدادي: قراءة الساعة والتعبير عن الوقت باستخدام past وto.">
+<title>What's the time? — مختبر الوقت</title>
+<style>
+:root{color-scheme:dark;--bg:#07101f;--ink:#f4f7ff;--muted:#aab8d1;--line:rgba(226,237,255,.17);--cyan:#8cecff;--blue:#6f9cff;--violet:#b69bff;--coral:#ff8b9a;--glass:rgba(255,255,255,.075);--shadow:0 24px 80px rgba(0,0,0,.34),inset 0 1px 0 rgba(255,255,255,.22);font-family:"Segoe UI",Tahoma,Arial,sans-serif;font-synthesis:none;text-rendering:optimizeLegibility}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;min-width:320px;min-height:100vh;color:var(--ink);background:var(--bg);overflow-x:hidden}button,input{font:inherit}button{color:inherit;cursor:pointer}button:focus-visible,input:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--cyan);outline-offset:4px}::selection{background:rgba(140,236,255,.3)}
+#ambient{position:fixed;inset:0;z-index:-3;overflow:hidden;background:radial-gradient(ellipse at 14% 16%,#173b60 0,transparent 42%),radial-gradient(ellipse at 86% 28%,#38275d 0,transparent 42%),linear-gradient(145deg,#07101f,#0c1830 55%,#080d1c)}
+#ambient:before,#ambient:after{content:"";position:absolute;width:55vw;height:55vw;min-width:380px;min-height:380px;border-radius:50%;filter:blur(80px);opacity:.22;animation:drift 22s ease-in-out infinite alternate}
+#ambient:before{background:#16b6b0;top:-24%;left:-12%}#ambient:after{background:#8059dc;bottom:-32%;right:-10%;animation-delay:-9s}
+@keyframes drift{to{transform:translate(8vw,7vh) scale(1.15)}}
+#grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.14;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.23'/%3E%3C/svg%3E")}
+.shell{width:min(1420px,calc(100% - 36px));margin:auto;padding:18px 0 70px}
+.glass{position:relative;isolation:isolate;border:1px solid var(--line);background:linear-gradient(138deg,rgba(255,255,255,.145),rgba(255,255,255,.055) 48%,rgba(255,255,255,.025));backdrop-filter:blur(24px) saturate(165%);-webkit-backdrop-filter:blur(24px) saturate(165%);box-shadow:var(--shadow)}
+.glass:before{content:"";position:absolute;z-index:-1;inset:0 9% auto;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.58),transparent);pointer-events:none}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 16px;border-radius:22px}
+.brand{display:flex;align-items:center;gap:12px}.brand-mark{display:grid;place-items:center;width:44px;height:44px;border-radius:15px;background:linear-gradient(145deg,rgba(255,255,255,.28),rgba(255,255,255,.035));border:1px solid rgba(255,255,255,.3);box-shadow:inset 0 1px 2px #ffffff70,0 8px 24px #65cfff22;font-size:23px}
+.brand strong{display:block;font-size:15px;letter-spacing:.2px}.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:1.7px;margin-top:4px}
+.top-actions{display:flex;align-items:center;gap:9px}.live{display:flex;align-items:center;gap:8px;color:#b6f5df;font-size:12px;padding:9px 12px;border:1px solid #73e6bc38;border-radius:99px;background:#42c99510}.dot{width:7px;height:7px;border-radius:50%;background:#62e9b5;box-shadow:0 0 12px #62e9b5}
+.pill,.btn,.icon-btn,.choice{border:1px solid var(--line);background:rgba(255,255,255,.065);border-radius:14px;padding:10px 14px;transition:transform .18s ease,background .18s ease,border-color .18s ease,box-shadow .18s ease}
+.pill:hover,.btn:hover,.icon-btn:hover,.choice:hover{transform:translateY(-2px);background:rgba(255,255,255,.13);border-color:#ffffff50}
+.btn.primary{background:linear-gradient(135deg,#9deaff3b,#8c9cff25);border-color:#a4eaff70;box-shadow:0 8px 24px #42bde622,inset 0 1px #ffffff65}
+.btn:active,.choice:active{transform:scale(.98)}
+.icon-btn{width:42px;height:42px;padding:0;display:grid;place-items:center}
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);gap:22px;margin-top:24px;align-items:stretch}
+.hero-copy{padding:34px 36px;border-radius:30px;overflow:hidden}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--cyan);font-size:12px;letter-spacing:1.5px;font-weight:700}
+.eyebrow:before{content:"";width:24px;height:1px;background:currentColor}
+h1{font-size:clamp(36px,5vw,66px);line-height:1.03;letter-spacing:-2px;margin:18px 0 14px;direction:ltr;text-align:right}
+h1 span{display:block;background:linear-gradient(95deg,#fff 5%,#a9eaff 48%,#c4adff 92%);background-clip:text;-webkit-background-clip:text;color:transparent}
+.lead{color:#c3cee2;font-size:16px;line-height:1.9;max-width:620px;margin:0}
+.hero-tags{display:flex;gap:9px;flex-wrap:wrap;margin-top:24px}.tag{padding:8px 12px;border-radius:99px;background:#ffffff0c;border:1px solid #ffffff19;color:#dce8ff;font-size:12px}
+.lesson-meta{display:flex;align-items:center;gap:14px;margin-top:34px;color:var(--muted);font-size:12px}.meta-line{height:1px;flex:1;background:linear-gradient(90deg,transparent,#ffffff35)}
+.clock-panel{padding:24px;border-radius:30px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:480px;overflow:hidden;background:radial-gradient(ellipse at 50% 46%,#1c6b8660,transparent 58%),linear-gradient(145deg,#ffffff0c,#ffffff02)}
+.clock-head{width:100%;display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px}
+.clock-head b{color:#dcefff;font-size:13px}.clock-stage{position:relative;width:min(100%,370px);aspect-ratio:1;margin:12px auto 5px;display:grid;place-items:center}
+.clock-halo{position:absolute;inset:7%;border-radius:50%;background:conic-gradient(from 20deg,transparent,#64dfff30,#b79bff2b,transparent 65%);filter:blur(25px);animation:halo 12s linear infinite}
+@keyframes halo{to{transform:rotate(360deg)}}
+.clock-face{position:relative;width:100%;height:100%;border-radius:50%;border:1px solid #e7f5ff55;background:radial-gradient(circle at 32% 23%,#ffffff28,transparent 28%),radial-gradient(circle at 70% 78%,#8e9dff1c,transparent 40%),linear-gradient(145deg,#ffffff1c,#ffffff06 48%,#00000020);box-shadow:0 28px 70px #0008,inset 0 2px 5px #ffffff85,inset 0 -14px 28px #0005,0 0 0 8px #ffffff08,0 0 0 9px #ffffff14;backdrop-filter:blur(16px) saturate(170%);overflow:hidden}
+.clock-face:before{content:"";position:absolute;inset:3%;border-radius:50%;border:1px solid #ffffff24;box-shadow:inset 0 0 22px #ffffff10}
+.clock-face:after{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(ellipse at 28% 13%,#ffffff2c,transparent 38%);pointer-events:none}
+.clock-svg{width:100%;height:100%;position:relative;z-index:1;overflow:visible}
+.clock-svg .tick{stroke:#d9edff;stroke-linecap:round;opacity:.68}.clock-svg .major{stroke:#fff;opacity:.96}.clock-svg .number{fill:#f5f8ff;font-size:15px;font-weight:600;text-anchor:middle;dominant-baseline:middle;filter:drop-shadow(0 1px 3px #0008)}
+.clock-svg .minute-hand{stroke:#9feaff;stroke-width:4.4;stroke-linecap:round;filter:drop-shadow(0 0 7px #55dfff9c)}.clock-svg .hour-hand{stroke:#fff;stroke-width:7;stroke-linecap:round;filter:drop-shadow(0 2px 5px #0008)}.clock-svg .hub{fill:#f9fdff;stroke:#7bdfff;stroke-width:3}
+.clock-brand{position:absolute;z-index:2;top:29%;left:50%;transform:translateX(-50%);font-size:9px;letter-spacing:2.2px;color:#dff8ff99;direction:ltr;white-space:nowrap}
+.clock-digital{font-size:clamp(26px,4vw,38px);font-variant-numeric:tabular-nums;font-weight:650;letter-spacing:2px;text-shadow:0 0 25px #7feaff50;direction:ltr;margin-top:6px}
+.clock-caption{color:var(--muted);font-size:12px;margin-top:3px}
+.readout{display:flex;align-items:center;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.readout-word{font-size:19px;font-weight:750;direction:ltr;color:#eafaff}.readout-word .past{color:#ff9ca7}.readout-word .to{color:#c2a9ff}
+.readout-ar{color:#aebdd4;font-size:12px}
+.controls{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;max-width:490px;margin-top:22px}
+.control{padding:13px 15px;border-radius:17px;background:#050d1d52;border:1px solid #ffffff16;box-shadow:inset 0 3px 12px #0005}
+.control-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:9px;font-size:12px;color:#b9c9df}.control output{color:#fff;font-weight:800;font-variant-numeric:tabular-nums;font-size:16px}
+input[type=range]{width:100%;accent-color:#8cecff;cursor:pointer}
+.quick-times{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;margin-top:12px}.quick-times button{padding:7px 10px;font-size:11px;border-radius:99px;background:#ffffff0a;border:1px solid #ffffff18;color:#dbe9ff}
+.section{margin-top:30px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:14px}.section-kicker{font-size:10px;letter-spacing:2px;color:var(--cyan);font-weight:800}.section h2{font-size:clamp(23px,3vw,32px);margin:7px 0 0}.section-head p{color:var(--muted);font-size:13px;margin:0;max-width:470px;line-height:1.7}
+.grid-two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.info-card{padding:23px;border-radius:24px}.info-card h3{font-size:18px;margin:0 0 15px}.info-card p{color:#c0cde0;line-height:1.8;margin:0}
+.fact-row{display:flex;gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid #ffffff12}.fact-row:last-child{border:0;padding-bottom:0}.fact-icon{width:40px;height:40px;border-radius:14px;display:grid;place-items:center;background:#83dfff13;border:1px solid #8cecff30;font-size:18px;flex:0 0 auto}.fact-row strong{display:block;font-size:14px}.fact-row small{color:var(--muted);font-size:12px}
+.minute-map{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.map-half{padding:15px;border-radius:18px;text-align:center;border:1px solid #ffffff1b;background:#ffffff08}
+.map-half.past{box-shadow:inset 0 0 32px #ff81901a}.map-half.to{box-shadow:inset 0 0 32px #a58aff1c}
+.map-half b{display:block;font-size:21px;direction:ltr}.map-half span{display:block;color:var(--muted);font-size:12px;margin-top:5px}.map-half small{display:block;font-size:11px;color:#dce8fa;margin-top:9px}
+.examples{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+.example{padding:18px 14px;border-radius:22px;text-align:center;transition:transform .2s ease}.example:hover{transform:translateY(-4px)}
+.mini-clock{width:112px;max-width:100%;aspect-ratio:1;margin:0 auto 13px;border-radius:50%;background:radial-gradient(circle at 30% 22%,#fff3,transparent 35%),linear-gradient(145deg,#ffffff27,#ffffff08);border:1px solid #ffffff54;box-shadow:inset 0 2px 5px #ffffff55,inset 0 -8px 15px #0004,0 12px 25px #0004;display:grid;place-items:center}
+.mini-clock svg{width:100%;height:100%}.example h3{font-size:14px;margin:0 0 8px}.example p{font-size:12px;color:#c2cfe2;line-height:1.6;margin:0}.example .or{display:block;color:#8ca3c3;font-style:italic;margin:4px}
+.practice-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.practice-card{padding:22px;border-radius:24px}.practice-card h3{margin:0 0 8px;font-size:18px}.practice-card>p{margin:0;color:var(--muted);font-size:13px;line-height:1.7}
+.exercise-clocks{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:17px}
+.exercise{padding:10px 6px 12px;border:1px solid #ffffff19;background:#ffffff08;border-radius:17px;text-align:center;transition:.18s}
+.exercise:hover,.exercise[aria-pressed=true]{background:#8cecff16;border-color:#8cecff75;transform:translateY(-2px)}
+.exercise svg{width:min(100%,78px);aspect-ratio:1;display:block;margin:auto}.exercise span{display:block;font-size:11px;color:#cbd8ec;margin-top:5px}
+.exercise-answer{display:none;margin-top:13px;padding:12px 14px;border-radius:14px;background:#8cecff12;border:1px solid #8cecff38;color:#e6faff;font-size:13px;line-height:1.8}.exercise-answer.show{display:block}
+.quiz-question{margin:16px 0 12px;font-size:15px;font-weight:700;direction:ltr;text-align:right}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:9px}.choice{text-align:center;font-size:13px;padding:12px 8px}.choice.correct{border-color:#70e4b3;background:#40c58a20}.choice.wrong{border-color:#ff8293;background:#ff718520}
+.feedback{min-height:25px;margin-top:12px;font-size:13px;color:#b6f5dc}
+.answer-clock{width:135px;margin:10px auto 14px}
+.school-box{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-top:14px;padding:17px;border-radius:18px;background:#ffffff08;border:1px solid #ffffff16}
+.school-box .time-entry{display:flex;align-items:center;gap:7px;direction:ltr}.time-entry input{width:62px;padding:9px;border-radius:11px;background:#030b18aa;color:white;border:1px solid #ffffff30;text-align:center}.school-box small{color:var(--muted);line-height:1.6}
+.footer{display:flex;justify-content:space-between;gap:14px;align-items:center;color:#8293ae;font-size:11px;padding:22px 5px 0}
+.toast{position:fixed;z-index:10;bottom:20px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;padding:12px 18px;border-radius:99px;background:#12243b;border:1px solid #ffffff30;box-shadow:0 14px 35px #0008;color:#e9faff;font-size:13px;transition:.25s}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.hero-copy{padding:27px}.clock-panel{min-height:unset}.clock-stage{width:min(82vw,350px)}}
+@media(max-width:650px){.shell{width:min(100% - 22px,560px);padding-top:10px}.topbar{padding:10px 11px}.live{display:none}.hero{margin-top:13px;gap:12px}.hero-copy{padding:23px 20px;border-radius:23px}h1{font-size:43px}.lead{font-size:14px}.clock-panel{padding:17px 12px;border-radius:23px}.clock-stage{width:min(88vw,330px)}.controls{gap:8px}.control{padding:10px}.section{margin-top:24px}.section-head{align-items:start;flex-direction:column}.grid-two,.practice-grid{grid-template-columns:1fr}.examples{grid-template-columns:repeat(2,1fr)}.example{padding:15px 9px}.exercise-clocks{gap:7px}.exercise{padding:8px 3px}.exercise svg{width:min(100%,65px)}.footer{flex-direction:column;align-items:flex-start}}
+@media(max-width:380px){.brand small{letter-spacing:.8px}.top-actions .pill{padding:8px 9px;font-size:11px}.clock-stage{width:88vw}.readout-word{font-size:16px}.choices{grid-template-columns:1fr}.exercise span{font-size:10px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+@media(prefers-reduced-transparency:reduce){.glass{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(13,27,49,.96)}}
+</style>
+</head>
+<body>
+<div id="ambient" aria-hidden="true"></div><div id="grain" aria-hidden="true"></div>
+<div class="shell">
+<header class="topbar glass">
+ <div class="brand"><div class="brand-mark" aria-hidden="true">◷</div><div><strong>TIME LAB <span style="color:#8cecff">/</span> مختبر الوقت</strong><small>INTERACTIVE ENGLISH • GRADE 9</small></div></div>
+ <div class="top-actions"><span class="live"><i class="dot"></i> درس تفاعلي</span><button class="pill" onclick="document.querySelector('#practice').scrollIntoView({behavior:'smooth'})">ابدأ التدريب ↓</button></div>
+</header>
+<main>
+<section class="hero">
+ <div class="hero-copy glass">
+  <div class="eyebrow">UNIT 2.7 · LOOK, READ AND TALK · WB PAGE 22</div>
+  <h1><span>What's</span><span>the time?</span></h1>
+  <p class="lead">تعلّم كيف تقرأ الساعة بالإنجليزية، ومتى نستخدم <b style="color:#ff9ca7">past</b> ومتى نستخدم <b style="color:#c2a9ff">to</b>، ثم جرّب بنفسك بتحريك عقارب الساعة.</p>
+  <div class="hero-tags"><span class="tag">◷ قراءة الساعة</span><span class="tag">60 minutes · 1 hour</span><span class="tag">Past / To</span></div>
+  <div class="lesson-meta"><span>الصف الثالث الإعدادي</span><span class="meta-line"></span><span>تعلم · جرّب · أتقن</span></div>
+ </div>
+ <section class="clock-panel glass" aria-label="ساعة تفاعلية">
+  <div class="clock-head"><b>THE INTERACTIVE CLOCK</b><span>حرّك المؤشرات لتغيير الوقت</span></div>
+  <div class="clock-stage">
+   <div class="clock-halo"></div>
+   <div class="clock-face"><div class="clock-brand">TIME · LAB</div><svg id="mainClock" class="clock-svg" viewBox="0 0 300 300" role="img" aria-label="ساعة عقارب تفاعلية"></svg></div>
+  </div>
+  <div class="clock-digital" id="digital">12:15</div><div class="clock-caption">وقت الساعة الحالي</div>
+  <div class="readout"><span class="readout-word" id="spoken">quarter <span class="past">past</span> twelve</span><span class="readout-ar" id="arabicReadout">الثانية عشرة والربع</span></div>
+  <div class="controls">
+   <label class="control"><span class="control-top"><span>ساعة / HOUR</span><output id="hourOut">12</output></span><input id="hourRange" type="range" min="1" max="12" value="12" aria-label="اختيار الساعة"></label>
+   <label class="control"><span class="control-top"><span>دقيقة / MINUTE</span><output id="minuteOut">15</output></span><input id="minuteRange" type="range" min="0" max="59" value="15" aria-label="اختيار الدقيقة"></label>
+  </div>
+  <div class="quick-times"><button data-time="12:15">12:15</button><button data-time="12:30">12:30</button><button data-time="12:45">12:45</button><button data-time="1:22">1:22</button><button data-time="3:20">3:20</button></div>
+ </section>
+</section>
+
+<section class="section">
+ <div class="section-head"><div><div class="section-kicker">01 / THE BASICS</div><h2>قبل أن نقرأ الساعة</h2></div><p>احفظ هذه الحقائق الثلاث؛ فهي أساس فهم الوقت والتعبير عنه باللغة الإنجليزية.</p></div>
+ <div class="grid-two">
+  <article class="info-card glass">
+   <h3>حقائق الوقت</h3>
+   <div class="fact-row"><div class="fact-icon">秒</div><div><strong>There are sixty seconds in a minute.</strong><small>هناك ستون ثانية في الدقيقة.</small></div></div>
+   <div class="fact-row"><div class="fact-icon">◷</div><div><strong>There are sixty minutes in an hour.</strong><small>هناك ستون دقيقة في الساعة.</small></div></div>
+   <div class="fact-row"><div class="fact-icon">½</div><div><strong>There are thirty minutes in half an hour.</strong><small>هناك ثلاثون دقيقة في نصف الساعة.</small></div></div>
+  </article>
+  <article class="info-card glass">
+   <h3>سرّ كلمتي PAST و TO</h3>
+   <p>نقسم وجه الساعة إلى نصفين: بعد الرقم 12 نستخدم <b style="color:#ff9ca7">past</b>، وعندما نتجاوز الدقيقة 30 ونقترب من الساعة التالية نستخدم <b style="color:#c2a9ff">to</b>.</p>
+   <div class="minute-map">
+    <div class="map-half past"><b style="color:#ff9ca7">PAST</b><span>من 1 إلى 30 دقيقة</span><small>كم دقيقة مضت بعد الساعة؟</small></div>
+    <div class="map-half to"><b style="color:#c2a9ff">TO</b><span>من 31 إلى 59 دقيقة</span><small>كم دقيقة بقيت للساعة التالية؟</small></div>
+   </div>
+  </article>
+ </div>
+</section>
+
+<section class="section">
+ <div class="section-head"><div><div class="section-kicker">02 / TIME EXPRESSIONS</div><h2>كلمات الدقائق حول الساعة</h2></div><p>هذه هي الكلمات الظاهرة في مخطط الدرس. لاحظ مكان كل كلمة على قرص الساعة.</p></div>
+ <div class="info-card glass">
+  <div style="display:grid;grid-template-columns:minmax(210px,.8fr) 1fr;gap:20px;align-items:center">
+   <div style="max-width:300px;width:100%;margin:auto"><svg id="wordClock" viewBox="0 0 320 320" style="width:100%" role="img" aria-label="مخطط past وto وكلمات الدقائق"></svg></div>
+   <div>
+    <div class="fact-row"><div class="fact-icon" style="color:#ff9ca7">←</div><div><strong style="color:#ff9ca7">PAST</strong><small>five · ten · quarter · twenty · twenty-five · half</small></div></div>
+    <div class="fact-row"><div class="fact-icon" style="color:#c2a9ff">→</div><div><strong style="color:#c2a9ff">TO</strong><small>five · ten · quarter · twenty · twenty-five</small></div></div>
+    <p style="margin-top:13px;font-size:12px">عند الدقيقة 30 نقول <b>half past</b>. أما <b>quarter</b> فتعني 15 دقيقة، أي ربع ساعة.</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="section">
+ <div class="section-head"><div><div class="section-kicker">03 / TWO WAYS TO SAY THE TIME</div><h2>اقرأ الوقت بطريقتين</h2></div><p>الأمثلة الأربعة نفسها الموجودة في صفحة الكتاب، مع الساعة الرقمية والعبارة الإنجليزية.</p></div>
+ <div class="examples">
+  <article class="example glass"><div class="mini-clock" id="ex1"></div><h3>It's quarter past twelve.</h3><p><span class="or">or</span>It's twelve fifteen.</p><div style="color:#ffabb5;font-size:12px;margin-top:9px">12:15</div></article>
+  <article class="example glass"><div class="mini-clock" id="ex2"></div><h3>It's half past twelve.</h3><p><span class="or">or</span>It's twelve thirty.</p><div style="color:#ffabb5;font-size:12px;margin-top:9px">12:30</div></article>
+  <article class="example glass"><div class="mini-clock" id="ex3"></div><h3>It's quarter to one.</h3><p><span class="or">or</span>It's twelve forty-five.</p><div style="color:#c7b2ff;font-size:12px;margin-top:9px">12:45</div></article>
+  <article class="example glass"><div class="mini-clock" id="ex4"></div><h3>It's twenty-two minutes past one.</h3><p><span class="or">or</span>It's one twenty-two.</p><div style="color:#ffabb5;font-size:12px;margin-top:9px">1:22</div></article>
+ </div>
+</section>
+
+<section class="section" id="practice">
+ <div class="section-head"><div><div class="section-kicker">04 / YOUR TURN</div><h2>حان وقت التدريب!</h2></div><p>اضغط على أي ساعة لعرض الوقت بطريقتين، ثم اختبر فهمك.</p></div>
+ <div class="practice-grid">
+  <article class="practice-card glass">
+   <h3>اقرأ هذه الساعات الثماني</h3><p>اختر ساعة من الساعات، ثم اقرأ الوقت بصوتك أو اكتبه بالإنجليزية.</p>
+   <div class="exercise-clocks" id="exerciseClocks"></div>
+   <div class="exercise-answer" id="exerciseAnswer" aria-live="polite">اختر إحدى الساعات لعرض الإجابة.</div>
+  </article>
+  <article class="practice-card glass">
+   <h3>اختبر نفسك</h3><p>اختر التعبير الصحيح عن الوقت الظاهر على الساعة.</p>
+   <div class="answer-clock" id="quizClock"></div>
+   <div class="quiz-question" id="quizQuestion">What time is it?</div>
+   <div class="choices" id="quizChoices"></div>
+   <div class="feedback" id="quizFeedback" aria-live="polite"></div>
+   <button class="btn primary" id="nextQuiz" style="margin-top:10px">سؤال آخر ↻</button>
+   <div style="height:1px;background:#ffffff18;margin:18px 0"></div>
+   <h3>سؤال الكتاب</h3>
+   <p style="direction:ltr;text-align:right;font-weight:700;color:#fff;margin-top:10px">How many minutes are there in a quarter hour?</p>
+   <div class="choices" id="quarterChoices"><button class="choice" data-answer="wrong">10 minutes</button><button class="choice" data-answer="correct">15 minutes</button><button class="choice" data-answer="wrong">20 minutes</button><button class="choice" data-answer="wrong">30 minutes</button></div>
+   <div class="feedback" id="quarterFeedback" aria-live="polite"></div>
+  </article>
+ </div>
+</section>
+
+<section class="section">
+ <div class="section-head"><div><div class="section-kicker">05 / SPEAKING</div><h2>What time does school finish?</h2></div><p>السؤال الختامي الموجود في الصورة. اضبط الوقت الذي تنتهي فيه مدرستك، ثم اقرأه بالإنجليزية.</p></div>
+ <div class="info-card glass">
+  <div class="school-box">
+   <div class="time-entry"><label for="schoolHour" style="font-size:12px;color:#aebdd4">HOUR</label><input id="schoolHour" type="number" min="1" max="12" value="1"><b>:</b><label for="schoolMinute" style="font-size:12px;color:#aebdd4">MIN</label><input id="schoolMinute" type="number" min="0" max="59" value="30"></div>
+   <button class="btn primary" id="schoolSpeak">اقرأ الوقت</button>
+   <div><small>What time does school finish?<br>متى ينتهي الدوام المدرسي؟</small></div>
+  </div>
+  <div class="readout" style="justify-content:flex-start;margin-top:17px"><span class="readout-word" id="schoolAnswer">It's half past one.</span><span class="readout-ar" id="schoolArabic">الواحدة والنصف</span></div>
+ </div>
+</section>
+</main>
+<footer class="footer"><span>TIME LAB · UNIT 2.7</span><span>تعلم الوقت خطوة بخطوة — Grade 9</span></footer>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+const $=s=>document.querySelector(s);
+const words={1:"one",2:"two",3:"three",4:"four",5:"five",6:"six",7:"seven",8:"eight",9:"nine",10:"ten",11:"eleven",12:"twelve"};
+const minuteWords={5:"five",10:"ten",15:"quarter",20:"twenty",25:"twenty-five",30:"half"};
+function handPoint(cx,cy,r,deg){const a=(deg-90)*Math.PI/180;return [cx+Math.cos(a)*r,cy+Math.sin(a)*r]}
+function clockSvg(hour,minute,small=false){const c=150,r=small?116:124;let s='<svg viewBox="0 0 300 300" aria-hidden="true">';
+for(let i=0;i<60;i++){const a=i*6,p1=handPoint(c,c,r- (i%5===0?13:6),a),p2=handPoint(c,c,r-2,a);s+='<line class="tick '+(i%5===0?'major':'')+'" x1="'+p1[0]+'" y1="'+p1[1]+'" x2="'+p2[0]+'" y2="'+p2[1]+'" stroke-width="'+(i%5===0?2.6:1)+'" />'}
+for(let n=1;n<=12;n++){const p=handPoint(c,c,r-25,n*30);s+='<text class="number" x="'+p[0]+'" y="'+p[1]+'">'+n+'</text>'}
+const mAngle=minute*6,hAngle=(hour%12)*30+minute*.5,mp=handPoint(c,c,small?76:91,mAngle),hp=handPoint(c,c,small?54:65,hAngle);
+s+='<line class="hour-hand" x1="'+c+'" y1="'+c+'" x2="'+hp[0]+'" y2="'+hp[1]+'"/><line class="minute-hand" x1="'+c+'" y1="'+c+'" x2="'+mp[0]+'" y2="'+mp[1]+'"/><circle class="hub" cx="'+c+'" cy="'+c+'" r="7"/></svg>';return s}
+function miniSvg(hour,minute){return '<svg viewBox="0 0 300 300">'+clockSvg(hour,minute,true).replace('<svg viewBox="0 0 300 300" aria-hidden="true">','').replace('</svg>','')+'</svg>'}
+function phrase(h,m){const next=h===12?1:h+1;if(m===0)return "o'clock "+words[h];if(m===15)return "quarter past "+words[h];if(m===30)return "half past "+words[h];if(m===45)return "quarter to "+words[next];if(m<30&&minuteWords[m])return minuteWords[m]+" past "+words[h];if(m>30&&minuteWords[60-m])return minuteWords[60-m]+" to "+words[next];if(m<30)return words[m]+" minutes past "+words[h];return words[60-m]+" minutes to "+words[next]}
+function arabicTime(h,m){if(m===0)return "الساعة "+h+" تمامًا";if(m===15)return "الساعة "+h+" والربع";if(m===30)return "الساعة "+h+" والنصف";if(m===45)return "إلا ربع للساعة "+(h===12?1:h+1);if(m<30)return "الساعة "+h+" و"+m+" دقيقة";return "باقي "+(60-m)+" دقيقة للساعة "+(h===12?1:h+1)}
+let currentHour=12,currentMinute=15;
+function renderMain(){const svg=$("#mainClock");svg.innerHTML=clockSvg(currentHour,currentMinute).replace('<svg viewBox="0 0 300 300" aria-hidden="true">','').replace('</svg>','');$("#digital").textContent=String(currentHour).padStart(2,"0")+":"+String(currentMinute).padStart(2,"0");$("#hourOut").textContent=currentHour;$("#minuteOut").textContent=String(currentMinute).padStart(2,"0");$("#hourRange").value=currentHour;$("#minuteRange").value=currentMinute;const p=phrase(currentHour,currentMinute);$("#spoken").innerHTML=p.replace(" past "," <span class='past'>past</span> ").replace(" to "," <span class='to'>to</span> ");$("#arabicReadout").textContent=arabicTime(currentHour,currentMinute)}
+function setTime(h,m){currentHour=((h-1+12)%12)+1;currentMinute=Math.max(0,Math.min(59,m));renderMain()}
+$("#hourRange").addEventListener("input",e=>setTime(+e.target.value,currentMinute));$("#minuteRange").addEventListener("input",e=>setTime(currentHour,+e.target.value));
+document.querySelectorAll("[data-time]").forEach(b=>b.addEventListener("click",()=>{const [h,m]=b.dataset.time.split(":").map(Number);setTime(h,m)}));
+[ [12,15,"ex1"],[12,30,"ex2"],[12,45,"ex3"],[1,22,"ex4"] ].forEach(([h,m,id])=>$("#"+id).innerHTML=miniSvg(h,m));
+function wordDiagram(){let s='<circle cx="160" cy="160" r="113" fill="#ffffff0b" stroke="#ffffff65" stroke-width="2"/>';for(let i=0;i<60;i++){const p1=handPoint(160,160,105-(i%5===0?12:5),i*6),p2=handPoint(160,160,110,i*6);s+='<line x1="'+p1[0]+'" y1="'+p1[1]+'" x2="'+p2[0]+'" y2="'+p2[1]+'" stroke="#dceaff" stroke-width="'+(i%5===0?2:1)+'"/>'}for(let n=1;n<=12;n++){const p=handPoint(160,160,88,n*30);s+='<text x="'+p[0]+'" y="'+p[1]+'" fill="#fff" text-anchor="middle" dominant-baseline="middle" font-size="12">'+n+'</text>'}s+='<path d="M160 47 A113 113 0 0 0 160 273" fill="none" stroke="#ff8798" stroke-width="9" opacity=".5"/><path d="M160 47 A113 113 0 0 1 160 273" fill="none" stroke="#aa91ff" stroke-width="9" opacity=".5"/><text x="104" y="155" fill="#ff9ca7" text-anchor="middle" font-size="24" font-weight="700">to</text><text x="216" y="155" fill="#c3aaff" text-anchor="middle" font-size="24" font-weight="700">past</text><text x="160" y="295" fill="#cbd9ef" text-anchor="middle" font-size="11">HALF</text>';$("#wordClock").innerHTML=s}
+wordDiagram();
+const exerciseTimes=[[3,20],[7,45],[10,15],[10,55],[1,25],[8,5],[4,30],[5,40]];
+const exerciseHost=$("#exerciseClocks");
+exerciseTimes.forEach(([h,m],i)=>{const b=document.createElement("button");b.className="exercise";b.type="button";b.setAttribute("aria-pressed","false");b.setAttribute("aria-label","الساعة رقم "+(i+1));b.innerHTML=miniSvg(h,m)+'<span>Clock '+(i+1)+'</span>';b.addEventListener("click",()=>{document.querySelectorAll(".exercise").forEach(x=>x.setAttribute("aria-pressed","false"));b.setAttribute("aria-pressed","true");$("#exerciseAnswer").classList.add("show");$("#exerciseAnswer").innerHTML='<b>Clock '+(i+1)+' · '+h+':'+String(m).padStart(2,"0")+'</b><br>It’s '+phrase(h,m)+'.<br><span style="color:#aabbd3">Digital: '+h+':'+String(m).padStart(2,"0")+'</span>';});exerciseHost.appendChild(b)});
+const quizTimes=[[12,15],[12,30],[12,45],[1,22],[3,20],[7,45],[10,15],[10,55],[1,25],[8,5],[4,30],[5,40]];
+let quizIndex=0,quizAnswer="";
+function renderQuiz(){const [h,m]=quizTimes[quizIndex%quizTimes.length];quizAnswer=phrase(h,m);$("#quizClock").innerHTML=miniSvg(h,m);$("#quizQuestion").textContent="What time is it?";$("#quizFeedback").textContent="";const opts=[quizAnswer,phrase(h,(m+10)%60),phrase(h===12?1:h+1,m),phrase(h,(m+20)%60)];const unique=[...new Set(opts)];while(unique.length<4)unique.push(phrase(h,(m+7+unique.length*3)%60));unique.sort(()=>Math.random()-.5);$("#quizChoices").innerHTML="";unique.forEach(t=>{const b=document.createElement("button");b.className="choice";b.textContent="It's "+t+".";b.addEventListener("click",()=>{document.querySelectorAll("#quizChoices .choice").forEach(x=>{x.disabled=true;if(x.textContent==="It's "+quizAnswer+".")x.classList.add("correct")});if(t===quizAnswer)$("#quizFeedback").textContent="ممتاز! إجابة صحيحة ✓";else{$("#quizFeedback").textContent="ليست هذه الإجابة. الإجابة الصحيحة: It's "+quizAnswer+".";b.classList.add("wrong")}});$("#quizChoices").appendChild(b)})}
+$("#nextQuiz").addEventListener("click",()=>{quizIndex++;renderQuiz()});renderQuiz();
+$("#quarterChoices").querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{$("#quarterChoices").querySelectorAll("button").forEach(x=>x.disabled=true);b.classList.add(b.dataset.answer);$("#quarterFeedback").textContent=b.dataset.answer==="correct"?"صحيح! ربع الساعة يساوي 15 دقيقة. ✓":"حاول مرة أخرى في السؤال التالي. ربع الساعة = 15 دقيقة."}));
+function schoolRead(){let h=Math.max(1,Math.min(12,+$("#schoolHour").value||1)),m=Math.max(0,Math.min(59,+$("#schoolMinute").value||0));$("#schoolHour").value=h;$("#schoolMinute").value=m;$("#schoolAnswer").textContent="It's "+phrase(h,m)+".";$("#schoolArabic").textContent=arabicTime(h,m)}
+$("#schoolSpeak").addEventListener("click",schoolRead);$("#schoolHour").addEventListener("change",schoolRead);$("#schoolMinute").addEventListener("change",schoolRead);
+setTime(12,15);schoolRead();
+</script>
+</body>
+</html>
